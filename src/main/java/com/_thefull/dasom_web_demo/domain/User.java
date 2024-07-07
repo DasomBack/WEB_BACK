@@ -9,6 +9,7 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 @Entity(name = "user")
+@Builder
 public class User extends BaseEntity{
 
     @Id
@@ -22,6 +23,7 @@ public class User extends BaseEntity{
     private String phoneNum;
 
     private String password;
+    private String email;
 
     private String profileImageUrl;
     private String store;
