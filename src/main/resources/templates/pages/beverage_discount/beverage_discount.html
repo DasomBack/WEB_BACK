@@ -32,7 +32,9 @@
 
         .input-wrapper .icon-search {
         position: absolute;
+        bottom: 15px;
         right: 20px;
+        cursor: pointer;
         }
 
         .input-wrapper .form-control {
@@ -508,6 +510,31 @@
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Beverage Search Modal -->
+            <div id="beverageModal" class="modal" tabindex="-1" aria-labelledby="beverageModalLabel" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">음료 선택</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <ul>
+                                <li>커피</li>
+                                <li>에스프레소</li>
+                                <li>라떼</li>
+                                <li>아메리카노</li>
+                            </ul>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
                         </div>
                     </div>
                 </div>
