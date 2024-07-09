@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/page/user")
 public class UserRegisterPageController {
+
     @GetMapping("/register")
     public String getRegisterPage(){
         System.out.println("UserPageController.getRegisterPage");
@@ -16,9 +17,9 @@ public class UserRegisterPageController {
 
     @GetMapping("/registersuccess")
     public String getRegisterSuccessPage(){
-
         return "/pages/user/registersuccess";
     }
+
 
     @GetMapping("/index")
     public String indexpage(){
