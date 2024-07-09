@@ -2,10 +2,7 @@ package com._thefull.dasom_web_demo.domain.dto;
 
 import com._thefull.dasom_web_demo.domain.User;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +21,7 @@ public class UserJoinRequestDto {
 
     private String phoneNum;
 
-    @Min(6)
+    @Size(min = 6)
     private String password;
 
     public User toEntity(){
