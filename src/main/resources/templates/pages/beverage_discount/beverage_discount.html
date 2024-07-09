@@ -30,11 +30,10 @@
         align-items: center;
         }
 
-        .input-wrapper .icon-search {
+        .input-wrapper .modal_btn {
         position: absolute;
         bottom: 15px;
         right: 20px;
-        cursor: pointer;
         }
 
         .input-wrapper .form-control {
@@ -365,7 +364,8 @@
                                             <label class="col-sm-3 col-form-label">음료검색</label>
                                             <form class="search-form" action="#">
                                                 <div class="input-wrapper">
-                                                    <i class="icon-search"></i>
+                                                    <button type="button" class="modal_btn"><i class="icon-search"></i></button>
+
                                                     <input type="search" class="form-control" placeholder="음료를 선택해주세요"
                                                            title="Search beverage">
                                                 </div>
@@ -539,6 +539,8 @@
                     </div>
                 </div>
             </div>
+            <!-- Beverage Search Modal ends -->
+
             <!-- content-wrapper ends -->
             <!-- partial:../../partials/_footer.html -->
             <footer class="footer">
