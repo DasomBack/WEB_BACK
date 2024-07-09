@@ -1,0 +1,8 @@
+.password-reset-container {
+    float: right;
+}
+.password-reset-link {
+    font-size: 0.815rem;
+    color: #777;
+    text-decoration: none;
+}

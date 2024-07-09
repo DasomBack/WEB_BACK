@@ -1,6 +1,6 @@
 spring:
   thymeleaf:
-    prefix=classpath: templates/
+    prefix: classpath:/templates/
     suffix: .html
   mvc:
     static-path-pattern: "/static/**"
