@@ -16,10 +16,11 @@
     <link rel="stylesheet" href="../../../static/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css">
     <!-- endinject -->
     <!-- Plugin css for this page -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="../../../static/assets/css/style.css">
-    <link rel="stylesheet" href="../../../static/assets/css/beverageDiscountpage.css.css">
+    <link rel="stylesheet" href="../../../static/assets/css/beverageDiscountpage.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="../../../static/assets/images/favicon.png"/>
 </head>
@@ -51,10 +52,10 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown d-none d-lg-block">
-                    <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown"
+                    <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown1"
                        href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
-                         aria-labelledby="messageDropdown">
+                         aria-labelledby="messageDropdown1">
                         <a class="dropdown-item py-3">
                             <p class="mb-0 fw-medium float-start">Select category</p>
                         </a>
@@ -328,7 +329,6 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">제품할인 등록</h4>
-                                <h4 class="card-title">Step 1</h4>
                                 <div class="table-responsive">
                                     <table class="table">
                                         <thead>
@@ -343,27 +343,63 @@
                                         <tbody>
                                         <tr>
                                             <td>
-                                                <select>
-                                                    <option>선택</option>
-                                                    <option>음료</option>
-                                                    <option>베이커리</option>
-                                                    <option>케이크</option>
-                                                    <option>세트상품</option>
-                                                </select>
+                                                <ul class="navbar-nav ms-auto">
+                                                    <li class="nav-item dropdown d-lg-block">
+                                                        <a class="dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                                            <span> 선택 </span>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0" aria-labelledby="messageDropdown">
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">음료</p>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">베이커리</p>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">케이크</p>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">세트상품</p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+
                                             </td>
                                             <td>
-                                                <input type="text">
+                                                <div class="input-container">
+                                                    <input type="text" class="custom-input form-control">
+                                                    <button class="search-button"><i class="icon-search"></i></button>
+                                                </div>
                                             </td>
                                             <td>6,000원</td>
+                                            <td>
+                                                <input type="number" class="custom-input form-control">
+                                                <button type="button" class="btn btn-outline-primary btn-sm">확인
+                                                </button>
+                                            </td>
+                                            <td>
+                                                <input type="date" class="custom-input form-control">
+
+                                                ~
+                                                <input type="date" class="custom-input form-control">
+                                                <label>
+                                                    <input type="checkbox">
+                                                    상시
+                                                </label>
+                                            </td>
+
                                         </tr>
                                         <tr>
-                                            <td>
-                                                <input type="number">
-                                                <button type="button" class="btn btn-outline-secondary btn-sm">확인</button>
-                                            </td>
-                                            <td>53275532</td>
-                                            <td>15 May 2017</td>
-                                            <td><label class="badge badge-warning">In progress</label></td>
+
                                         </tr>
                                         <tr>
                                             <td>John</td>
@@ -386,177 +422,201 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                                    <input type="search" class="form-control" placeholder="음료를 검색해주세요"
-                                                           title="Search beverage">
-                                                </div>
-                                        </div>
-                                    </div>
-                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
 
 
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">정가</label>
-                                                <div class="col-sm-9 textarea">
-                                                    <p>6,000 원-></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">할인가</label>
-                                                <div class="col-sm-9 textarea">
-                                                    <p><strong>5,400</strong> 원 (- 600 원)</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">할인적용</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">행사기간</label>
-                                                <div class="event-term-1">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">정가</label>
+                            <div class="col-sm-9 textarea">
+                                <p>6,000 원-></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">할인가</label>
+                            <div class="col-sm-9 textarea">
+                                <p><strong>5,400</strong> 원 (- 600 원)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">할인적용</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">행사기간</label>
+                            <div class="event-term-1">
                                                     <span>
-                                                        <button type="button" onclick="change_btn(event,'month')" class="btn btn-outline-secondary btn-sm">한달</button>
-                                                        <button type="button" onclick="change_btn(event, '2weeks')" class="btn btn-outline-secondary btn-sm">2주</button>
-                                                        <button type="button" onclick="change_btn(event, '1week')" class="btn btn-outline-secondary btn-sm">1주</button>
-                                                        <button type="button" onclick="change_btn(event, 'custom')" class="btn btn-outline-secondary btn-sm">직접입력</button>
+                                                        <button type="button" onclick="change_btn(event,'month')"
+                                                                class="btn btn-outline-secondary btn-sm">한달</button>
+                                                        <button type="button" onclick="change_btn(event, '2weeks')"
+                                                                class="btn btn-outline-secondary btn-sm">2주</button>
+                                                        <button type="button" onclick="change_btn(event, '1week')"
+                                                                class="btn btn-outline-secondary btn-sm">1주</button>
+                                                        <button type="button" onclick="change_btn(event, 'custom')"
+                                                                class="btn btn-outline-secondary btn-sm">직접입력</button>
                                                     </span>
-                                                </div>
-                                                <div class="event-term-2">
+                            </div>
+                            <div class="event-term-2">
                                                     <span>
                                                         <input type="date" id="startDate">
                                                         ~
                                                         <input type="date" id="endDate">
                                                     </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">행사시간</label>
-                                                <div class="col-sm-9">
-                                                    <input type="checkbox" id="event-time-checkbox"/>
-                                                    <label for="event-time-checkbox">영업시간과 동일</label>
-                                                    <div class="event-time-1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">행사시간</label>
+                            <div class="col-sm-9">
+                                <input type="checkbox" id="event-time-checkbox"/>
+                                <label for="event-time-checkbox">영업시간과 동일</label>
+                                <div class="event-time-1">
                                                         <span>
                                                             <input id="startTime" type="time">
                                                             ~
                                                             <input id="endTime" type="time">
                                                             <p id="timeElement">0시간</p>
                                                         </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">멘트 발화 시간</label>
-                                                <div class="col-sm-9">
-                                                    <input type="checkbox" id="ment-time-checkbox"/>
-                                                    <label for = "ment-time-checkbox">행사시간과 동일 </label>
-                                                    <div class="ment-time-1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">멘트 발화 시간</label>
+                            <div class="col-sm-9">
+                                <input type="checkbox" id="ment-time-checkbox"/>
+                                <label for="ment-time-checkbox">행사시간과 동일 </label>
+                                <div class="ment-time-1">
                                                         <span>
                                                             <input id="ment-startTime" type="time">
                                                             ~
                                                             <input id="ment-endTime" type="time">
                                                             <p id="ment-timeElement">0시간</p>
                                                         </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">빈도수</label>
-                                                <div class="col-sm-9">
-                                                    <span>
-                                                        <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">10회</button>
-                                                        <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">20회</button>
-                                                        <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">30회</button>
-                                                        <button type="button" id="freq_own_btn" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">직접입력</button>
-                                                        <input type="text" id="custom_freq_val" class="form-control" style="display:none;" placeholder="빈도수를 입력하세요">
-                                                    </span>
-                                                </div>
-                                                <p>* 15분에 1번씩 발화됩니다.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">할인 추가 조건</label>
-                                                <div class="col-sm-4">
-                                                    <div class="form-check">
-                                                        <span>
-                                                            <button type="button" id="discount_own_btn" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">있음</button>
-                                                            <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">없음</button>
-                                                            <input type="text" id="custom_discount_val" class="form-control" style="display:none; width: 32em" placeholder="할인 추가 조건을 입력하세요">
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <p class="card-description">  </p>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">음료 소개</label>
-                                                <div class="col-sm-9">
-                                                   <span>
-                                                        <button type="button" id="introduce_own_btn" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">있음</button>
-                                                        <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">없음</button>
-                                                        <input type="text" id="custom_introduce_val" class="form-control" style="display:none;" placeholder="음료 소개를 입력하세요">
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">AI 다솜 멘트 생성  <p style="font-size: 10px">* AI 멘트는 하루에 3번까지만 가능합니다. (0/3)</p></label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" style="height: 3em; width: 100%" class="form-control" />
-                                                </div>
-                                                <span>
-                                                    <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">멘트생성</button>
-                                                    <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">수정</button>
-                                                    <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">불러오기</button>
-                                                    <button type="button" onclick="change_color_btn(event)" class="btn btn-primary btn-sm">저장</button>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">빈도수</label>
+                            <div class="col-sm-9">
+                                                    <span>
+                                                        <button type="button" onclick="change_color_btn(event)"
+                                                                class="btn btn-outline-secondary btn-sm">10회</button>
+                                                        <button type="button" onclick="change_color_btn(event)"
+                                                                class="btn btn-outline-secondary btn-sm">20회</button>
+                                                        <button type="button" onclick="change_color_btn(event)"
+                                                                class="btn btn-outline-secondary btn-sm">30회</button>
+                                                        <button type="button" id="freq_own_btn"
+                                                                onclick="change_color_btn(event)"
+                                                                class="btn btn-outline-secondary btn-sm">직접입력</button>
+                                                        <input type="text" id="custom_freq_val" class="form-control"
+                                                               style="display:none;" placeholder="빈도수를 입력하세요">
+                                                    </span>
+                            </div>
+                            <p>* 15분에 1번씩 발화됩니다.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">할인 추가 조건</label>
+                            <div class="col-sm-4">
+                                <div class="form-check">
+                                                        <span>
+                                                            <button type="button" id="discount_own_btn"
+                                                                    onclick="change_color_btn(event)"
+                                                                    class="btn btn-outline-secondary btn-sm">있음</button>
+                                                            <button type="button" onclick="change_color_btn(event)"
+                                                                    class="btn btn-outline-secondary btn-sm">없음</button>
+                                                            <input type="text" id="custom_discount_val"
+                                                                   class="form-control"
+                                                                   style="display:none; width: 32em"
+                                                                   placeholder="할인 추가 조건을 입력하세요">
+                                                        </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p class="card-description"></p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">음료 소개</label>
+                            <div class="col-sm-9">
+                                                   <span>
+                                                        <button type="button" id="introduce_own_btn"
+                                                                onclick="change_color_btn(event)"
+                                                                class="btn btn-outline-secondary btn-sm">있음</button>
+                                                        <button type="button" onclick="change_color_btn(event)"
+                                                                class="btn btn-outline-secondary btn-sm">없음</button>
+                                                        <input type="text" id="custom_introduce_val"
+                                                               class="form-control" style="display:none;"
+                                                               placeholder="음료 소개를 입력하세요">
+                                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group row">
+                            <label class="col-sm-3 col-form-label">AI 다솜 멘트 생성 <p style="font-size: 10px">* AI 멘트는 하루에
+                                3번까지만 가능합니다. (0/3)</p></label>
+                            <div class="col-sm-9">
+                                <input type="text" style="height: 3em; width: 100%" class="form-control"/>
+                            </div>
+                            <span>
+                                                    <button type="button" onclick="change_color_btn(event)"
+                                                            class="btn btn-outline-secondary btn-sm">멘트생성</button>
+                                                    <button type="button" onclick="change_color_btn(event)"
+                                                            class="btn btn-outline-secondary btn-sm">수정</button>
+                                                    <button type="button" onclick="change_color_btn(event)"
+                                                            class="btn btn-outline-secondary btn-sm">불러오기</button>
+                                                    <button type="button" onclick="change_color_btn(event)"
+                                                            class="btn btn-primary btn-sm">저장</button>
+                                                </span>
+                        </div>
+                    </div>
+                </div>
+                </form>
             </div>
-            <!-- Beverage Search Modal ends -->
+        </div>
+    </div>
+</div>
+</div>
+<!-- Beverage Search Modal ends -->
 
-            <!-- content-wrapper ends -->
-            <!-- partial:../../partials/_footer.html -->
-            <footer class="footer">
-                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+<!-- content-wrapper ends -->
+<!-- partial:../../partials/_footer.html -->
+<footer class="footer">
+    <div class="d-sm-flex justify-content-center justify-content-sm-between">
                     <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a
                             href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-                    <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
-                </div>
-            </footer>
-            <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
+        <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
     </div>
-    <!-- page-body-wrapper ends -->
+</footer>
+<!-- partial -->
+</div>
+<!-- main-panel ends -->
+</div>
+<!-- page-body-wrapper ends -->
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->

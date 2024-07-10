@@ -92,7 +92,7 @@ document.getElementById('ment-endTime').addEventListener('input',set_time_ment);
 
 
 
-//검색 모달
+/*//검색 모달
  document.addEventListener('DOMContentLoaded', function(){
         // 검색 아이콘을 클릭하면 모달을 표시
             const beverageModal = document.querySelector('#beverageModal');
@@ -115,4 +115,50 @@ document.getElementById('ment-endTime').addEventListener('input',set_time_ment);
               secondaryButton.addEventListener('click', function() {
               $('#beverageModal').hide();
               });
+        });*/
+
+
+        let selectFlag;
+        $('.custom-select').on('click', function() {
+          $(this).toggleClass('selected');
+          if($(this).hasClass('selected')) {
+            $('.custom-select-list').show();
+          } else {
+            $('.custom-select-list').hide();
+          }
+        })
+
+        $('.custom-select').on('focusin', function() {
+          $('.custom-select-list').show();
+        });
+
+        $('.custom-select').on('focusout', function() {
+          if(!selectFlag) {
+            $('.custom-select-list').hide();
+          }
+          $(this).removeClass('selected');
+        });
+
+        $('.custom-select-option').on('mouseenter', function() {
+          selectFlag = true;
+        });
+
+        $('.custom-select-option').on('mouseout', function() {
+          selectFlag = false;
+        });
+
+        $('.custom-select-option').on('click', function() {
+          let value = $(this).attr('value');
+
+          $('.custom-select-text').text($(this).text());
+          $('.select-origin').val(value);
+          $('.custom-select-list').hide();
+
+          $('.select-origin').find('option').each(function(index, el) {
+            if($(el).attr('value') == value) {
+              $(el).attr('selected', 'selected');
+            } else {
+              $(el).removeAttr('selected');
+            }
+          });
         });
