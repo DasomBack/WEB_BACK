@@ -9,3 +9,39 @@
 .event-term-2{
     border: 1em;
 }
+
+/* beverageDiscount  */
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-wrapper .modal_btn {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+}
+
+.input-wrapper .form-control {
+    padding-left: 10px;
+}
+
+.textarea{
+    padding-top: calc(0.875rem + var(--bs-border-width));
+    padding-bottom: calc(0.875rem + var(--bs-border-width));
+}
+
+ .grid-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .item img {
+            width: 100px;
+            height: 100px;
+        }
