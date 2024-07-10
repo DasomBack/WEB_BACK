@@ -57,3 +57,29 @@ function set_time(){
 document.getElementById('startTime').addEventListener('input',set_time);
 document.getElementById('endTime').addEventListener('input',set_time);
 
+
+
+//검색 모달
+ document.addEventListener('DOMContentLoaded', function(){
+        // 검색 아이콘을 클릭하면 모달을 표시
+            const beverageModal = document.querySelector('#beverageModal');
+            const searchIcon = document.querySelector('.modal_btn');
+            const closeBtn = document.getElementById(".btn-secondary");
+
+            searchIcon.addEventListener('click', function() {
+            $('#beverageModal').show();
+
+         });
+
+        // 모달의 닫기 버튼을 클릭하면 모달을 숨김
+              const closeButton = document.querySelector('#beverageModal .close');
+              const secondaryButton = document.querySelector('#beverageModal .btn-secondary');
+
+              closeButton.addEventListener('click', function() {
+              $('#beverageModal').hide();
+              });
+
+              secondaryButton.addEventListener('click', function() {
+              $('#beverageModal').hide();
+              });
+        });
