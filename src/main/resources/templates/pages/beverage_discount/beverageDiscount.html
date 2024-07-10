@@ -369,6 +369,8 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">행사시간</label>
                                                 <div class="col-sm-9">
+                                                    <input type="checkbox" id="event-time-checkbox"/>
+                                                    <label for="event-time-checkbox">영업시간과 동일</label>
                                                     <div class="event-time-1">
                                                         <span>
                                                             <input id="startTime" type="time">
@@ -377,12 +379,6 @@
                                                             <p id="timeElement">0시간</p>
                                                         </span>
                                                     </div>
-
-
-                                                    <select class="form-select">
-                                                        <option>Male</option>
-                                                        <option>Female</option>
-                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -390,7 +386,16 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">멘트 발화 시간</label>
                                                 <div class="col-sm-9">
-                                                    <input class="form-control" placeholder="dd/mm/yyyy" />
+                                                    <input type="checkbox" id="ment-time-checkbox"/>
+                                                    <label for = "ment-time-checkbox">행사시간과 동일 </label>
+                                                    <div class="ment-time-1">
+                                                        <span>
+                                                            <input id="ment-startTime" type="time">
+                                                            ~
+                                                            <input id="ment-endTime" type="time">
+                                                            <p id="ment-timeElement">0시간</p>
+                                                        </span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -400,13 +405,15 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">빈도수</label>
                                                 <div class="col-sm-9">
-                                                    <select class="form-select">
-                                                        <option>Category1</option>
-                                                        <option>Category2</option>
-                                                        <option>Category3</option>
-                                                        <option>Category4</option>
-                                                    </select>
+                                                    <span>
+                                                        <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">10회</button>
+                                                        <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">20회</button>
+                                                        <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">30회</button>
+                                                        <button type="button" id="freq_own_btn" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">직접입력</button>
+                                                        <input type="text" id="custom_freq_val" class="form-control" style="display:none;" placeholder="빈도수를 입력하세요">
+                                                    </span>
                                                 </div>
+                                                <p>* 15분에 1번씩 발화됩니다.</p>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -414,14 +421,11 @@
                                                 <label class="col-sm-3 col-form-label">할인 추가 조건</label>
                                                 <div class="col-sm-4">
                                                     <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios1" value="" checked> Free </label>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-5">
-                                                    <div class="form-check">
-                                                        <label class="form-check-label">
-                                                            <input type="radio" class="form-check-input" name="membershipRadios" id="membershipRadios2" value="option2"> Professional </label>
+                                                        <span>
+                                                            <button type="button" id="discount_own_btn" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">있음</button>
+                                                            <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">없음</button>
+                                                            <input type="text" id="custom_discount_val" class="form-control" style="display:none;" placeholder="할인 추가 조건을 입력하세요">
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -433,16 +437,26 @@
                                             <div class="form-group row">
                                                 <label class="col-sm-3 col-form-label">음료 소개</label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
+                                                   <span>
+                                                        <button type="button" id="introduce_own_btn" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">있음</button>
+                                                        <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">없음</button>
+                                                        <input type="text" id="custom_introduce_val" class="form-control" style="display:none;" placeholder="음료 소개를 입력하세요">
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group row">
-                                                <label class="col-sm-3 col-form-label">AI 다솜 멘트 생성</label>
+                                                <label class="col-sm-3 col-form-label">AI 다솜 멘트 생성  <p style="font-size: 10px">* AI 멘트는 하루에 3번까지만 가능합니다. (0/3)</p></label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="form-control" />
+                                                    <input type="text" style="height: 3em; width: 100%" class="form-control" />
                                                 </div>
+                                                <span>
+                                                    <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">멘트생성</button>
+                                                    <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">수정</button>
+                                                    <button type="button" onclick="change_color_btn(event)" class="btn btn-outline-secondary btn-sm">불러오기</button>
+                                                    <button type="button" onclick="change_color_btn(event)" class="btn btn-primary btn-sm">저장</button>
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
