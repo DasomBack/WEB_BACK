@@ -21468,7 +21468,9 @@ code {
 }
 
 /* Utilities */
+/* yujin1the 수정*/
 .grid-margin {
+  width: 80vw;
   margin-bottom: 1.5rem;
 }
 
@@ -21534,7 +21536,7 @@ code {
   justify-content: stretch;
 }
 .stretch-card > .card {
-  width: 100%;
+  width: 100vw;
   min-width: 100%;
 }
 
@@ -29186,6 +29188,8 @@ dl li {
 }
 .navbar .navbar-menu-wrapper .navbar-nav .nav-item .dropdown-bordered {
   padding: 8px 15px;
+  display: flex;
+  align-items: center;
   border: 1px solid #DFDFDF;
   border-radius: 6px;
   font-style: normal;
