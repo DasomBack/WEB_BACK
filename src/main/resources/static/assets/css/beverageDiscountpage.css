@@ -101,10 +101,23 @@ input [type="checkbox"] {
 }
 
 .card-body {
-  /*overflow-x: visible;*/
   overflow-x: auto;
 }
 
 .table-responsive{
     overflow-x: visible;
+}
+
+input[type=radio] {
+  accent-color: #000;
+}
+
+ .first-label {
+      margin-left: 0;
+}
+
+.table-responsive .info{
+    margin-left:0.6rem;
+    font-size:0.7rem;
+    font-weight:300;
 }
