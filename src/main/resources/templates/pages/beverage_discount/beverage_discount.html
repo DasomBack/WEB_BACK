@@ -324,7 +324,7 @@
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">제품할인 등록</h4>
-                                <div class="table-responsive">
+                                <div class="table-responsive first-table">
                                     <table class="table">
                                         <thead>
                                         <tr>
@@ -393,10 +393,10 @@
                                             </td>
                                             <td>
                                                 <div class="discount-section">
-                                                    <input type="date" class="custom-input form-control">
+                                                    <input type="date" class="custom-input form-control" id="startDate">
 
-                                                    ~
-                                                    <input type="date" class="custom-input form-control">
+                                                    &nbsp~&nbsp
+                                                    <input type="date" class="custom-input form-control" id="endDate">
                                                     <label class="custom-label">
                                                         <input type="checkbox">
                                                         &nbsp상시
@@ -405,40 +405,110 @@
                                             </td>
 
                                         </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <div class="table-responsive second-table">
+                                    <table class="table">
+                                        <thead>
                                         <tr>
+                                            <th>행사시간</th>
+                                            <th>멘트 발화시간</th>
+                                            <th>발화 횟수</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <div class="discount-section">
+                                                    <input type="time" class="custom-input form-control">
+
+                                                    &nbsp~&nbsp
+                                                    <input type="time" class="custom-input form-control">
+                                                    <label class="custom-label">
+                                                        <input type="checkbox">
+                                                        &nbsp영업시간과 동일
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="discount-section">
+                                                    <input type="time" class="custom-input form-control">
+
+                                                    &nbsp~&nbsp
+                                                    <input type="time" class="custom-input form-control">
+                                                    <label class="custom-label">
+                                                        <input type="checkbox">
+                                                        &nbsp행사시간과 동일
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <ul class="navbar-nav ms-auto">
+                                                    <li class="nav-item dropdown d-lg-block">
+                                                        <a class="dropdown-bordered dropdown-toggle dropdown-toggle-split"
+                                                           id="messageDropdown" href="#" data-bs-toggle="dropdown"
+                                                           aria-expanded="false">
+                                                            <span> 선택 </span>
+                                                        </a>
+                                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                                             aria-labelledby="messageDropdown">
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                        5분 간격</p>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                        10분 간격</p>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                        15분 간격</p>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                        20분 간격</p>
+                                                                </div>
+                                                            </a>
+                                                            <a class="dropdown-item preview-item">
+                                                                <div class="preview-item-content flex-grow py-2">
+                                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                        30분 간격</p>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+
+                                            </td>
+
 
                                         </tr>
-                                        <tr>
-                                            <td>John</td>
-                                            <td>53275533</td>
-                                            <td>14 May 2017</td>
-                                            <td><label class="badge badge-info">Fixed</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Peter</td>
-                                            <td>53275534</td>
-                                            <td>16 May 2017</td>
-                                            <td><label class="badge badge-success">Completed</label></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Dave</td>
-                                            <td>53275535</td>
-                                            <td>20 May 2017</td>
-                                            <td><label class="badge badge-warning">In progress</label></td>
-                                        </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                            </form>
-
                         </div>
+                        </form>
+
                     </div>
-                    </form>
                 </div>
+                </form>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- Beverage Search Modal ends -->
 
