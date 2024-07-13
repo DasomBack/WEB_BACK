@@ -30,13 +30,16 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-bottom: 0rem;
 }
 
-.discount-register .navbar-nav .nav-item{
-    max-width: 6.2rem;
+.discount-register .navbar-nav{
+    max-width: 6rem;
     width: 100%;
-    border: 1px solid #dee2e6;
-    font-weight: 400;
-    border-radius: 0.25rem;
-    text-align:center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.discount-register .dropdown-menu {
+    transform: translate(-0.6875rem, 1.625rem) !important;
 }
 
 .discount-register .navbar-nav .nav-item a{
@@ -46,27 +49,28 @@ input[type="number"]::-webkit-inner-spin-button {
     cursor:pointer;
 }
 
-.discount-register .input-container {
-    position: relative;
-    display: inline-block;
-}
-
 .discount-register .first-table .search {
    padding-right: 1.875rem;
 }
 
-.discount-register .search-button {
+.discount-register .search-button .icon-search {
     position: absolute;
     right: 0.5rem;
     top: 45%;
     transform: translateY(-50%);
-    border: none;
-    background: none;
+}
+
+.discount-register .search-button {
+    /*width: 100%;*/
+    position: relative;
+    display: inline-block;
+    background: #fff;
+    /*min-width:7.1rem;*/
 }
 
 /* 각 열의 너비 설정 */
 .discount-register .first-table th:nth-child(1) {
-    width: 13%; /* 품목 열 */
+    width: 15%; /* 품목 열 */
 }
 
 .discount-register .first-table th:nth-child(2) {
@@ -124,15 +128,15 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .discount-register .table-responsive{
-    overflow-x: visible;
+  overflow-x: visible;
 }
 
 .discount-register input[type=radio] {
-  accent-color: #000;
+    accent-color: #000;
 }
 
 .discount-register .first-label {
-      margin-left: 0;
+    margin-left: 0;
 }
 
 .discount-register .table-responsive .info {
