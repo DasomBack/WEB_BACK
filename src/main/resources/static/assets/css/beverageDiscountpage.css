@@ -90,16 +90,16 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-top: 4.375rem;
 }
 
-.discount-register .discount-section {
-  display: flex;
-  align-items: center;
+.discount-register .discount-section{
+    display: flex;
+    align-items: center;
 }
 
 .discount-register .discount-section .btn {
   margin-left:0.3rem;
 }
 
-.discount-register .btn-sm {
+.discount-register .btn-outline-primary {
   border: 1px solid #5671e2;;
 }
 
@@ -128,16 +128,37 @@ input[type="number"]::-webkit-inner-spin-button {
       margin-left: 0;
 }
 
-.discount-register .table-responsive .info{
+.discount-register .table-responsive .info {
     margin-left:0.6rem;
     font-size:0.7rem;
     font-weight:300;
 }
 
-.discount-register .table-responsive textarea{
+.discount-register .table-responsive textarea {
     resize: none;
     width: 500px;
     height: 130px;
     border-radius: 0.25rem;
     border: 1px solid #dee2e6;
+    padding: 0.625rem;
+}
+
+.discount-register .button-container {
+    margin-top: 0.625rem; /* 버튼과 텍스트 영역 사이의 간격 조정 */
+}
+
+.discount-register .button-container button:nth-child(1) {
+    margin-right: 0.625rem;
+}
+
+.discount-register .button-container button:nth-child(3) {
+    margin-left : 17rem;
+}
+
+.button-container .btn-outline-light {
+    border: 1px solid #6c7383;
+}
+
+.button-container .btn-outline-light:hover {
+    background: #333;
 }
