@@ -162,3 +162,11 @@ input[type="number"]::-webkit-inner-spin-button {
 .button-container .btn-outline-light:hover {
     background: #333;
 }
+
+.button-container .test {
+    vertical-align: baseline;
+}
+
+.button-container .test button {
+    width: 17.5rem;
+}
