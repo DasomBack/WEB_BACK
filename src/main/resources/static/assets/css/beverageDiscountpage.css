@@ -51,8 +51,8 @@ input[type="number"]::-webkit-inner-spin-button {
     display: inline-block;
 }
 
-.discount-register .first-table .custom-input {
-   padding-right:30px;
+.discount-register .first-table .search {
+   padding-right: 1.875rem;
 }
 
 .discount-register .search-button {
@@ -191,3 +191,6 @@ input[type="number"]::-webkit-inner-spin-button {
     margin-right:1rem;
 }
 
+.discount-register input[type="number"] {
+     min-width:7.1rem;
+}
