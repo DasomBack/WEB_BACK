@@ -48,11 +48,16 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .discount-register .input-container {
     position: relative;
+    display: inline-block;
+}
+
+.discount-register .first-table .custom-input {
+   padding-right:30px;
 }
 
 .discount-register .search-button {
     position: absolute;
-    left: 5.2rem;
+    right: 0.5rem;
     top: 45%;
     transform: translateY(-50%);
     border: none;
