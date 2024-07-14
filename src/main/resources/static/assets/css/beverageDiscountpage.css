@@ -69,28 +69,32 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* 각 열의 너비 설정 */
-.discount-register .first-table th:nth-child(1) {
+.discount-register th:nth-child(1) {
     width: 15%; /* 품목 열 */
 }
 
-.discount-register .first-table th:nth-child(2) {
+.discount-register th:nth-child(2) {
     width: 15%; /* 제품 열 */
 }
 
-.discount-register .first-table th:nth-child(3) {
+.discount-register th:nth-child(3) {
     width: 13%; /* 정가 열 */
 }
 
-.discount-register .first-table th:nth-child(4) {
+.discount-register th:nth-child(4) {
     width: 18%; /* 할인가 열 */
 }
 
-.discount-register .first-table th:nth-child(5) {
+.discount-register th:nth-child(5) {
     width: 41%; /* 행사기간 열 */
 }
 
 .discount-register .second-table th:nth-child(3) {
     width:20%;  !important;
+}
+
+.discount-register .fourth-table th:nth-child(2) {
+    width:38%;  !important;
 }
 
 .discount-register .table-responsive.first-table {
