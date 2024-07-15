@@ -239,20 +239,25 @@ input[type="number"]::-webkit-inner-spin-button {
     padding-bottom:0rem;
 }
 
-/*제품 검색 버튼 팝업*/
+/*제품 검색 버튼 모달*/
+
+#productModal{
+    background-color : rgba(0,0,0,0.7);
+}
+
 #productModal .grid-container {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-    }
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
 
 #productModal .item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 #productModal .item img {
-        width: 6.5rem;
-        height: 8.25rem;
+    width: 6.5rem;
+    height: 8.25rem;
 }
 
 #productModal .input-container{
@@ -281,6 +286,7 @@ input[type="number"]::-webkit-inner-spin-button {
     width:100%
 }
 
+
 #productModal .btn-light:hover {
     background: #333;
 }
@@ -292,4 +298,27 @@ input[type="number"]::-webkit-inner-spin-button {
 #productModal .grid-container{
      max-height: calc(100vh - 17.5rem);
      overflow-y: auto;
+}
+
+/*제품검색 모달 스크롤바 예쁘게*/
+#productModal .grid-container::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+#productModal .grid-container::-webkit-scrollbar-button {
+    display: none;
+}
+
+#productModal .grid-container::-webkit-scrollbar-track {
+    background: none;
+}
+
+#productModal .grid-container::-webkit-scrollbar-thumb {
+    border-radius: 3.125rem;
+    background: #c2c2c2;
+}
+
+#productModal .modal-body::-webkit-scrollbar-thumb:hover {
+    background: #404040;
 }
