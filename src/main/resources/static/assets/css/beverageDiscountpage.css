@@ -224,15 +224,13 @@ input[type="number"]::-webkit-inner-spin-button {
     right: 0rem;
     width: 1.5rem;
     height: 1.5rem;
+    background:none;
+    border:none;
 }
 
 #productModal .modal-dialog{
     max-width:620px; !important
 }
-
-/*#productModal{
-    margin:130px; !important
-}*/
 
 #productModal .modal-header{
     border-bottom:none;
