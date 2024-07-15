@@ -1,5 +1,6 @@
-// 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
+
 document.addEventListener('DOMContentLoaded', function() {
+        // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
         document.querySelectorAll('.dropdown-item').forEach(function(item) {
             item.addEventListener('click', function() {
                 var selectedText = this.getAttribute('data-value');
@@ -7,6 +8,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 parentDropdown.querySelector('span').textContent = selectedText;
             });
         });
+
+         // 검색 아이콘을 클릭하면 모달을 표시
+        const beverageModal = document.querySelector('#beverageModal');
+        const searchIcon = document.querySelector('#product_search_btn');
+        const closeBtn = document.getElementById(".btn-secondary");
+
+        searchIcon.addEventListener('click', function() {
+        $('#beverageModal').show();
+
+         });
+
+        // 모달의 닫기 버튼을 클릭하면 모달을 숨김
+        const closeButton = document.querySelector('#beverageModal .close');
+        const secondaryButton = document.querySelector('#beverageModal .btn-secondary');
+
+        closeButton.addEventListener('click', function() {
+        $('#beverageModal').hide();
+        });
+
+        secondaryButton.addEventListener('click', function() {
+        $('#beverageModal').hide();
+        });
+
 });
 
 //커스텀 셀렉트 박스
