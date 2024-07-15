@@ -288,4 +288,7 @@ input[type="number"]::-webkit-inner-spin-button {
     text-align:center;
 }
 
-
+#productModal .grid-container{
+     max-height: calc(100vh - 17.5rem);
+     overflow-y: auto;
+}
