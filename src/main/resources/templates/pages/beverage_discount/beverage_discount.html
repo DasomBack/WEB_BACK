@@ -126,50 +126,50 @@
                         </a>
                     </div>
                 </li>-->
-               <!-- <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        <i class="icon-mail icon-lg"></i>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
-                         aria-labelledby="countDropdown">
-                        <a class="dropdown-item py-3">
-                            <p class="mb-0 fw-medium float-start">You have 7 unread mails </p>
-                            <span class="badge badge-pill badge-primary float-end">View all</span>
-                        </a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="../../../static/assets/images/faces/face10.jpg" alt="image"
-                                     class="img-sm profile-pic">
-                            </div>
-                            <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis fw-medium text-dark">Marian Garner </p>
-                                <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="../../../static/assets/images/faces/face12.jpg" alt="image"
-                                     class="img-sm profile-pic">
-                            </div>
-                            <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis fw-medium text-dark">David Grey </p>
-                                <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-thumbnail">
-                                <img src="../../../static/assets/images/faces/face1.jpg" alt="image"
-                                     class="img-sm profile-pic">
-                            </div>
-                            <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis fw-medium text-dark">Travis Jenkins </p>
-                                <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
-                            </div>
-                        </a>
-                    </div>
-                </li>-->
+                <!-- <li class="nav-item dropdown">
+                     <a class="nav-link count-indicator" id="countDropdown" href="#" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                         <i class="icon-mail icon-lg"></i>
+                     </a>
+                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
+                          aria-labelledby="countDropdown">
+                         <a class="dropdown-item py-3">
+                             <p class="mb-0 fw-medium float-start">You have 7 unread mails </p>
+                             <span class="badge badge-pill badge-primary float-end">View all</span>
+                         </a>
+                         <div class="dropdown-divider"></div>
+                         <a class="dropdown-item preview-item">
+                             <div class="preview-thumbnail">
+                                 <img src="../../../static/assets/images/faces/face10.jpg" alt="image"
+                                      class="img-sm profile-pic">
+                             </div>
+                             <div class="preview-item-content flex-grow py-2">
+                                 <p class="preview-subject ellipsis fw-medium text-dark">Marian Garner </p>
+                                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                             </div>
+                         </a>
+                         <a class="dropdown-item preview-item">
+                             <div class="preview-thumbnail">
+                                 <img src="../../../static/assets/images/faces/face12.jpg" alt="image"
+                                      class="img-sm profile-pic">
+                             </div>
+                             <div class="preview-item-content flex-grow py-2">
+                                 <p class="preview-subject ellipsis fw-medium text-dark">David Grey </p>
+                                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                             </div>
+                         </a>
+                         <a class="dropdown-item preview-item">
+                             <div class="preview-thumbnail">
+                                 <img src="../../../static/assets/images/faces/face1.jpg" alt="image"
+                                      class="img-sm profile-pic">
+                             </div>
+                             <div class="preview-item-content flex-grow py-2">
+                                 <p class="preview-subject ellipsis fw-medium text-dark">Travis Jenkins </p>
+                                 <p class="fw-light small-text mb-0"> The meeting is cancelled </p>
+                             </div>
+                         </a>
+                     </div>
+                 </li>-->
                 <li class="nav-item dropdown d-none d-lg-block user-dropdown">
                     <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <img class="img-xs rounded-circle" src="../../../static/assets/images/faces/face8.jpg"
@@ -380,7 +380,8 @@
                                             <td>
                                                 <div class="input-container">
                                                     <!--<input type="text" class="custom-input form-control search" disabled>-->
-                                                    <button class="search-button custom-input form-control"><i
+                                                    <button class="search-button custom-input form-control"
+                                                            id="product_search_btn"><i
                                                             class="icon-search"></i>
                                                     </button>
                                                 </div>
@@ -521,7 +522,8 @@
                                                         없음
                                                     </label>
                                                     <label class="custom-label" for="discountOptionYes">
-                                                        <input type="radio" name="discountCondition" id="discountOptionYes">
+                                                        <input type="radio" name="discountCondition"
+                                                               id="discountOptionYes">
                                                         있음
                                                     </label>
                                                     <input type="text" class="custom-input form-control">
@@ -583,36 +585,109 @@
                                     <button type="button" class="btn btn-primary">등록
                                     </button>
                                 </div>
+
+                            </div>
+                            <!-- Product Search Modal -->
+                            <div id="beverageModal" class="modal" tabindex="-1" aria-labelledby="productModalLabel"
+                                 role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title">제품 검색</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="search-box">
+                                                <form action="" method="get">
+                                                    <input type="text" class="form-control search-container"
+                                                           placeholder="검색" name="">
+                                                    <!--<button class="search-button" type="submit"><i class="icon-search"></i>-->
+                                                    <button class="modal-search-button" type="submit"></button>
+                                                </form>
+                                            </div>
+                                                    <ul class="grid-container">
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>음료1</p>
+                                                            <p>3,000원</p>
+                                                        </li>
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>음료2</p>
+                                                            <p>3500원</p>
+                                                        </li>
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>수박주스</p>
+                                                            <p>6,000원</p>
+                                                        </li>
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>음료4</p>
+                                                            <p>3,000원</p>
+                                                        </li>
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>음료5</p>
+                                                            <p>3,500원</p>
+                                                        </li>
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>음료6</p>
+                                                            <p>3,500원</p>
+                                                        </li>
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>음료7</p>
+                                                            <p>3,000원</p>
+                                                        </li>
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>음료8</p>
+                                                            <p>3,500원</p>
+                                                        </li>
+                                                        <li class="item">
+                                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                                            <p>음료9</p>
+                                                            <p>3,500원</p>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                                <button type="button" class="more_btn">더보기</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Beverage Search Modal ends -->
+
+                                </div>
+
+
                             </div>
                         </div>
-                        </form>
 
                     </div>
                 </div>
-                </form>
             </div>
         </div>
-    </div>
-</div>
 
 
-
-
-
-<!-- Beverage Search Modal ends -->
-
-<!-- content-wrapper ends -->
-<!-- partial:../../partials/_footer.html -->
-<footer class="footer">
-    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+        <!-- content-wrapper ends -->
+        <!-- partial:../../partials/_footer.html -->
+        <footer class="footer">
+            <div class="d-sm-flex justify-content-center justify-content-sm-between">
                     <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Premium <a
                             href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.</span>
-        <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
+                <span class="float-none float-sm-end d-block mt-1 mt-sm-0 text-center">Copyright © 2023. All rights reserved.</span>
+            </div>
+        </footer>
+        <!-- partial -->
     </div>
-</footer>
-<!-- partial -->
-</div>
-<!-- main-panel ends -->
+    <!-- main-panel ends -->
 </div>
 <!-- page-body-wrapper ends -->
 </div>
