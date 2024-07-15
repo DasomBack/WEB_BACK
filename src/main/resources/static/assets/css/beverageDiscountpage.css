@@ -199,6 +199,12 @@ input[type="number"]::-webkit-inner-spin-button {
      min-width: 7.1rem;
 }
 
+.discount-register input[type="date"],
+.discount-register input[type="time"],
+.discount-register input[type="checkbox"]{
+     cursor:pointer;
+}
+
 .discount-register .discount-section input[type="text"]{
     margin-left:0.5rem;
     max-width:30rem;
