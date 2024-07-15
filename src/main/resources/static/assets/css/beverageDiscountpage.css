@@ -226,6 +226,14 @@ input[type="number"]::-webkit-inner-spin-button {
     height: 1.5rem;
 }
 
+/*#productModal .modal-dialog{
+    max-width:700px; !important
+}
+
+#productModal{
+    margin:130px; !important
+}*/
+
 #productModal .modal-header{
     border-bottom:none;
     padding-bottom:0rem;
@@ -243,8 +251,8 @@ input[type="number"]::-webkit-inner-spin-button {
         align-items: center;
 }
 #productModal .item img {
-        width: 6.25rem;
-        height: 6.25rem;
+        width: 6.5rem;
+        height: 8.25rem;
 }
 
 #productModal .input-container{
@@ -256,3 +264,28 @@ input[type="number"]::-webkit-inner-spin-button {
     border:none;
     background:none;
 }
+
+#productModal .title{
+    margin-top:0.3rem;
+    margin-bottom:0rem;
+}
+
+#productModal .item{
+    margin-top:1.5rem;
+}
+
+#productModal .btn-light{
+    margin-bottom:1.5rem;
+    max-width:200px;
+    width:100%
+}
+
+#productModal .btn-light:hover {
+    background: #333;
+}
+
+#productModal .modal-body{
+    text-align:center;
+}
+
+
