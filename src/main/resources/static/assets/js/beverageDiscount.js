@@ -10,25 +10,25 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
          // 검색 아이콘을 클릭하면 모달을 표시
-        const beverageModal = document.querySelector('#beverageModal');
+        const productModal = document.querySelector('#productModal');
         const searchIcon = document.querySelector('#product_search_btn');
         const closeBtn = document.getElementById(".btn-secondary");
 
         searchIcon.addEventListener('click', function() {
-        $('#beverageModal').show();
+        $('#productModal').show();
 
          });
 
         // 모달의 닫기 버튼을 클릭하면 모달을 숨김
-        const closeButton = document.querySelector('#beverageModal .close');
-        const secondaryButton = document.querySelector('#beverageModal .btn-secondary');
+        const closeButton = document.querySelector('#productModal .close');
+        const secondaryButton = document.querySelector('#productModal .btn-secondary');
 
         closeButton.addEventListener('click', function() {
-        $('#beverageModal').hide();
+        $('#productModal').hide();
         });
 
         secondaryButton.addEventListener('click', function() {
-        $('#beverageModal').hide();
+        $('#productModal').hide();
         });
 
 });

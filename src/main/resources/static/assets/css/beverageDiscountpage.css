@@ -113,8 +113,8 @@ input[type="number"]::-webkit-inner-spin-button {
   border: 1px solid #5671e2;;
 }
 
-.discount-register input [type="checkbox"] {
-    color:#626262;
+.discount-register input[type="checkbox"] {
+    color: #626262;
 }
 
 .discount-register .custom-label {
@@ -212,35 +212,47 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /*상단 navbar 레이아웃 수정*/
 .navbar-nav {
-    margin-right:90px;
+     margin-right:5.625rem;
 }
 
-.search-box{
+#productModal .search-box{
     position:relative;
 }
-.modal-search-button{
-    position:absolute;
-    top:9px;
-    right:0px;
-    width:24px;
-    height:24px;
+#productModal .modal-search-button {
+    position: absolute;
+    top: 0.5625rem;
+    right: 0rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+#productModal .modal-header{
+    border-bottom:none;
+    padding-bottom:0rem;
 }
 
 /*제품 검색 버튼 팝업*/
-.grid-container {
+#productModal .grid-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(4, 1fr);
     }
-.item {
+
+#productModal .item {
         display: flex;
         flex-direction: column;
         align-items: center;
 }
-.item img {
-        width: 100px;
-        height: 100px;
+#productModal .item img {
+        width: 6.25rem;
+        height: 6.25rem;
 }
 
-.input-container{
+#productModal .input-container{
     position:relative;
+}
+
+#productModal .close{
+    font-size:1.875rem;
+    border:none;
+    background:none;
 }
