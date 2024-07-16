@@ -318,3 +318,8 @@ input[type="number"]::-webkit-inner-spin-button {
 #productModal .modal-body::-webkit-scrollbar-thumb:hover {
     background: #404040;
 }
+
+#discountPrice {
+    color: red;
+    margin-left:0.3rem;
+}
