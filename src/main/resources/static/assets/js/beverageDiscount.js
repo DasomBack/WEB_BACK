@@ -21,15 +21,72 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 모달의 닫기 버튼을 클릭하면 모달을 숨김
         const closeButton = document.querySelector('#productModal .close');
-        const secondaryButton = document.querySelector('#productModal .btn-secondary');
 
         closeButton.addEventListener('click', function() {
         $('#productModal').hide();
         });
 
-        secondaryButton.addEventListener('click', function() {
-        $('#productModal').hide();
-        });
+        // 제품 검색 모달의 제품 검색 기능
+        var images = document.querySelectorAll('#itemList img');
+            var selectedProductName = '';
+
+            // 각각의 이미지에 클릭 이벤트를 추가합니다.
+            for (var i = 0; i < images.length; i++) {
+                images[i].addEventListener('click', function() {
+                    // 클릭한 이미지의 부모 요소(li)의 id를 사용하여 p 태그를 찾음
+                    var parentId = this.parentElement.id;
+                    var productNameId = 'productName' + parentId.replace('item', '');
+                    var productNameElement = document.getElementById(productNameId);
+
+                        selectedProductName = productNameElement.innerText;
+
+                        var selectBtn = document.getElementById('selectBtn');
+                        selectBtn.style.display = 'inline-block';
+
+                        // 더보기 버튼을 숨기기
+                        var loadMoreBtn = document.getElementById('loadMoreBtn');
+                        loadMoreBtn.style.display = 'none';
+
+                        // 제품할인 등록 영역의 버튼에 제품명 설정
+                        var discountProductBtn = document.getElementById('discountProductBtn');
+                        discountProductBtn.innerText = selectedProductName;
+
+                });
+            }
+
+            // 선택 버튼 클릭 시 모달 창 닫기 이벤트 추가
+            document.getElementById('selectBtn').addEventListener('click', function() {
+                // 제품할인 등록 영역의 버튼에 제품명 설정
+                var ProductSearchBtn = document.getElementById('product_search_btn');
+                    ProductSearchBtn.innerText = selectedProductName;
+
+                var selectButton = document.getElementById('selectBtn');
+                selectButton.addEventListener('click', function() {
+                $('#productModal').hide();
+                });
+            });
+
+            // 검색 input 박스에 입력된 값으로 리스트를 필터링합니다.
+            function filterProductList(query) {
+                // 모든 리스트 항목을 선택합니다.
+                var items = document.querySelectorAll('#itemList li');
+                // 각 항목을 반복하면서 필터링합니다.
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    var productNameId = 'productName' + item.id.replace('item', '');
+                    var productName = document.getElementById(productNameId).innerText;
+                    // 검색어가 없으면 모든 항목을 표시합니다.
+                    if (query === '') {
+                        item.style.display = '';
+                    } else if (productName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+                        // 제품명이 입력된 값과 일치하면 항목을 표시합니다.
+                        item.style.display = '';
+                    } else {
+                        // 일치하지 않으면 항목을 숨깁니다.
+                        item.style.display = 'none';
+                    }
+                }
+            }
 
 });
 
@@ -123,3 +180,82 @@ function showModal(message) {
   // Show the modal
   $(modal).modal('show');
 }*/
+
+
+
+// 제품 검색 모달에서 제품 검색 후 제품 선택 가능 기능
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    // 모든 이미지를 선택합니다.
+    var images = document.querySelectorAll('#itemList img');
+    var selectedProductName = '';
+
+    // 각각의 이미지에 클릭 이벤트를 추가합니다.
+    for (var i = 0; i < images.length; i++) {
+        images[i].addEventListener('click', function() {
+            // 클릭한 이미지의 부모 요소(li)의 id를 사용하여 p 태그를 찾습니다.
+            var parentId = this.parentElement.id;
+            var productNameId = 'productName' + parentId.replace('item', '');
+            var productNameElement = document.getElementById(productNameId);
+
+            if (productNameElement) {
+                selectedProductName = productNameElement.innerText;
+
+                // 선택 버튼을 보이도록 설정하고 텍스트를 "선택"으로 변경
+                var selectBtn = document.getElementById('selectBtn');
+                selectBtn.style.display = 'block';
+                selectBtn.innerText = '선택';
+
+                // 더보기 버튼을 숨기기
+                var loadMoreBtn = document.getElementById('loadMoreBtn');
+                loadMoreBtn.style.display = 'none';
+
+                // 제품할인 등록 영역의 버튼에 제품명 설정
+                var ProductSearchBtn = document.getElementById('product_search_btn');
+                ProductSearchBtn.innerText = selectedProductName;
+            } else {
+                console.error('Product name element not found for:', productNameId);
+            }
+        });
+    }
+
+    // 선택 버튼 클릭 시 모달 창 닫기 이벤트 추가
+    document.getElementById('selectBtn').addEventListener('click', function() {
+        // 제품할인 등록 영역의 버튼에 제품명 설정
+        var ProductSearchBtn = document.getElementById('product_search_btn');
+        ProductSearchBtn.innerText = selectedProductName;
+
+        // 모달 창 닫기
+        $('#productModal').modal('hide');
+    });
+
+    // 검색 input 박스에 입력된 값으로 리스트를 필터링합니다.
+    function filterProductList(query) {
+        // 모든 리스트 항목을 선택합니다.
+        var items = document.querySelectorAll('#itemList li');
+        // 각 항목을 반복하면서 필터링합니다.
+        for (var i = 0; i < items.length; i++) {
+            var item = items[i];
+            var productNameId = 'productName' + item.id.replace('item', '');
+            var productName = document.getElementById(productNameId).innerText;
+            // 검색어가 없으면 모든 항목을 표시합니다.
+            if (query === '') {
+                item.style.display = '';
+            } else if (productName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+                // 제품명이 입력된 값과 일치하면 항목을 표시합니다.
+                item.style.display = '';
+            } else {
+                // 일치하지 않으면 항목을 숨깁니다.
+                item.style.display = 'none';
+            }
+        }
+    }
+
+    // 검색 input 박스에 입력된 값에 따라 리스트를 실시간으로 필터링합니다.
+    document.getElementById('searchInput').addEventListener('input', function() {
+        filterProductList(this.value);
+    });
+
+    // 페이지 로드 시 초기 필터링 설정
+    filterProductList(document.getElementById('searchInput').value);
+});*/
