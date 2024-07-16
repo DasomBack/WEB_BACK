@@ -97,6 +97,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
+            // 할인가 입력 후 확인 버튼 클릭 시 할인가 영역에 할인된 금액 표시
+                document.getElementById('confirmDiscountPriceBtn').addEventListener('click', function() {
+                    var discountPriceInput = document.getElementById('discountPriceInput').value;
+                    var ProductPriceText = document.getElementById('productPrice').innerText;
+                    var discountPrice = parseInt(ProductPriceText.replace('원', '').replace(',', ''));
+
+                    if (!isNaN(discountPriceInput) && discountPriceInput.trim() !== '') {
+                        var discountedPrice = discountPriceInput - discountPrice;
+                        document.getElementById('discountPrice').innerText = `(${discountedPrice.toLocaleString()}원)`;
+                    }
+                });
+
 });
 
 //커스텀 셀렉트 박스
