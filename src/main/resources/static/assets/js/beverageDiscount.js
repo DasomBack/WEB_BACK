@@ -38,7 +38,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     var productNameId = 'productName' + parentId.replace('item', '');
                     var productNameElement = document.getElementById(productNameId);
 
+                    var productPriceId = 'productPrice' + parentId.replace('item', '');
+                    var productPriceElement = document.getElementById(productPriceId);
+
                         selectedProductName = productNameElement.innerText;
+                        selectedProductPrice = productPriceElement.innerText;
 
                         var selectBtn = document.getElementById('selectBtn');
                         selectBtn.style.display = 'inline-block';
@@ -51,6 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         var discountProductBtn = document.getElementById('discountProductBtn');
                         discountProductBtn.innerText = selectedProductName;
 
+                        var productPrice =  document.getElementById('productPrice');
+                        productPrice.innerText = selectedProductPrice;
+
                 });
             }
 
@@ -59,6 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 // 제품할인 등록 영역의 버튼에 제품명 설정
                 var ProductSearchBtn = document.getElementById('product_search_btn');
                     ProductSearchBtn.innerText = selectedProductName;
+                 var ProductPrice = document.getElementById('productPrice');
+                    ProductPrice.innerText = selectedProductPrice;
 
                 var selectButton = document.getElementById('selectBtn');
                 selectButton.addEventListener('click', function() {
