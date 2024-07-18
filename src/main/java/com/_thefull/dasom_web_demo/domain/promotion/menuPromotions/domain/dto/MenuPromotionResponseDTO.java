@@ -4,12 +4,13 @@ import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.MenuPr
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.sql.Time;
 import java.util.Date;
 
 @Getter
-@AllArgsConstructor @Builder
+@Builder
 public class MenuPromotionResponseDTO {
 
     String status;
@@ -22,6 +23,7 @@ public class MenuPromotionResponseDTO {
     int discRate;
     int discVal;
 
+    boolean isAlways;
     Date startDate;
     Date endDate;
     Time startTime;
@@ -38,6 +40,7 @@ public class MenuPromotionResponseDTO {
     String ment;
 
     public static MenuPromotionResponseDTO from(MenuPromotion e){
+
         return MenuPromotionResponseDTO.builder()
                 .status(e.getStatus().name())
                 .category(e.getMenu().getCategory().getSimpleName())
@@ -45,8 +48,8 @@ public class MenuPromotionResponseDTO {
                 .price(e.getPrice())
                 .discPrice(e.getDiscPrice())
                 .isRate(e.getIsDiscRate())
-                .discVal(e.getDiscVal())
                 .discRate(e.getDiscRate())
+                .discVal(e.getDiscVal())
                 .startDate(e.getStartDate())
                 .endDate(e.getEndDate())
                 .startTime(e.getStartTime())
@@ -60,6 +63,7 @@ public class MenuPromotionResponseDTO {
                 .addDesc(e.getAddDesc())
                 .ment(e.getMent())
                 .build();
+
     }
 
 
