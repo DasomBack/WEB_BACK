@@ -1,23 +1,25 @@
 package com._thefull.dasom_web_demo.domain.promotion;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 import java.sql.Time;
+import java.time.Duration;
 import java.util.Date;
 
 @Getter
 @MappedSuperclass
+@SuperBuilder
 public abstract class BasePromotionEntity {
 
-    @Column(name = "USE")
+    @Column(name = "`USE`")
     private Boolean use;
 
     @Convert(converter = StatusConverter.class)
-    @Column(name = "STATE" , columnDefinition = "TINYINT")
+    @Column(name = "STATUS" , columnDefinition = "TINYINT")
     private Status status;
 
     @Column(name = "START_DATE")
@@ -41,8 +43,8 @@ public abstract class BasePromotionEntity {
     @Column(name = "MENT_FREQ")
     private int mentFreq;
 
-    @Column(name = "MENT_INTERVAL")
-    private int mentInterval;
+//    @Column(name = "MENT_INTERVAL")
+//    private int mentInterval;
 
     @Column(name = "IS_ADD_DESC")
     private Boolean isAddDesc;
@@ -52,6 +54,12 @@ public abstract class BasePromotionEntity {
 
     @Column(name = "MENT", columnDefinition = "TEXT")
     private String ment;
+
+    public void calculateFreq(int interval){
+        Duration duration;
+        Long minutes = Duration.between(this.mentEndTime.toLocalTime(),this.mentStartTime.toLocalTime()).toMinutes();
+        this.mentFreq=(int)(minutes/interval);
+    }
 
 
 }
