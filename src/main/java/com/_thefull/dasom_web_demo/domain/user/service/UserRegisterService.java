@@ -1,8 +1,8 @@
-package com._thefull.dasom_web_demo.service;
+package com._thefull.dasom_web_demo.domain.user.service;
 
-import com._thefull.dasom_web_demo.domain.User;
-import com._thefull.dasom_web_demo.domain.dto.UserJoinRequestDto;
-import com._thefull.dasom_web_demo.repository.UserRepository;
+import com._thefull.dasom_web_demo.domain.user.repository.UserRepository;
+import com._thefull.dasom_web_demo.domain.user.domain.User;
+import com._thefull.dasom_web_demo.domain.user.domain.dto.UserJoinRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

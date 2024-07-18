@@ -1,4 +1,4 @@
-package com._thefull.dasom_web_demo.domain;
+package com._thefull.dasom_web_demo.domain.user.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.EntityListeners;

@@ -1,4 +1,4 @@
-package com._thefull.dasom_web_demo.controller;
+package com._thefull.dasom_web_demo.domain.user.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

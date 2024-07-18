@@ -1,9 +1,8 @@
-package com._thefull.dasom_web_demo.domain;
+package com._thefull.dasom_web_demo.domain.user.domain;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Generated;
 import lombok.Getter;
 
 @AllArgsConstructor
