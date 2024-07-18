@@ -31,4 +31,9 @@ public class UserRegisterPageController {
         return "/pages/user/login";
     }
 
+    @GetMapping("/product")
+    public String productPage(){
+        return "/pages/main/promotion3/product_discount2";
+    }
+
 }

@@ -1,15 +1,13 @@
 package com._thefull.dasom_web_demo.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Generated;
-import lombok.Getter;
+import lombok.*;
 
 @AllArgsConstructor
 @Getter
 @Entity(name = "user")
 @Builder
+@NoArgsConstructor // 기본 생성자 추가
 public class User extends BaseEntity{
 
     @Id
