@@ -36,4 +36,9 @@ public class UserRegisterPageController {
         return "/pages/main/promotion3/product_discount2";
     }
 
+    @GetMapping("/resetpassword")
+    public String resetpasswordPage(){
+        return "/pages/user/resetpassword";
+    }
+
 }
