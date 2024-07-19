@@ -1,4 +1,4 @@
-package com._thefull.dasom_web_demo.domain.user.domain;
+package com._thefull.dasom_web_demo.domain;
 
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
 import jakarta.persistence.*;
