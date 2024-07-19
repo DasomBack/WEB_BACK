@@ -1,7 +1,7 @@
-package com._thefull.dasom_web_demo.controller;
+package com._thefull.dasom_web_demo.domain.user.controller;
 
-import com._thefull.dasom_web_demo.domain.dto.UserJoinRequestDto;
-import com._thefull.dasom_web_demo.service.UserRegisterService;
+import com._thefull.dasom_web_demo.domain.user.service.UserRegisterService;
+import com._thefull.dasom_web_demo.domain.user.domain.dto.UserJoinRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
