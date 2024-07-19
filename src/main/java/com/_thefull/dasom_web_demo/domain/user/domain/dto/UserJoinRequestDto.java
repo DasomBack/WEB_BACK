@@ -1,7 +1,6 @@
-package com._thefull.dasom_web_demo.domain.dto;
+package com._thefull.dasom_web_demo.domain.user.domain.dto;
 
-import com._thefull.dasom_web_demo.domain.User;
-import jakarta.validation.Valid;
+import com._thefull.dasom_web_demo.domain.user.domain.User;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -26,7 +25,6 @@ public class UserJoinRequestDto {
 
     public User toEntity(){
         return User.builder()
-                .store(this.store)
                 .email(this.email)
                 .name(this.name)
                 .phoneNum(this.phoneNum)
