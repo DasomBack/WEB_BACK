@@ -31,7 +31,8 @@ public class LoginController {
         if (user != null) {
             return "redirect:/page/user/product";
         } else {
-            return "redirect:/page/user/login?error=true";
+           /*redirectAttributes.addFlashAttribute("loginError", "휴대전화번호 또는 비밀번호를 확인해 주세요.");*/
+            return "redirect:/page/user/login";
         }
     }
 }
