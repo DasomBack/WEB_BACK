@@ -79,7 +79,7 @@ public class MenuPromotion extends BasePromotionEntity {
             this.isDiscRate=true;
     }
 
-    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu){
+    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, int freq){
         LocalDateTime starttime = dto.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
         LocalDateTime now = LocalDateTime.now();
         Status status = Status.IN_PROGRESS;
@@ -90,7 +90,23 @@ public class MenuPromotion extends BasePromotionEntity {
         return MenuPromotion.builder()
                 .status(status)
                 .menu(menu)
-                .
+                .price(dto.getPrice())
+                .discVal(dto.getDiscVal())
+                .discPrice(dto.getDiscPrice())
+                .startDate(dto.getStartDate())
+                .endDate(dto.getEndDate())
+                .isAlways(dto.isAlways())
+                .startTime(dto.getStartTime())
+                .endTime(dto.getEndTime())
+                .mentStartTime(dto.getMentStartTime())
+                .mentEndTime(dto.getMentEndTime())
+                .mentFreq(freq)
+                .isAddCond(dto.isAddCond())
+                .addDiscCond(dto.getAddDiscCond())
+                .isAddDesc(dto.isAddDesc())
+                .addDesc(dto.getAddDesc())
+                .ment(dto.getMent())
+                .build();
     }
 
 }

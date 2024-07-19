@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 public enum ErrorCode {
     INVALID_STATE(HttpStatus.NOT_FOUND),
     NO_CATEGORY(HttpStatus.NOT_FOUND),
+    NOT_FOUND_MENU(HttpStatus.NOT_FOUND),
     NOT_FOUND_STORE(HttpStatus.NOT_FOUND);
 
 

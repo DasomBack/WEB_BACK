@@ -42,7 +42,7 @@ public class User {
     private String profileImageUrl;
 
     @CreatedDate
-    @Column(columnDefinition = "TIMESTAMP", name = "REGISTER_AT", updatable = false)
+    @Column(columnDefinition = "TIMESTAMP", name = "REGISTER_DATE", updatable = false)
     private LocalDateTime registerAt;
 
     // BUILDER 패턴은 초기화를 해주지 않는다. 따라서 직접 선언+초기화까지 한 경우에는 @Builder.Default를 하라고 lombok에서 exception으로 알려줌.

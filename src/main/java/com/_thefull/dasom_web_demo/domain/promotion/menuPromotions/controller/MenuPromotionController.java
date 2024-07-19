@@ -33,18 +33,37 @@ public class MenuPromotionController {
     private Long userId;
 
     @GetMapping("/list/all")
-    public String getAllPromotionsList(Model model){
+    public String findAllPromotionList(Model model){
         List<MenuPromotionResponseDTO> menupromotion_list = menuPromotionService.findAllPromotionList(storeId);
         model.addAttribute("menupromotion_list",menupromotion_list);
-        System.out.println(menupromotion_list.get(0).getAddDesc());
 
-        return "";
+//        return "pages/main/promotion3/menu-promotion/head";
+        System.out.println("MenuPromotionController.findAllPromotionList");
+
+        return "fragments/head :: head";
     }
 
     @PostMapping("/register")
     public String registerMenuPromotion(@RequestBody MenuPromotionRequestDTO requestDTO, Model model){
         menuPromotionService.registerMenuPromotion(storeId, requestDTO);
 
+        return "redirect:/api/menu_promotion/list/all";
+    }
 
+    @GetMapping("/list/completed")
+    public String findCompletedPromotionList(Model model){
+        List<MenuPromotionResponseDTO> menupromotion_list = menuPromotionService.findCompletedPromotionList(storeId);
+        model.addAttribute("menupromotion_list",menupromotion_list);
+
+        System.out.println("MenuPromotionController.findCompletedPromotionList");
+        return "fragments/foot :: foot";
+    }
+
+    @GetMapping("/main")
+    public String menuPromotionMainPage(Model model){
+        findAllPromotionList(model);
+        findCompletedPromotionList(model);
+
+        return "pages/main/promotion3/menu-promotion/main";
     }
 }

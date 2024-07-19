@@ -55,11 +55,5 @@ public abstract class BasePromotionEntity {
     @Column(name = "MENT", columnDefinition = "TEXT")
     private String ment;
 
-    public void calculateFreq(int interval){
-        Duration duration;
-        Long minutes = Duration.between(this.mentEndTime.toLocalTime(),this.mentStartTime.toLocalTime()).toMinutes();
-        this.mentFreq=(int)(minutes/interval);
-    }
-
 
 }
