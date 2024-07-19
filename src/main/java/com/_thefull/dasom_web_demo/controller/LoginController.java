@@ -22,7 +22,7 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@RequestParam("store") String store,
                         @RequestParam("phoneNum") String phoneNum,
-                        @RequestParam("password") String password) {
+                        @RequestParam("password") String password){
 
         LoginRequestDto dto = new LoginRequestDto(store, phoneNum, password);
         User user = LoginService.login(dto);
@@ -31,7 +31,6 @@ public class LoginController {
         if (user != null) {
             return "redirect:/page/user/product";
         } else {
-           /*redirectAttributes.addFlashAttribute("loginError", "휴대전화번호 또는 비밀번호를 확인해 주세요.");*/
             return "redirect:/page/user/login";
         }
     }
