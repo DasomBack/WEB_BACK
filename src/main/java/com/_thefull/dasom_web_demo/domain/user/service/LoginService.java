@@ -14,7 +14,7 @@ public class LoginService {
     private final UserRepository userRepository;
 
     public User login(LoginRequestDto dto) {
-        Optional<User> optionalUser = userRepository.findByStoreAndPhoneNum(dto.getStore(), dto.getPhoneNum());
+        Optional<User> optionalUser = userRepository.findByPhoneNum(dto.getPhoneNum());
 
         // store와 phoneNum에 일치하는 User가 없으면 null return
         if (optionalUser.isEmpty()) {

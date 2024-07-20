@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserJoinRequestDto {
 
-    private String store;
+    /*private String store;*/
 
     private String name;
 
