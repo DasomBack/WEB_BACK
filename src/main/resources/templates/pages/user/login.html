@@ -65,7 +65,7 @@
                         </form>
 
                         <!-- Error Modal -->
-                        <div id="errorModal" class="modal" tabindex="-1" role="dialog"  >
+                        <div id="errorModal" class="modal" tabindex="-1" role="dialog" th:if="${error}" th:data-error-message="${error}"  >
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -77,9 +77,6 @@
                                     <div class="modal-body">
                                         <p th:text="${error}"> 모든 필드를 올바르게 채워주세요.</p>
                                     </div>
-                                   <!-- <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-                                    </div>-->
                                 </div>
                             </div>
                         </div>
