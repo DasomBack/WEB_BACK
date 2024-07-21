@@ -28,12 +28,9 @@ public class LoginController {
         User user = loginService.login(dto);
 
         if (user != null) {
-            /*return "pages/user/product";*/
             return "redirect:/page/user/product";
         } else {
-            /*model.addAttribute("error", "비밀번호가 일치하지 않습니다.");
-            return "pages/user/login";*/
-            redirectAttributes.addFlashAttribute("error", "비밀번호가 일치하지 않습니다.");
+            redirectAttributes.addFlashAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");
             return "redirect:/page/user/login";
         }
     }
