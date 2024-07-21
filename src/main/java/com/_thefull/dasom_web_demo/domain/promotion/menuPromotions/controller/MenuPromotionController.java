@@ -61,8 +61,10 @@ public class MenuPromotionController {
 
     @GetMapping("/main")
     public String menuPromotionMainPage(Model model){
+        System.out.println("MenuPromotionController.menuPromotionMainPage");
         findAllPromotionList(model);
         findCompletedPromotionList(model);
+        System.out.println("MenuPromotionController.menuPromotionMainPage");
 
         return "pages/main/promotion3/menu-promotion/main";
     }
