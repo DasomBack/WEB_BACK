@@ -2,8 +2,10 @@ package com._thefull.dasom_web_demo.domain.promotion;
 
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.sql.Time;
@@ -13,6 +15,8 @@ import java.util.Date;
 @Getter
 @MappedSuperclass
 @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class BasePromotionEntity {
 
     @Column(name = "`USE`")
