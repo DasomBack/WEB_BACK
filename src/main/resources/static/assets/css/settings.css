@@ -1,0 +1,43 @@
+.main-content {
+    display: flex;
+}
+
+.location-list{
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    width: 300px;
+}
+
+.location-list li{
+    border: 1px solid;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.location-list li > p {
+    margin: 0;
+}
+
+ .custom-label-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+ .custom-label {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .custom-label input[type="text"] {
+            margin-left: 20px; /* 텍스트와 입력 필드 사이의 간격 */
+        }
