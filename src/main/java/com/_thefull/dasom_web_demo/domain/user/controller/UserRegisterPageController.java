@@ -33,7 +33,7 @@ public class UserRegisterPageController {
 
     @GetMapping("/product")
     public String productPage(){
-        return "/pages/main/promotion3/product_discount2";
+        return "/pages/main/promotion3/beverage_discount";
     }
 
     @GetMapping("/resetpassword")
