@@ -22,16 +22,19 @@ public class LoginController {
     public String login(@RequestParam("store") String store,
                         @RequestParam("phoneNum") String phoneNum,
                         @RequestParam("password") String password,
-                        Model model){
+                        RedirectAttributes redirectAttributes){
 
         LoginRequestDto dto = new LoginRequestDto(store, phoneNum, password);
         User user = loginService.login(dto);
 
         if (user != null) {
-            return "pages/user/product";
+            /*return "pages/user/product";*/
+            return "redirect:/page/user/product";
         } else {
-            model.addAttribute("error", "비밀번호가 일치하지 않습니다.");
-            return "pages/user/login";
+            /*model.addAttribute("error", "비밀번호가 일치하지 않습니다.");
+            return "pages/user/login";*/
+            redirectAttributes.addFlashAttribute("error", "비밀번호가 일치하지 않습니다.");
+            return "redirect:/page/user/login";
         }
     }
 }

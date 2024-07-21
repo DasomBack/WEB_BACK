@@ -11,39 +11,41 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        // Submit the form
-               document.getElementById('loginForm').submit();
-           }
+        // Submit the form if there are no errors
+        document.getElementById('loginForm').submit();
+    }
 
-           function showModal(message) {
-               // Get the modal
-               const modal = document.getElementById('errorModal');
+    function showModal(message) {
+        // Get the modal
+        const modal = document.getElementById('errorModal');
 
-               // Change the modal message
-               const modalBody = modal.querySelector('.modal-body p');
-               if (modalBody) {
-                   modalBody.textContent = message;
-               }
+        // Change the modal message
+        const modalBody = modal.querySelector('.modal-body p');
+        if (modalBody) {
+            modalBody.textContent = message;
+        }
 
-               // Show the modal
-               $(modal).modal('show');
-           }
+        // Show the modal
+        $(modal).modal('show');
+    }
 
-           // Check if the close button exists before adding the event listener
-           const closeButton = document.querySelector('.modal .close');
-           if (closeButton) {
-               closeButton.addEventListener('click', function(){
-                   $('#errorModal').modal('hide');
-               });
-           }
+    // Check if the close button exists before adding the event listener
+    const closeButton = document.querySelector('.modal .close');
+    if (closeButton) {
+        closeButton.addEventListener('click', function(){
+            $('#errorModal').modal('hide');
+        });
+    }
 
-           // Check for error message from server
-           let errorMessage = /*[[${error}]]*/ '[[${error}]]';
-           if (errorMessage && errorMessage.trim() !== '[[${error}]]') {
-               showModal(errorMessage);
-           }
+    // Check for error message from server
+    const errorMessageElement = document.getElementById('errorModal');
+    if (errorMessageElement) {
+        const errorMessage = errorMessageElement.getAttribute('data-error-message');
+        if (errorMessage && errorMessage.trim() !== '') {
+            showModal(errorMessage);
+        }
+    }
 
-
-        // Attach validateAndSubmit to the button click event
-        document.querySelector('.auth-form-btn').addEventListener('click', validateAndSubmit);
-    });
+    // Attach validateAndSubmit to the button click event
+    document.querySelector('.auth-form-btn').addEventListener('click', validateAndSubmit);
+});
