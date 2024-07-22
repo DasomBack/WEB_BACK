@@ -1,6 +1,5 @@
 function validateAndSubmit() {
   // Get form elements
-  const store = document.getElementById('exampleInputStorename1').value;
   const name = document.getElementById('exampleInputUsername1').value;
   const phoneNum = document.getElementById('exampleInputPhonenum1').value;
   const email = document.getElementById('exampleInputEmail1').value;
@@ -9,7 +8,7 @@ function validateAndSubmit() {
   const passwordMatchStatus = document.getElementById('passwordMatchStatus').className;
 
   // Check if all fields are filled
-  if (!store || !name || !phoneNum || !email) {
+  if (!name || !phoneNum || !email) {
     showModal('모든 필드를 올바르게 채워주세요.');
     return;
   }
@@ -41,6 +40,6 @@ function showModal(message) {
   $(modal).modal('show');
 }
 
-document.querySelector('.modal .btn-secondary').addEventListener('click', function(){
+document.querySelector('.modal .close').addEventListener('click', function(){
     $('#errorModal').modal('hide');
 });

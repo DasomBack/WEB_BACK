@@ -3,9 +3,7 @@ package com._thefull.dasom_web_demo.domain.store.domain;
 import com._thefull.dasom_web_demo.domain.menu.domain.Menu;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.MenuPromotion;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Null;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -13,7 +11,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 @Entity
 @AllArgsConstructor
