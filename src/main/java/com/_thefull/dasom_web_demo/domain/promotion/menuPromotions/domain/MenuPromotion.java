@@ -13,6 +13,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.internal.util.stereotypes.ThreadSafe;
 
+import java.sql.Time;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -21,6 +22,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "MENU_PROMOTIONS")
+@NoArgsConstructor
 @Getter @SuperBuilder
 public class MenuPromotion extends BasePromotionEntity {
 
@@ -73,40 +75,29 @@ public class MenuPromotion extends BasePromotionEntity {
 
     @PostLoad
     public void setIsDiscRate(){
+        Date date=new Date("0000.00.00");
+
         if (this.discRate==0)
             this.isDiscRate=false;
         else
             this.isDiscRate=true;
     }
 
-    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, int freq){
-        LocalDateTime starttime = dto.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
-        LocalDateTime now = LocalDateTime.now();
-        Status status = Status.IN_PROGRESS;
-        if (now.isBefore(starttime)){
-            status=Status.SCHEDULED;
-        }
+    public MenuPromotion(MenuPromotionRequestDTO dto, int freq, Store store,Menu menu) {
 
-        return MenuPromotion.builder()
-                .status(status)
-                .menu(menu)
-                .price(dto.getPrice())
-                .discVal(dto.getDiscVal())
-                .discPrice(dto.getDiscPrice())
-                .startDate(dto.getStartDate())
-                .endDate(dto.getEndDate())
-                .isAlways(dto.isAlways())
-                .startTime(dto.getStartTime())
-                .endTime(dto.getEndTime())
-                .mentStartTime(dto.getMentStartTime())
-                .mentEndTime(dto.getMentEndTime())
-                .mentFreq(freq)
-                .isAddCond(dto.isAddCond())
-                .addDiscCond(dto.getAddDiscCond())
-                .isAddDesc(dto.isAddDesc())
-                .addDesc(dto.getAddDesc())
-                .ment(dto.getMent())
-                .build();
+        super(true, Status.IN_PROGRESS,dto.getStartDate(),dto.getEndDate(),dto.getStartTime(),dto.getEndTime(),
+                dto.getMentStartTime(),dto.getMentEndTime(),freq,dto.isAddDesc(),dto.getAddDesc(),dto.getMent());
+        this.isDisc = dto.isAddDesc();
+        this.price =dto.getPrice();
+        this.discPrice = dto.getDiscPrice();
+        this.discVal = dto.getDiscVal();
+        this.discRate= 0;
+        this.isAddCond =dto.isAddCond();
+        this.addDiscCond =dto.getAddDiscCond();
+        this.isAlways =dto.isAlways();
+        this.store = store;
+        this.menu = menu;
     }
+
 
 }
