@@ -24,6 +24,8 @@ import java.util.Date;
 @Table(name = "MENU_PROMOTIONS")
 @NoArgsConstructor
 @Getter @SuperBuilder
+@NoArgsConstructor
+@AllArgsConstructor
 public class MenuPromotion extends BasePromotionEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
