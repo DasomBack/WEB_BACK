@@ -5,15 +5,15 @@
 </head>
 <body>
 
-<div th:replace="fragments/head :: head"></div>
+    <th:block th:include="fragments/content1 :: content1"></th:block>
 
-============================================
+    ============================================
 
-<div th:replace="fragments/middle :: middle"></div>
+    <div th:replace="fragments/content2 :: content2"></div>
 
-============================================
+    ============================================
 
-<div th:replace="fragments/foot :: foot"></div>
+    <th:block th:include="fragments/content3 :: content3"></th:block>
 
 </body>
 </html>

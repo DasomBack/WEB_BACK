@@ -36,11 +36,13 @@ public class MenuPromotionService {
     public List<MenuPromotionResponseDTO> findAllPromotionList(Long storeId) {
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾을 수 없습니다"));
+        System.out.println(store.getId());
 
         List<MenuPromotionResponseDTO> responseDTOList = new ArrayList<>();
         List<MenuPromotion> findPromoList = menuPromotionsRepository.findByStore(store);
         for (MenuPromotion mp : findPromoList){
             if (mp.getStatus()!= Status.COMPLETED) {
+                System.out.println(mp.getStore().getId());
                 MenuPromotionResponseDTO e = MenuPromotionResponseDTO.from(mp);
                 responseDTOList.add(e);
             }
@@ -55,7 +57,6 @@ public class MenuPromotionService {
         Menu menu = menuRepository.findByName(dto.getMenu())
                 .orElseThrow(()-> new AppException(ErrorCode.NOT_FOUND_MENU, "메뉴를 찾을 수 없습니다"));
         int freq = calculateFreq(dto.getInterval(), dto.getMentEndTime(), dto.getMentStartTime());
-        MenuPromotion newEntity = MenuPromotion.from(dto, menu, freq);
         menuPromotionsRepository.save(newEntity);
 
     }
