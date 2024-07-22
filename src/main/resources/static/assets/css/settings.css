@@ -1,8 +1,4 @@
-.main-content {
-    display: flex;
-}
-
-.location-list{
+.dasomLoaction .location-list{
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -10,7 +6,7 @@
     width: 300px;
 }
 
-.location-list li{
+.dasomLoaction .location-list li{
     border: 1px solid;
     width: 100px;
     height: 100px;
@@ -21,26 +17,36 @@
 
 }
 
-.location-list li > p {
+.dasomLoaction .location-list li > p {
     margin: 0;
+}
+
+
+.dasom-location-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.dasom-location-register,
+.dasom-location-input {
+    flex: 1; /* 각 섹션이 동일한 크기를 가지도록 설정 */
+    margin-right: 10px; /* 두 섹션 사이에 약간의 간격 추가 */
 }
 
 .dasom-location-input {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 80px;
 }
 
-.location-group {
-  display: flex;
-  align-items: center;
+.dasomLoaction .location-group label {
+  width: 125px;
+  margin-right: 20px;
 }
 
-.location-group label {
-  width: 120px; /* 라벨의 너비를 동일하게 설정합니다. */
- /* text-align: left;*/ /* 라벨 텍스트를 왼쪽 정렬합니다. */
-  margin-right: 8px; /* 라벨과 입력 박스 사이의 간격을 설정합니다. */
-  margin-bottom: 10px;
+.dasomLoaction .form-buttons{
+margin-top:50px;
+text-align: center;
 }
