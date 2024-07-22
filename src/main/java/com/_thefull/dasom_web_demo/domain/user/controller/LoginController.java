@@ -21,7 +21,7 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@RequestParam("phoneNum") String phoneNum,
                         @RequestParam("password") String password,
-                        RedirectAttributes redirectAttributes){
+                        Model model){
 
         LoginRequestDto dto = new LoginRequestDto(phoneNum, password);
         User user = loginService.login(dto);
@@ -29,7 +29,7 @@ public class LoginController {
         if (user != null) {
             return "redirect:/page/user/product";
         } else {
-            redirectAttributes.addFlashAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");
+            model.addAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");
             return "redirect:/page/user/login";
         }
     }

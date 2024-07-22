@@ -6,3 +6,14 @@
     color: #777;
     text-decoration: none;
 }
+
+.login .modal .close{
+    font-size:1.875rem;
+    border:none;
+    background:none;
+}
+
+.login .modal .title{
+    margin-top:0.3rem;
+    margin-bottom:0rem;
+}
