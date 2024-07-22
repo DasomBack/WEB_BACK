@@ -69,7 +69,7 @@ public class MenuPromotionService {
         List<MenuPromotionResponseDTO> responseDTOList = new ArrayList<>();
         List<MenuPromotion> findPromoList = menuPromotionsRepository.findByStore(store);
         for (MenuPromotion mp : findPromoList){
-            if (mp.getStatus()== Status.COMPLETED) {
+            if (mp.getStatus() == Status.COMPLETED) {
                 MenuPromotionResponseDTO e = MenuPromotionResponseDTO.from(mp);
                 responseDTOList.add(e);
             }
