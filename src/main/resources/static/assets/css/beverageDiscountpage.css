@@ -10,6 +10,13 @@
     border: 1em;
 }*/
 
+.modal{
+    align: center;
+    width: 300px;
+    height: 250px;
+    font-size: 1em;
+    background-color: white;
+}
 
 /*제품할인 리스트*/
 

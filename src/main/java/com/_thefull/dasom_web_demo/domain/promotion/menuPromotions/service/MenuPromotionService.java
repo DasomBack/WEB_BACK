@@ -15,10 +15,12 @@ import jakarta.persistence.PrePersist;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.cglib.core.Local;
 import org.springframework.stereotype.Service;
 
 import java.sql.Time;
 import java.time.Duration;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -78,9 +80,9 @@ public class MenuPromotionService {
         return responseDTOList;
     }
 
-    private int calculateFreq(int interval, Time mentEndTime, Time mentStartTime){
+    private int calculateFreq(int interval, LocalTime mentEndTime, LocalTime mentStartTime){
         Duration duration;
-        Long minutes = Duration.between(mentEndTime.toLocalTime(),mentStartTime.toLocalTime()).toMinutes();
+        Long minutes = Duration.between(mentEndTime,mentStartTime).toMinutes();
         return (int)(minutes/interval);
     }
 

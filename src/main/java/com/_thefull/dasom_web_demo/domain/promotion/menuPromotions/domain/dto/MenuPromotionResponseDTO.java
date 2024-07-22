@@ -7,6 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 @Getter
@@ -24,12 +26,12 @@ public class MenuPromotionResponseDTO {
     int discVal;
 
     boolean isAlways;
-    Date startDate;
-    Date endDate;
-    Time startTime;
-    Time endTime;
-    Time mentStartTime;
-    Time mentEndTime;
+    String startDate;
+    String endDate;
+    String startTime;
+    String endTime;
+    String mentStartTime;
+    String mentEndTime;
 
     int freq;
 
@@ -39,7 +41,31 @@ public class MenuPromotionResponseDTO {
     String addDesc;
     String ment;
 
+
+    public boolean getIsRate(){
+        return isRate;
+    }
+
+    public boolean getIsAddCond(){
+        return isAddCond;
+    }
+
+    public boolean getIsAddDesc(){
+        return isAddDesc;
+    }
+
     public static MenuPromotionResponseDTO from(MenuPromotion e){
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+        String startD = dateFormatter.format(e.getStartDate());
+        String endD = dateFormatter.format(e.getEndDate());
+
+        String startT = timeFormatter.format(e.getStartTime());
+        String endT = timeFormatter.format(e.getEndTime());
+        String MstartT = timeFormatter.format(e.getMentStartTime());
+        String MendT = timeFormatter.format(e.getMentEndTime());
+
 
         return MenuPromotionResponseDTO.builder()
                 .status(e.getStatus().name())
@@ -50,12 +76,12 @@ public class MenuPromotionResponseDTO {
                 .isRate(e.getIsDiscRate())
                 .discRate(e.getDiscRate())
                 .discVal(e.getDiscVal())
-                .startDate(e.getStartDate())
-                .endDate(e.getEndDate())
-                .startTime(e.getStartTime())
-                .endTime(e.getEndTime())
-                .mentStartTime(e.getMentStartTime())
-                .mentEndTime(e.getMentEndTime())
+                .startDate(startD)
+                .endDate(endD)
+                .startTime(startT)
+                .endTime(endT)
+                .mentStartTime(MstartT)
+                .mentEndTime(MendT)
                 .freq(e.getMentFreq())
                 .isAddCond(e.getIsAddCond())
                 .addCond(e.getAddDiscCond())

@@ -10,6 +10,8 @@ import lombok.experimental.SuperBuilder;
 
 import java.sql.Time;
 import java.time.Duration;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Getter
@@ -27,22 +29,22 @@ public abstract class BasePromotionEntity {
     private Status status;
 
     @Column(name = "START_DATE")
-    private Date startDate;
+    private LocalDate startDate;
 
     @Column(name = "END_DATE")
-    private Date endDate;
+    private LocalDate endDate;
 
     @Column(name = "START_TIME")
-    private Time startTime;
+    private LocalTime startTime;
 
     @Column(name = "END_TIME")
-    private Time endTime;
+    private LocalTime endTime;
 
     @Column(name = "MENT_START_TIME")
-    private Time mentStartTime;
+    private LocalTime mentStartTime;
 
     @Column(name = "MENT_END_TIME")
-    private Time mentEndTime;
+    private LocalTime mentEndTime;
 
     @Column(name = "MENT_FREQ")
     private int mentFreq;

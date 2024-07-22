@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 @Getter
@@ -17,13 +19,13 @@ public class MenuPromotionRequestDTO {
     private int discVal;
     private int discPrice;
 
-    private Date startDate;
-    private Date endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private boolean isAlways;
-    private Time startTime;
-    private Time endTime;
-    private Time mentStartTime;
-    private Time mentEndTime;
+    private LocalTime startTime;
+    private LocalTime endTime;
+    private LocalTime mentStartTime;
+    private LocalTime mentEndTime;
     private int interval;
 
     private boolean isAddCond;

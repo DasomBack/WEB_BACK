@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
         // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
         document.querySelectorAll('.dropdown-item').forEach(function(item) {
@@ -18,6 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
         $('#productModal').show();
 
          });
+
+        var closeModalBtn = document.getElementById('closeModalBtn');
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', function() {
+                $('#myModal').modal('hide');
+            });
+        } else {
+            console.error('Close modal button not found.');
+        }
 
         // 모달의 닫기 버튼을 클릭하면 모달을 숨김
         const closeButton = document.querySelector('#productModal .close');
@@ -113,6 +121,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
+
+
+//제품할인 추가 내용 모달창
+function openAdditionalContent(isAddCond, isAddDesc, addCond, addDesc, ment){
+
+    $('#myModal').modal('show');
+}
 
 //커스텀 셀렉트 박스
 let selectFlag;
