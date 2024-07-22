@@ -22,7 +22,6 @@ import java.util.Date;
 
 @Entity
 @Table(name = "MENU_PROMOTIONS")
-@NoArgsConstructor
 @Getter @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
