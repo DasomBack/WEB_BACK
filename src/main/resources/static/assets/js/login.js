@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     function validateAndSubmit() {
-        const store = document.getElementById('exampleInputStorecode1').value;
         const phoneNum = document.getElementById('exampleInputPhonenum1').value;
         const password = document.getElementById('exampleInputPassword1').value;
 
-        if (!store || !phoneNum || !password) {
+        if (!phoneNum || !password) {
             showModal('모든 필드를 올바르게 채워주세요.');
             return;
         }

@@ -19,12 +19,11 @@ public class LoginController {
     private final LoginService loginService;
 
     @PostMapping("/login")
-    public String login(@RequestParam("store") String store,
-                        @RequestParam("phoneNum") String phoneNum,
+    public String login(@RequestParam("phoneNum") String phoneNum,
                         @RequestParam("password") String password,
                         RedirectAttributes redirectAttributes){
 
-        LoginRequestDto dto = new LoginRequestDto(store, phoneNum, password);
+        LoginRequestDto dto = new LoginRequestDto(phoneNum, password);
         User user = loginService.login(dto);
 
         if (user != null) {

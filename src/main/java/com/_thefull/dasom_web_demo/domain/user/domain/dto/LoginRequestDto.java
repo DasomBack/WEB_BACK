@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LoginRequestDto {
 
-    private String store;
     private String phoneNum;
     private String password;
 
