@@ -27,7 +27,45 @@
                 <tbody>
                     <c:forEach items="${all_promotion_list}" var="promotion" varStatus="status">
                         <tr>
-                            <td>${promotion.status}</td>
+                            <td>
+                                <ul class="navbar-nav custom-input form-control">
+                                    <li class="nav-item dropdown d-lg-block">
+                                        <a class="dropdown-bordered dropdown-toggle"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            <span id="selectedItem"> ${promotion.status} </span>
+                                        </a>
+                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                             aria-labelledby="messageDropdown">
+                                            <a class="dropdown-item preview-item" data-value="진행중">
+                                                <div class="preview-item-content flex-grow">
+                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                        진행중</p>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item preview-item" data-value="예정">
+                                                <div class="preview-item-content flex-grow">
+                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                        예정</p>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item preview-item" data-value="중지">
+                                                <div class="preview-item-content flex-grow">
+                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                        중지</p>
+                                                </div>
+                                            </a>
+                                            <a class="dropdown-item preview-item" data-value="완료">
+                                                <div class="preview-item-content flex-grow">
+                                                    <p class="preview-subject ellipsis fw-medium text-dark">
+                                                        완료</p>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </td>
+
                             <td>${promotion.category}</td>
                             <td>${promotion.menu}</td>
                             <td>${promotion.price}</td>

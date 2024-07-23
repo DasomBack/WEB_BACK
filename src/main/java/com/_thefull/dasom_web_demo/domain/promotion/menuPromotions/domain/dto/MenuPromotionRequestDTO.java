@@ -24,20 +24,24 @@ public class MenuPromotionRequestDTO {
 
     private LocalDate startDate;
     private LocalDate endDate;
-    private boolean isAlways;
+    private boolean boolIsAlways;
     private LocalTime startTime;
     private LocalTime endTime;
     private LocalTime mentStartTime;
     private LocalTime mentEndTime;
     private int interval;
 
-    private boolean isAddCond;
+    private boolean boolAddCond;
     private String addDiscCond;
 
-    private boolean isAddDesc;
-    private String addDesc;
+    private boolean boolAddDesc;
+//    private String addDesc;
+    private String addMenuDesc;
 
     private String ment;
+
+    private boolean test;
+
 
 
 }

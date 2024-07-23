@@ -173,6 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function openAdditionalContent(isAddCond, isAddDesc, addCond, addDesc, ment){
     document.getElementById('modal-additional-cond').innerText = isAddCond ? addCond : "없음";
     document.getElementById('modal-product-desc').innerText = isAddDesc ? addDesc : "없음";
+    console.log(document.getElementById('modal-product-desc').innerText);
     document.getElementById('modal-ment').innerText = ment;
 
     const modal = document.querySelector('.modal-addc');
@@ -240,19 +241,17 @@ function toggleInput(radioName, inputName) {
             // 입력 필드의 활성화/비활성화 상태를 결정
             if (selectedValue === "yes") {
                 document.querySelector(`input[name='${inputName}']`).disabled = false;
+                var valueofisaddcondinput=document.getElementById('isAddDescInput');
+                var valueofisadddescinput=document.getElementById('isAddCondInput');
+
                 if (radioName=="isAddDesc-k"){
-                    document.getElementById('isAddDescInput').value=true;
+                    valueofisaddcondinput.value='true';
                 }else{
-                    document.getElementById('isAddCondInput').value=true;
+                    valueofisadddescinput.value='true';
                 }
 
             } else {
                 document.querySelector(`input[name='${inputName}']`).disabled = true;
-                if (radioName=="isAddDesc-k"){
-                    document.getElementById('isAddDescInput').value=false;
-                }else{
-                    document.getElementById('isAddCondInput').value=false;
-                }
             }
         });
     });
@@ -260,7 +259,7 @@ function toggleInput(radioName, inputName) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    toggleInput("isAddDesc-k", "addDesc");
+    toggleInput("isAddDesc-k", "addMenuDesc");
     toggleInput("isAddCond-k", "addDiscCond");
 });
 
