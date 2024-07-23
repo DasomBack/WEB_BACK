@@ -40,4 +40,9 @@ public class UserRegisterPageController {
         return "/user/resetpassword";
     }
 
+    @GetMapping("/dasomlocation")
+    public String dasomlocation(){
+        return "/settings/dasomlocation";
+    }
+
 }

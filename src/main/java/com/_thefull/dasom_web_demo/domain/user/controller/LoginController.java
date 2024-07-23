@@ -27,7 +27,7 @@ public class LoginController {
         User user = loginService.login(dto);
 
         if (user != null) {
-            return "redirect:/page/user/promotion";
+            return "redirect:/page/user/dasomlocation";
         } else {
             redirectAttributes.addFlashAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");
             return "redirect:/page/user/login";
