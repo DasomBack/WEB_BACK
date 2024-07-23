@@ -68,3 +68,11 @@
         margin-left: 0; /* 세로 정렬 시 왼쪽 마진 제거 */
     }
 }
+
+.selected {
+   background-color: #172d88;
+}
+
+.selected p {
+        color: #fff;
+    }
