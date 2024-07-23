@@ -61,8 +61,6 @@ public class MenuPromotionService {
         int freq = calculateFreq(dto.getInterval(), dto.getMentEndTime(), dto.getMentStartTime());
         MenuPromotion newEntity = MenuPromotion.from(dto, menu, freq, store);
 
-
-        System.out.println(newEntity.getStatus());
         menuPromotionsRepository.save(newEntity);
 
     }

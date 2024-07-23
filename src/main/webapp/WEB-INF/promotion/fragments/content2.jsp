@@ -105,7 +105,7 @@
                                 &nbsp~&nbsp
                                 <input type="date" class="custom-input form-control" id="endDate" name="endDate">
                                 <label class="custom-label">
-                                    <input type="checkbox" name="isAlways">
+                                    <input type="checkbox" name="boolIsAlways" id="isAlwaysCheckbox">
                                     &nbsp상시
                                 </label>
                             </div>
@@ -232,7 +232,7 @@
                                            id="discountOptionYes" value="yes">
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddCondInput" name="isAddCond">
+                                <input type="hidden" id="isAddCondInput" name="boolAddCond">
                                 <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" disabled>
                             </div>
                         </td>
@@ -248,8 +248,9 @@
                                             id="descriptionYes" value="yes">
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddDescInput" name="isAddDesc">
-                                <input type="text" class="custom-input form-control" id="addDescId" name="addDesc" disabled>
+                                <input type="hidden" id="isAddDescInput" name="boolAddDesc">
+                                <input type="text" class="custom-input form-control" id="addMentDescId" name="addMenuDesc" disabled>
+
                             </div>
                         </td>
                     </tr>
