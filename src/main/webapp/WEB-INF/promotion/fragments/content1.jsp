@@ -43,15 +43,18 @@
             </table>
         </div>
 
-        <div id="myModal" class="modal">
-            <div class="modal-content">
-                <button type="button" id="closeModalBtn">닫기</button>
-                <p>모달 내용을 입력하세요.</p>
+        <div id="additionalContentModal" class="modal-addc">
+            <div class="modal-popup-addc">
+                <ul>
+                    <li>할인 조건 추가    <span id="modal-additional-cond"></span></li>
+                    <li>제품 소개    <span id="modal-product-desc"></span></li>
+                    <li>AI 멘트 생성    <span id="modal-ment"></span></li>
+                </ul>
+                <button type="button" class="close-btn-addc" onclick="closeAdditionalContent()">닫기</button>
             </div>
         </div>
-
-
     </div>
+
     <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
 
 </body>
