@@ -111,11 +111,10 @@ document.addEventListener('DOMContentLoaded', function() {
                  ProductSearchBtn.innerText = selectedProductName;
 
                  document.getElementById('menunameInput').value=selectedProductName;
-                 console.log(document.getElementById('menunameInput').value);
                  var ProductPrice = document.getElementById('productPrice');
                  ProductPrice.innerText = selectedProductPrice;
 
-                 document.getElementById('priceInput').value=parseInt(selectedProductPrice);
+                 document.getElementById('priceInput').value=parseInt(selectedProductPrice.replace(/,/g,''));
 
 
                 var selectButton = document.getElementById('selectBtn');
@@ -234,31 +233,37 @@ $('.custom-select-option').on('click', function() {
 
 // 라디오버튼 "없음" 클릭시 input창 disable
 function toggleInput(radioName, inputName) {
-    $("input:radio[name=" + radioName + "]").click(function() {
-        if ($("input[name=" + radioName + "]:checked").val() == "yes") {
-            $("input:text[name=" + inputName + "]").attr("disabled", false);
+    document.querySelectorAll(`input[name='${radioName}']`).forEach(function(radio) {
+        radio.addEventListener('click', function() {
+            var selectedValue = document.querySelector(`input[name='${radioName}']:checked`).value;
 
-            if (radioName=="isAddDesc-k"){
-                document.getElementById('isAddDescInput').value=true;
-            }else{
-                document.getElementById('isAddCondInput').value=true;
+            // 입력 필드의 활성화/비활성화 상태를 결정
+            if (selectedValue === "yes") {
+                document.querySelector(`input[name='${inputName}']`).disabled = false;
+                if (radioName=="isAddDesc-k"){
+                    document.getElementById('isAddDescInput').value=true;
+                }else{
+                    document.getElementById('isAddCondInput').value=true;
+                }
+
+            } else {
+                document.querySelector(`input[name='${inputName}']`).disabled = true;
+                if (radioName=="isAddDesc-k"){
+                    document.getElementById('isAddDescInput').value=false;
+                }else{
+                    document.getElementById('isAddCondInput').value=false;
+                }
             }
-
-
-        } else if ($("input[name=" + radioName + "]:checked").val() == "none") {
-            $("input:text[name=" + inputName + "]").attr("disabled", true);
-
-            if (radioName=="isAddDesc-k"){
-                document.getElementById('isAddDescInput').value=false;
-            }else{
-                document.getElementById('isAddCondInput').value=false;
-            }
-        }
+        });
     });
+
 }
 
-toggleInput("isAddDesc-k", "addDesc");
-toggleInput("isAddCond-k", "addDiscCond");
+document.addEventListener('DOMContentLoaded', function() {
+    toggleInput("isAddDesc-k", "addDesc");
+    toggleInput("isAddCond-k", "addDiscCond");
+});
+
 
 function createMent(){
     document.getElementById("ment-text").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";

@@ -25,22 +25,31 @@
 }
 
 .modal-addc{
+    background-color: #fffff0;
     display: none;
-    position: absolute;
-    overflow: hidden;
+    position: fixed;
+    justify-content:center; //수평 중앙정렬
+    align-items:center;
+    border-radius: 20px;
+
+    top:20%;
+    left:40%;
+    width:300px;
+    height:200px;
+    z-index: 1000;
+    padding:15px;
+    overflow: auto;
 
 }
 
 .modal-addc .modal_popup-addc{
-    display: none;
+    font-color: black;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
     padding: 20px;
-    background: #ffffff;
     border-radius: 20px;
-
+    background-color:#264db5;
 }
 
 .modal-addc .modal_group-addc .class_btn-addc{
@@ -52,6 +61,34 @@
     color: #fff;
     cursor: pointer;
     transition: box-shadow 0.2s;
+}
+
+.modal-popup-addc ul {
+    list-style-type: none; /* 불릿 제거 */
+    padding: 0;
+    margin: 0;
+}
+
+.modal-popup-addc li {
+    margin-bottom: 10px; /* 항목 사이 간격 */
+}
+
+.modal-popup-addc span {
+    font-weight: bold; /* 텍스트를 굵게 표시 */
+}
+
+.close-btn-addc {
+    background-color: #007bff; /* 버튼 배경 색상 */
+    color: #fff; /* 버튼 텍스트 색상 */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer; /* 클릭 가능한 커서 */
+    font-size: 16px; /* 폰트 크기 */
+}
+
+.close-btn-addc:hover {
+    background-color: #0056b3; /* 호버 시 배경 색상 변경 */
 }
 
 .modal-addc.on{
