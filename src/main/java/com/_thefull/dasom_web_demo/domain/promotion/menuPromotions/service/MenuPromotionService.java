@@ -59,7 +59,10 @@ public class MenuPromotionService {
         Menu menu = menuRepository.findByName(dto.getMenu())
                 .orElseThrow(()-> new AppException(ErrorCode.NOT_FOUND_MENU, "메뉴를 찾을 수 없습니다"));
         int freq = calculateFreq(dto.getInterval(), dto.getMentEndTime(), dto.getMentStartTime());
-        MenuPromotion newEntity = MenuPromotion.from(dto, menu, freq);
+        MenuPromotion newEntity = MenuPromotion.from(dto, menu, freq, store);
+
+
+        System.out.println(newEntity.getStatus());
         menuPromotionsRepository.save(newEntity);
 
     }
@@ -82,7 +85,7 @@ public class MenuPromotionService {
 
     private int calculateFreq(int interval, LocalTime mentEndTime, LocalTime mentStartTime){
         Duration duration;
-        Long minutes = Duration.between(mentEndTime,mentStartTime).toMinutes();
+        Long minutes = Duration.between(mentStartTime,mentEndTime).toMinutes();
         return (int)(minutes/interval);
     }
 
