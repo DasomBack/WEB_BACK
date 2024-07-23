@@ -1,4 +1,14 @@
  $(document).ready(function() {
+
+ // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
+       /*  document.querySelectorAll('.nav-item').forEach(function(item) {
+             item.addEventListener('click', function() {
+                 var selectedText = this.getAttribute('data-value');
+                 var parentDropdown = this.closest('.dropdown-bordered').previousElementSibling;
+                 parentDropdown.querySelector('li').textContent = selectedText;
+             });
+         });*/
+
             $('.location-list li').click(function() {
                 var text = $(this).text().trim();
                 if (text === '다솜') {
