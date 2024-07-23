@@ -296,30 +296,31 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">다솜 위치 등록</h4>
+                            <form action="/api/robotLocation/register" method="post">
                             <div class="dasom-location-radio">
                                 <p><strong>1. 카페 안에서 다솜이 있는 위치를 설정해 주세요.</strong></p>
                                 <label class="custom-label first-label" for="entrance">
-                                    <input type="radio" name="robotLocation"
+                                    <input type="radio" name="location"
                                            id="entrance" checked>
                                     입구 근처
                                 </label>
                                 <label class="custom-label" for="counter">
-                                    <input type="radio" name="robotLocation"
+                                    <input type="radio" name="location"
                                            id="counter">
                                     계산대 근처
                                 </label>
                                 <label class="custom-label" for="pickupTable">
-                                    <input type="radio" name="robotLocation"
+                                    <input type="radio" name="location"
                                            id="pickupTable">
                                     픽업테이블 근처
                                 </label>
                                 <label class="custom-label" for="goodsDisplay">
-                                    <input type="radio" name="robotLocation"
+                                    <input type="radio" name="location"
                                            id="goodsDisplay">
                                     굿즈 매대 근처
                                 </label>
                                 <label class="custom-label" for="other">
-                                    <input type="radio" name="robotLocation"
+                                    <input type="radio" name="location"
                                            id="other">
                                     기타
                                 </label>
@@ -364,7 +365,7 @@
 
                                         <input type="text"
                                                class="custom-input form-control dropdown-bordered dropdown-toggle"
-                                               id="input1" name="left" disabled
+                                               id="input1" name="leftSide" disabled
                                                data-bs-toggle="dropdown"
                                                aria-expanded="false">
                                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
@@ -389,7 +390,7 @@
                                     </div>
                                     <div class="location-group">
                                         <label for="input4">② 다솜 왼쪽 앞</label>
-                                        <input type="text" class="custom-input form-control" id="input4" name="left-front"
+                                        <input type="text" class="custom-input form-control" id="input4" name="leftFront"
                                                disabled>
                                     </div>
                                     <div class="location-group">
@@ -399,12 +400,12 @@
                                     </div>
                                     <div class="location-group">
                                         <label for="input3">④ 다솜 오른쪽</label>
-                                        <input type="text" class="custom-input form-control" id="input3" name="right"
+                                        <input type="text" class="custom-input form-control" id="input3" name="rightSide"
                                                disabled>
                                     </div>
                                     <div class="location-group">
                                         <label for="input6">⑤ 다솜 오른쪽 앞</label>
-                                        <input type="text" class="custom-input form-control" id="input6" name="right-front"
+                                        <input type="text" class="custom-input form-control" id="input6" name="rightFront"
                                                disabled>
                                     </div>
                                 </div>
@@ -413,7 +414,7 @@
                                 <!-- 삭제 버튼은 제품 할인 영역에서 "수정" 버튼 눌렀을 시 생김
                                 <button type="button" class="btn btn-outline-primary">삭제
                                 </button>-->
-                                <button type="button" class="btn btn-primary">저장
+                                <button type="submit" class="btn btn-primary">저장
                                 </button>
                             </div>
                         </div>

@@ -1,11 +1,9 @@
 package com._thefull.dasom_web_demo.domain.user.domain;
 
+/*import com._thefull.dasom_web_demo.domain.robot.domain.Robot;*/
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -14,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
 @Entity(name = "USER")
 @EntityListeners(AuditingEntityListener.class)
@@ -49,6 +47,11 @@ public class User {
     @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Store> storeList = new ArrayList<>();
+
+/*    @Builder.Default
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Robot> robots = new ArrayList<>();*/
+
 
 
 

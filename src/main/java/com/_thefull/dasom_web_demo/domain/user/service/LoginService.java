@@ -1,6 +1,6 @@
 package com._thefull.dasom_web_demo.domain.user.service;
 
-import com._thefull.dasom_web_demo.domain.dto.LoginRequestDto;
+import com._thefull.dasom_web_demo.domain.user.domain.dto.LoginRequestDto;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
 import com._thefull.dasom_web_demo.domain.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
