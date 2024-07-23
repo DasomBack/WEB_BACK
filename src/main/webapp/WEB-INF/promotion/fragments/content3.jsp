@@ -31,14 +31,10 @@
                         <td>${promotion.menu}</td>
                         <td>${promotion.price}</td>
                         <td>${promotion.discPrice}</td>
-                        <td>${promotion.startDate}</td>
-                        <td>${promotion.endDate}</td>
-                        <td>${promotion.startTime}</td>
-                        <td>${promotion.endTime}</td>
-                        <td>${promotion.mentStartTime}</td>
-                        <td>${promotion.mentEndTime}</td>
+                        <td>${promotion.startDate} ~ ${promotion.endDate}</td>
+                        <td>${promotion.startTime} ~ ${promotion.endTime}</td>
+                        <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
                         <td>${promotion.freq}</td>
-                        <td>${promotion.ment}</td>
                     </tr>
                 </c:forEach>
             </tbody>
