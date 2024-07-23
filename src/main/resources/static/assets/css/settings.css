@@ -26,6 +26,7 @@
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap; /* 화면 크기가 작아지면 줄 바꿈 */
+    margin-top:60px;
 }
 
 .dasom-location-register,
@@ -46,10 +47,26 @@
     margin-left: 5%;
 }
 
+.dasomLoaction .location-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+}
+
+
 .dasomLoaction .location-group label {
     width: 125px;
     margin-right: 1.5em;
 }
+
+.dasomLoaction .location-group input {
+        max-width: 20rem;
+        width: 100%;
+        height: 1.8rem;
+        box-sizing: border-box;
+        font-size: 1em;
+        padding: 0 0.625rem;
+    }
 
 .dasomLoaction .form-buttons {
     margin-top: 3em;
@@ -69,10 +86,10 @@
     }
 }
 
-.selected {
+.dasomLoaction .selected {
    background-color: #172d88;
 }
 
-.selected p {
+.dasomLoaction .selected p {
         color: #fff;
     }
