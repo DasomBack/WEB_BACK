@@ -38,8 +38,7 @@ public class JSPmainController {
     @PostMapping("/register")
     public String registerMenuPromotion(@ModelAttribute MenuPromotionRequestDTO requestDTO, Model model){
         System.out.println("JSPmainController.registerMenuPromotion");
-        System.out.println(requestDTO.getAddDiscCond());
-        System.out.println(requestDTO.getAddDesc());
+        System.out.println(requestDTO.getAddMenuDesc());
         menuPromotionService.registerMenuPromotion(storeId, requestDTO);
 
         return "redirect:/api/promotion-discount/main";

@@ -68,7 +68,7 @@ public class MenuPromotionResponseDTO {
 
 
         return MenuPromotionResponseDTO.builder()
-                .status(e.getStatus().name())
+                .status(e.getStatus().getStateType())
                 .category(e.getMenu().getCategory().getSimpleName())
                 .menu(e.getMenu().getName())
                 .price(e.getPrice())
