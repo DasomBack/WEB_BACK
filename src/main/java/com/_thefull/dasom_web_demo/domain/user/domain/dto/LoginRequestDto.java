@@ -1,4 +1,4 @@
-package com._thefull.dasom_web_demo.domain.dto;
+package com._thefull.dasom_web_demo.domain.user.domain.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
