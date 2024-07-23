@@ -101,11 +101,18 @@
         width: 100%;
 
 }
+.dasomLoaction .dropdown-options{
+    padding:0.5rem;
+}
+
 
 .dasomLoaction .dropdown-options li{
+   list-style:none;
      border-radius: 3rem;
      border: 1px solid #dee2e6;
 /*     padding: 0.3rem;*/
      cursor:pointer;
      width: 22%;
+     display:inline-block; !important
+     text-align:center;
 }

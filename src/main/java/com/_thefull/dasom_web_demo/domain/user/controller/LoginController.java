@@ -3,6 +3,7 @@ package com._thefull.dasom_web_demo.domain.user.controller;
 import com._thefull.dasom_web_demo.domain.dto.LoginRequestDto;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
 import com._thefull.dasom_web_demo.domain.user.service.LoginService;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -21,12 +22,14 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@RequestParam("phoneNum") String phoneNum,
                         @RequestParam("password") String password,
-                        RedirectAttributes redirectAttributes){
+                        RedirectAttributes redirectAttributes,
+                        HttpSession session){
 
         LoginRequestDto dto = new LoginRequestDto(phoneNum, password);
         User user = loginService.login(dto);
 
         if (user != null) {
+            session.setAttribute("userId",user);
             return "redirect:/page/user/dasomlocation";
         } else {
             redirectAttributes.addFlashAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");

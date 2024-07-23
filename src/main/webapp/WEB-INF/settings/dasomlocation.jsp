@@ -8,10 +8,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin2 </title>
+    <title>다솜 위치 설정</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/beverageDiscountpage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/settings.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/feather/feather.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/ti-icons/css/themify-icons.css">
@@ -84,7 +84,7 @@
                     </div>
                 </li>
                 <li class="nav-item d-none d-lg-block">
-                    <p id="login-user-info">원더풀바게트(양재) <strong>구다솜(점주)</strong></p>
+                    <p id="login-user-info">원더풀플랫폼(양재) <strong>${sessionScope.userId.name}(사장)</strong></p>
                 </li>
                 <!--<li class="nav-item">
                     <form class="search-form" action="#">
@@ -209,109 +209,320 @@
         </div>
     </nav>
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
-        <!-- partial:../../partials/_sidebar.html -->
-        <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="../../index.html">
-                        <i class="mdi mdi-grid-large menu-icon"></i>
-                        <span class="menu-title">관리자 페이지</span>
-                    </a>
-                </li>
-                <!--            <li class="nav-item nav-category">UI Elements</li>-->
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
-                       aria-controls="ui-basic">
-                        <i class="menu-icon mdi mdi-floor-plan"></i>
-                        <span class="menu-title">영업 데이터 통계 </span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="ui-basic">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="../../ui-features/buttons.html">Buttons</a>
-                            </li>
-                            <li class="nav-item"><a class="nav-link"
-                                                    href="../../ui-features/dropdowns.html">Dropdowns</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                                    href="../../ui-features/typography.html">Typography</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
-                       aria-controls="form-elements">
-                        <i class="menu-icon mdi mdi-card-text-outline"></i>
-                        <span class="menu-title">재고관리</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="form-elements">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="../../forms/basic_elements.html">Basic
-                                Elements</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false"
-                       aria-controls="charts">
-                        <i class="menu-icon mdi mdi-chart-line"></i>
-                        <span class="menu-title">다솜 홍보 등록</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="charts">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link"
-                                                    href="../../main/promotion3/auto_promo1.html">자동영업</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                                    href="../../main/promotion3/product_discount2.html">제품할인</a></li>
-                            <li class="nav-item"><a class="nav-link"
-                                                    href="../../main/promotion3/event_promo3.html">프로모션</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../main/promotion3/announcement4.html">공지사항</a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
-                       aria-controls="tables">
-                        <i class="menu-icon mdi mdi-table"></i>
-                        <span class="menu-title">매장정보</span>
-                        <i class="menu-arrow"></i>
-                    </a>
-                    <div class="collapse" id="tables">
-                        <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">Basic
-                                table</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_sidebar.html -->
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../index.html">
+                            <i class="mdi mdi-grid-large menu-icon"></i>
+                            <span class="menu-title">관리자 페이지</span>
+                        </a>
+                    </li>
+                    <!--            <li class="nav-item nav-category">UI Elements</li>-->
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
+                           aria-controls="ui-basic">
+                            <i class="menu-icon mdi mdi-floor-plan"></i>
+                            <span class="menu-title">영업 데이터 통계 </span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="ui-basic">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="../../ui-features/buttons.html">Buttons</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="../../ui-features/dropdowns.html">Dropdowns</a></li>
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="../../ui-features/typography.html">Typography</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#form-elements" aria-expanded="false"
+                           aria-controls="form-elements">
+                            <i class="menu-icon mdi mdi-card-text-outline"></i>
+                            <span class="menu-title">재고관리</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="form-elements">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="../../forms/basic_elements.html">Basic
+                                    Elements</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false"
+                           aria-controls="charts">
+                            <i class="menu-icon mdi mdi-chart-line"></i>
+                            <span class="menu-title">다솜 홍보 등록</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="charts">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="../../main/promotion3/auto_promo1.html">자동영업</a></li>
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="../../main/promotion3/product_discount2.html">제품할인</a></li>
+                                <li class="nav-item"><a class="nav-link"
+                                                        href="../../main/promotion3/event_promo3.html">프로모션</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../../main/promotion3/announcement4.html">공지사항</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
+                           aria-controls="tables">
+                            <i class="menu-icon mdi mdi-table"></i>
+                            <span class="menu-title">설정</span>
+                            <i class="menu-arrow"></i>
+                        </a>
+                        <div class="collapse" id="tables">
+                            <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">내 정보 관리</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">매장정보 관리</a></li>
+                                <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">다솜기기 관리</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+    <!-- partial -->
 
-        </nav>
-        <!-- partial -->
-        <div class="main-panel">
-            <div class="content-wrapper">
-                <div class="row">
-                    <div class="col-lg-12 grid-margin">
-                        <div class="card discount-list">
+    <div class="main-panel">
+                <div class="content-wrapper dasomLoaction">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">다솜 위치 등록</h4>
+                            <div class="dasom-location-radio">
+                                <p><strong>1. 카페 안에서 다솜이 있는 위치를 설정해 주세요.</strong></p>
+                                <label class="custom-label first-label" for="entrance">
+                                    <input type="radio" name="robotLocation"
+                                           id="entrance" checked>
+                                    입구 근처
+                                </label>
+                                <label class="custom-label" for="counter">
+                                    <input type="radio" name="robotLocation"
+                                           id="counter">
+                                    계산대 근처
+                                </label>
+                                <label class="custom-label" for="pickupTable">
+                                    <input type="radio" name="robotLocation"
+                                           id="pickupTable">
+                                    픽업테이블 근처
+                                </label>
+                                <label class="custom-label" for="goodsDisplay">
+                                    <input type="radio" name="robotLocation"
+                                           id="goodsDisplay">
+                                    굿즈 매대 근처
+                                </label>
+                                <label class="custom-label" for="other">
+                                    <input type="radio" name="robotLocation"
+                                           id="other">
+                                    기타
+                                </label>
+                            </div>
 
+                            <div class="dasom-location-container">
+                                <div class="dasom-location-register">
+                                    <p><strong>2. 다솜 주변에 판매제품이 전개되어 있다면 번호를 선택해 주세요</strong></p>
+                                    <div class="main-content">
+                                        <ul class="location-list">
+                                            <li>
+                                                <p>①</p>
+                                                <p>다솜왼쪽</p>
+                                            </li>
+                                            <li>
+                                                <p>다솜</p>
+                                            </li>
+                                            <li>
+                                                <p>④</p>
+                                                <p>다솜 오른쪽</p>
+                                            </li>
+                                            <li>
+                                                <p>②</p>
+                                                <p>다솜 왼 앞</p>
+                                            </li>
+                                            <li>
+                                                <p>③</p>
+                                                <p>다솜 앞</p>
+                                            </li>
+                                            <li>
+                                                <p>⑤</p>
+                                                <p>다솜 오른 앞</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="dasom-location-input">
+                                    <p><strong>3. 어떤 제품이 전개되어 있는지 선택해 주세요.<br> (최대 2개까지 선택)</strong></p>
+                                    <div class="location-group">
+                                        <label for="input1">① 다솜 왼쪽</label>
+
+                                        <input type="text"
+                                               class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                               id="input1" name="left" disabled
+                                               data-bs-toggle="dropdown"
+                                               aria-expanded="false">
+                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                             aria-labelledby="messageDropdown">
+                                            <!-- <a class="dropdown-item preview-item">-->
+                                            <ul class="dropdown-options">
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">베이커리</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">디저트</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">샌드위치</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">샐러드</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">계산대</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">유제품</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">병음료</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">케이크</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">창가자리</li>
+                                                <li class="nav-item dropdown d-lg-block" data-value="베이커리">직접입력</li>
+                                            </ul>
+                                            <!--  </a>-->
+                                        </div>
+
+
+                                    </div>
+                                    <div class="location-group">
+                                        <label for="input4">② 다솜 왼쪽 앞</label>
+                                        <input type="text" class="custom-input form-control" id="input4" name="left-front"
+                                               disabled>
+                                    </div>
+                                    <div class="location-group">
+                                        <label for="input5">③ 다솜 앞</label>
+                                        <input type="text" class="custom-input form-control" id="input5" name="front"
+                                               disabled>
+                                    </div>
+                                    <div class="location-group">
+                                        <label for="input3">④ 다솜 오른쪽</label>
+                                        <input type="text" class="custom-input form-control" id="input3" name="right"
+                                               disabled>
+                                    </div>
+                                    <div class="location-group">
+                                        <label for="input6">⑤ 다솜 오른쪽 앞</label>
+                                        <input type="text" class="custom-input form-control" id="input6" name="right-front"
+                                               disabled>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-buttons">
+                                <!-- 삭제 버튼은 제품 할인 영역에서 "수정" 버튼 눌렀을 시 생김
+                                <button type="button" class="btn btn-outline-primary">삭제
+                                </button>-->
+                                <button type="button" class="btn btn-primary">저장
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="card discount-register">
-
-                        </div>
-
-                        <div class="card discount-list">
-
-                        </div>
-
                     </div>
+                    <!-- Product Search Modal -->
+                    <div id="productModal" class="modal" tabindex="-1" aria-labelledby="productModalLabel"
+                         role="dialog">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title"><strong>제품 검색</strong></h5>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="search-box">
+                                        <form action="" method="get">
+                                            <input type="text" class="form-control"
+                                                   placeholder="검색" name="" id="searchInput"><i
+                                                class="icon-search"></i>
+                                            <!--<button class="search-button" type="submit"><i class="icon-search"></i>-->
+                                            <button class="modal-search-button" type="submit"></button>
+                                        </form>
+                                    </div>
+                                    <ul class="grid-container" id="itemList">
+                                        <li class="item" id="item1">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName1">음료1</p>
+                                            <p id="productPrice1">3,000원</p>
+                                        </li>
+                                        <li class="item" id="item2">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName2">음료2</p>
+                                            <p id="productPrice2">3,500원</p>
+                                        </li>
+                                        <li class="item" id="item3">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName3">수박주스</p>
+                                            <p id="productPrice3">6,000원</p>
+                                        </li>
+                                        <li class="item" id="item4">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName4">음료4</p>
+                                            <p id="productPrice4">3,000원</p>
+                                        </li>
+                                        <li class="item" id="item5">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName5">음료5</p>
+                                            <p id="productPrice5">3,500원</p>
+                                        </li>
+                                        <li class="item" id="item6">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName6">음료6</p>
+                                            <p id="productPrice6">3,500원</p>
+                                        </li>
+                                        <li class="item" id="item7">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName7">음료7</p>
+                                            <p id="productPrice7">3,000원</p>
+                                        </li>
+                                        <li class="item" id="item8">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName8">음료8</p>
+                                            <p id="productPrice8">3,500원</p>
+                                        </li>
+                                        <li class="item" id="item9">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName9">음료9</p>
+                                            <p id="productPrice9">3,500원</p>
+                                        </li>
+                                        <li class="item" id="item10">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName10">음료10</p>
+                                            <p id="productPrice10">3,500원</p>
+                                        </li>
+                                        <li class="item" id="item11">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName11">음료11</p>
+                                            <p id="productPrice11">3,000원</p>
+                                        </li>
+                                        <li class="item" id="item12">
+                                            <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                            <p class="title" id="productName12">음료12</p>
+                                            <p id="productPrice12">3,500원</p>
+                                        </li>
+                                    </ul>
+                                    <button type="button" class="btn btn-light" id="loadMoreBtn">더보기</button>
+                                    <button type="button" class="btn btn-light" id="selectBtn"
+                                            style="display:none;">선택
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Beverage Search Modal ends -->
+
+
                 </div>
+
+
             </div>
         </div>
     </div>
-</div>
+    </div>
 
 
 <!-- content-wrapper ends -->
@@ -335,7 +546,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
+<script src="${pageContext.request.contextPath}/static/assets/js/dasom_location.js"></script>
 
 
 <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
