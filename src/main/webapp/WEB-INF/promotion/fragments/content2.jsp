@@ -232,20 +232,24 @@
                                            id="discountOptionYes" value="yes">
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddCondInput" name="isAddCond" value="false">
-                                <input type="text" class="custom-input form-control" name="addDiscCond" disabled>
+                                <input type="hidden" id="isAddCondInput" name="isAddCond">
+                                <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" disabled>
                             </div>
                         </td>
                         <td>
                             <div class="discount-section radio">
                                 <label class="custom-label first-label" for="descriptionNone">
-                                    <input type="radio" name="isAddDesc-k" id="descriptionNone" value="none" checked>없음
+                                    <input type="radio" name="isAddDesc-k"
+                                            id="descriptionNone" value="none" checked>
+                                    없음
                                 </label>
                                 <label class="custom-label" for="descriptionYes">
-                                    <input type="radio" name="isAddDesc-k" id="descriptionYes" value="yes">있음
+                                    <input type="radio" name="isAddDesc-k"
+                                            id="descriptionYes" value="yes">
+                                    있음
                                 </label>
-                                <input type="hidden" id="isAddDescInput" name="isAddDesc" value="false">
-                                <input type="text" class="custom-input form-control" name="addDesc" disabled>
+                                <input type="hidden" id="isAddDescInput" name="isAddDesc">
+                                <input type="text" class="custom-input form-control" id="addDescId" name="addDesc" disabled>
                             </div>
                         </td>
                     </tr>
