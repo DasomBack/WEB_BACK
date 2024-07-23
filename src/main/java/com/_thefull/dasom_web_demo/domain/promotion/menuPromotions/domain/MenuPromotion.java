@@ -33,7 +33,6 @@ public class MenuPromotion extends BasePromotionEntity {
 
     //할인 여부 : 할인하지 않은 상품도 홍보할 수 있습니다.
     @Column(name = "IS_DISC")
-    @NotNull
     private Boolean isDisc;
 
     @Column(name = "PRICE")

@@ -49,9 +49,6 @@ public abstract class BasePromotionEntity {
     @Column(name = "MENT_FREQ")
     private int mentFreq;
 
-//    @Column(name = "MENT_INTERVAL")
-//    private int mentInterval;
-
     @Column(name = "IS_ADD_DESC")
     private Boolean isAddDesc;
 

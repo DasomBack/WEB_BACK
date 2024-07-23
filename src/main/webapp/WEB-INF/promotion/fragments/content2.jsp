@@ -60,26 +60,39 @@
                                 </li>
                             </ul>
 
+                            <!-- category hidden input -->
+                            <input type="hidden" id="categoryInput" name="category" value="BEVERAGE">
+
+
                         </td>
                         <td>
                             <div class="input-container">
                                 <!--<input type="text" class="custom-input form-control search" disabled>-->
-                                <button class="search-button custom-input form-control"
+                                <button type="button" class="search-button custom-input form-control"
                                         id="product_search_btn"><i
                                         class="icon-search"></i>
                                 </button>
+                                <!-- menu name hidden input -->
+                                <input type="hidden" id="menunameInput" name="menu" value="음료10">
+
                             </div>
                         </td>
                         <td>
                             <div class="discount-section">
                                 <p id="productPrice">6,000원</p>
+                                <!-- menu name hidden input -->
+                                <input type="hidden" id="priceInput" name="price" value=6000>
+
                                 <p id="discountPrice"></p>
+                                <!-- menu name hidden input -->
+                                <input type="hidden" id="discPriceInput" name="discPrice" value=1000>
+
                             </div>
                         </td>
                         <td>
                             <div class="discount-section">
                                 <input type="number" class="custom-input form-control"
-                                       id="discountPriceInput">
+                                       id="discountPriceInput" name="discVal" value=0>
                                 <button type="button" class="btn btn-outline-primary btn-sm"
                                         id="confirmDiscountPriceBtn">확인
                                 </button>
@@ -87,12 +100,12 @@
                         </td>
                         <td>
                             <div class="discount-section date">
-                                <input type="date" class="custom-input form-control" id="startDate">
+                                <input type="date" class="custom-input form-control" id="startDate" name="startDate">
 
                                 &nbsp~&nbsp
-                                <input type="date" class="custom-input form-control" id="endDate">
+                                <input type="date" class="custom-input form-control" id="endDate" name="endDate">
                                 <label class="custom-label">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="isAlways">
                                     &nbsp상시
                                 </label>
                             </div>
@@ -118,10 +131,10 @@
                     <tr>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" class="custom-input form-control" id="eventStartTime" name="eventStartTime">
+                                <input type="time" class="custom-input form-control" id="eventStartTime" name="startTime">
 
                                 &nbsp~&nbsp
-                                <input type="time" class="custom-input form-control" id="eventEndTime" name="eventEndTime">
+                                <input type="time" class="custom-input form-control" id="eventEndTime" name="endTime">
                                 <label class="custom-label" for="sameTimeCheckbox">
                                     <input type="checkbox" id="sameTimeCheckbox" name="sameTimeCheckbox">
                                     &nbsp영업시간과 동일
@@ -130,10 +143,10 @@
                         </td>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" class="custom-input form-control" id="speechStartTime">
+                                <input type="time" class="custom-input form-control" id="speechStartTime" name="mentStartTime">
 
                                 &nbsp~&nbsp
-                                <input type="time" class="custom-input form-control">
+                                <input type="time" class="custom-input form-control" name="mentEndTime">
                                 <label class="custom-label">
                                     <input type="checkbox">
                                     &nbsp행사시간과 동일
@@ -185,6 +198,8 @@
 
                                 </li>
                             </ul>
+                            <!-- category hidden input -->
+                            <input type="hidden" id="intervalInput" name="interval" value=10>
 
                         </td>
 
@@ -208,27 +223,29 @@
                         <td>
                             <div class="discount-section radio">
                                 <label class="custom-label first-label" for="discountOptionNone">
-                                    <input type="radio" name="discountCondition"
+                                    <input type="radio" name="isAddCond-k"
                                            id="discountOptionNone" value="none" checked>
                                     없음
                                 </label>
                                 <label class="custom-label" for="discountOptionYes">
-                                    <input type="radio" name="discountCondition"
+                                    <input type="radio" name="isAddCond-k"
                                            id="discountOptionYes" value="yes">
                                     있음
                                 </label>
-                                <input type="text" class="custom-input form-control" name="discountConditionText" disabled>
+                                <input type="hidden" id="isAddCondInput" name="isAddCond" value="false">
+                                <input type="text" class="custom-input form-control" name="addDiscCond" disabled>
                             </div>
                         </td>
                         <td>
                             <div class="discount-section radio">
                                 <label class="custom-label first-label" for="descriptionNone">
-                                    <input type="radio" name="description" id="descriptionNone" value="none" checked>없음
+                                    <input type="radio" name="isAddDesc-k" id="descriptionNone" value="none" checked>없음
                                 </label>
                                 <label class="custom-label" for="descriptionYes">
-                                    <input type="radio" name="description" id="descriptionYes" value="yes">있음
+                                    <input type="radio" name="isAddDesc-k" id="descriptionYes" value="yes">있음
                                 </label>
-                                <input type="text" class="custom-input form-control" name="descriptionText" disabled>
+                                <input type="hidden" id="isAddDescInput" name="isAddDesc" value="false">
+                                <input type="text" class="custom-input form-control" name="addDesc" disabled>
                             </div>
                         </td>
                     </tr>
@@ -239,19 +256,20 @@
             <div class="table-responsive fourth-tableg">
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th>AI 다솜 멘트 생성<span class="info">* AI 멘트는 하루에 3번까지만 가능합니다. (0/3)</span>
-                        </th>
-                        <th>테스트 진행<span class="info">* 다솜이 어떻게 말하는지 확인해보세요!</span>
-                        </th>
-                    </tr>
+                        <tr>
+                            <th>AI 다솜 멘트 생성<span class="info">* AI 멘트는 하루에 3번까지만 가능합니다. (0/3)</span>
+                            </th>
+                            <th>테스트 진행<span class="info">* 다솜이 어떻게 말하는지 확인해보세요!</span>
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>
-                            <textarea></textarea>
+                            <input type="hidden" class="ment-text-input" name="ment" id="ment-text">
+                            <textarea id="ment-textarea"></textarea>
                             <div class="button-container">
-                                <button type="button" class="btn btn-outline-light btn-sm">멘트생성
+                                <button type="button" onclick="createMent()" class="btn btn-outline-light btn-sm">멘트생성
                                 </button>
                                 <button type="button" class="btn btn-outline-light btn-sm">불러오기
                                 </button>
@@ -272,11 +290,8 @@
                 <!-- 삭제 버튼은 제품 할인 영역에서 "수정" 버튼 눌렀을 시 생김
                 <button type="button" class="btn btn-outline-primary">삭제
                 </button>-->
-                <button type="button" class="btn btn-primary">등록
+                <button type="submit" class="btn btn-primary">등록
                 </button>
-            </div>
-            <div class="form-buttons">
-                <button type="submit" class="btn btn-primary">등록2</button>
             </div>
         <form>
         </div>
@@ -299,7 +314,7 @@
                                        placeholder="검색" name="" id="searchInput"><i
                                     class="icon-search"></i>
                                 <!--<button class="search-button" type="submit"><i class="icon-search"></i>-->
-                                <button class="modal-search-button" type="submit"></button>
+                                <button class="modal-search-button" type="button"></button>
                             </form>
                         </div>
                         <ul class="grid-container" id="itemList">
