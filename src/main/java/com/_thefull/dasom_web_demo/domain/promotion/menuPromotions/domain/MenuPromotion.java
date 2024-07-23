@@ -82,7 +82,7 @@ public class MenuPromotion extends BasePromotionEntity {
             this.isDiscRate=true;
     }
 
-    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, int freq){
+    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, int freq, Store store){
         LocalDateTime startTime = dto.getStartDate().atTime(dto.getStartTime());
 
         LocalDateTime now = LocalDateTime.now();
@@ -96,7 +96,7 @@ public class MenuPromotion extends BasePromotionEntity {
                 .menu(menu)
                 .price(dto.getPrice())
                 .discVal(dto.getDiscVal())
-                .discPrice(dto.getDiscPrice())
+                .discPrice(Math.abs(dto.getDiscPrice()))
                 .startDate(dto.getStartDate())
                 .endDate(dto.getEndDate())
                 .isAlways(dto.isAlways())
@@ -110,6 +110,7 @@ public class MenuPromotion extends BasePromotionEntity {
                 .isAddDesc(dto.isAddDesc())
                 .addDesc(dto.getAddDesc())
                 .ment(dto.getMent())
+                .store(store)
                 .build();
     }
 
