@@ -13,6 +13,7 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 import org.hibernate.validator.internal.util.stereotypes.ThreadSafe;
 
+import java.sql.Time;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -32,7 +33,6 @@ public class MenuPromotion extends BasePromotionEntity {
 
     //할인 여부 : 할인하지 않은 상품도 홍보할 수 있습니다.
     @Column(name = "IS_DISC")
-    @NotNull
     private Boolean isDisc;
 
     @Column(name = "PRICE")
@@ -75,6 +75,7 @@ public class MenuPromotion extends BasePromotionEntity {
 
     @PostLoad
     public void setIsDiscRate(){
+
         if (this.discRate==0)
             this.isDiscRate=false;
         else
@@ -82,10 +83,11 @@ public class MenuPromotion extends BasePromotionEntity {
     }
 
     public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, int freq){
-        LocalDateTime starttime = dto.getStartDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+        LocalDateTime startTime = dto.getStartDate().atTime(dto.getStartTime());
+
         LocalDateTime now = LocalDateTime.now();
         Status status = Status.IN_PROGRESS;
-        if (now.isBefore(starttime)){
+        if (now.isBefore(startTime)){
             status=Status.SCHEDULED;
         }
 
@@ -110,5 +112,7 @@ public class MenuPromotion extends BasePromotionEntity {
                 .ment(dto.getMent())
                 .build();
     }
+
+
 
 }
