@@ -91,5 +91,21 @@
 }
 
 .dasomLoaction .selected p {
-        color: #fff;
-    }
+   color: #fff;
+}
+
+
+.dasomLoaction .dropdown-menu{
+
+        max-width: 20rem;
+        width: 100%;
+
+}
+
+.dasomLoaction .dropdown-options li{
+     border-radius: 3rem;
+     border: 1px solid #dee2e6;
+/*     padding: 0.3rem;*/
+     cursor:pointer;
+     width: 22%;
+}
