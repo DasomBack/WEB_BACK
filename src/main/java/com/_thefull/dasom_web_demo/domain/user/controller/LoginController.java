@@ -21,15 +21,15 @@ public class LoginController {
     @PostMapping("/login")
     public String login(@RequestParam("phoneNum") String phoneNum,
                         @RequestParam("password") String password,
-                        Model model){
+                        RedirectAttributes redirectAttributes){
 
         LoginRequestDto dto = new LoginRequestDto(phoneNum, password);
         User user = loginService.login(dto);
 
         if (user != null) {
-            return "redirect:/page/user/product";
+            return "redirect:/page/user/promotion";
         } else {
-            model.addAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");
+            redirectAttributes.addFlashAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");
             return "redirect:/page/user/login";
         }
     }

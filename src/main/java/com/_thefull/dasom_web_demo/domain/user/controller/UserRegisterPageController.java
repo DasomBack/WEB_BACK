@@ -11,13 +11,12 @@ public class UserRegisterPageController {
     @GetMapping("/register")
     public String getRegisterPage(){
         System.out.println("UserPageController.getRegisterPage");
-        return "/pages/user/register";
+        return "/user/register";
     }
-
 
     @GetMapping("/registersuccess")
     public String getRegisterSuccessPage(){
-        return "/pages/user/registersuccess";
+        return "/user/registersuccess";
     }
 
 
@@ -28,17 +27,17 @@ public class UserRegisterPageController {
 
     @GetMapping("/login")
     public String loginPage(){
-        return "/pages/user/login";
+        return "/user/login";
     }
 
-    @GetMapping("/product")
+    @GetMapping("/promotion")
     public String productPage(){
-        return "/pages/main/promotion3/beverage_discount";
+        return "/promotion/main";
     }
 
     @GetMapping("/resetpassword")
     public String resetpasswordPage(){
-        return "/pages/user/resetpassword";
+        return "/user/resetpassword";
     }
 
 }
