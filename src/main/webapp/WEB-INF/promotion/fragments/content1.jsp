@@ -7,43 +7,55 @@
 </head>
 <body>
     <div id="content">
-        <table class="table all-promotion-list">
-            <thead>
-                <tr>
-                    <th>상태</th>
-                    <th>품목</th>
-                    <th>제품</th>
-                    <th>정가</th>
-                    <th>할인가</th>
-                    <th>행사기간</th>
-                    <th>행사시간</th>
-                    <th>멘트발화시간</th>
-                    <th>빈도수</th>
-                    <th>조건 및 멘트</th>
-                    <th>편집</th>
-                </tr>
-            </thead>
-            <tbody>
-                <c:forEach items="${all_promotion_list}" var="promotion">
+        <div id="all-table">
+            <table class="table all-promotion-list">
+                <thead>
                     <tr>
-                        <td>${promotion.status}</td>
-                        <td>${promotion.category}</td>
-                        <td>${promotion.menu}</td>
-                        <td>${promotion.price}</td>
-                        <td>${promotion.discPrice}</td>
-                        <td>${promotion.startDate}</td>
-                        <td>${promotion.endDate}</td>
-                        <td>${promotion.startTime}</td>
-                        <td>${promotion.endTime}</td>
-                        <td>${promotion.mentStartTime}</td>
-                        <td>${promotion.mentEndTime}</td>
-                        <td>${promotion.freq}</td>
-                        <td>${promotion.ment}</td>
+                        <th>상태</th>
+                        <th>품목</th>
+                        <th>제품</th>
+                        <th>정가</th>
+                        <th>할인가</th>
+                        <th>행사기간</th>
+                        <th>행사시간</th>
+                        <th>멘트발화시간</th>
+                        <th>빈도수</th>
+                        <th>조건 및 멘트</th>
+                        <th>편집</th>
                     </tr>
-                </c:forEach>
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    <c:forEach items="${all_promotion_list}" var="promotion" varStatus="status">
+                        <tr>
+                            <td>${promotion.status}</td>
+                            <td>${promotion.category}</td>
+                            <td>${promotion.menu}</td>
+                            <td>${promotion.price}</td>
+                            <td>${promotion.discPrice}</td>
+                            <td>${promotion.startDate} ~ ${promotion.endDate}</td>
+                            <td>${promotion.startTime} ~ ${promotion.endTime}</td>
+                            <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
+                            <td>${promotion.freq}</td>
+                            <td><button type="button" onclick="openAdditionalContent(${promotion.isAddCond},${promotion.isAddDesc},'${promotion.addCond}','${promotion.addDesc}','${promotion.ment}')">보기</button></td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
 
+        <div id="additionalContentModal" class="modal-addc">
+            <div class="modal-popup-addc">
+                <ul>
+                    <li>할인 조건 추가    <span id="modal-additional-cond"></span></li>
+                    <li>제품 소개    <span id="modal-product-desc"></span></li>
+                    <li>AI 멘트 생성    <span id="modal-ment"></span></li>
+                </ul>
+                <button type="button" class="close-btn-addc" onclick="closeAdditionalContent()">닫기</button>
+            </div>
+        </div>
     </div>
+
+    <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
+
 </body>
 </html>

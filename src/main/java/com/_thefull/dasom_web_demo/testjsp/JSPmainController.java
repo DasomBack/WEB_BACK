@@ -4,7 +4,7 @@ package com._thefull.dasom_web_demo.testjsp;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionRequestDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionResponseDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.service.MenuPromotionService;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,6 +38,7 @@ public class JSPmainController {
     @PostMapping("/register")
     public String registerMenuPromotion(@ModelAttribute MenuPromotionRequestDTO requestDTO, Model model){
         System.out.println("JSPmainController.registerMenuPromotion");
+        System.out.println(requestDTO.getMenu());
         menuPromotionService.registerMenuPromotion(storeId, requestDTO);
 
         return "redirect:/api/promotion-discount/main";

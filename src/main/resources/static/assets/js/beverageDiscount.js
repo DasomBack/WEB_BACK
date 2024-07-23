@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
         // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
         document.querySelectorAll('.dropdown-item').forEach(function(item) {
@@ -6,6 +5,39 @@ document.addEventListener('DOMContentLoaded', function() {
                 var selectedText = this.getAttribute('data-value');
                 var parentDropdown = this.closest('.dropdown-menu').previousElementSibling;
                 parentDropdown.querySelector('span').textContent = selectedText;
+
+                if (parentDropdown.querySelector('span').textContent !== "선택"){
+                    if (selectedText=="음료"){
+                        document.getElementById('categoryInput').value="BEVERAGE";
+                    }
+                    else if(selectedText=="베이커리"){
+                       document.getElementById('categoryInput').value="BAKERY";
+                    }
+                    else if(selectedText=="케이크"){
+                       document.getElementById('categoryInput').value="CAKE";
+                    }
+                    else if(selectedText=="세트상품"){
+                       document.getElementById('categoryInput').value="SET";
+                    }
+                    else if(selectedText=="5분 간격"){
+                       document.getElementById('intervalInput').value=5;
+                    }
+                    else if(selectedText=="10분 간격"){
+                       document.getElementById('intervalInput').value=10;
+                    }
+                    else if(selectedText=="15분 간격"){
+                       document.getElementById('intervalInput').value=15;
+                    }
+                    else if(selectedText=="20분 간격"){
+                       document.getElementById('intervalInput').value=20;
+                    }
+                    else if(selectedText=="30분 간격"){
+                       document.getElementById('intervalInput').value=30;
+                    }
+                }
+
+
+
             });
         });
 
@@ -19,6 +51,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
          });
 
+        var closeModalBtn = document.getElementById('closeModalBtn');
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener('click', function() {
+                $('#myModal').modal('hide');
+            });
+        } else {
+            console.error('Close modal button not found.');
+        }
+
         // 모달의 닫기 버튼을 클릭하면 모달을 숨김
         const closeButton = document.querySelector('#productModal .close');
 
@@ -28,46 +69,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 제품 검색 모달의 제품 검색 기능
         var images = document.querySelectorAll('#itemList img');
-            var selectedProductName = '';
+        var selectedProductName = '';
+        var selectedProductPrice = '';
 
-            // 각각의 이미지에 클릭 이벤트를 추가합니다.
-            for (var i = 0; i < images.length; i++) {
-                images[i].addEventListener('click', function() {
-                    // 클릭한 이미지의 부모 요소(li)의 id를 사용하여 p 태그를 찾음
-                    var parentId = this.parentElement.id;
-                    var productNameId = 'productName' + parentId.replace('item', '');
-                    var productNameElement = document.getElementById(productNameId);
+        // 각각의 이미지에 클릭 이벤트를 추가합니다.
+        for (var i = 0; i < images.length; i++) {
+            images[i].addEventListener('click', function() {
 
-                    var productPriceId = 'productPrice' + parentId.replace('item', '');
-                    var productPriceElement = document.getElementById(productPriceId);
+                // 클릭한 이미지의 부모 요소(li)의 id를 사용하여 p 태그를 찾음
+                var parentId = this.parentElement.id;
+                var productNameId = 'productName' + parentId.replace('item', '');
+                var productNameElement = document.getElementById(productNameId);
 
-                        selectedProductName = productNameElement.innerText;
-                        selectedProductPrice = productPriceElement.innerText;
+                var productPriceId = 'productPrice' + parentId.replace('item', '');
+                var productPriceElement = document.getElementById(productPriceId);
 
-                        var selectBtn = document.getElementById('selectBtn');
-                        selectBtn.style.display = 'inline-block';
+                    selectedProductName = productNameElement.innerText;
+                    selectedProductPrice = productPriceElement.innerText;
 
-                        // 더보기 버튼을 숨기기
-                        var loadMoreBtn = document.getElementById('loadMoreBtn');
-                        loadMoreBtn.style.display = 'none';
+                    var selectBtn = document.getElementById('selectBtn');
+                    selectBtn.style.display = 'inline-block';
 
-                        // 제품할인 등록 영역의 버튼에 제품명 설정
-                        var discountProductBtn = document.getElementById('discountProductBtn');
-                        discountProductBtn.innerText = selectedProductName;
+                    // 더보기 버튼을 숨기기
+                    var loadMoreBtn = document.getElementById('loadMoreBtn');
+                    loadMoreBtn.style.display = 'none';
 
-                        var productPrice =  document.getElementById('productPrice');
-                        productPrice.innerText = selectedProductPrice;
+                    // 제품할인 등록 영역의 버튼에 제품명 설정
+                    var discountProductBtn = document.getElementById('discountProductBtn');
+                    discountProductBtn.innerText = selectedProductName;
 
-                });
-            }
+                    var productPrice =  document.getElementById('productPrice');
+                    productPrice.innerText = selectedProductPrice;
+
+            });
+        }
 
             // 선택 버튼 클릭 시 모달 창 닫기 이벤트 추가
             document.getElementById('selectBtn').addEventListener('click', function() {
-                // 제품할인 등록 영역의 버튼에 제품명 설정
-                var ProductSearchBtn = document.getElementById('product_search_btn');
-                    ProductSearchBtn.innerText = selectedProductName;
+                 // 제품할인 등록 영역의 버튼에 제품명 설정
+                 var ProductSearchBtn = document.getElementById('product_search_btn');
+                 ProductSearchBtn.innerText = selectedProductName;
+
+                 document.getElementById('menunameInput').value=selectedProductName;
+                 console.log(document.getElementById('menunameInput').value);
                  var ProductPrice = document.getElementById('productPrice');
-                    ProductPrice.innerText = selectedProductPrice;
+                 ProductPrice.innerText = selectedProductPrice;
+
+                 document.getElementById('priceInput').value=parseInt(selectedProductPrice);
+
 
                 var selectButton = document.getElementById('selectBtn');
                 selectButton.addEventListener('click', function() {
@@ -106,13 +155,36 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (!isNaN(discountPriceInput) && discountPriceInput.trim() !== '') {
                         var discountedPrice = discountPriceInput - discountPrice;
                         document.getElementById('discountPrice').innerText = `(${discountedPrice.toLocaleString()}원)`;
+
+                        document.getElementById('discPriceInput').value=discountedPrice;
+
                     }
+
+
+
+
+
                 });
 
             //라디오 버튼 "없음" 일시, input 버튼이 disable 상태로 된다.
 
 
 });
+
+function openAdditionalContent(isAddCond, isAddDesc, addCond, addDesc, ment){
+    document.getElementById('modal-additional-cond').innerText = isAddCond ? addCond : "없음";
+    document.getElementById('modal-product-desc').innerText = isAddDesc ? addDesc : "없음";
+    document.getElementById('modal-ment').innerText = ment;
+
+    const modal = document.querySelector('.modal-addc');
+    modal.classList.add('on');
+}
+
+function closeAdditionalContent(){
+    const modal = document.querySelector('.modal-addc');
+    modal.classList.remove('on');
+
+}
 
 //커스텀 셀렉트 박스
 let selectFlag;
@@ -165,18 +237,37 @@ function toggleInput(radioName, inputName) {
     $("input:radio[name=" + radioName + "]").click(function() {
         if ($("input[name=" + radioName + "]:checked").val() == "yes") {
             $("input:text[name=" + inputName + "]").attr("disabled", false);
+
+            if (radioName=="isAddDesc-k"){
+                document.getElementById('isAddDescInput').value=true;
+            }else{
+                document.getElementById('isAddCondInput').value=true;
+            }
+
+
         } else if ($("input[name=" + radioName + "]:checked").val() == "none") {
             $("input:text[name=" + inputName + "]").attr("disabled", true);
+
+            if (radioName=="isAddDesc-k"){
+                document.getElementById('isAddDescInput').value=false;
+            }else{
+                document.getElementById('isAddCondInput').value=false;
+            }
         }
     });
 }
 
-toggleInput("description", "descriptionText");
-toggleInput("discountCondition", "discountConditionText");
+toggleInput("isAddDesc-k", "addDesc");
+toggleInput("isAddCond-k", "addDiscCond");
 
+function createMent(){
+    document.getElementById("ment-text").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
+    document.getElementById("ment-textarea").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
+
+}
 
 /*
-모든 필드를 입력하여야 등록 가능하다
+모든 필드를 입력하여야 등e록 가능하다
 function validateAndSubmit() {
   // Get form elements
   const store = document.getElementById('exampleInputStorename1').value;
