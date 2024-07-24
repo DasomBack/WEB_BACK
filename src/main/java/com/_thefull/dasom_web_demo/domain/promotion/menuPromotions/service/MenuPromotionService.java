@@ -87,4 +87,33 @@ public class MenuPromotionService {
         return (int)(minutes/interval);
     }
 
+    @Transactional
+    public MenuPromotionResponseDTO findOneMenuPromotion(Long id) {
+
+        MenuPromotion findPromotion = menuPromotionsRepository.findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUNT_MENU_PROMOTION, "해당 제품할인을 찾지 못했습니다"));
+
+        return MenuPromotionResponseDTO.from(findPromotion);
+
+    }
+
+    public void updatePromotionContent(MenuPromotionRequestDTO requestDTO) {
+
+
+    }
+
+    public void deleteMenuPromotion(Long id) {
+
+        menuPromotionsRepository.deleteById(id);
+    }
+
+    public void changeMenuPromotionStatus(Long id, String statusname) {
+        MenuPromotion findPromotion = menuPromotionsRepository.findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUNT_MENU_PROMOTION, "해당 제품할인을 찾지 못했습니다"));
+
+        Status status = Status.fromStateType(statusname);
+
+        findPromotion.updateStatus(status);
+
+    }
 }

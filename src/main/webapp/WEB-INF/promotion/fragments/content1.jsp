@@ -34,6 +34,7 @@
                                            data-bs-toggle="dropdown"
                                            aria-expanded="false">
                                             <span id="selectedItem"> ${promotion.status} </span>
+                                            <p id="menuPromotionId" style="display: none" data-menu-promo-id="${promotion.menuPromoId}"></p>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                              aria-labelledby="messageDropdown">
@@ -74,7 +75,8 @@
                             <td>${promotion.startTime} ~ ${promotion.endTime}</td>
                             <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
                             <td>${promotion.freq}</td>
-                            <td><button type="button" onclick="openAdditionalContent(${promotion.isAddCond},${promotion.isAddDesc},'${promotion.addCond}','${promotion.addDesc}','${promotion.ment}')">보기</button></td>
+                            <td><button type="button" onclick="openAdditionalContent(${promotion.boolAddCond},${promotion.boolAddDesc},'${promotion.addDiscCond}','${promotion.addMenuDesc}','${promotion.ment}')">보기</button></td>
+                            <td><button type="button" onclick="loadUpdateContent(${promotion.menuPromoId})">편집</button></td>
                         </tr>
                     </c:forEach>
                 </tbody>

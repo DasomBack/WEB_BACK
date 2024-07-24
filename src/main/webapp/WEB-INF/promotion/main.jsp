@@ -298,14 +298,13 @@
                             <%@ include file="fragments/content1.jsp" %>
                         </div>
 
-                        <div class="card discount-register">
+                        <div id="content2" class="card discount-register">
                             <%@ include file="fragments/content2.jsp" %>
                         </div>
 
                         <div class="card discount-list">
                             <%@ include file="fragments/content3.jsp" %>
                         </div>
-
                     </div>
                 </div>
             </div>
