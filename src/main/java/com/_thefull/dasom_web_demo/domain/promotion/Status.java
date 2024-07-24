@@ -24,4 +24,13 @@ public enum Status {
         }
         throw new AppException(ErrorCode.INVALID_STATE,"확인되지 않은 상태입니다");
     }
+
+    public static Status fromStateType(String stateType){
+        for (Status s: Status.values()){
+            if(s.getStateType()==stateType){
+                return s;
+            }
+        }
+        throw new AppException(ErrorCode.INVALID_STATE,"확인되지 않은 상태입니다");
+    }
 }

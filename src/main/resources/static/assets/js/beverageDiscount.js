@@ -34,12 +34,42 @@ document.addEventListener('DOMContentLoaded', function() {
                     else if(selectedText=="30분 간격"){
                        document.getElementById('intervalInput').value=30;
                     }
+                    else if (selectedText=="진행중" || selectedText == "예정"
+                        || selectedText == "중지" || selectedText == "완료" ){
+
+                        var menupromoidelement=document.getElementById('menuPromotionId');
+                        const menuPromotionId=menupromoidelement.getAttribute('data-menu-promo-id');
+
+
+                        var xhr = new XMLHttpRequest();
+
+                        xhr.open('GET','/api/promotion-discount/changestatus?id='+menuPromotionId+'&status='+selectedText,true);
+                        xhr.onload=function(){
+                            if(xhr.status >= 200 && xhr.status<400){
+                                console.error("제품할인 상태 변경에 성공하였습니다.");
+                            }else{
+                                console.error("제품할인 상태 변경에 실패하였습니다");
+                            }
+                        };
+                        xhr.onerror = function(){
+                            console.error("[Menu Promotion Change Status- PATCH] Connection Error");
+                        }
+
+                        xhr.send();
+
+                        reload();
+
+
+                    }
                 }
 
 
 
             });
         });
+
+
+
 
          // 검색 아이콘을 클릭하면 모달을 표시
         const productModal = document.querySelector('#productModal');
@@ -170,9 +200,46 @@ document.addEventListener('DOMContentLoaded', function() {
 
 });
 
-function openAdditionalContent(isAddCond, isAddDesc, addCond, addDesc, ment){
-    document.getElementById('modal-additional-cond').innerText = isAddCond ? addCond : "없음";
-    document.getElementById('modal-product-desc').innerText = isAddDesc ? addDesc : "없음";
+function reload(){
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET','/api/promotion-discount/main',true);
+    xhr.onload=function(){
+        if(xhr.status >= 200 && xhr.status<400){
+            console.error("제품할인 메인 페이지 로드에 성공하였습니다.");
+        }else{
+            console.error("제품할인 메인 페이지 로드에 실패하였습니다");
+        }
+    };
+    xhr.onerror = function(){
+        console.error("[Menu Promotion Main Page - GET] Connection Error");
+    }
+
+    xhr.send();
+}
+
+
+function changeStatus(menuPromoId, selectedText){
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('PATCH','/api/promotion-discount/changestatus?id='+menuPromoId+'&status='+selectedText,true);
+    xhr.onload=function(){
+        if(xhr.status >= 200 && xhr.status<400){
+            console.error("제품할인 상태 변경에 성공하였습니다.");
+        }else{
+            console.error("제품할인 상태 변경에 실패하였습니다");
+        }
+    };
+    xhr.onerror = function(){
+        console.error("[Menu Promotion Change Status - PATCH] Connection Error");
+    }
+
+    xhr.send();
+}
+
+function openAdditionalContent(boolAddCond, boolAddDesc, addDiscCond, addMenuDesc, ment){
+    document.getElementById('modal-additional-cond').innerText = boolAddCond ? addDiscCond : "없음";
+    document.getElementById('modal-product-desc').innerText = boolAddDesc ? addMenuDesc : "없음";
     console.log(document.getElementById('modal-product-desc').innerText);
     document.getElementById('modal-ment').innerText = ment;
 
@@ -232,6 +299,64 @@ $('.custom-select-option').on('click', function() {
   });
 });
 
+function deletePromotion(menuPromoId){
+
+    if(confirm("이 프로모션을 정말 삭제하시겠습니까?") == true){
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('DELETE','/api/promotion-discount/delete?id='+menuPromoId,true);
+        xhr.onload=function(){
+            if(xhr.status >= 200 && xhr.status<400){
+                console.error("제품할인 삭제에 성공하였습니다.");
+            }else{
+                console.error("제품할인 삭제에 실패하였습니다");
+            }
+        };
+        xhr.onerror = function(){
+            console.error("[Menu Promotion - DELETE] Connection Error");
+        }
+
+        xhr.send();
+
+        reload();
+
+    }else{
+        return false;
+    }
+
+}
+
+function changeAdditionalOption(boolValue, radioYesId, inputName){
+
+    console.log("changeAdditionalOption function start");
+    if (bool){
+        document.querySelector(`input[name='${inputName}']`).disabled = false;
+        document.getElementById('${radioYesId}').checked=true;
+    }
+}
+
+function loadUpdateContent(menuPromoId){
+    var xhr = new XMLHttpRequest();
+    // 어떤 요청을 보내는지 객체 초기화
+    xhr.open('GET','/api/promotion-discount/updatepage?id='+menuPromoId,true);
+
+    // 요청 성공할 경우 onload 설정
+    xhr.onload=function(){
+        if(xhr.status >= 200 && xhr.status<400){
+            document.getElementById('content2').innerHTML = xhr.responseText;
+
+        }else{
+            console.error("제품할인 수정 화면 페이지 로드에 실패하였습니다");
+        }
+    };
+
+    // 요청 에러가 날 경우 onerror 설정
+    xhr.onerror = function() {
+        console.error("Connection error");
+    };
+    xhr.send();
+}
+
 // 라디오버튼 "없음" 클릭시 input창 disable
 function toggleInput(radioName, inputName) {
     document.querySelectorAll(`input[name='${radioName}']`).forEach(function(radio) {
@@ -267,7 +392,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function createMent(){
     document.getElementById("ment-text").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
     document.getElementById("ment-textarea").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
-
 }
 
 /*

@@ -14,6 +14,7 @@ import java.util.Date;
 @Getter
 @Builder
 public class MenuPromotionResponseDTO {
+    Long menuPromoId;
 
     String status;
     String category;
@@ -25,7 +26,7 @@ public class MenuPromotionResponseDTO {
     int discRate;
     int discVal;
 
-    boolean isAlways;
+    boolean boolisAlways;
     String startDate;
     String endDate;
     String startTime;
@@ -35,24 +36,12 @@ public class MenuPromotionResponseDTO {
 
     int freq;
 
-    boolean isAddCond;
-    boolean isAddDesc;
-    String addCond;
-    String addDesc;
+    boolean boolAddCond;
+    boolean boolAddDesc;
+    String addDiscCond;
+    String addMenuDesc;
     String ment;
 
-
-    public boolean getIsRate(){
-        return isRate;
-    }
-
-    public boolean getIsAddCond(){
-        return isAddCond;
-    }
-
-    public boolean getIsAddDesc(){
-        return isAddDesc;
-    }
 
     public static MenuPromotionResponseDTO from(MenuPromotion e){
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -68,6 +57,7 @@ public class MenuPromotionResponseDTO {
 
 
         return MenuPromotionResponseDTO.builder()
+                .menuPromoId(e.getId())
                 .status(e.getStatus().getStateType())
                 .category(e.getMenu().getCategory().getSimpleName())
                 .menu(e.getMenu().getName())
@@ -83,10 +73,10 @@ public class MenuPromotionResponseDTO {
                 .mentStartTime(MstartT)
                 .mentEndTime(MendT)
                 .freq(e.getMentFreq())
-                .isAddCond(e.getIsAddCond())
-                .addCond(e.getAddDiscCond())
-                .isAddDesc(e.getIsAddDesc())
-                .addDesc(e.getAddDesc())
+                .boolAddCond(e.getIsAddCond())
+                .addDiscCond(e.getAddDiscCond())
+                .boolAddDesc(e.getIsAddDesc())
+                .addMenuDesc(e.getAddDesc())
                 .ment(e.getMent())
                 .build();
 
