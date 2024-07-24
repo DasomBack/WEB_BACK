@@ -42,10 +42,10 @@
             </div>
             <div>
                 <a class="navbar-brand brand-logo" href="../../index.html">
-                    <img src="${pageContext.request.contextPath}/static/assets/images/logo.svg" alt="logo"/>
+                    <h3 style=color:#462200> cafeBot</h3>
                 </a>
                 <a class="navbar-brand brand-logo-mini" href="../../index.html">
-                    <img src="${pageContext.request.contextPath}/static/assets/images/logo-mini.svg" alt="logo"/>
+                    <h4 style=color:#462200> cafeBot</h4>
                 </a>
             </div>
         </div>
