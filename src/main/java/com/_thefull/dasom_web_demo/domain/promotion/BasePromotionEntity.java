@@ -58,5 +58,9 @@ public abstract class BasePromotionEntity {
     @Column(name = "MENT", columnDefinition = "TEXT")
     private String ment;
 
+    public void updateStatus(Status s){
+        this.status=s;
+    }
+
 
 }

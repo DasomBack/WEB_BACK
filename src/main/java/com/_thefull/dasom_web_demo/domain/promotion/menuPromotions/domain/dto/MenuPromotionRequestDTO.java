@@ -14,6 +14,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MenuPromotionRequestDTO {
+    private Long menuPromoId;
 
     private String category;
     private String menu;
