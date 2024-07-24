@@ -1,4 +1,7 @@
 spring:
+  messages:
+      basename: messages
+      encoding: UTF-8
 #  thymeleaf:
 #    prefix: classpath:/templates/
 #    suffix: .html
