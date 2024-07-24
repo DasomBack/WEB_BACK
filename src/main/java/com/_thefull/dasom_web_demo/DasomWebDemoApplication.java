@@ -16,10 +16,9 @@ public class DasomWebDemoApplication {
 	}
 
 
-	@Bean
-	public SessionLocaleResolver localeResolver() {
-		SessionLocaleResolver localeResolver = new SessionLocaleResolver();
-		localeResolver.setDefaultLocale(Locale.KOREA);
-		return localeResolver;
+//	@Bean
+//	public SessionLocaleResolver localeResolver() {
+//		SessionLocaleResolver localeResolver = new SessionLocaleResolver();
+//		localeResolver.setDefaultLocale(Locale.KOREA);
+//		return localeResolver;
 	}
-}
