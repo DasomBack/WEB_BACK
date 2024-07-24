@@ -82,6 +82,8 @@ public class MenuPromotion extends BasePromotionEntity {
             this.isDiscRate=true;
     }
 
+
+
     public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, int freq, Store store){
         LocalDateTime startTime = dto.getStartDate().atTime(dto.getStartTime());
 
