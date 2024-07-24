@@ -36,7 +36,8 @@
              <div class="col-lg-4 mx-auto">
                <div class="auth-form-light text-left py-5 px-4 px-sm-5">
                  <div class="brand-logo">
-                   <img src="../../../static/assets/images/logo.svg" alt="logo">
+
+                   <h3 style=color:#462200> cafeBot</h3>
                  </div>
                  <c:if test="${not empty name}">
                          <h4>${name}님 환영합니다! 회원가입이 성공적으로 처리되었습니다</h4>
