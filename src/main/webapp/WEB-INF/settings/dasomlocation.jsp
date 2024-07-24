@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 
 <!DOCTYPE html>
@@ -61,7 +62,8 @@
                     <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown"
                        href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="ti-world icon-md text-info d-flex align-self-start me-3"></i>
-                        <span class="selectedItem"> 한국어 </span>
+                        <span class="selectedItem">  <spring:message code="language" /> </span>
+                                                        </a>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0"
                          aria-labelledby="messageDropdown">
@@ -69,13 +71,13 @@
                         <!--                  <p class="mb-0 fw-medium float-start">한국어</p>-->
                         <!--                </a>-->
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
+                        <a class="dropdown-item preview-item" href="?lang=ko" >
                             <div class="preview-item-content flex-grow py-2">
                                 <p class="preview-subject ellipsis fw-medium text-dark">한국어</p>
                                 <!--                    <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>-->
                             </div>
                         </a>
-                        <a class="dropdown-item preview-item">
+                        <a class="dropdown-item preview-item" href="?lang=en">
                             <div class="preview-item-content flex-grow py-2">
                                 <p class="preview-subject ellipsis fw-medium text-dark">English</p>
                                 <!--                    <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>-->
@@ -256,7 +258,7 @@
                         <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false"
                            aria-controls="charts">
                             <i class="menu-icon mdi mdi-chart-line"></i>
-                            <span class="menu-title">다솜 홍보 등록</span>
+                            <span class="menu-title"><spring:message code="search.button"/>다솜 홍보 등록</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="charts">
