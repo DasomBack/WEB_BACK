@@ -99,10 +99,12 @@
 
     max-width: 20rem;
     width: 100%;
+    transform: translate(736px, 270px);
 
 }
 .dasomLoaction .dropdown-options{
     padding:0.5rem;
+    margin-bottom:0;
 }
 
 
@@ -110,13 +112,23 @@
    list-style:none;
      border-radius: 3rem;
      border: 1px solid #dee2e6;
-/*     padding: 0.3rem;*/
+     padding: 0 5px;
      cursor:pointer;
-     width: 22%;
-     display:inline-block; !important
+     display:inline-block;
      text-align:center;
+}
+
+
+.dasomLoaction .dropdown-options li:nth-child(n+6) {
+  margin-top: 8px;
 }
 
 .dasomLoaction input[type=radio] {
     accent-color: #000;
 }
+
+.dasomLoaction .location-info{
+    border: 1px solid #dee2e6;
+    width: 33%;
+}
+
