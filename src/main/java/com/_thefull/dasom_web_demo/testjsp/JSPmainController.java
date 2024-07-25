@@ -85,6 +85,12 @@ public class JSPmainController {
 
     }
 
+    @GetMapping("/test")
+    public String testpage(){
+
+        return "promotion/test";
+    }
+
     @GetMapping("/header")
     public String header() {
         return "header"; // This refers to header.jsp

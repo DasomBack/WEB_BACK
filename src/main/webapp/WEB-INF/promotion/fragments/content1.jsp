@@ -6,7 +6,7 @@
     <title>Promotions</title>
 </head>
 <body>
-    <div id="content">
+    <div class="card-body">
         <div id="all-table">
             <table class="table all-promotion-list">
                 <thead>
