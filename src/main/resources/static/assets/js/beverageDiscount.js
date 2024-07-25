@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         searchIcon.addEventListener('click', function() {
         $('#productModal').show();
 
-         });
+        });
 
         var closeModalBtn = document.getElementById('closeModalBtn');
         if (closeModalBtn) {
@@ -146,11 +146,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
                  document.getElementById('priceInput').value=parseInt(selectedProductPrice.replace(/,/g,''));
 
+                 $('#productModal').hide();
 
-                var selectButton = document.getElementById('selectBtn');
-                selectButton.addEventListener('click', function() {
-                $('#productModal').hide();
-                });
             });
 
             // 검색 input 박스에 입력된 값으로 리스트를 필터링합니다.
