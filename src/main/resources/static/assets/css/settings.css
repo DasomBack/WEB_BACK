@@ -1,3 +1,11 @@
+.dasomLocation p, button, label{
+     font-size: 0.812rem;
+}
+
+.dasomLocation ul{
+    list-style:none;
+}
+
 .dasomLocation .location-list{
     list-style-type: none;
     display: grid;
@@ -135,15 +143,22 @@
 .dasomLocation .location-info{
     border: 1px solid #dee2e6;
     width: 33%;
+    border-radius: 0.75rem;
+    padding: 36px 25px;
+    position: relative;
 }
 
+.dasomLocation .location-info p{
+    margin-bottom: 0;
+}
 
-.dasomLocation label {
-    font-size: 0.812rem;
+.dasomLocation .location-info button{
+   position: absolute;
+   right:12px;
+   top:12px;
 }
 
 .dasom-location-radio label {
-    font-size: 0.812rem;
     margin-left: 3rem;
 }
 
@@ -162,3 +177,45 @@
 
 .dasomLocation .form-buttons button {
     width: 17.5rem;
+}
+
+.toggleSwitch {
+  width: 40px;
+  height: 25px;
+  display: block;
+  position: relative;
+  border-radius: 30px;
+  background-color: #c8c8c8;
+  cursor: pointer;
+}
+
+ /* 토글 버튼 */
+.toggleSwitch .toggleButton {
+  /* 버튼은 토글보다 작아야함  */
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.toggleSwitch.active {
+  background: #462200;
+}
+
+.toggleSwitch.active .toggleButton {
+  left: calc(100% - 22px);
+  background: #fff;
+}
+
+.toggleSwitch, .toggleButton {
+  transition: all 0.2s ease-in;
+}
+
+.toggle{
+    position:absolute;
+    right:12px;
+}
