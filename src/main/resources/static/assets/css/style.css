@@ -14041,7 +14041,10 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
 .modal-body {
   position: relative;
   flex: 1 1 auto;
-  padding: var(--bs-modal-padding);
+  padding: /*var(--bs-modal-padding)*/ 20px;
+  max-height: 500px;
+  display: block;
+  overflow-y: auto;
 }
 
 .modal-footer {
