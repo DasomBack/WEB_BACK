@@ -1,23 +1,27 @@
-.dasomLoaction .location-list{
+.dasomLocation .location-list{
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
     width: 100%;
-    max-width: 300px;
+    max-width: 450px;
 }
 
-.dasomLoaction .location-list li{
-    border: 1px solid;
+.dasomLocation .location-list  li:nth-child(2){
+    background:#c8c8c8;
+}
+
+.dasomLocation .location-list li{
+    border: 1px solid #dee2e6;
     width: 100%;
-    height: 100px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.dasomLoaction .location-list li > p {
+.dasomLocation .location-list li > p {
     margin: 0;
 }
 
@@ -37,29 +41,29 @@
 }
 
 .dasom-location-register {
-    margin-right: 2%; /* 마지막 섹션의 오른쪽 마진을 설정 */
+  /*  margin-right: 2%; *//* 마지막 섹션의 오른쪽 마진을 설정 */
 }
 
 .dasom-location-input {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin-left: 5%;
+    margin-left: 20%;
 }
 
-.dasomLoaction .location-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
+.dasomLocation .location-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 
-.dasomLoaction .location-group label {
+.dasomLocation .location-group label {
     width: 125px;
     margin-right: 1.5em;
 }
 
-.dasomLoaction .location-group input {
+.dasomLocation .location-group input {
         max-width: 20rem;
         width: 100%;
         height: 1.8rem;
@@ -68,7 +72,7 @@
         padding: 0 0.625rem;
     }
 
-.dasomLoaction .form-buttons {
+.dasomLocation .form-buttons {
     margin-top: 3em;
     text-align: center;
 }
@@ -86,29 +90,29 @@
     }
 }
 
-.dasomLoaction .selected {
+.dasomLocation .selected {
    background-color: #462200;
 }
 
-.dasomLoaction .selected p {
+.dasomLocation .selected p {
    color: #fff;
 }
 
 
-.dasomLoaction .dropdown-menu{
+.dasomLocation .dropdown-menu{
 
     max-width: 20rem;
     width: 100%;
     transform: translate(736px, 270px);
 
 }
-.dasomLoaction .dropdown-options{
+.dasomLocation .dropdown-options{
     padding:0.5rem;
     margin-bottom:0;
 }
 
 
-.dasomLoaction .dropdown-options li{
+.dasomLocation .dropdown-options li{
    list-style:none;
      border-radius: 3rem;
      border: 1px solid #dee2e6;
@@ -119,16 +123,42 @@
 }
 
 
-.dasomLoaction .dropdown-options li:nth-child(n+6) {
+.dasomLocation .dropdown-options li:nth-child(n+6) {
   margin-top: 8px;
 }
 
-.dasomLoaction input[type=radio] {
+.dasomLocation input[type=radio] {
     accent-color: #000;
+    margin-right: 1px;
 }
 
-.dasomLoaction .location-info{
+.dasomLocation .location-info{
     border: 1px solid #dee2e6;
     width: 33%;
 }
 
+
+.dasomLocation label {
+    font-size: 0.812rem;
+}
+
+.dasom-location-radio label {
+    font-size: 0.812rem;
+    margin-left: 3rem;
+}
+
+.dasomLocation .first-label {
+    margin-left: 0.9rem;
+}
+
+.dasom-location-register-wrapper {
+    padding-left: 100px;
+    margin-top: 35px;
+}
+
+.dasom-location-radio p {
+    margin-bottom: 12px;
+}
+
+.dasomLocation .form-buttons button {
+    width: 17.5rem;
