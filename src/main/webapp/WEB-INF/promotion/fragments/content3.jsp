@@ -25,62 +25,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${completed_promotion_list}" var="promotion">
-                        <tr>
-                            <td>
-                                <ul class="navbar-nav custom-input form-control">
-                                    <li class="nav-item dropdown d-lg-block">
-                                        <a class="dropdown-bordered dropdown-toggle"
-                                           data-bs-toggle="dropdown"
-                                           aria-expanded="false">
-                                            <span id="selectedItem"> ${promotion.status} </span>
-                                            <p id="menuPromotionId" style="display: none" data-menu-promo-id="${promotion.menuPromoId}"></p>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                             aria-labelledby="messageDropdown">
-                                            <a class="dropdown-item preview-item" data-value="진행중">
-                                                <div class="preview-item-content flex-grow">
-                                                    <p class="preview-subject ellipsis fw-medium text-dark">
-                                                        진행중</p>
-                                                </div>
-                                            </a>
-                                            <a class="dropdown-item preview-item" data-value="예정">
-                                                <div class="preview-item-content flex-grow">
-                                                    <p class="preview-subject ellipsis fw-medium text-dark">
-                                                        예정</p>
-                                                </div>
-                                            </a>
-                                            <a class="dropdown-item preview-item" data-value="중지">
-                                                <div class="preview-item-content flex-grow">
-                                                    <p class="preview-subject ellipsis fw-medium text-dark">
-                                                        중지</p>
-                                                </div>
-                                            </a>
-                                            <a class="dropdown-item preview-item" data-value="완료">
-                                                <div class="preview-item-content flex-grow">
-                                                    <p class="preview-subject ellipsis fw-medium text-dark">
-                                                        완료</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </td>
-                            <!-- <td>${promotion.status}</td> -->
-                            <td>${promotion.category}</td>
-                            <td>${promotion.menu}</td>
-                            <td>${promotion.price}</td>
-                            <td>${promotion.discPrice}</td>
-                            <td>${promotion.startDate} ~ ${promotion.endDate}</td>
-                            <td>${promotion.startTime} ~ ${promotion.endTime}</td>
-                            <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
-                            <td>${promotion.freq}</td>
-                            <td><button type="button" onclick="openAdditionalContent(${promotion.boolAddCond},${promotion.boolAddDesc},'${promotion.addDiscCond}','${promotion.addMenuDesc}','${promotion.ment}')">보기</button></td>
-                            <td><button type="button" onclick="loadUpdateContent(${promotion.menuPromoId})">편집</button></td>
-                        </tr>
+                    <c:forEach items="${completed_promotion_list}" var="promotion" varStatus="status">
+                        <c:if test="${status.index<3}">
+                            <tr>
+                                <td>${promotion.status}</td>
+                                <td>${promotion.category}</td>
+                                <td>${promotion.menu}</td>
+                                <td>${promotion.price}</td>
+                                <td>${promotion.discPrice}</td>
+                                <td>${promotion.startDate} ~ ${promotion.endDate}</td>
+                                <td>${promotion.startTime} ~ ${promotion.endTime}</td>
+                                <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
+                                <td>${promotion.freq}</td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm" onclick="openAdditionalContent(${promotion.boolAddCond},${promotion.boolAddDesc},'${promotion.addDiscCond}','${promotion.addMenuDesc}','${promotion.ment}')">보기</button></td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm" onclick="loadUpdateContent(${promotion.menuPromoId})">편집</button></td>
+                            </tr>
+                        </c:if>
                     </c:forEach>
                 </tbody>
             </table>
+
+            <c:set var="listSize" value="${fn:length(completed_promotion_list)}"/>
+            <div style="text-align: center;" >
+                <c:if test="${listSize > 100}">
+                    <button class="rotated-arrow" type="button" onclick="openAllListModal()">
+                        <image style="width: 20px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/pngwing.com.svg"/>
+                    </button>
+                </c:if>
+            </div>
         </div>
 
         <div id="additionalContentModal" class="modal-addc">

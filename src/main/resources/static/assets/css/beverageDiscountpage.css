@@ -102,6 +102,12 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.rotated-arrow{
+    display: inline-block;
+    background-color: white;
+    border: 0;
+}
+
 .discount-register .custom-input{
     max-width: 7.1rem;
     width: 100%;
@@ -109,6 +115,8 @@ input[type="number"]::-webkit-inner-spin-button {
     box-sizing: border-box;
     font-size:1em;
     padding: 0 0.625rem;
+
+    margin-right:0;
 }
 
 .discount-register .preview-item .preview-item-content p {
@@ -300,6 +308,8 @@ input[type="number"]::-webkit-inner-spin-button {
      margin-right:5.625rem;
 }
 
+
+
 .custom-modal{
     position: fixed;
     top:0;
@@ -308,7 +318,6 @@ input[type="number"]::-webkit-inner-spin-button {
     height: 100%;
     display: none;
     background-color: rgba(0,0,0,0.5);
-
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -317,6 +326,23 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .custom-modal::-webkit-scrollbar{
     border-radius: 15px;
+}
+
+#allListModal .all-list-modal-content{
+    position: relative;
+    padding: 20px;
+    border-color: none;
+    border-radius: 15px;
+    background-color: white;
+    align: center;
+    margin: 0 auto;
+    top: 110px;
+    width: 1200px;
+    height: 78%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    order-radius: 15px;
+
 }
 
 #productModal .modal-content{
@@ -329,11 +355,10 @@ input[type="number"]::-webkit-inner-spin-button {
     margin: 0 auto;
     top: 70px;
     width: 550px;
-    height: 90%;
+    height: 50%;
     box-sizing: border-box;
     font-size: 1rem;
     overflow-y: auto;
-
 }
 
 #productModal .search-box{
@@ -354,7 +379,7 @@ input[type="number"]::-webkit-inner-spin-button {
     max-width:620px; !important
 }
 
-#productModal .modal-header{
+.modal-header{
     padding:10px;
     border-bottom:none;
     padding-bottom:0rem;
@@ -390,7 +415,7 @@ input[type="number"]::-webkit-inner-spin-button {
     order-radius: 15px;
 }
 
-#productModal .close{
+.close{
     font-size:1.875rem;
     border:none;
     background:none;
@@ -421,6 +446,9 @@ input[type="number"]::-webkit-inner-spin-button {
      max-height: calc(100vh - 17.5rem);
      overflow-y: auto;
 }
+
+
+
 
 /*제품검색 모달 스크롤바 예쁘게*/
 #productModal .grid-container::-webkit-scrollbar {
