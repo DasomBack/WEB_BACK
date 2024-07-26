@@ -300,8 +300,11 @@
             </div>
         <form>
         </div>
+
+
+
         <!-- Product Search Modal -->
-        <div id="productModal" class="modal" tabindex="-1" aria-labelledby="productModalLabel"
+        <div id="productModal" class="custom-modal" tabindex="-1" aria-labelledby="productModalLabel"
              role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -393,7 +396,7 @@
 
                 </div>
             </div>
-    </div>
+        </div>
 
     <!-- Beverage Search Modal ends -->
 

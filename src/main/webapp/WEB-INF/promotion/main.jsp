@@ -294,7 +294,7 @@
             <div class="content-wrapper">
                 <div class="row">
                     <div class="col-lg-12 grid-margin">
-                        <div class="card discount-list">
+                        <div class="card discount-register">
                             <%@ include file="fragments/content1.jsp" %>
                         </div>
 
@@ -302,9 +302,10 @@
                             <%@ include file="fragments/content2.jsp" %>
                         </div>
 
-                        <div class="card discount-list">
+                        <div class="card discount-register">
                             <%@ include file="fragments/content3.jsp" %>
                         </div>
+
                     </div>
                 </div>
             </div>
