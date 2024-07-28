@@ -25,23 +25,34 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach items="${completed_promotion_list}" var="promotion">
-                        <tr>
-                            <td>${promotion.status}</td>
-                            <td>${promotion.category}</td>
-                            <td>${promotion.menu}</td>
-                            <td>${promotion.price}</td>
-                            <td>${promotion.discPrice}</td>
-                            <td>${promotion.startDate} ~ ${promotion.endDate}</td>
-                            <td>${promotion.startTime} ~ ${promotion.endTime}</td>
-                            <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
-                            <td>${promotion.freq}</td>
-                            <td><button type="button" class="btn btn-outline-primary btn-sm" style="border-radius: 10px;" onclick="openAdditionalContent(${promotion.boolAddCond},${promotion.boolAddDesc},'${promotion.addDiscCond}','${promotion.addMenuDesc}','${promotion.ment}')">보기</button></td>
-                            <td><button type="button" class="btn btn-outline-primary btn-sm" style="border-radius: 10px;" onclick="loadUpdateContent(${promotion.menuPromoId})">편집</button></td>
-                        </tr>
+                    <c:forEach items="${completed_promotion_list}" var="promotion" varStatus="status">
+                        <c:if test="${status.index<3}">
+                            <tr>
+                                <td>${promotion.status}</td>
+                                <td>${promotion.category}</td>
+                                <td>${promotion.menu}</td>
+                                <td>${promotion.price}</td>
+                                <td>${promotion.discPrice}</td>
+                                <td>${promotion.startDate} ~ ${promotion.endDate}</td>
+                                <td>${promotion.startTime} ~ ${promotion.endTime}</td>
+                                <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
+                                <td>${promotion.freq}</td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm" onclick="openAdditionalContent(${promotion.boolAddCond},${promotion.boolAddDesc},'${promotion.addDiscCond}','${promotion.addMenuDesc}','${promotion.ment}')">보기</button></td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm" onclick="loadUpdateContent(${promotion.menuPromoId})">편집</button></td>
+                            </tr>
+                        </c:if>
                     </c:forEach>
                 </tbody>
             </table>
+
+            <c:set var="listSize" value="${fn:length(completed_promotion_list)}"/>
+            <div style="text-align: center;" >
+                <c:if test="${listSize > 100}">
+                    <button class="rotated-arrow" type="button" onclick="openAllListModal()">
+                        <image style="width: 20px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/pngwing.com.svg"/>
+                    </button>
+                </c:if>
+            </div>
         </div>
 
         <div id="additionalContentModal" class="modal-addc">

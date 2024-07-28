@@ -293,14 +293,12 @@
                 </table>
             </div>
             <div class="form-buttons">
-
                 <button type="button" id="menupromotion-delete-btn" onclick="deletePromotion(${thepromo.menuPromoId})" class="btn btn-outline-primary">
                     삭제
                 </button>
                 <button type="submit" class="btn btn-primary">
-                    저장
+                    수정
                 </button>
-
             </div>
         <form>
         </div>
