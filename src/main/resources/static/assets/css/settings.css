@@ -131,7 +131,7 @@
 }
 
 
-.dasomLocation .dropdown-options li:nth-child(n+6) {
+.dasomLocation .dropdown-menu .dropdown-options li:nth-child(n+6) {
   margin-top: 8px;
 }
 
@@ -144,8 +144,28 @@
     border: 1px solid #dee2e6;
     width: 33%;
     border-radius: 0.75rem;
-    padding: 36px 25px;
+    padding: 26px 25px 35px;
     position: relative;
+}
+
+.dasomLocation .location-info i{
+    font-size: 14px;
+    margin-top: 3.2px;
+    left:5px;
+    position: absolute;
+}
+
+.dasomLocation .location-info h6{
+    margin-bottom: 10px;
+}
+
+.dasomLocation .location-info > label{
+    width: 100px;
+
+}
+
+.dasomLocation .location-info li{
+    margin-top:10px;
 }
 
 .dasomLocation .location-info p{
@@ -153,9 +173,12 @@
 }
 
 .dasomLocation .location-info button{
+   height: 25px;
    position: absolute;
-   right:12px;
-   top:12px;
+   right:14px;
+   top:18px;
+   border-radius: 0.3rem;
+   padding-left:22px;
 }
 
 .dasom-location-radio label {
