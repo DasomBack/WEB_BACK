@@ -69,7 +69,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
 
+        document.getElementById('startDate').addEventListener('change', function() {
+            var startDate = this.value;
+            document.getElementById('endDate').min = startDate;
+        });
 
+
+        document.getElementById('eventStartTime').addEventListener('change', function(){
+            var eventStartTime= this.value;
+            document.getElementById('eventEndTime').min=eventStartTime;
+            console.log("이벤트 타임 설정");
+        });
+
+        document.getElementById('speechStartTime').addEventListener('change', function(){
+            var speechStartTime= this.value;
+            document.getElementById('speechEndTime').min=eventStartTime;
+            console.log("스피치 타임 설정");
+        });
 
          // 검색 아이콘을 클릭하면 모달을 표시
         const productModal = document.querySelector('#productModal');
@@ -84,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         searchIcon.addEventListener('click', function() {
+            console.log("here");
             $('#productModal').show();
 
         });
@@ -99,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // 모달의 닫기 버튼을 클릭하면 모달을 숨김
         const closeButton = document.querySelector('#productModal .close');
+        const closeDescButton = document.querySelector('#add-desc-modal .close');
 
         const alllistcloseButton = document.querySelector('#allListModal .close');
 
@@ -107,11 +125,14 @@ document.addEventListener('DOMContentLoaded', function() {
             $('#productModal').hide();
         });
 
+        closeDescButton.addEventListener('click', function(){
+            $('#add-desc-modal').hide();
+        });
+
         console.log("here");
 
         alllistcloseButton.addEventListener('click', function(){
             $('#allListModal').hide();
-            console.log("here2");
         });
 
 
@@ -120,6 +141,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var images = document.querySelectorAll('#itemList img');
         var selectedProductName = '';
         var selectedProductPrice = '';
+        var selectedMenuDesc='';
 
         // 각각의 이미지에 클릭 이벤트를 추가합니다.
         for (var i = 0; i < images.length; i++) {
@@ -133,22 +155,26 @@ document.addEventListener('DOMContentLoaded', function() {
                 var productPriceId = 'productPrice' + parentId.replace('item', '');
                 var productPriceElement = document.getElementById(productPriceId);
 
-                    selectedProductName = productNameElement.innerText;
-                    selectedProductPrice = productPriceElement.innerText;
+                selectedProductName = productNameElement.innerText;
+                selectedProductPrice = productPriceElement.innerText;
+                var temp = document.getElementById(parentId);
+                selectedMenuDesc = temp.getAttribute('data-desc');
 
-                    var selectBtn = document.getElementById('selectBtn');
-                    selectBtn.style.display = 'inline-block';
+                var selectBtn = document.getElementById('selectBtn');
+                selectBtn.style.display = 'inline-block';
 
-                    // 더보기 버튼을 숨기기
-                    var loadMoreBtn = document.getElementById('loadMoreBtn');
-                    loadMoreBtn.style.display = 'none';
+                // 더보기 버튼을 숨기기
+                var loadMoreBtn = document.getElementById('loadMoreBtn');
+                loadMoreBtn.style.display = 'none';
 
-                    // 제품할인 등록 영역의 버튼에 제품명 설정
-                    var discountProductBtn = document.getElementById('discountProductBtn');
-                    discountProductBtn.innerText = selectedProductName;
+                // 제품할인 등록 영역의 버튼에 제품명 설정
+//                var discountProductBtn = document.getElementById('discountProductBtn');
+//                discountProductBtn.innerText = selectedProductName;
 
-                    var productPrice =  document.getElementById('productPrice');
-                    productPrice.innerText = selectedProductPrice;
+                var productPrice =  document.getElementById('productPrice');
+                productPrice.innerText = selectedProductPrice;
+
+
 
             });
         }
@@ -160,14 +186,16 @@ document.addEventListener('DOMContentLoaded', function() {
                  ProductSearchBtn.innerText = selectedProductName;
 
                  document.getElementById('menunameInput').value=selectedProductName;
+
                  var ProductPrice = document.getElementById('productPrice');
                  ProductPrice.innerText = selectedProductPrice;
 
-                 
+                 document.getElementById('addMentDescId').innerText = selectedMenuDesc;
 
                  document.getElementById('priceInput').value=parseInt(selectedProductPrice.replace(/,/g,''));
 
                  $('#productModal').hide();
+                 console.log("yes close!!");
 
             });
 
@@ -206,10 +234,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         document.getElementById('discPriceInput').value=discountedPrice;
 
                     }
-
-
-
-
 
                 });
 
@@ -261,15 +285,17 @@ function openAdditionalContent(boolAddCond, boolAddDesc, addDiscCond, addMenuDes
     console.log(document.getElementById('modal-product-desc').innerText);
     document.getElementById('modal-ment').innerText = ment;
 
-    const modal = document.querySelector('.modal-addc');
-    modal.classList.add('on');
+    console.log("show add desc-modal");
+    $('#add-desc-modal').show();
+
+//    modal.classList.add('on');
 }
 
-function closeAdditionalContent(){
-    const modal = document.querySelector('.modal-addc');
-    modal.classList.remove('on');
-
-}
+//function closeAdditionalContent(){
+//    const modal = document.querySelector('.modal-addc');
+//    modal.classList.remove('on');
+//
+//}
 
 //커스텀 셀렉트 박스
 let selectFlag;
@@ -413,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function createMent(){
     document.getElementById("ment-text").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
-    document.getElementById("ment-textarea").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
+    document.getElementById("ment-textarea").innerText="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
 }
 
 /*

@@ -1,6 +1,8 @@
 package com._thefull.dasom_web_demo.testjsp;
 
 
+import com._thefull.dasom_web_demo.domain.menu.domain.Menu;
+import com._thefull.dasom_web_demo.domain.menu.service.MenuService;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionRequestDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionResponseDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.service.MenuPromotionService;
@@ -21,6 +23,7 @@ import java.util.List;
 public class JSPmainController {
 
     private final MenuPromotionService menuPromotionService;
+    private final MenuService menuService;
 
     @Value("${tmp.store_id}")
     private Long storeId;
@@ -28,6 +31,9 @@ public class JSPmainController {
     @GetMapping("/main")
     public String mainPage(Model model) {
         model.addAttribute("data", "Sample data for content section");
+
+        List<Menu> menuList = menuService.getMenuList();
+        model.addAttribute("menu_list",menuList);
 
         List<MenuPromotionResponseDTO> allPromotionList = menuPromotionService.findAllPromotionList(storeId);
         model.addAttribute("all_promotion_list",allPromotionList);

@@ -108,7 +108,7 @@ input[type="number"]::-webkit-inner-spin-button {
     border: 0;
 }
 
-.discount-register .custom-input{
+/*.discount-register*/ .custom-input{
     max-width: 7.1rem;
     width: 100%;
     height:1.8rem;
@@ -309,8 +309,6 @@ input[type="number"]::-webkit-inner-spin-button {
      margin-right:5.625rem;
 }
 
-
-
 .custom-modal{
     position: fixed;
     top:0;
@@ -327,6 +325,23 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .custom-modal::-webkit-scrollbar{
     border-radius: 15px;
+}
+
+#add-desc-modal .all-list-modal-content{
+    position: relative;
+    padding: 20px;
+    border-color: none;
+    border-radius: 15px;
+    background-color: white;
+    align: center;
+    margin: 0 auto;
+    top: 110px;
+    width: 600px;
+    height: 78%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    order-radius: 15px;
+
 }
 
 #allListModal .all-list-modal-content{

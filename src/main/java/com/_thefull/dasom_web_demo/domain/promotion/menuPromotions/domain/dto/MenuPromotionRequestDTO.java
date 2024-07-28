@@ -41,7 +41,7 @@ public class MenuPromotionRequestDTO {
 
     private String ment;
 
-    private boolean test;
+//    private boolean test;
 
 
 

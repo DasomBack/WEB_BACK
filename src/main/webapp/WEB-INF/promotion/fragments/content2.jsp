@@ -62,8 +62,6 @@
                             <input type="hidden" id="thiscategoryInput00" name="menuPromoId" value=1>
                             <!-- category hidden input -->
                             <input type="hidden" id="categoryInput" name="category" value="BEVERAGE">
-
-
                         </td>
                         <td>
                             <div class="input-container">
@@ -130,10 +128,10 @@
                     <tr>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" class="custom-input form-control" id="eventStartTime" name="startTime">
+                                <input type="time" class="custom-input form-control" id="eventStartTime" step=1800 name="startTime">
 
                                 &nbsp~&nbsp
-                                <input type="time" class="custom-input form-control" id="eventEndTime" name="endTime">
+                                <input type="time" class="custom-input form-control" id="eventEndTime" step=1800 name="endTime">
                                 <label class="custom-label" for="sameTimeCheckbox">
                                     <input type="checkbox" id="sameTimeCheckbox" name="sameTimeCheckbox">
                                     &nbsp영업시간과 동일
@@ -142,10 +140,10 @@
                         </td>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" class="custom-input form-control" id="speechStartTime" name="mentStartTime">
+                                <input type="time" class="custom-input form-control" id="speechStartTime" step=1800 name="mentStartTime">
 
                                 &nbsp~&nbsp
-                                <input type="time" class="custom-input form-control" name="mentEndTime">
+                                <input type="time" class="custom-input form-control" id="speechEndTime" step=1800 name="mentEndTime">
                                 <label class="custom-label">
                                     <input type="checkbox">
                                     &nbsp행사시간과 동일
@@ -260,6 +258,7 @@
             <div class="table-responsive fourth-tableg">
                 <table class="table">
                     <thead>
+
                         <tr>
                             <th>AI 다솜 멘트 생성<span class="info">* AI 멘트는 하루에 3번까지만 가능합니다. (0/3)</span>
                             </th>
@@ -325,74 +324,19 @@
                             </form>
                         </div>
                         <ul class="grid-container" id="itemList">
-                            <li class="item" id="item1">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName1">음료1</p>
-                                <p id="productPrice1">3,000원</p>
-                            </li>
-                            <li class="item" id="item2">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName2">음료2</p>
-                                <p id="productPrice2">3,500원</p>
-                            </li>
-                            <li class="item" id="item3">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName3">수박주스</p>
-                                <p id="productPrice3">6,000원</p>
-                            </li>
-                            <li class="item" id="item4">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName4">음료4</p>
-                                <p id="productPrice4">3,000원</p>
-                            </li>
-                            <li class="item" id="item5">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName5">음료5</p>
-                                <p id="productPrice5">3,500원</p>
-                            </li>
-                            <li class="item" id="item6">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName6">음료6</p>
-                                <p id="productPrice6">3,500원</p>
-                            </li>
-                            <li class="item" id="item7">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName7">음료7</p>
-                                <p id="productPrice7">3,000원</p>
-                            </li>
-                            <li class="item" id="item8">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName8">음료8</p>
-                                <p id="productPrice8">3,500원</p>
-                            </li>
-                            <li class="item" id="item9">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName9">음료9</p>
-                                <p id="productPrice9">3,500원</p>
-                            </li>
-                            <li class="item" id="item10">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName10">음료10</p>
-                                <p id="productPrice10">3,500원</p>
-                            </li>
-                            <li class="item" id="item11">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName11">음료11</p>
-                                <p id="productPrice11">3,000원</p>
-                            </li>
-                            <li class="item" id="item12">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName12">음료12</p>
-                                <p id="productPrice12">3,500원</p>
-                            </li>
+                            <c:forEach var = "menu" items="${menu_list}">
+                                <li class="item" id="item${menu.id}" data-desc="${menu.desc}">
+                                    <img src="${menu.imgUrl}" alt="샘플 이미지">
+                                    <p class="title" id="productName${menu.id}">${menu.name}</p>
+                                    <p id="productPrice${menu.id}">${menu.price}</p>
+                                </li>
+                            </c:forEach>
                         </ul>
                         <button type="button" class="btn btn-light" id="loadMoreBtn">더보기</button>
                         <button type="button" class="btn btn-light" id="selectBtn"
                                 style="display:none;">선택
                         </button>
                     </div>
-
-
                 </div>
             </div>
         </div>

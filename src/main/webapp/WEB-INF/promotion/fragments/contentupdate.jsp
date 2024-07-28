@@ -70,7 +70,7 @@
                             <div class="input-container">
                                 <!--<input type="text" class="custom-input form-control search" disabled>-->
                                 <button type="button" class="search-button custom-input form-control"
-                                        id="product_search_btn"><i
+                                        id="product_search_btn" value="${thepromo.menu}">${thepromo.menu}<i
                                         class="icon-search"></i>
                                 </button>
                                 <!-- menu name hidden input -->
@@ -234,7 +234,8 @@
                                     있음
                                 </label>
                                 <input type="hidden" id="isAddCondInput" name="boolAddCond">
-                                <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" placeholder="${thepromo.addDiscCond}" disabled>
+                                <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" value="${thepromo.addDiscCond}" >
+
                             </div>
                         </td>
                         <td>
@@ -250,7 +251,8 @@
                                     있음
                                 </label>
                                 <input type="hidden" id="isAddDescInput" name="boolAddDesc">
-                                <input type="text" class="custom-input form-control" id="addMentDescId" name="addMenuDesc" placeholder="${thepromo.addMenuDesc}" disabled>
+                                <input type="text" class="custom-input form-control" id="addMentDescId" value="${thepromo.addMenuDesc}" name="addMenuDesc" >
+
 
                             </div>
                         </td>
@@ -273,7 +275,7 @@
                     <tr>
                         <td>
                             <input type="hidden" class="ment-text-input" name="ment" id="ment-text">
-                            <textarea id="ment-textarea" value="${thepromo.ment}" placeholder="${thepromo.ment}"></textarea>
+                            <textarea id="ment-textarea" value="${thepromo.ment}">${thepromo.ment}</textarea>
                             <div class="button-container">
                                 <button type="button" onclick="createMent()" class="btn btn-outline-light btn-sm">멘트생성
                                 </button>
