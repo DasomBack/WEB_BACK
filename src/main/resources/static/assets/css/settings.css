@@ -13,6 +13,11 @@
     padding: 0;
     width: 100%;
     max-width: 450px;
+    position:relative;
+}
+
+.dasomLocation .location-list i{
+   font-size:48px;
 }
 
 .dasomLocation .location-list  li:nth-child(2){
@@ -20,7 +25,7 @@
 }
 
 .dasomLocation .location-list li{
-    border: 1px solid #dee2e6;
+    border: 1px solid #c8c8c8;
     width: 100%;
     height: 150px;
     display: flex;
@@ -30,7 +35,7 @@
 }
 
 .dasomLocation .location-list li > p {
-    margin: 0;
+    margin-bottom:4px;
 }
 
 .dasom-location-container{
@@ -44,31 +49,27 @@
 .dasom-location-register,
 .dasom-location-input {
     flex: 1; /* 각 섹션이 동일한 크기를 가지도록 설정 */
-    margin-right: 2%; /* 두 섹션 사이에 약간의 간격 추가 */
-    min-width: 200px; /* 최소 너비 설정 */
-}
-
-.dasom-location-register {
-  /*  margin-right: 2%; *//* 마지막 섹션의 오른쪽 마진을 설정 */
+  /*  margin-right: 1.5%; *//* 두 섹션 사이에 약간의 간격 추가 */
+    /*min-width: 100px; *//* 최소 너비 설정 */
 }
 
 .dasom-location-input {
     display: flex;
     flex-direction: column;
     gap: 1em;
-    margin-left: 20%;
+  /*  margin-left: 4%;*/
 }
 
 .dasomLocation .location-group {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    color: #acacac;
 }
 
 
 .dasomLocation .location-group label {
-    width: 125px;
-    margin-right: 1.5em;
+    width: 110px;
 }
 
 .dasomLocation .location-group input {
@@ -141,11 +142,12 @@
 }
 
 .dasomLocation .location-info{
-    border: 1px solid #dee2e6;
-    width: 33%;
+    border: 1px solid #c8c8c8;
+    width: 28%;
     border-radius: 0.75rem;
     padding: 26px 25px 35px;
     position: relative;
+    margin-left: 30px;
 }
 
 .dasomLocation .location-info i{
@@ -161,11 +163,19 @@
 
 .dasomLocation .location-info > label{
     width: 100px;
+    font-size: 0.9rem;
+    font-weight:600;
+    color:#909090;
 
 }
 
 .dasomLocation .location-info li{
     margin-top:10px;
+    border: 1px solid #909090;
+    color:#4b4b4b;
+    font-weight:600;
+    padding: 0 10px;
+    margin-right:5px;
 }
 
 .dasomLocation .location-info p{
@@ -190,12 +200,22 @@
 }
 
 .dasom-location-register-wrapper {
-    padding-left: 100px;
+    padding-left: 50px;
     margin-top: 35px;
 }
 
-.dasom-location-radio p {
+.dasom-location-register-wrapper .dasom-location-input .title {
+    font-size:0.9rem;
+}
+
+.dasom-location-register-wrapper .title {
+    font-weight: 600;
+    font-size:0.86rem;
     margin-bottom: 12px;
+}
+
+.dasom-location-register .main-content {
+    margin-top: 16px;
 }
 
 .dasomLocation .form-buttons button {
@@ -242,3 +262,4 @@
     position:absolute;
     right:12px;
 }
+
