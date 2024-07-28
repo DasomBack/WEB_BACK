@@ -76,8 +76,15 @@ document.addEventListener('DOMContentLoaded', function() {
         const searchIcon = document.querySelector('#product_search_btn');
         const closeBtn = document.getElementById(".btn-secondary");
 
+        const allListModal = document.querySelector('#allListModal');
+        const allListBtn = document.querySelector('#all_list_btn');
+
+        allListBtn.addEventListener('click', function() {
+            $('#allListModal').show();
+        });
+
         searchIcon.addEventListener('click', function() {
-        $('#productModal').show();
+            $('#productModal').show();
 
         });
 
@@ -93,9 +100,21 @@ document.addEventListener('DOMContentLoaded', function() {
         // 모달의 닫기 버튼을 클릭하면 모달을 숨김
         const closeButton = document.querySelector('#productModal .close');
 
+        const alllistcloseButton = document.querySelector('#allListModal .close');
+
+
         closeButton.addEventListener('click', function() {
-        $('#productModal').hide();
+            $('#productModal').hide();
         });
+
+        console.log("here");
+
+        alllistcloseButton.addEventListener('click', function(){
+            $('#allListModal').hide();
+            console.log("here2");
+        });
+
+
 
         // 제품 검색 모달의 제품 검색 기능
         var images = document.querySelectorAll('#itemList img');
@@ -353,6 +372,10 @@ function loadUpdateContent(menuPromoId){
     };
     xhr.send();
 }
+
+
+/* 제품할인 리스트를 전부 보여주는 모달창 띄우는 함수 */
+
 
 // 라디오버튼 "없음" 클릭시 input창 disable
 function toggleInput(radioName, inputName) {
