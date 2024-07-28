@@ -74,7 +74,6 @@
                                 </button>
                                 <!-- menu name hidden input -->
                                 <input type="hidden" id="menunameInput" name="menu" value="음료10">
-
                             </div>
                         </td>
                         <td>

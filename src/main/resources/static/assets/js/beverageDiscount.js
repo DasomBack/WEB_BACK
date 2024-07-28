@@ -144,6 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
                  var ProductPrice = document.getElementById('productPrice');
                  ProductPrice.innerText = selectedProductPrice;
 
+                 
+
                  document.getElementById('priceInput').value=parseInt(selectedProductPrice.replace(/,/g,''));
 
                  $('#productModal').hide();

@@ -108,6 +108,7 @@ input[type="number"]::-webkit-inner-spin-button {
     height:1.8rem;
     box-sizing: border-box;
     font-size:1em;
+    margin-right:0;
     padding: 0 0.625rem;
 }
 
