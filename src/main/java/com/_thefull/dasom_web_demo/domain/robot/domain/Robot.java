@@ -1,6 +1,7 @@
 package com._thefull.dasom_web_demo.domain.robot.domain;
 
 import com._thefull.dasom_web_demo.domain.robotLocation.domain.RobotLocationCategory;
+import com._thefull.dasom_web_demo.domain.store.domain.Store;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -24,8 +25,8 @@ public class Robot {
     private String model;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "USER_ID")
-    private User user;
+    @JoinColumn(name = "STORE_ID")
+    private Store store;
 
     @OneToMany(mappedBy = "robot", cascade = CascadeType.ALL)
     @Builder.Default
