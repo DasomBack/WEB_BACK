@@ -36,17 +36,17 @@
     <!-- partial:../../partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-            <div class="me-3">
+            <!-- <div class="me-3">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
-            </div>
+            </div> -->
             <div>
                 <a class="navbar-brand brand-logo" href="../../index.html">
-                    <h3 style=color:#462200> cafeBot</h3>
+                    <h6> 관리자페이지</h6>
                 </a>
                 <a class="navbar-brand brand-logo-mini" href="../../index.html">
-                    <h4 style=color:#462200> cafeBot</h4>
+                    <h4> 관리자페이지</h4>
                 </a>
             </div>
         </div>
@@ -58,7 +58,7 @@
                 </li>
             </ul>-->
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown d-none d-lg-block">
+                <!--<li class="nav-item dropdown d-none d-lg-block">
                     <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown"
                        href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="ti-world icon-md text-info d-flex align-self-start me-3"></i>
@@ -78,9 +78,9 @@
                             </div>
                         </a>
                     </div>
-                </li>
+                </li>-->
                 <li class="nav-item d-none d-lg-block">
-                    <p id="login-user-info">원더풀플랫폼(양재) <strong>${sessionScope.userId.name}(사장)</strong></p>
+                    <p id="login-user-info"><strong>반갑습니다. ${sessionScope.userId.name}님!</strong></p>
                 </li>
                 <!--<li class="nav-item">
                     <form class="search-form" action="#">
@@ -172,7 +172,7 @@
                          </a>
                      </div>
                  </li>-->
-                <li class="nav-item dropdown d-none d-lg-block user-dropdown">
+                <!--<li class="nav-item dropdown d-none d-lg-block user-dropdown">
                     <a class="nav-link" id="UserDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
                         <img class="img-xs rounded-circle" src="../../../../static/assets/images/faces/face8.jpg"
                              alt="Profile image"> </a>
@@ -196,7 +196,7 @@
                         <a class="dropdown-item"><i class="dropdown-item-icon mdi mdi-power text-primary me-2"></i>Sign
                             Out</a>
                     </div>
-                </li>
+                </li>-->
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button"
                     data-bs-toggle="offcanvas">
@@ -209,12 +209,12 @@
             <!-- partial:../../partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="../../index.html">
                             <i class="mdi mdi-grid-large menu-icon"></i>
                             <span class="menu-title">관리자 페이지</span>
                         </a>
-                    </li>
+                    </li> -->
                     <!--            <li class="nav-item nav-category">UI Elements</li>-->
                     <li class="nav-item">
                         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
@@ -260,7 +260,7 @@
                                 <li class="nav-item"><a class="nav-link"
                                                         href="../../main/promotion3/auto_promo1.html">자동영업</a></li>
                                 <li class="nav-item"><a class="nav-link"
-                                                        href="../../main/promotion3/product_discount2.html">제품할인</a></li>
+                                                        href="redirect:/api/menu_promotion/main">제품할인</a></li>
                                 <li class="nav-item"><a class="nav-link"
                                                         href="../../main/promotion3/event_promo3.html">프로모션</a></li>
                                 <li class="nav-item"><a class="nav-link" href="../../main/promotion3/announcement4.html">공지사항</a>
@@ -279,7 +279,7 @@
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">내 정보 관리</a></li>
                                 <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">매장정보 관리</a></li>
-                                <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">다솜기기 관리</a></li>
+                                <li class="nav-item"><a class="nav-link" href="redirect:/page/user/dasomlocation">다솜기기 관리</a></li>
                             </ul>
                         </div>
                     </li>

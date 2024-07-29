@@ -7,6 +7,9 @@ spring:
 #    suffix: .html
   mvc:
     view:
+      hiddenmethod:
+        filter:
+          enabled: true
       prefix: /WEB-INF/
       suffix: .jsp
     static-path-pattern: /static/**

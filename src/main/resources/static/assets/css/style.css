@@ -11827,6 +11827,9 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
 
 .dropdown-toggle {
   white-space: nowrap;
+
+  /*yujin1the 수정*/
+  width: 20px;
 }
 .dropdown-toggle::after {
   display: inline-block;
@@ -13906,9 +13909,10 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
   word-wrap: break-word;
 }
 
+
 .modal {
   --bs-modal-zindex: 1055;
-  --bs-modal-width: 500px;
+
   --bs-modal-padding: 0.9375rem;
   --bs-modal-margin: 10px;
   --bs-modal-color: ;
@@ -13932,6 +13936,7 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
   top: 0;
   left: 0;
   z-index: var(--bs-modal-zindex);
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
   width: 100%;
   height: 100%;
@@ -13939,6 +13944,7 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
   overflow-y: auto;
   outline: 0;
 }
+
 
 .modal-dialog {
   position: relative;
@@ -14035,7 +14041,10 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
 .modal-body {
   position: relative;
   flex: 1 1 auto;
-  padding: var(--bs-modal-padding);
+  padding: /*var(--bs-modal-padding)*/ 20px;
+  max-height: 500px;
+  display: block;
+  overflow-y: auto;
 }
 
 .modal-footer {
@@ -16459,6 +16468,9 @@ textarea.is-invalid.tt-hint, .select2-container--default .select2-selection--sin
 
 .me-0, .rtl .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item i {
   margin-right: 0 !important;
+  /* 수정 yujin1the */
+
+
 }
 
 .me-1 {
@@ -21472,6 +21484,7 @@ code {
 .grid-margin {
   width: 80vw;
   margin-bottom: 1.5rem;
+
 }
 
 @media (min-width: 576px) {
@@ -24934,6 +24947,7 @@ svg {
   -moz-transition: background 0.25s ease;
   -ms-transition: background 0.25s ease;
   border: none;
+  margin: 15px;
   border-radius: 14px;
   border: none;
 }
