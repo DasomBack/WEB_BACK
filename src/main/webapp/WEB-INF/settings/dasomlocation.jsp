@@ -1,6 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 
 
 <!DOCTYPE html>
@@ -11,11 +10,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>다솜 위치 설정</title>
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/settings.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/feather/feather.css">
+    <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/mdi/css/materialdesignicons.min.css">
-    <link rel="stylesheet" href="../../../../static/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/typicons/typicons.css">
@@ -29,6 +27,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/beverageDiscountpage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/settings.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/assets/images/favicon.png"/>
 </head>
@@ -289,7 +288,7 @@
     <!-- partial -->
 
     <div class="main-panel">
-        <div class="content-wrapper dasomLoaction">
+        <div class="content-wrapper dasomLocation">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">다솜 위치 목록</h4>
