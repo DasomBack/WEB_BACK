@@ -1,6 +1,7 @@
 package com._thefull.dasom_web_demo.domain.robotLocation.domain;
 
-/*import com._thefull.dasom_web_demo.domain.robot.domain.Robot;*/
+
+import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -23,9 +24,6 @@ public class RobotLocationCategory {
     @Column(name = "LOCATION")
     private String location;
 
-  /*  @Column(name = "CATEGORY")
-    private String category;*/
-
     @Column(name = "LEFT_SIDE")  // 변경된 필드명
     private String leftSide;
 
@@ -41,14 +39,12 @@ public class RobotLocationCategory {
     @Column(name = "RIGHT_FRONT")
     private String rightFront;
 
-   /* @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROBOT_ID")
-    private Robot robot;  // Robot과의 관계 정의*/
-
- /*   @Column(name = "ROBOT_ID")
-    private String robotId;*/
+    private Robot robot;  // Robot과의 관계 정의
 
     @Column(name = "`USE`")
-    private Boolean use;
+    @Builder.Default
+    private Boolean use=true;
 }
 
