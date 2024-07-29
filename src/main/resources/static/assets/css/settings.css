@@ -1,46 +1,268 @@
-.main-content {
-    display: flex;
+.dasomLocation p, button, label{
+     font-size: 0.812rem;
 }
 
-.location-list{
+.dasomLocation ul{
+    list-style:none;
+}
+
+.dasomLocation .location-list{
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
-    width: 300px;
+    width: 100%;
+    max-width: 450px;
+    position:relative;
 }
 
-.location-list li{
-    border: 1px solid;
-    width: 100px;
-    height: 100px;
+.dasomLocation .location-list i{
+   font-size:48px;
+}
+
+.dasomLocation .location-list  li:nth-child(2){
+    background:#c8c8c8;
+}
+
+.dasomLocation .location-list li{
+    border: 1px solid #c8c8c8;
+    width: 100%;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
 }
 
-.location-list li > p {
-    margin: 0;
+.dasomLocation .location-list li > p {
+    margin-bottom:4px;
+}
+
+.dasom-location-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap; /* 화면 크기가 작아지면 줄 바꿈 */
+    margin-top:60px;
+}
+
+.dasom-location-register,
+.dasom-location-input {
+    flex: 1; /* 각 섹션이 동일한 크기를 가지도록 설정 */
+  /*  margin-right: 1.5%; *//* 두 섹션 사이에 약간의 간격 추가 */
+    /*min-width: 100px; *//* 최소 너비 설정 */
 }
 
 .dasom-location-input {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-    margin-left: 20px;
+    gap: 1em;
+  /*  margin-left: 4%;*/
 }
 
-.location-group {
-  display: flex;
-  align-items: center;
+.dasomLocation .location-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    color: #acacac;
 }
 
-.location-group label {
-  width: 120px; /* 라벨의 너비를 동일하게 설정합니다. */
- /* text-align: left;*/ /* 라벨 텍스트를 왼쪽 정렬합니다. */
-  margin-right: 8px; /* 라벨과 입력 박스 사이의 간격을 설정합니다. */
-  margin-bottom: 10px;
+
+.dasomLocation .location-group label {
+    width: 110px;
+}
+
+.dasomLocation .location-group input {
+        max-width: 20rem;
+        width: 100%;
+        height: 1.8rem;
+        box-sizing: border-box;
+        font-size: 1em;
+        padding: 0 0.625rem;
+    }
+
+.dasomLocation .form-buttons {
+    margin-top: 3em;
+    text-align: center;
+}
+
+/* 미디어 쿼리 화면 너비가 600px 이하일 때 */
+@media (max-width: 600px) {
+    .dasom-location-container {
+        flex-direction: column; /* 세로로 정렬 */
+    }
+
+    .dasom-location-register,
+    .dasom-location-input {
+        margin-right: 0; /* 세로 정렬 시 오른쪽 마진 제거 */
+        margin-left: 0; /* 세로 정렬 시 왼쪽 마진 제거 */
+    }
+}
+
+.dasomLocation .selected {
+   background-color: #462200;
+}
+
+.dasomLocation .selected p {
+   color: #fff;
+}
+
+
+.dasomLocation .dropdown-menu{
+
+    max-width: 20rem;
+    width: 100%;
+    transform: translate(736px, 270px);
+
+}
+.dasomLocation .dropdown-options{
+    padding:0.5rem;
+    margin-bottom:0;
+}
+
+
+.dasomLocation .dropdown-options li{
+   list-style:none;
+     border-radius: 3rem;
+     border: 1px solid #dee2e6;
+     padding: 0 5px;
+     cursor:pointer;
+     display:inline-block;
+     text-align:center;
+}
+
+
+.dasomLocation .dropdown-menu .dropdown-options li:nth-child(n+6) {
+  margin-top: 8px;
+}
+
+.dasomLocation input[type=radio] {
+    accent-color: #000;
+    margin-right: 1px;
+}
+
+.dasomLocation .location-info{
+    border: 1px solid #c8c8c8;
+    width: 28%;
+    border-radius: 0.75rem;
+    padding: 26px 25px 35px;
+    position: relative;
+    margin-left: 30px;
+}
+
+.dasomLocation .location-info i{
+    font-size: 14px;
+    margin-top: 3.2px;
+    left:5px;
+    position: absolute;
+}
+
+.dasomLocation .location-info h6{
+    margin-bottom: 10px;
+}
+
+.dasomLocation .location-info > label{
+    width: 100px;
+    font-size: 0.9rem;
+    font-weight:600;
+    color:#909090;
+
+}
+
+.dasomLocation .location-info li{
+    margin-top:10px;
+    border: 1px solid #909090;
+    color:#4b4b4b;
+    font-weight:600;
+    padding: 0 10px;
+    margin-right:5px;
+}
+
+.dasomLocation .location-info p{
+    margin-bottom: 0;
+}
+
+.dasomLocation .location-info button{
+   height: 25px;
+   position: absolute;
+   right:14px;
+   top:18px;
+   border-radius: 0.3rem;
+   padding-left:22px;
+}
+
+.dasom-location-radio label {
+    margin-left: 3rem;
+}
+
+.dasomLocation .first-label {
+    margin-left: 0.9rem;
+}
+
+.dasom-location-register-wrapper {
+    padding-left: 50px;
+    margin-top: 35px;
+}
+
+.dasom-location-register-wrapper .dasom-location-input .title {
+    font-size:0.9rem;
+}
+
+.dasom-location-register-wrapper .title {
+    font-weight: 600;
+    font-size:0.86rem;
+    margin-bottom: 12px;
+}
+
+.dasom-location-register .main-content {
+    margin-top: 16px;
+}
+
+.dasomLocation .form-buttons button {
+    width: 17.5rem;
+}
+
+.toggleSwitch {
+  width: 40px;
+  height: 25px;
+  display: block;
+  position: relative;
+  border-radius: 30px;
+  background-color: #c8c8c8;
+  cursor: pointer;
+}
+
+ /* 토글 버튼 */
+.toggleSwitch .toggleButton {
+  /* 버튼은 토글보다 작아야함  */
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.toggleSwitch.active {
+  background: #462200;
+}
+
+.toggleSwitch.active .toggleButton {
+  left: calc(100% - 22px);
+  background: #fff;
+}
+
+.toggleSwitch, .toggleButton {
+  transition: all 0.2s ease-in;
+}
+
+.toggle{
+    position:absolute;
+    right:12px;
+}
+
+.navbar-nav {
+    margin-right: 0.625rem;
 }

@@ -1,4 +1,7 @@
 spring:
+#  messages:
+#    basename: messages/message
+#    encoding: UTF-8
 #  thymeleaf:
 #    prefix: classpath:/templates/
 #    suffix: .html
@@ -34,3 +37,4 @@ spring:
 tmp:
   user_id: 1
   store_id: 1
+  robot_id: 1
