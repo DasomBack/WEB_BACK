@@ -8,7 +8,7 @@
 <body>
     <div class="card-body">
         <h4 class="card-title">제품할인 등록</h4>
-        <form action="/api/promotion-discount/register" method="post">
+        <form action="/api/promotion-discount/updateContent" method="put">
             <div class="table-responsive first-table">
                 <table class="table">
                     <thead>
@@ -28,7 +28,7 @@
                                     <a class="dropdown-bordered dropdown-toggle"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false">
-                                        <span id="selectedItem"> 선택 </span>
+                                        <span id="selectedItem"> ${thepromo.category} </span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                          aria-labelledby="messageDropdown">
@@ -59,7 +59,8 @@
                                     </div>
                                 </li>
                             </ul>
-                            <input type="hidden" id="thiscategoryInput00" name="menuPromoId" value=1>
+
+                            <input type="hidden" id="categoryInput" name="menuPromoId" value="${thepromo.menuPromoId}">
                             <!-- category hidden input -->
                             <input type="hidden" id="categoryInput" name="category" value="BEVERAGE">
 
@@ -73,26 +74,26 @@
                                         class="icon-search"></i>
                                 </button>
                                 <!-- menu name hidden input -->
-                                <input type="hidden" id="menunameInput" name="menu" value="음료10">
+                                <input type="hidden" id="menunameInput" name="menu" value="${thepromo.menu}">
 
                             </div>
                         </td>
                         <td>
                             <div class="discount-section">
-                                <p id="productPrice">6,000원</p>
+                                <p id="productPrice">${thepromo.price}원</p>
                                 <!-- menu name hidden input -->
-                                <input type="hidden" id="priceInput" name="price" value=6000>
+                                <input type="hidden" id="priceInput" name="price" value="${thepromo.price}">
 
-                                <p id="discountPrice"></p>
+                                <p id="discountPrice">(-${thepromo.discPrice}원)</p>
                                 <!-- menu name hidden input -->
-                                <input type="hidden" id="discPriceInput" name="discPrice" value=1000>
+                                <input type="hidden" id="discPriceInput" name="discPrice" value="${thepromo.discPrice}">
 
                             </div>
                         </td>
                         <td>
                             <div class="discount-section">
                                 <input type="number" class="custom-input form-control"
-                                       id="discountPriceInput" name="discVal" value=0>
+                                       id="discountPriceInput" name="discVal" value="${thepromo.discVal}" placeholder="${thepromo.discVal}">
                                 <button type="button" class="btn btn-outline-primary btn-sm"
                                         id="confirmDiscountPriceBtn">확인
                                 </button>
@@ -100,10 +101,10 @@
                         </td>
                         <td>
                             <div class="discount-section date">
-                                <input type="date" class="custom-input form-control" id="startDate" name="startDate">
+                                <input type="date" class="custom-input form-control" id="startDate" name="startDate" value="${thepromo.startDate}">
 
                                 &nbsp~&nbsp
-                                <input type="date" class="custom-input form-control" id="endDate" name="endDate">
+                                <input type="date" class="custom-input form-control" id="endDate" name="endDate" value="${thepromo.endDate}">
                                 <label class="custom-label">
                                     <input type="checkbox" name="boolIsAlways" id="isAlwaysCheckbox">
                                     &nbsp상시
@@ -131,10 +132,10 @@
                     <tr>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" class="custom-input form-control" id="eventStartTime" name="startTime">
+                                <input type="time" class="custom-input form-control" id="eventStartTime" name="startTime" value="${thepromo.startTime}">
 
                                 &nbsp~&nbsp
-                                <input type="time" class="custom-input form-control" id="eventEndTime" name="endTime">
+                                <input type="time" class="custom-input form-control" id="eventEndTime" name="endTime" value="${thepromo.endTime}">
                                 <label class="custom-label" for="sameTimeCheckbox">
                                     <input type="checkbox" id="sameTimeCheckbox" name="sameTimeCheckbox">
                                     &nbsp영업시간과 동일
@@ -143,10 +144,10 @@
                         </td>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" class="custom-input form-control" id="speechStartTime" name="mentStartTime">
+                                <input type="time" class="custom-input form-control" id="speechStartTime" name="mentStartTime" value="${thepromo.mentStartTime}">
 
                                 &nbsp~&nbsp
-                                <input type="time" class="custom-input form-control" name="mentEndTime">
+                                <input type="time" class="custom-input form-control" name="mentEndTime" value="${thepromo.mentEndTime}">
                                 <label class="custom-label">
                                     <input type="checkbox">
                                     &nbsp행사시간과 동일
@@ -224,7 +225,7 @@
                             <div class="discount-section radio">
                                 <label class="custom-label first-label" for="discountOptionNone">
                                     <input type="radio" name="isAddCond-k"
-                                           id="discountOptionNone" value="none" checked>
+                                           id="discountOptionNone" onload="changeAdditionalOption(${thepromo.boolAddCond},'discountOptionYes','addDiscCond')" value="none" checked>
                                     없음
                                 </label>
                                 <label class="custom-label" for="discountOptionYes">
@@ -233,14 +234,14 @@
                                     있음
                                 </label>
                                 <input type="hidden" id="isAddCondInput" name="boolAddCond">
-                                <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" disabled>
+                                <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" placeholder="${thepromo.addDiscCond}" disabled>
                             </div>
                         </td>
                         <td>
                             <div class="discount-section radio">
                                 <label class="custom-label first-label" for="descriptionNone">
                                     <input type="radio" name="isAddDesc-k"
-                                            id="descriptionNone" value="none" checked>
+                                            id="descriptionNone" onload="changeAdditionalOption(${thepromo.boolAddDesc},'descriptionYes','addMenuDesc')" value="none" checked>
                                     없음
                                 </label>
                                 <label class="custom-label" for="descriptionYes">
@@ -249,7 +250,7 @@
                                     있음
                                 </label>
                                 <input type="hidden" id="isAddDescInput" name="boolAddDesc">
-                                <input type="text" class="custom-input form-control" id="addMentDescId" name="addMenuDesc" disabled>
+                                <input type="text" class="custom-input form-control" id="addMentDescId" name="addMenuDesc" placeholder="${thepromo.addMenuDesc}" disabled>
 
                             </div>
                         </td>
@@ -272,7 +273,7 @@
                     <tr>
                         <td>
                             <input type="hidden" class="ment-text-input" name="ment" id="ment-text">
-                            <textarea id="ment-textarea"></textarea>
+                            <textarea id="ment-textarea" value="${thepromo.ment}" placeholder="${thepromo.ment}"></textarea>
                             <div class="button-container">
                                 <button type="button" onclick="createMent()" class="btn btn-outline-light btn-sm">멘트생성
                                 </button>
@@ -292,19 +293,17 @@
                 </table>
             </div>
             <div class="form-buttons">
-                <!-- 삭제 버튼은 제품 할인 영역에서 "수정" 버튼 눌렀을 시 생김
-                <button type="button" class="btn btn-outline-primary">삭제
-                </button>-->
-                <button type="submit" class="btn btn-primary">등록
+                <button type="button" id="menupromotion-delete-btn" onclick="deletePromotion(${thepromo.menuPromoId})" class="btn btn-outline-primary">
+                    삭제
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    수정
                 </button>
             </div>
         <form>
         </div>
-
-
-
         <!-- Product Search Modal -->
-        <div id="productModal" class="custom-modal" tabindex="-1" aria-labelledby="productModalLabel"
+        <div id="productModal" class="modal" tabindex="-1" aria-labelledby="productModalLabel"
              role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -396,10 +395,13 @@
 
                 </div>
             </div>
-        </div>
+    </div>
 
     <!-- Beverage Search Modal ends -->
 
 </div>
+
+    <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount_update.js"></script>
+
 </body>
 </html>

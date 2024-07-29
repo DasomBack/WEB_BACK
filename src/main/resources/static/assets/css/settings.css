@@ -263,3 +263,6 @@
     right:12px;
 }
 
+.navbar-nav {
+    margin-right: 0.625rem;
+}

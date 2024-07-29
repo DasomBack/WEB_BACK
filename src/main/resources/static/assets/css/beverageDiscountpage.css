@@ -25,22 +25,31 @@
 }
 
 .modal-addc{
+    background-color: #fffff0;
     display: none;
-    position: absolute;
-    overflow: hidden;
+    position: fixed;
+    justify-content:center; //수평 중앙정렬
+    align-items:center;
+    border-radius: 20px;
+
+    top:20%;
+    left:40%;
+    width:300px;
+    height:200px;
+    z-index: 1000;
+    padding:15px;
+    overflow: auto;
 
 }
 
 .modal-addc .modal_popup-addc{
-    display: none;
+    font-color: black;
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
     padding: 20px;
-    background: #ffffff;
     border-radius: 20px;
-
+    background-color:#264db5;
 }
 
 .modal-addc .modal_group-addc .class_btn-addc{
@@ -54,6 +63,34 @@
     transition: box-shadow 0.2s;
 }
 
+.modal-popup-addc ul {
+    list-style-type: none; /* 불릿 제거 */
+    padding: 0;
+    margin: 0;
+}
+
+.modal-popup-addc li {
+    margin-bottom: 10px; /* 항목 사이 간격 */
+}
+
+.modal-popup-addc span {
+    font-weight: bold; /* 텍스트를 굵게 표시 */
+}
+
+.close-btn-addc {
+    background-color: #007bff; /* 버튼 배경 색상 */
+    color: #fff; /* 버튼 텍스트 색상 */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer; /* 클릭 가능한 커서 */
+    font-size: 16px; /* 폰트 크기 */
+}
+
+.close-btn-addc:hover {
+    background-color: #0056b3; /* 호버 시 배경 색상 변경 */
+}
+
 .modal-addc.on{
     display: block;
 }
@@ -65,6 +102,12 @@ input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
 }
 
+.rotated-arrow{
+    display: inline-block;
+    background-color: white;
+    border: 0;
+}
+
 .discount-register .custom-input{
     max-width: 7.1rem;
     width: 100%;
@@ -72,6 +115,8 @@ input[type="number"]::-webkit-inner-spin-button {
     box-sizing: border-box;
     font-size:1em;
     padding: 0 0.625rem;
+
+    margin-right:0;
 }
 
 .discount-register .preview-item .preview-item-content p {
@@ -263,8 +308,62 @@ input[type="number"]::-webkit-inner-spin-button {
      margin-right:5.625rem;
 }
 
+
+
+.custom-modal{
+    position: fixed;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 1000;
+}
+
+.custom-modal::-webkit-scrollbar{
+    border-radius: 15px;
+}
+
+#allListModal .all-list-modal-content{
+    position: relative;
+    padding: 20px;
+    border-color: none;
+    border-radius: 15px;
+    background-color: white;
+    align: center;
+    margin: 0 auto;
+    top: 110px;
+    width: 1200px;
+    height: 78%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    order-radius: 15px;
+
+}
+
+#productModal .modal-content{
+    position: relative;
+    padding: 20px;
+    border-color: none;
+    border-radius: 15px;
+    background-color: white;
+    align: center;
+    margin: 0 auto;
+    top: 70px;
+    width: 550px;
+    height: 50%;
+    box-sizing: border-box;
+    font-size: 1rem;
+    overflow-y: auto;
+}
+
 #productModal .search-box{
     position:relative;
+    border-radius: 15px;
 }
 #productModal .modal-search-button {
     position: absolute;
@@ -280,9 +379,11 @@ input[type="number"]::-webkit-inner-spin-button {
     max-width:620px; !important
 }
 
-#productModal .modal-header{
+.modal-header{
+    padding:10px;
     border-bottom:none;
     padding-bottom:0rem;
+    order-radius: 15px;
 }
 
 /*제품 검색 버튼 모달*/
@@ -293,14 +394,15 @@ input[type="number"]::-webkit-inner-spin-button {
 
 #productModal .grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    order-radius: 15px;
 }
 
 #productModal .item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top:1.5rem;
+    margin: 1.5rem;
 }
 #productModal .item img {
     width: 6.5rem;
@@ -310,9 +412,10 @@ input[type="number"]::-webkit-inner-spin-button {
 
 #productModal .input-container{
     position:relative;
+    order-radius: 15px;
 }
 
-#productModal .close{
+.close{
     font-size:1.875rem;
     border:none;
     background:none;
@@ -344,6 +447,9 @@ input[type="number"]::-webkit-inner-spin-button {
      overflow-y: auto;
 }
 
+
+
+
 /*제품검색 모달 스크롤바 예쁘게*/
 #productModal .grid-container::-webkit-scrollbar {
     width: 0.5rem;
@@ -371,3 +477,17 @@ input[type="number"]::-webkit-inner-spin-button {
     color: red;
     margin-left:0.3rem;
 }
+
+.test-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+

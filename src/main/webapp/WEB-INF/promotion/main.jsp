@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -294,16 +294,18 @@
             <div class="content-wrapper">
                 <div class="row">
                     <div class="col-lg-12 grid-margin">
-                        <div class="card discount-list">
-                            <%@ include file="fragments/content1.jsp" %>
-                        </div>
+                        <div id ="test">
+                            <div class="card discount-register">
+                                <%@ include file="fragments/content1.jsp" %>
+                            </div>
 
-                        <div class="card discount-register">
-                            <%@ include file="fragments/content2.jsp" %>
-                        </div>
+                            <div id="content2" class="card discount-register">
+                                <%@ include file="fragments/content2.jsp" %>
+                            </div>
 
-                        <div class="card discount-list">
-                            <%@ include file="fragments/content3.jsp" %>
+                            <div class="card discount-register">
+                                <%@ include file="fragments/content3.jsp" %>
+                            </div>
                         </div>
 
                     </div>

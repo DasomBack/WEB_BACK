@@ -5,7 +5,10 @@ import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.Me
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionResponseDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.service.MenuPromotionService;
 import lombok.*;
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.Banner;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -36,12 +39,56 @@ public class JSPmainController {
     }
 
     @PostMapping("/register")
-    public String registerMenuPromotion(@ModelAttribute MenuPromotionRequestDTO requestDTO, Model model){
+    public String registerMenuPromotion(@ModelAttribute MenuPromotionRequestDTO requestDTO){
         System.out.println("JSPmainController.registerMenuPromotion");
-        System.out.println(requestDTO.getMenu());
+        System.out.println(requestDTO.getAddMenuDesc());
         menuPromotionService.registerMenuPromotion(storeId, requestDTO);
 
         return "redirect:/api/promotion-discount/main";
+    }
+
+    @GetMapping("/updatepage")
+    public String loadUpdatePage(@RequestParam(name = "id") Long id, Model model){
+        MenuPromotionResponseDTO dto = menuPromotionService.findOneMenuPromotion(id);
+        model.addAttribute("thepromo",dto);
+
+        return "promotion/fragments/contentupdate";
+    }
+
+    @ResponseStatus(HttpStatus.SEE_OTHER)
+    @PutMapping("/updateContent")
+    public String updatePromotionContent(@ModelAttribute MenuPromotionRequestDTO requestDTO){
+
+        System.out.println("JSPmainController.updatePromotionContent");
+//        menuPromotionService.updatePromotionContent(requestDTO);
+
+        return "redirect:/api/promotion-discount/main";
+    }
+
+    @ResponseStatus(HttpStatus.SEE_OTHER)
+    @DeleteMapping("/delete")
+    public String deleteMenuPromotion(@RequestParam(name = "id")Long id){
+        menuPromotionService.deleteMenuPromotion(id);
+
+        return "redirect:/api/promotion-discount/main";
+
+    }
+
+
+    @GetMapping("/changestatus")
+    public String changeMenuPromotionStatus(@RequestParam(name = "id") Long id,
+                                            @RequestParam(name = "status")String status){
+        System.out.println("JSPmainController.changeMenuPromotionStatus");
+        menuPromotionService.changeMenuPromotionStatus(id, status);
+
+        return "redirect:/api/promotion-discount/main";
+
+    }
+
+    @GetMapping("/test")
+    public String testpage(){
+
+        return "promotion/test";
     }
 
     @GetMapping("/header")
