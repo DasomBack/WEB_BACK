@@ -36,6 +36,9 @@ public class Store {
     @Column(name = "PHONE_NUM")
     private String phoneNum;
 
+    @Column(name = "CODE")
+    private String code;
+
     @CreatedDate
     @Column(name = "REGISTER_DATE", updatable = false, columnDefinition = "TIMESTAMP")
     private LocalDateTime registerDate;
@@ -51,5 +54,9 @@ public class Store {
     @Builder.Default
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<MenuPromotion> menuPromotionList = new ArrayList<>();
+
+    public void changeUser(User user){
+        this.user=user;
+    }
 
 }
