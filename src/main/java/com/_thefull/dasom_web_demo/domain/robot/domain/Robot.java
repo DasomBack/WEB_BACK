@@ -4,7 +4,6 @@ import com._thefull.dasom_web_demo.domain.robotLocation.domain.RobotLocationCate
 import com._thefull.dasom_web_demo.domain.user.domain.User;
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.util.ArrayList;
 import java.util.List;
