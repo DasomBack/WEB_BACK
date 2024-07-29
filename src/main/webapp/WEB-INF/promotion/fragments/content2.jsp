@@ -397,9 +397,8 @@
                 </div>
             </div>
         </div>
-
+    </div>
     <!-- Beverage Search Modal ends -->
 
-</div>
 </body>
 </html>

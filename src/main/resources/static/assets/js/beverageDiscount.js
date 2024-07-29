@@ -360,7 +360,6 @@ function loadUpdateContent(menuPromoId){
     xhr.onload=function(){
         if(xhr.status >= 200 && xhr.status<400){
             document.getElementById('content2').innerHTML = xhr.responseText;
-
         }else{
             console.error("제품할인 수정 화면 페이지 로드에 실패하였습니다");
         }
