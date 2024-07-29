@@ -2,6 +2,7 @@ package com._thefull.dasom_web_demo.domain.promotion.menuPromotions.controller;
 
 
 import com._thefull.dasom_web_demo.domain.menu.domain.Menu;
+import com._thefull.dasom_web_demo.domain.menu.service.MenuService;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionRequestDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionResponseDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.service.MenuPromotionService;
@@ -10,12 +11,10 @@ import com._thefull.dasom_web_demo.domain.store.service.StoreService;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +24,7 @@ import java.util.List;
 @RequestMapping("/api/menu_promotion")
 public class MenuPromotionController {
     private final MenuPromotionService menuPromotionService;
+    private final MenuService menuService;
 
     @Value("${tmp.store_id}")
     private Long storeId;
@@ -44,10 +44,10 @@ public class MenuPromotionController {
     }
 
     @PostMapping("/register")
-    public String registerMenuPromotion(@RequestBody MenuPromotionRequestDTO requestDTO, Model model){
+    public String registerMenuPromotion(@ModelAttribute MenuPromotionRequestDTO requestDTO){
         menuPromotionService.registerMenuPromotion(storeId, requestDTO);
 
-        return "redirect:/api/menu_promotion/list/all";
+        return "redirect:/api/menu_promotion/main";
     }
 
     @GetMapping("/list/completed")
@@ -59,13 +59,32 @@ public class MenuPromotionController {
         return "fragments/foot :: foot";
     }
 
+    @ResponseStatus(HttpStatus.SEE_OTHER)
+    @PutMapping("/update")
+    public String updatePromotionContent(@ModelAttribute MenuPromotionRequestDTO requestDTO){
+        System.out.println("MenuPromotionController.updatePromotionContent");
+        menuPromotionService.updatePromotionContent(requestDTO);
+
+        return "redirect:/api/menu_promotion/main";
+    }
+
+
     @GetMapping("/main")
     public String menuPromotionMainPage(Model model){
         System.out.println("MenuPromotionController.menuPromotionMainPage");
-        findAllPromotionList(model);
-        findCompletedPromotionList(model);
-        System.out.println("MenuPromotionController.menuPromotionMainPage");
 
-        return "pages/main/promotion3/menu-promotion/main";
+
+
+        List<MenuPromotionResponseDTO> allPromotionList = menuPromotionService.findAllPromotionList(storeId);
+        model.addAttribute("all_promotion_list",allPromotionList);
+
+        List<MenuPromotionResponseDTO> completedPromotionList = menuPromotionService.findCompletedPromotionList(storeId);
+        model.addAttribute("completed_promotion_list", completedPromotionList);
+
+        List<Menu> menuList = menuService.findAllMenu();
+        model.addAttribute("menu_list",menuList);
+
+
+        return "menuPromotion/menu-promotion-main";
     }
 }

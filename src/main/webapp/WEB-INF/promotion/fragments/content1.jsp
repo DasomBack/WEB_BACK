@@ -193,6 +193,7 @@
                 <button type="button" class="close-btn-addc" onclick="closeAdditionalContent()">닫기</button>
             </div>
         </div>
+
     </div>
 
     <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
