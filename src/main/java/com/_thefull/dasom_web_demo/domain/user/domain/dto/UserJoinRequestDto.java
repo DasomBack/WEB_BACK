@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 public class UserJoinRequestDto {
 
     /*private String store;*/
+    private String code;
 
     private String name;
 
