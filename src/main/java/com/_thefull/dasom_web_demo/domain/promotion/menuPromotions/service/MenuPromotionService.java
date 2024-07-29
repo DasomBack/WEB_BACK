@@ -28,6 +28,7 @@ import java.util.List;
 @Service
 @Slf4j
 @RequiredArgsConstructor
+@Transactional
 public class MenuPromotionService {
 
     private final MenuPromotionsRepository menuPromotionsRepository;
@@ -98,7 +99,7 @@ public class MenuPromotionService {
     }
 
     public void updatePromotionContent(MenuPromotionRequestDTO requestDTO) {
-
+        System.out.println("MenuPromotionService.updatePromotionContent");
 
     }
 
