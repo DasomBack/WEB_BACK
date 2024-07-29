@@ -15,14 +15,15 @@ public class UserRegisterController {
     private final UserRegisterService userRegisterService;
 
     @PostMapping("/register")
-    public String register(@RequestParam("name") String name,
+    public String register(@RequestParam("code") String code,
+                                @RequestParam("name") String name,
                                  @RequestParam("phoneNum") String phoneNum,
                                  @RequestParam("email") String email,
                                  @RequestParam("password") String password,
                                  RedirectAttributes redirectAttributes){
 
-        UserJoinRequestDto dto = new UserJoinRequestDto(name, email, phoneNum, password);
-        userRegisterService.registerUser(dto);
+        UserJoinRequestDto dto = new UserJoinRequestDto(code, name, email, phoneNum, password);
+        userRegisterService.registerUser(dto,code);
 
         redirectAttributes.addFlashAttribute("name",name);
 
