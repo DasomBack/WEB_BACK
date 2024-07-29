@@ -260,7 +260,7 @@
                                 <li class="nav-item"><a class="nav-link"
                                                         href="../../main/promotion3/auto_promo1.html">자동영업</a></li>
                                 <li class="nav-item"><a class="nav-link"
-                                                        href="redirect:/api/menu_promotion/main">제품할인</a></li>
+                                                        href="../../api/promotion-discount/main">제품할인</a></li>
                                 <li class="nav-item"><a class="nav-link"
                                                         href="../../main/promotion3/event_promo3.html">프로모션</a></li>
                                 <li class="nav-item"><a class="nav-link" href="../../main/promotion3/announcement4.html">공지사항</a>
