@@ -62,8 +62,6 @@
                             <input type="hidden" id="thiscategoryInput00" name="menuPromoId" value=1>
                             <!-- category hidden input -->
                             <input type="hidden" id="categoryInput" name="category" value="BEVERAGE">
-
-
                         </td>
                         <td>
                             <div class="input-container">
