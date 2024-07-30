@@ -1,73 +1,73 @@
 document.addEventListener('DOMContentLoaded', function() {
-        // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
-        document.querySelectorAll('.dropdown-item').forEach(function(item) {
-            item.addEventListener('click', function() {
-                var selectedText = this.getAttribute('data-value');
-                var parentDropdown = this.closest('.dropdown-menu').previousElementSibling;
-                parentDropdown.querySelector('span').textContent = selectedText;
+    // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
+    document.querySelectorAll('.dropdown-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+            var selectedText = this.getAttribute('data-value');
+            var parentDropdown = this.closest('.dropdown-menu').previousElementSibling;
+            parentDropdown.querySelector('span').textContent = selectedText;
 
-                if (parentDropdown.querySelector('span').textContent !== "선택"){
-                    if (selectedText=="음료"){
-                        document.getElementById('categoryInput').value="BEVERAGE";
-                    }
-                    else if(selectedText=="베이커리"){
-                       document.getElementById('categoryInput').value="BAKERY";
-                    }
-                    else if(selectedText=="케이크"){
-                       document.getElementById('categoryInput').value="CAKE";
-                    }
-                    else if(selectedText=="세트상품"){
-                       document.getElementById('categoryInput').value="SET";
-                    }
-                    else if(selectedText=="5분 간격"){
-                       document.getElementById('intervalInput').value=5;
-                    }
-                    else if(selectedText=="10분 간격"){
-                       document.getElementById('intervalInput').value=10;
-                    }
-                    else if(selectedText=="15분 간격"){
-                       document.getElementById('intervalInput').value=15;
-                    }
-                    else if(selectedText=="20분 간격"){
-                       document.getElementById('intervalInput').value=20;
-                    }
-                    else if(selectedText=="30분 간격"){
-                       document.getElementById('intervalInput').value=30;
-                    }
-                    else if (selectedText=="진행중" || selectedText == "예정"
-                        || selectedText == "중지" || selectedText == "완료" ){
-
-                        var menupromoidelement=document.getElementById('menuPromotionId');
-                        var menuPromo_id=menupromoidelement.getAttribute('data-menu-promo-id');
-
-
-                        var xhr = new XMLHttpRequest();
-
-                        var url = '/api/promotion-discount/changestatus?id='+menuPromo_id+'&status='+selectedText;
-                        xhr.open('PATCH',url,true);
-                        xhr.onload=function(){
-                            if(xhr.status >= 200 && xhr.status<400){
-                                console.error("제품할인 상태 변경에 성공하였습니다.");
-                            }else{
-                                console.error("제품할인 상태 변경에 실패하였습니다");
-                            }
-                        };
-                        xhr.onerror = function(){
-                            console.error("[Menu Promotion Change Status- PATCH] Connection Error");
-                        }
-
-                        xhr.send();
-
-                        reload();
-
-
-                    }
+            if (parentDropdown.querySelector('span').textContent !== "선택"){
+                if (selectedText=="음료"){
+                    document.getElementById('categoryInput').value="BEVERAGE";
                 }
+                else if(selectedText=="베이커리"){
+                   document.getElementById('categoryInput').value="BAKERY";
+                }
+                else if(selectedText=="케이크"){
+                   document.getElementById('categoryInput').value="CAKE";
+                }
+                else if(selectedText=="세트상품"){
+                   document.getElementById('categoryInput').value="SET";
+                }
+                else if(selectedText=="5분 간격"){
+                   document.getElementById('intervalInput').value=5;
+                }
+                else if(selectedText=="10분 간격"){
+                   document.getElementById('intervalInput').value=10;
+                }
+                else if(selectedText=="15분 간격"){
+                   document.getElementById('intervalInput').value=15;
+                }
+                else if(selectedText=="20분 간격"){
+                   document.getElementById('intervalInput').value=20;
+                }
+                else if(selectedText=="30분 간격"){
+                   document.getElementById('intervalInput').value=30;
+                }
+                else if (selectedText=="진행중" || selectedText == "예정"
+                    || selectedText == "중지" || selectedText == "완료" ){
+
+                    var menupromoidelement=document.getElementById('menuPromotionId');
+                    var menuPromo_id=menupromoidelement.getAttribute('data-menu-promo-id');
+
+
+                    var xhr = new XMLHttpRequest();
+
+                    var url = '/api/promotion-discount/changestatus?id='+menuPromo_id+'&status='+selectedText;
+                    xhr.open('PATCH',url,true);
+                    xhr.onload=function(){
+                        if(xhr.status >= 200 && xhr.status<400){
+                            console.error("제품할인 상태 변경에 성공하였습니다.");
+                        }else{
+                            console.error("제품할인 상태 변경에 실패하였습니다");
+                        }
+                    };
+                    xhr.onerror = function(){
+                        console.error("[Menu Promotion Change Status- PATCH] Connection Error");
+                    }
+
+                    xhr.send();
+
+                    reload();
+
+
+                }
+            }
 
 
 
-            });
         });
+    });
 
 
 
@@ -86,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         searchIcon.addEventListener('click', function() {
             $('#productModal').show();
-
         });
 
         var closeModalBtn = document.getElementById('closeModalBtn');

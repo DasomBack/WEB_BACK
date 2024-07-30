@@ -43,8 +43,8 @@ public class UserRegisterPageController {
     }
 
     @GetMapping("/dasomlocation")
-    public String dasomlocation(/*HttpServletRequest request*/){
-//        HttpSession session = request.getSession();
+    public String dasomlocation(HttpServletRequest request){
+        HttpSession session = request.getSession();
         return "/settings/dasomlocation";
     }
 

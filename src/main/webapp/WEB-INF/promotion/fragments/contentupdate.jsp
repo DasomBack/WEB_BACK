@@ -8,7 +8,7 @@
 <body>
     <div class="card-body">
         <h4 class="card-title">제품할인 등록</h4>
-        <form action="/api/promotion-discount/updateContent" method="put">
+        <form action="/api/promotion-discount/updateContent" method="post">
             <div class="table-responsive first-table">
                 <table class="table">
                     <thead>
@@ -70,7 +70,7 @@
                             <div class="input-container">
                                 <!--<input type="text" class="custom-input form-control search" disabled>-->
                                 <button type="button" class="search-button custom-input form-control"
-                                        id="product_search_btn"><i
+                                        id="product_search_btn">${thepromo.menu}<i
                                         class="icon-search"></i>
                                 </button>
                                 <!-- menu name hidden input -->
