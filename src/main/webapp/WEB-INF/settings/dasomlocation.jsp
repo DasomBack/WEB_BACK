@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,27 +45,32 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">다솜 위치 목록</h4>
-                    <ul class="location-info dropdown-options">
-                        <h5><strong>입구 근처</strong></h5>
-                        <label>다솜 왼쪽</label><li>베이커리</li><li>샐러드</li>
-                        <br>
-                        <label>다솜 왼쪽 앞</label><li>베이커리</li>
-                        <br>
-                        <label>다솜 앞</label><li>베이커리</li>
-                        <br>
-                        <label>다솜 오른쪽</label><li>베이커리</li>
-                        <br>
-                        <label>다솜 오른쪽 앞</label><li>베이커리</li>
-                        <button class="btn-primary"> <i class="material-symbols-outlined">pin_drop</i>
-                            위치수정
-                        </button>
-                        <div class="toggle">
-                            <input type="checkbox" id="toggle" hidden>
-                            <label for="toggle" class="toggleSwitch">
-                                <span class="toggleButton"></span>
-                            </label>
-                        </div>
-                    </ul>
+                    <c:forEach items="${all_robot_location_category_list}" var="robot_location" varStatus="status">
+
+                        <ul class="location-info dropdown-options">
+                            <h5><strong>입구 근처</strong></h5>
+                            <label>다솜 왼쪽</label><li>${robot_location.leftSide}</li>
+                            <br>
+                            <label>다솜 왼쪽 앞</label><li>${robot_location.leftFront}</li>
+                            <br>
+                            <label>다솜 앞</label><li>${robot_location.front}</li>
+                            <br>
+                            <label>다솜 오른쪽</label><li>${robot_location.rightSide}</li>
+                            <br>
+                            <label>다솜 오른쪽 앞</label><li>${robot_location.rightFront}</li>
+                            <button class="btn-primary"> <i class="material-symbols-outlined">pin_drop</i>
+                                위치수정
+                            </button>
+                            <div class="toggle">
+                                <input type="checkbox" id="toggle" hidden>
+                                <label for="toggle" class="toggleSwitch">
+                                    <span class="toggleButton"></span>
+                                </label>
+                            </div>
+                        </ul>
+
+                    </c:forEach>
+
                 </div>
             </div>
             <br>

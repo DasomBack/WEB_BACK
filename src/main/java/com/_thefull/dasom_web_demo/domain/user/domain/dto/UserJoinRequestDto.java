@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class UserJoinRequestDto {
 
-    //private String code;
+    private String code;
 
     private String name;
 
