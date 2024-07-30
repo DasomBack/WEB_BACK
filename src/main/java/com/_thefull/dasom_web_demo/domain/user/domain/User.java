@@ -4,6 +4,7 @@ package com._thefull.dasom_web_demo.domain.user.domain;
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -27,7 +28,7 @@ public class User {
     @Column(length = 50, name = "NAME")
     private String name;
 
-    @Column(length = 20, name = "PHONE_NUM")
+    @Column(length = 20, name = "PHONE_NUM", unique = true)
     private String phoneNum;
 
     @Column(name = "PASSWORD")

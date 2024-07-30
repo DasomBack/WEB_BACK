@@ -25,17 +25,15 @@ public class LoginController {
     public String login(@ModelAttribute LoginRequestDto requestDTO,
                         BindingResult bindingResult,
                         HttpServletRequest request,
-                        RedirectAttributes redirectAttributes
-                        /*HttpSession session*/){
+                        RedirectAttributes redirectAttributes){
 
-        System.out.println(requestDTO.getPassword());
         User user = loginService.login(requestDTO);
 
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("userId", user);
             session.setAttribute("storeId", 1l);
-            return "redirect:/page/user/dasomlocation";
+            return "redirect:/page/main";
         }
         else{
             redirectAttributes.addFlashAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");

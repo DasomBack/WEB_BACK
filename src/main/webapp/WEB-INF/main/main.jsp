@@ -1,6 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,9 +8,11 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>회원가입</title>
+    <title>메인 페이지</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/feather/feather.css">
+    <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/ti-icons/css/themify-icons.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/font-awesome/css/font-awesome.min.css">
@@ -24,95 +26,30 @@
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/style.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/registerpage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/beverageDiscountpage.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/settings.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/assets/images/favicon.png"/>
 </head>
 <body>
- <div class="container-scroller">
-      <div class="register container-fluid page-body-wrapper full-page-wrapper">
-        <div class="content-wrapper d-flex align-items-center auth px-0">
-          <div class="row w-100 mx-0">
-            <div class="col-lg-4 mx-auto">
-              <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                <h4>회원가입</h4>
-                <h6 class="fw-light"></h6>
-                <form action="../../api/user/register" method="post" class="pt-3" id="registerForm">
-                  <div class="form-group">
+<div class="container-scroller">
+    <!-- partial:../../partials/_navbar.html -->
+    <%@ include file="../promotion/fragments/top-nav.jsp" %>
+    <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+            <!-- partial:../../partials/_sidebar.html -->
+            <%@ include file="../promotion/fragments/nav-menu.jsp" %>
 
-                    <div>
-                      <label for="exampleInputStoreCode1">매장코드</label>
-                    </div>
-                    <input name="code" type="text" class="form-control form-control-lg"
-                           id="exampleInputStoreCode1" placeholder="1">
-                    <br>
+    <!-- partial -->
 
-                    <div>
-                      <label for="exampleInputUsername1">이름</label>
-                    </div>
-                    <input name="name" type="text" class="form-control form-control-lg"
-                           id="exampleInputUsername1" placeholder="예) 홍길동">
-                    <br>
-
-                    <div>
-                      <label for="exampleInputPhonenum1">전화번호</label>
-                    </div>
-                    <input name="phoneNum" type="text" class="form-control form-control-lg"
-                           id="exampleInputPhonenum1" placeholder="전화번호를 입력해주세요">
-                    <br>
-
-                    <div>
-                      <label for="exampleInputEmail1">이메일</label>
-                    </div>
-                    <input name="email" type="email" class="form-control form-control-lg"
-                           id="exampleInputEmail1" placeholder="이메일을 입력해주세요">
-                    <br>
-
-                    <div>
-                      <label for="exampleInputPassword1">비밀번호</label>
-                    </div>
-                    <input name="password" type="password" class="form-control form-control-lg"
-                           id="exampleInputPassword1" placeholder="6자리 이상 입력">
-                    <br>
-
-                    <div>
-                      <label for="exampleInputPasswordConfirm1">비밀번호 확인</label>
-                    </div>
-                    <input type="password" class="form-control form-control-lg" id="exampleInputPasswordConfirm1" placeholder="6자리 이상 입력">
-                    <span id="passwordMatchStatus"></span>
-
-                  </div>
-                </form>
-                <br>
-
-                <!-- Error Modal -->
-                <div id="errorModal" class="modal" tabindex="-1" role="dialog">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title"><strong>오류</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body">
-                        <p>모든 필드를 올바르게 채워주세요.</p>
-                      </div>
-                    </div>
-                  </div>
+    <div class="main-panel">
+        <div class="content-wrapper">
+            <div class="row">
+                <div class="col-lg-12 grid-margin">
+                    <image style="width: 600px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/main.png"/>
                 </div>
-
-                <div class="mt-3 d-grid gap-2">
-                  <button onclick="validateAndSubmit()" form="registerForm" type="button" class="btn btn-primary btn-lg fw-medium auth-form-btn">회원가입</button>
-                </div>
-
-              </div>
             </div>
-          </div>
         </div>
-        <!-- content-wrapper ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
     </div>
 
 
@@ -137,9 +74,8 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/assets/js/register-submit.js"></script>
-<script src="${pageContext.request.contextPath}/static/assets/js/register-passwordconfirm.js"></script>
-
+<script src="${pageContext.request.contextPath}/static/assets/js/dasom_location.js"></script>
+<script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
 
 
 <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
