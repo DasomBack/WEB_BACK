@@ -146,6 +146,7 @@
 }
 
 .dasomLocation .location-info{
+    display : inline-block;
     border: 1px solid #c8c8c8;
     width: 28%;
     border-radius: 0.75rem;
