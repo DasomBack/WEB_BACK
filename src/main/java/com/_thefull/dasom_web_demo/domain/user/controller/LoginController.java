@@ -35,7 +35,7 @@ public class LoginController {
             HttpSession session = request.getSession();
             session.setAttribute("userId", user);
             session.setAttribute("storeId", 1l);
-            return "redirect:/api/promotion-discount/main";
+            return "redirect:/page/user/dasomlocation";
         }
         else{
             redirectAttributes.addFlashAttribute("error", "전화번호 또는 비밀번호가 일치하지 않습니다.");

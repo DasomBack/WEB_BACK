@@ -114,11 +114,11 @@ public class MenuPromotionService {
 
     @Transactional
     public void changeMenuPromotionStatus(Long id, String statusname) {
+
         MenuPromotion findPromotion = menuPromotionsRepository.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUNT_MENU_PROMOTION, "해당 제품할인을 찾지 못했습니다"));
 
         Status status = Status.fromStateType(statusname);
-        System.out.println("MenuPromotionService.changeMenuPromotionStatus");
 
         findPromotion.updateStatus(status);
         findPromotion.setStatus(status);
