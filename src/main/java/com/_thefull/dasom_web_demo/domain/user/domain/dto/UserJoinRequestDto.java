@@ -3,16 +3,14 @@ package com._thefull.dasom_web_demo.domain.user.domain.dto;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
 import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
+@Data
 public class UserJoinRequestDto {
 
-    /*private String store;*/
-    private String code;
+    //private String code;
 
     private String name;
 

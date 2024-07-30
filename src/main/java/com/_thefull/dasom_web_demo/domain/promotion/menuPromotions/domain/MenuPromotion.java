@@ -83,6 +83,18 @@ public class MenuPromotion extends BasePromotionEntity {
     }
 
 
+    public void updateEntity(MenuPromotionRequestDTO dto,int freq){
+        super.updateEntity(dto,freq);
+        this.price=dto.getPrice();
+        this.discVal=dto.getDiscVal();
+        this.discPrice= dto.getDiscPrice();
+        this.isAddCond=dto.isBoolAddCond();
+        this.addDiscCond=dto.getAddDiscCond();
+        this.isAlways=dto.isBoolIsAlways();
+
+    }
+
+
 
     public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, int freq, Store store){
         LocalDateTime startTime = dto.getStartDate().atTime(dto.getStartTime());

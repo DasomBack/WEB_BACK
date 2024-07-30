@@ -99,7 +99,11 @@ public class MenuPromotionService {
     }
 
     public void updatePromotionContent(MenuPromotionRequestDTO requestDTO) {
-        System.out.println("MenuPromotionService.updatePromotionContent");
+        MenuPromotion foundMenuPromotion = menuPromotionsRepository.findById(requestDTO.getMenuPromoId())
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUNT_MENU_PROMOTION, "메뉴 프로모션을 찾을 수 없습니다"));
+
+        int freq = calculateFreq(requestDTO.getInterval(), requestDTO.getMentEndTime(), requestDTO.getMentStartTime());
+        foundMenuPromotion.updateEntity(requestDTO,freq);
 
     }
 
@@ -108,13 +112,18 @@ public class MenuPromotionService {
         menuPromotionsRepository.deleteById(id);
     }
 
+    @Transactional
     public void changeMenuPromotionStatus(Long id, String statusname) {
         MenuPromotion findPromotion = menuPromotionsRepository.findById(id)
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUNT_MENU_PROMOTION, "해당 제품할인을 찾지 못했습니다"));
 
         Status status = Status.fromStateType(statusname);
+        System.out.println("MenuPromotionService.changeMenuPromotionStatus");
 
         findPromotion.updateStatus(status);
+        findPromotion.setStatus(status);
+        System.out.println(findPromotion.getStatus().getStateType());
+        menuPromotionsRepository.save(findPromotion);
 
     }
 }
