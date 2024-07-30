@@ -76,7 +76,8 @@
                                 <td>${promotion.startTime} ~ ${promotion.endTime}</td>
                                 <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
                                 <td>${promotion.freq}</td>
-                                <td><button type="button" class="btn btn-outline-primary btn-sm" onclick="openAdditionalContent(${promotion.boolAddCond},${promotion.boolAddDesc},'${promotion.addDiscCond}','${promotion.addMenuDesc}','${promotion.ment}')">보기</button></td>
+                                <td><button type="button" class="btn btn-outline-primary btn-sm" onclick="openAdditionalContent(${promotion.boolAddCond},${promotion.boolAddDesc},
+                                '${promotion.addDiscCond}','${promotion.addMenuDesc}','${promotion.ment}')">보기</button></td>
                                 <td><button type="button" class="btn btn-outline-primary btn-sm" onclick="loadUpdateContent(${promotion.menuPromoId})">편집</button></td>
                             </tr>
                         </c:if>
