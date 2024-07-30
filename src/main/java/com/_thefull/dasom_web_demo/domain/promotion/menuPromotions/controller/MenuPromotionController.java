@@ -6,85 +6,164 @@ import com._thefull.dasom_web_demo.domain.menu.service.MenuService;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionRequestDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionResponseDTO;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.service.MenuPromotionService;
+import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
+import com._thefull.dasom_web_demo.domain.robot.repository.RobotRepository;
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
-import com._thefull.dasom_web_demo.domain.store.service.StoreService;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
+import com._thefull.dasom_web_demo.domain.store.repository.StoreRepository;
+import com._thefull.dasom_web_demo.domain.user.domain.User;
+import com._thefull.dasom_web_demo.global.exception.AppException;
+import com._thefull.dasom_web_demo.global.exception.ErrorCode;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+import lombok.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/api/promotion-discount")
 @RequiredArgsConstructor
-@RequestMapping("/api/menu_promotion")
 public class MenuPromotionController {
+
     private final MenuPromotionService menuPromotionService;
+    private final RobotRepository robotRepository;
+    private final StoreRepository storeRepository;
     private final MenuService menuService;
 
-    @Value("${tmp.store_id}")
-    private Long storeId;
-
-    @Value("${tmp.user_id}")
-    private Long userId;
-
-    @GetMapping("/list/all")
-    public String findAllPromotionList(Model model){
-        List<MenuPromotionResponseDTO> menupromotion_list = menuPromotionService.findAllPromotionList(storeId);
-        model.addAttribute("menupromotion_list",menupromotion_list);
-
-//        return "pages/main/promotion3/menu-promotion/head";
-        System.out.println("MenuPromotionController.findAllPromotionList");
-
-        return "fragments/head :: head";
-    }
-
-    @PostMapping("/register")
-    public String registerMenuPromotion(@ModelAttribute MenuPromotionRequestDTO requestDTO){
-        menuPromotionService.registerMenuPromotion(storeId, requestDTO);
-
-        return "redirect:/api/menu_promotion/main";
-    }
-
-    @GetMapping("/list/completed")
-    public String findCompletedPromotionList(Model model){
-        List<MenuPromotionResponseDTO> menupromotion_list = menuPromotionService.findCompletedPromotionList(storeId);
-        model.addAttribute("menupromotion_list",menupromotion_list);
-
-        System.out.println("MenuPromotionController.findCompletedPromotionList");
-        return "fragments/foot :: foot";
-    }
-
-    @ResponseStatus(HttpStatus.SEE_OTHER)
-    @PutMapping("/update")
-    public String updatePromotionContent(@ModelAttribute MenuPromotionRequestDTO requestDTO){
-        System.out.println("MenuPromotionController.updatePromotionContent");
-        menuPromotionService.updatePromotionContent(requestDTO);
-
-        return "redirect:/api/menu_promotion/main";
-    }
-
-
     @GetMapping("/main")
-    public String menuPromotionMainPage(Model model){
-        System.out.println("MenuPromotionController.menuPromotionMainPage");
+    public String mainPage(HttpServletRequest request,
+                           Model model) {
+        HttpSession session = request.getSession(false);
+        if (session==null){
+            return "redirect:/page/register/login";
+        }
 
-
+        Long storeId= (Long)session.getAttribute("storeId");
 
         List<MenuPromotionResponseDTO> allPromotionList = menuPromotionService.findAllPromotionList(storeId);
         model.addAttribute("all_promotion_list",allPromotionList);
 
-        List<MenuPromotionResponseDTO> completedPromotionList = menuPromotionService.findCompletedPromotionList(storeId);
-        model.addAttribute("completed_promotion_list", completedPromotionList);
-
-        List<Menu> menuList = menuService.findAllMenu();
+        List<Menu> menuList = menuService.findAllMenu(storeId);
         model.addAttribute("menu_list",menuList);
 
+        List<MenuPromotionResponseDTO> completedPromotionList = menuPromotionService.findCompletedPromotionList(storeId);
+        model.addAttribute("completed_promotion_list",completedPromotionList);
 
-        return "menuPromotion/menu-promotion-main";
+        return "promotion/main";
     }
+
+    @PostMapping("/register")
+    public String registerMenuPromotion(@ModelAttribute MenuPromotionRequestDTO requestDTO,
+                                        BindingResult bindingResult,
+                                        HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if (session==null){
+            return "redirect:/page/register/login";
+        }
+        Long storeId = (Long)session.getAttribute("storeId");
+        menuPromotionService.registerMenuPromotion(storeId, requestDTO);
+
+        return "redirect:/api/promotion-discount/main";
+    }
+
+    @GetMapping("/updatepage")
+    public String loadUpdatePage(HttpServletRequest request,
+            @RequestParam(name = "id") Long id, Model model){
+        HttpSession session = request.getSession(false);
+        if (session==null){
+            return "redirect:/page/register/login";
+        }
+
+        MenuPromotionResponseDTO dto = menuPromotionService.findOneMenuPromotion(id);
+        model.addAttribute("thepromo",dto);
+
+        return "promotion/fragments/contentupdate";
+    }
+
+    @ResponseStatus(HttpStatus.SEE_OTHER)
+    @PutMapping("/updateContent")
+    public String updatePromotionContent(@ModelAttribute MenuPromotionRequestDTO requestDTO,
+                                         BindingResult bindingResult,
+                                         HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if (session==null){
+            return "redirect:/page/register/login";
+        }
+
+        menuPromotionService.updatePromotionContent(requestDTO);
+
+        return "redirect:/api/promotion-discount/main";
+    }
+
+    @ResponseStatus(HttpStatus.SEE_OTHER)
+    @PatchMapping("/changestatus")
+    public String changeMenuPromotionStatus(@RequestParam(name = "id") Long id,
+                                            @RequestParam(name = "status")String status,
+                                            HttpServletRequest request){
+
+        System.out.println("MenuPromotionController.changeMenuPromotionStatus");
+
+        HttpSession session = request.getSession(false);
+        if (session==null){
+            return "redirect:/page/register/login";
+        }
+
+
+        menuPromotionService.changeMenuPromotionStatus(id, status);
+
+        return "redirect:/api/promotion-discount/main";
+
+    }
+
+    @ResponseStatus(HttpStatus.SEE_OTHER)
+    @DeleteMapping("/delete")
+    public String deleteMenuPromotion(@RequestParam(name = "id")Long id,
+                                      HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if (session==null){
+            return "redirect:/page/register/login";
+        }
+
+        menuPromotionService.deleteMenuPromotion(id);
+
+        return "redirect:/api/promotion-discount/main";
+
+    }
+
+
+
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class testDto{
+        private String testText;
+    }
+
+    @PostMapping("/test")
+    public String testpage(@ModelAttribute testDto dto,
+                            BindingResult bindingResult,
+            /*@RequestParam(value = "testText") String testText,*/
+                           HttpSession session){
+
+        System.out.println("JSPmainController.testpage");
+        User user = (User)session.getAttribute("userId");
+        Long storeId = (Long)session.getAttribute("storeId");
+        System.out.println(user.getPhoneNum());
+
+        Store store = storeRepository.findById(storeId)
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾을 수 없습니다."));
+
+        List<Robot> robotList = robotRepository.findByStore(store);
+        Robot robot = robotList.get(0);
+        System.out.println(robot.getId());
+
+
+        return "promotion/test";
+    }
+
 }
