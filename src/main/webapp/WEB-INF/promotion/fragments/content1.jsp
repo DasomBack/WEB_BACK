@@ -107,7 +107,7 @@
 
                     <div class="modal-body">
                         <table class="table all-promotion-list">
-                            <thead class="modal-header">
+                            <thead>
                                 <tr>
                                     <th>상태</th>
                                     <th>품목</th>
