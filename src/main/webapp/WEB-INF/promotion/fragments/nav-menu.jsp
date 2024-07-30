@@ -1,20 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    </head>
-    <body>
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="../../index.html">
                         <i class="mdi mdi-grid-large menu-icon"></i>
                         <span class="menu-title">관리자 페이지</span>
                     </a>
-                </li>
+                </li> -->
                 <!--            <li class="nav-item nav-category">UI Elements</li>-->
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false"
@@ -60,7 +54,7 @@
                             <li class="nav-item"><a class="nav-link"
                                                     href="../../main/promotion3/auto_promo1.html">자동영업</a></li>
                             <li class="nav-item"><a class="nav-link"
-                                                    href="../../main/promotion3/product_discount2.html">제품할인</a></li>
+                                                    href="../../api/promotion-discount/main">제품할인</a></li>
                             <li class="nav-item"><a class="nav-link"
                                                     href="../../main/promotion3/event_promo3.html">프로모션</a></li>
                             <li class="nav-item"><a class="nav-link" href="../../main/promotion3/announcement4.html">공지사항</a>
@@ -72,17 +66,16 @@
                     <a class="nav-link" data-bs-toggle="collapse" href="#tables" aria-expanded="false"
                        aria-controls="tables">
                         <i class="menu-icon mdi mdi-table"></i>
-                        <span class="menu-title">매장정보</span>
+                        <span class="menu-title">설정</span>
                         <i class="menu-arrow"></i>
                     </a>
                     <div class="collapse" id="tables">
                         <ul class="nav flex-column sub-menu">
-                            <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">Basic
-                                table</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">내 정보 관리</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../tables/basic-table.html">매장정보 관리</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../page/user/dasomlocation">다솜기기 관리</a></li>
                         </ul>
                     </div>
                 </li>
             </ul>
         </nav>
-    </body>
-</html>
