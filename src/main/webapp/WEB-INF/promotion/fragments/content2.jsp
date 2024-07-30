@@ -247,7 +247,7 @@
                                     있음
                                 </label>
                                 <input type="hidden" id="isAddDescInput" name="boolAddDesc">
-                                <input type="text" class="custom-input form-control" id="addMentDescId" name="addMenuDesc" disabled>
+                                <input type="text" class="custom-input form-control" id="addMenuDescId" name="addMenuDesc" disabled>
 
                             </div>
                         </td>

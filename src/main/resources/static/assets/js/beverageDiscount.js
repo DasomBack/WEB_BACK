@@ -133,22 +133,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 var productPriceId = 'productPrice' + parentId.replace('item', '');
                 var productPriceElement = document.getElementById(productPriceId);
 
-                    selectedProductName = productNameElement.innerText;
-                    selectedProductPrice = productPriceElement.innerText;
+                selectedProductName = productNameElement.innerText;
+                selectedProductPrice = productPriceElement.innerText;
 
-                    var selectBtn = document.getElementById('selectBtn');
-                    selectBtn.style.display = 'inline-block';
+                var selectBtn = document.getElementById('selectBtn');
+                selectBtn.style.display = 'inline-block';
 
-                    // 더보기 버튼을 숨기기
-                    var loadMoreBtn = document.getElementById('loadMoreBtn');
-                    loadMoreBtn.style.display = 'none';
+                // 더보기 버튼을 숨기기
+                var loadMoreBtn = document.getElementById('loadMoreBtn');
+                loadMoreBtn.style.display = 'none';
 
-                    // 제품할인 등록 영역의 버튼에 제품명 설정
-                    var discountProductBtn = document.getElementById('discountProductBtn');
-                    discountProductBtn.innerText = selectedProductName;
+                // 제품할인 등록 영역의 버튼에 제품명 설정
+                var discountProductBtn = document.getElementById('discountProductBtn');
+                discountProductBtn.innerText = selectedProductName;
 
-                    var productPrice =  document.getElementById('productPrice');
-                    productPrice.innerText = selectedProductPrice;
+                var productPrice =  document.getElementById('productPrice');
+                productPrice.innerText = selectedProductPrice;
 
             });
         }
@@ -234,6 +234,16 @@ function reload(){
     xhr.send();
 }
 
+document.getElementById('startDate').addEventListener('change', function() {
+    var startDate = this.value;
+    var endDateInput = document.getElementById('endDate');
+
+    endDateInput.min = startDate;
+
+    if (endDateInput.value < startDate) {
+        endDateInput.value = startDate;
+    }
+});
 
 function changeStatus(menuPromoId, selectedText){
     var xhr = new XMLHttpRequest();
