@@ -260,8 +260,9 @@
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"><a class="nav-link"
                                                         href="../../main/promotion3/auto_promo1.html">자동영업</a></li>
-                                <li class="nav-item"><a class="nav-link"
-                                                        href="../../api/promotion-discount/main">제품할인</a></li>
+                                <!-- <li class="nav-item"><a class="nav-link"
+                                                        href="../../api/promotion-discount/main">제품할인</a></li> -->
+                                <li class="nav-item"><button type="button" onclick="to"></button></li>
                                 <li class="nav-item"><a class="nav-link"
                                                         href="../../main/promotion3/event_promo3.html">프로모션</a></li>
                                 <li class="nav-item"><a class="nav-link" href="../../main/promotion3/announcement4.html">공지사항</a>
