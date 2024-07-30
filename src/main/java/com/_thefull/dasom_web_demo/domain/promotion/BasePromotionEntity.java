@@ -1,11 +1,9 @@
 package com._thefull.dasom_web_demo.domain.promotion;
 
 
+import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto.MenuPromotionRequestDTO;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import java.sql.Time;
@@ -24,6 +22,7 @@ public abstract class BasePromotionEntity {
     @Column(name = "`USE`")
     private Boolean use;
 
+    @Setter
     @Convert(converter = StatusConverter.class)
     @Column(name = "STATUS" , columnDefinition = "TINYINT")
     private Status status;
@@ -60,6 +59,20 @@ public abstract class BasePromotionEntity {
 
     public void updateStatus(Status s){
         this.status=s;
+    }
+
+    public void updateEntity(MenuPromotionRequestDTO dto,int freq){
+        this.startDate=dto.getStartDate();
+        this.endDate=dto.getEndDate();
+        this.startTime=dto.getStartTime();
+        this.endTime=dto.getEndTime();
+        this.mentStartTime=dto.getMentStartTime();
+        this.mentEndTime=dto.getMentEndTime();
+        this.isAddDesc=dto.isBoolAddDesc();
+        this.mentFreq=freq;
+        this.addDesc=dto.getAddMenuDesc();
+        this.ment=dto.getMent();
+
     }
 
 

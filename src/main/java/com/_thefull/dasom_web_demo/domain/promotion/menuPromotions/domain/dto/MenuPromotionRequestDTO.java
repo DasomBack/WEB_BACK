@@ -11,8 +11,6 @@ import java.time.LocalTime;
 import java.util.Date;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 public class MenuPromotionRequestDTO {
     private Long menuPromoId;
 
@@ -36,13 +34,8 @@ public class MenuPromotionRequestDTO {
     private String addDiscCond;
 
     private boolean boolAddDesc;
-//    private String addDesc;
     private String addMenuDesc;
 
     private String ment;
-
-    private boolean test;
-
-
 
 }

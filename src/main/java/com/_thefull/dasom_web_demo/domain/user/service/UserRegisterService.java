@@ -22,17 +22,17 @@ public class UserRegisterService {
     private final RobotRepository robotRepository;
 
     @Transactional
-    public void registerUser(UserJoinRequestDto dto,String code){
+    public void registerUser(UserJoinRequestDto dto){
         User newUser = dto.toEntity();
         User savedUser = userRepository.save(newUser);
 
-        Store findStore = storeRepository.findByCode(code)
-                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾지 못했습니다"));
-
-        findStore.changeUser(savedUser);
-
-        Robot newRobot = Robot.builder().model("DASOM1004").store(findStore).build();
-        robotRepository.save(newRobot);
+//        Store findStore = storeRepository.findByCode(code)
+//                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾지 못했습니다"));
+//
+//        findStore.changeUser(savedUser);
+//
+//        Robot newRobot = Robot.builder().model("DASOM1004").store(findStore).build();
+//        robotRepository.save(newRobot);
 
 
     }

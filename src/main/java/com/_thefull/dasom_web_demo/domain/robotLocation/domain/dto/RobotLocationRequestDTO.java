@@ -1,5 +1,6 @@
 package com._thefull.dasom_web_demo.domain.robotLocation.domain.dto;
 
+import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
 import com._thefull.dasom_web_demo.domain.robotLocation.domain.RobotLocationCategory;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +8,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
-
 public class RobotLocationRequestDTO {
 
     private String location;
@@ -20,7 +18,7 @@ public class RobotLocationRequestDTO {
     private String leftFront;
 
 
-    public RobotLocationCategory toEntity() {
+    public RobotLocationCategory toEntity(Robot robot) {
         return RobotLocationCategory.builder()
                 .location(this.location)
                 .leftSide(this.leftSide)
@@ -28,7 +26,7 @@ public class RobotLocationRequestDTO {
                 .rightFront(this.rightFront)
                 .rightSide(this.rightSide)
                 .leftFront(this.leftFront)
-                /*.robotId(this.robotId)*/
+                .robot(robot)
                 .build();
     }
 }
