@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="card-body">
+        <h4 class="card-title">제품 홍보</h4>
         <div id="all-table">
             <table class="table all-promotion-list">
                 <thead>
