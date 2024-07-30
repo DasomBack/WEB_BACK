@@ -85,10 +85,11 @@ public class MenuPromotionController {
     }
 
     @ResponseStatus(HttpStatus.SEE_OTHER)
-    @PutMapping("/updateContent")
+    @PostMapping("/updateContent")
     public String updatePromotionContent(@ModelAttribute MenuPromotionRequestDTO requestDTO,
                                          BindingResult bindingResult,
                                          HttpServletRequest request){
+
         HttpSession session = request.getSession(false);
         if (session==null){
             return "redirect:/page/register/login";
