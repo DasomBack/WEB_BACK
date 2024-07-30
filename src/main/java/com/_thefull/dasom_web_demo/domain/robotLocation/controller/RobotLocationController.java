@@ -51,7 +51,7 @@ public class RobotLocationController {
         Long storeId = (Long) session.getAttribute("storeId");
 
         robotLocatinService.registerRobotLocation( storeId, requestDTO);
-        return "settings/dasomlocation";
+        return "redirect:/page/user/dasomlocation";
     }
 
 
