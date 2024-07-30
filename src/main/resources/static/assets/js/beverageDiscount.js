@@ -38,12 +38,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         || selectedText == "중지" || selectedText == "완료" ){
 
                         var menupromoidelement=document.getElementById('menuPromotionId');
-                        const menuPromotionId=menupromoidelement.getAttribute('data-menu-promo-id');
+                        var menuPromo_id=menupromoidelement.getAttribute('data-menu-promo-id');
 
 
                         var xhr = new XMLHttpRequest();
 
-                        xhr.open('GET','/api/promotion-discount/changestatus?id='+menuPromotionId+'&status='+selectedText,true);
+                        var url = '/api/promotion-discount/changestatus?id='+menuPromo_id+'&status='+selectedText;
+                        xhr.open('PATCH',url,true);
                         xhr.onload=function(){
                             if(xhr.status >= 200 && xhr.status<400){
                                 console.error("제품할인 상태 변경에 성공하였습니다.");

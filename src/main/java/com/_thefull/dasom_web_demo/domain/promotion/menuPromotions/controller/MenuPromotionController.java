@@ -105,8 +105,6 @@ public class MenuPromotionController {
                                             @RequestParam(name = "status")String status,
                                             HttpServletRequest request){
 
-        System.out.println("MenuPromotionController.changeMenuPromotionStatus");
-
         HttpSession session = request.getSession(false);
         if (session==null){
             return "redirect:/page/register/login";
