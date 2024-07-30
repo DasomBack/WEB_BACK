@@ -2,8 +2,10 @@ package com._thefull.dasom_web_demo.domain.user.controller;
 
 import com._thefull.dasom_web_demo.domain.user.service.UserRegisterService;
 import com._thefull.dasom_web_demo.domain.user.domain.dto.UserJoinRequestDto;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -15,17 +17,20 @@ public class UserRegisterController {
     private final UserRegisterService userRegisterService;
 
     @PostMapping("/register")
-    public String register(@RequestParam("code") String code,
+    public String register(@ModelAttribute UserJoinRequestDto requestDto,
+                                BindingResult bindingResult,
+
+                                /*@RequestParam("code") String code,
                                 @RequestParam("name") String name,
                                  @RequestParam("phoneNum") String phoneNum,
                                  @RequestParam("email") String email,
-                                 @RequestParam("password") String password,
+                                 @RequestParam("password") String password,*/
                                  RedirectAttributes redirectAttributes){
 
-        UserJoinRequestDto dto = new UserJoinRequestDto(code, name, email, phoneNum, password);
-        userRegisterService.registerUser(dto,code);
 
-        redirectAttributes.addFlashAttribute("name",name);
+        userRegisterService.registerUser(requestDto);
+
+        redirectAttributes.addFlashAttribute("name",requestDto.getName());
 
         return "redirect:/page/user/registersuccess";
     }

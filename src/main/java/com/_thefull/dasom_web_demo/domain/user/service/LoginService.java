@@ -22,7 +22,6 @@ public class LoginService {
         }
 
         User user = optionalUser.get();
-
         // 찾아온 User의 password와 입력된 password가 다르면 null return
         if (!user.getPassword().equals(dto.getPassword())) {
             return null;
