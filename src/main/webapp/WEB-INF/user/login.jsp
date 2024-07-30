@@ -39,6 +39,12 @@
                          <h6 class="fw-light"></h6>
                          <form action="${pageContext.request.contextPath}/api/user/login" method="post" class="pt-3" id="loginForm">
                              <div class="form-group">
+
+                                 <div>
+                                     <label for="exampleInputStoreCode1">매장 코드</label>
+                                 </div>
+                                 <input name="code" type="text" class="form-control form-control-lg" id="exampleInputStoreCode1" placeholder="매장 코드를 정확히 입력해주세요">
+                                 <br>
                                  <div>
                                      <label for="exampleInputPhonenum1">전화번호</label>
                                  </div>

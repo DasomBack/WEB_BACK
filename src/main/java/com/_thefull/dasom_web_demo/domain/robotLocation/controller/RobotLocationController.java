@@ -41,15 +41,7 @@ public class RobotLocationController {
     @PostMapping("/register")
     public String registerRobotLocation(@ModelAttribute RobotLocationRequestDTO requestDTO,
                                         BindingResult bindingResult,
-                                        HttpServletRequest request
-                                        /*@RequestParam("location") String location,
-                                        @RequestParam(value = "leftSide", required = false) String leftSide,
-                                        @RequestParam(value = "leftFront", required = false) String leftFront,
-                                        @RequestParam(value = "front", required = false) String front,
-                                        @RequestParam(value = "rightSide", required = false) String rightSide,
-                                        @RequestParam(value = "rightFront", required = false) String rightFront
-                                        HttpSession session*/) {
-           /* Long userId = (Long) session.getAttribute("userId");*/
+                                        HttpServletRequest request){
 
         HttpSession session = request.getSession(false);
         if (session==null){
