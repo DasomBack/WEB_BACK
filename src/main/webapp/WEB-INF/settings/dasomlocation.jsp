@@ -83,11 +83,6 @@
                     <p id="login-user-info"><strong>반갑습니다. ${sessionScope.userId.name}님!</strong></p>
                 </li>
 
-                <form action="/api/promotion-discount/test" method="post">
-                    <input name="testText" value="테스트 문장입니다.">
-                    <button type="submit"></button>
-                </form>
-
                 <!--<li class="nav-item">
                     <form class="search-form" action="#">
                         <i class="icon-search"></i>
