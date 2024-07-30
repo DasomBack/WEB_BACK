@@ -1,5 +1,7 @@
 package com._thefull.dasom_web_demo.domain.user.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,7 +43,8 @@ public class UserRegisterPageController {
     }
 
     @GetMapping("/dasomlocation")
-    public String dasomlocation(){
+    public String dasomlocation(/*HttpServletRequest request*/){
+//        HttpSession session = request.getSession();
         return "/settings/dasomlocation";
     }
 

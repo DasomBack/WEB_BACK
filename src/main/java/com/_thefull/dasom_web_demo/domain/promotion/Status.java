@@ -27,7 +27,7 @@ public enum Status {
 
     public static Status fromStateType(String stateType){
         for (Status s: Status.values()){
-            if(s.getStateType()==stateType){
+            if(s.getStateType().equals(stateType)){
                 return s;
             }
         }
