@@ -39,7 +39,7 @@ public class MenuPromotionController {
                            Model model) {
         HttpSession session = request.getSession(false);
         if (session==null){
-            return "redirect:/page/register/login";
+            return "redirect:/page/user/login";
         }
 
         Long storeId= (Long)session.getAttribute("storeId");
@@ -62,7 +62,7 @@ public class MenuPromotionController {
                                         HttpServletRequest request){
         HttpSession session = request.getSession(false);
         if (session==null){
-            return "redirect:/page/register/login";
+            return "redirect:/page/user/login";
         }
         Long storeId = (Long)session.getAttribute("storeId");
         menuPromotionService.registerMenuPromotion(storeId, requestDTO);
@@ -75,7 +75,7 @@ public class MenuPromotionController {
             @RequestParam(name = "id") Long id, Model model){
         HttpSession session = request.getSession(false);
         if (session==null){
-            return "redirect:/page/register/login";
+            return "redirect:/page/user/login";
         }
 
         MenuPromotionResponseDTO dto = menuPromotionService.findOneMenuPromotion(id);
@@ -92,7 +92,7 @@ public class MenuPromotionController {
 
         HttpSession session = request.getSession(false);
         if (session==null){
-            return "redirect:/page/register/login";
+            return "redirect:/page/user/login";
         }
 
         menuPromotionService.updatePromotionContent(requestDTO);
@@ -108,7 +108,7 @@ public class MenuPromotionController {
 
         HttpSession session = request.getSession(false);
         if (session==null){
-            return "redirect:/page/register/login";
+            return "redirect:/page/user/login";
         }
 
 
@@ -124,7 +124,7 @@ public class MenuPromotionController {
                                       HttpServletRequest request){
         HttpSession session = request.getSession(false);
         if (session==null){
-            return "redirect:/page/register/login";
+            return "redirect:/page/user/login";
         }
 
         menuPromotionService.deleteMenuPromotion(id);

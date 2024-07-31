@@ -27,6 +27,7 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/beverageDiscountpage.css">
+
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/settings.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/assets/images/favicon.png"/>
@@ -91,7 +92,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/static/assets/js/dasom_location.js"></script>
 <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
-
 
 <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
 <script src="${pageContext.request.contextPath}/static/assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
