@@ -27,7 +27,7 @@ public class RobotLocationController {
                                            HttpServletRequest request){
         HttpSession session = request.getSession(false);
         if (session==null){
-            return "redirect:/page/register/login";
+            return "redirect:/page/user/login";
         }
 
         Long storeId = (Long) session.getAttribute("storeId");
@@ -45,7 +45,7 @@ public class RobotLocationController {
 
         HttpSession session = request.getSession(false);
         if (session==null){
-            return "redirect:/page/register/login";
+            return "redirect:/page/user/login";
         }
 
         Long storeId = (Long) session.getAttribute("storeId");
