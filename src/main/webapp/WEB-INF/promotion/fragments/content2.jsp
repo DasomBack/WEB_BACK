@@ -324,6 +324,14 @@
                             </form>
                         </div>
                         <ul class="grid-container" id="itemList">
+                            <c:forEach items="${menu_list}" var = "menu" varStatus="status">
+                                <li class="item" id="item${menu.id}" menu-add-desc="${menu.desc}">
+                                    <img src="https://via.placeholder.com/150" alt="샘플이미지">
+                                    <p class="title" id="productName${menu.id}">${menu.name}</p>
+                                    <p id="productPrice${menu.id}">${menu.price}원</p>
+                                </li>
+                            </c:forEach>
+
                             <li class="item" id="item1">
                                 <img src="https://via.placeholder.com/150" alt="샘플이미지">
                                 <p class="title" id="productName1">음료1</p>
@@ -398,5 +406,20 @@
     </div>
     <!-- Beverage Search Modal ends -->
 
+<script>
+    document.getElementById('startDate').addEventListener('change', function() {
+        var startDateVal = this.value;
+        var endDateInput = document.getElementById('endDate');
+
+        console.log(startDateVal);
+
+        endDateInput.min = startDateVal;
+
+        if (endDateInput.value < startDateVal) {
+            endDateInput.value = startDateVal;
+        }
+    });
+
+</script>
 </body>
 </html>

@@ -200,5 +200,13 @@
 
     <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
 
+    <script>
+        const allListModal = document.querySelector('#allListModal');
+        const allListBtn = document.querySelector('#all_list_btn');
+
+        allListBtn.addEventListener('click', function() {
+            $('#allListModal').show();
+        });
+    </script>
 </body>
 </html>
