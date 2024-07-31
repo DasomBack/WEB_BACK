@@ -77,12 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const searchIcon = document.querySelector('#product_search_btn');
         const closeBtn = document.getElementById(".btn-secondary");
 
-        const allListModal = document.querySelector('#allListModal');
         const allListBtn = document.querySelector('#all_list_btn');
-
-        allListBtn.addEventListener('click', function() {
-            $('#allListModal').show();
-        });
 
         searchIcon.addEventListener('click', function() {
             $('#productModal').show();
@@ -127,8 +122,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // 클릭한 이미지의 부모 요소(li)의 id를 사용하여 p 태그를 찾음
                 var parentId = this.parentElement.id;
+                var item=document.getElementById(parentId);
+
                 var productNameId = 'productName' + parentId.replace('item', '');
                 var productNameElement = document.getElementById(productNameId);
+
+                console.log('productName');
+                console.log(productNameId);
+                console.log('yes');
 
                 var productPriceId = 'productPrice' + parentId.replace('item', '');
                 var productPriceElement = document.getElementById(productPriceId);
@@ -143,8 +144,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 var loadMoreBtn = document.getElementById('loadMoreBtn');
                 loadMoreBtn.style.display = 'none';
 
+                document.getElementById("descriptionYes").checked=true;
+                document.getElementById("addMenuDescId").disabled=false;
+
+                var menudesc=item.getAttribute("menu-add-desc");
+                var adddescitem=document.getElementById("addMenuDescId");
+                adddescitem.value=menudesc;
+
                 // 제품할인 등록 영역의 버튼에 제품명 설정
-                var discountProductBtn = document.getElementById('discountProductBtn');
+                var discountProductBtn = document.getElementById('product_search_btn');
                 discountProductBtn.innerText = selectedProductName;
 
                 var productPrice =  document.getElementById('productPrice');
@@ -233,17 +241,6 @@ function reload(){
 
     xhr.send();
 }
-
-document.getElementById('startDate').addEventListener('change', function() {
-    var startDate = this.value;
-    var endDateInput = document.getElementById('endDate');
-
-    endDateInput.min = startDate;
-
-    if (endDateInput.value < startDate) {
-        endDateInput.value = startDate;
-    }
-});
 
 function changeStatus(menuPromoId, selectedText){
     var xhr = new XMLHttpRequest();
