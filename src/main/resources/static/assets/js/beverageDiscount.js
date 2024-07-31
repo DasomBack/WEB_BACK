@@ -112,8 +112,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         // 제품 검색 모달의 제품 검색 기능
-        // var images = document.querySelectorAll('#itemList img');
-        var images = document.querySelectorAll('#itemList image');
+        var images = document.querySelectorAll('#itemList img');
+        // var images = document.querySelectorAll('#itemList image');
         var selectedProductName = '';
         var selectedProductPrice = '';
 
