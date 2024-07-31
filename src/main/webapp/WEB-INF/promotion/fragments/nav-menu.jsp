@@ -4,15 +4,14 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
                 <!-- <li class="nav-item">
-                    <a class="nav-link" href="../../index.html">
+                    <a class="nav-link" href="#">
                         <i class="mdi mdi-grid-large menu-icon"></i>
                         <span class="menu-title">관리자 페이지</span>
                     </a>
                 </li> -->
                 <!--            <li class="nav-item nav-category">UI Elements</li>-->
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="ui-basic" aria-expanded="false"
-                       aria-controls="ui-basic">
+                    <a class="nav-link" href="../../page/main" aria-expanded="false" aria-controls="form-elements">
                         <i class="material-symbols-outlined">bar_chart_4_bars</i>
                         <span class="menu-title">영업 데이터 통계 </span>
                     </a>
@@ -25,12 +24,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="collapse" href="#charts" aria-expanded="false"
-                       aria-controls="charts">
+                    <a class="nav-link" data-bs-toggle="collapse" href="#promotions" aria-expanded="false"
+                                                               aria-controls="promotions">
                         <i class="material-symbols-outlined">campaign</i>
                         <span class="menu-title">다솜 홍보 등록</span>
                     </a>
-                    <div class="collapse" id="charts">
+                    <div class="collapse" id="promotions">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"><a class="nav-link"
                                                     href="#">자동영업</a></li>

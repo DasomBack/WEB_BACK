@@ -119,7 +119,7 @@
 
   });
 
-  //check all boxes in order status 
+  //check all boxes in order status
   $("#check-all").click(function () {
     $(".form-check-input").prop('checked', $(this).prop('checked'));
   });
