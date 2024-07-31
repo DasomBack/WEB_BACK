@@ -9,10 +9,10 @@
                 </button>
             </div> -->
             <div>
-                <a class="navbar-brand brand-logo" href="../../index.html">
+                <!-- <a class="navbar-brand brand-logo" href="../../page/main">
                     <h6> 관리자페이지</h6>
-                </a>
-                <a class="navbar-brand brand-logo-mini" href="../../index.html">
+                </a> -->
+                <a class="navbar-brand brand-logo-mini" href="../../page/main">
                     <h4> 관리자페이지</h4>
                 </a>
             </div>
