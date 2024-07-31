@@ -28598,7 +28598,7 @@ dl li {
 }
 .sidebar .nav .nav-item.active > .nav-link {
   border-radius: 0px 20px 0px 0px;
-  background: #fff;
+  /*background: #fff;*/
   position: relative;
   font-weight: bold;
   font-size: 13px;
@@ -28655,7 +28655,7 @@ dl li {
   margin-top: 0.2rem;
 }
 .sidebar .nav:not(.sub-menu) > .nav-item:hover > .nav-link, .sidebar .nav:not(.sub-menu) > .nav-item:hover[aria-expanded=true] {
-  background: #fff;
+  /*background: #fff;*/
   color: #fff;
 }
 .sidebar .nav:not(.sub-menu) > .nav-item > .nav-link {
@@ -28663,7 +28663,7 @@ dl li {
 }
 .sidebar .nav:not(.sub-menu) > .nav-item > .nav-link[aria-expanded=true] {
   border-radius: 8px 8px 0 0;
-  background: #fff;
+  /*background: #fff;*/
   color: #462200;
   border-radius: 0px 20px 0px 0px;
 }
@@ -28684,7 +28684,7 @@ dl li {
   margin-top: 0;
   list-style: none;
   padding: 0.25rem 0 0 3.07rem;
-  background: #fff;
+  /*background: #fff;*/
   padding-bottom: 12px;
   border-radius: 0px 0px 20px 0px;
 }
