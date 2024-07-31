@@ -3,15 +3,9 @@
 <!DOCTYPE html>
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
             <ul class="nav">
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="mdi mdi-grid-large menu-icon"></i>
-                        <span class="menu-title">관리자 페이지</span>
-                    </a>
-                </li> -->
-                <!--            <li class="nav-item nav-category">UI Elements</li>-->
                 <li class="nav-item">
-                    <a class="nav-link" href="../../page/main" aria-expanded="false" aria-controls="form-elements">
+                    <a class="nav-link" data-bs-toggle="collapse" href="../../page/main" aria-expanded="false"
+                        aria-controls="form-elements">
                         <i class="material-symbols-outlined">bar_chart_4_bars</i>
                         <span class="menu-title">영업 데이터 통계 </span>
                     </a>
