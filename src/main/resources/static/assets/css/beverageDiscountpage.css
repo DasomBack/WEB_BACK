@@ -25,6 +25,7 @@
 }
 
 .modal-addc{
+
     background-color: #fffff0;
     display: none;
     position: fixed;
@@ -34,15 +35,16 @@
 
     top:20%;
     left:40%;
-    width:300px;
-    height:200px;
+    width: 400px;
+    height: 300px;
     z-index: 1000;
     padding:15px;
     overflow: auto;
 
 }
 
-.modal-addc .modal_popup-addc{
+
+ .modal_popup-addc{
     font-color: black;
     position: absolute;
     top: 50%;
@@ -76,6 +78,7 @@
 .modal-popup-addc span {
     font-weight: bold; /* 텍스트를 굵게 표시 */
 }
+
 
 .close-btn-addc {
     background-color: #007bff; /* 버튼 배경 색상 */

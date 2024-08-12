@@ -37,13 +37,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 else if (selectedText=="진행중" || selectedText == "예정"
                     || selectedText == "중지" || selectedText == "완료" ){
 
-                    var menupromoidelement=document.getElementById('menuPromotionId');
-                    var menuPromo_id=menupromoidelement.getAttribute('data-menu-promo-id');
+                    var menupromoidelement = document.getElementById('menuPromotionId').getAttribute('data-menu-promo-id');
+                    // var menuPromo_id = menupromoidelement.getAttribute('data-menu-promo-id');
+
+                    console.log(menupromoidelement);
 
 
                     var xhr = new XMLHttpRequest();
 
-                    var url = '/api/promotion-discount/changestatus?id='+menuPromo_id+'&status='+selectedText;
+                    var url = '/api/promotion-discount/changestatus?id='+menupromoidelement+'&status='+selectedText;
                     xhr.open('PATCH',url,true);
                     xhr.onload=function(){
                         if(xhr.status >= 200 && xhr.status<400){
@@ -213,16 +215,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         document.getElementById('discPriceInput').value=discountedPrice;
 
                     }
-
-
-
-
-
                 });
-
             //라디오 버튼 "없음" 일시, input 버튼이 disable 상태로 된다.
-
-
 });
 
 function reload(){
