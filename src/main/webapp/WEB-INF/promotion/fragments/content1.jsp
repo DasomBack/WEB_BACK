@@ -130,9 +130,8 @@
                                             <ul class="navbar-nav custom-input form-control">
                                                 <li class="nav-item dropdown d-lg-block">
                                                     <a class="dropdown-bordered dropdown-toggle"
-                                                       data-bs-toggle="dropdown"
-                                                       aria-expanded="false">
-                                                        <span id="selectedItem"> ${promotion.status} </span>
+                                                       data-bs-toggle="dropdown" aria-expanded="false">
+                                                        <span id="selectedItem">${promotion.status}</span>
                                                         <p id="menuPromotionId" style="display: none" data-menu-promo-id="${promotion.menuPromoId}"></p>
                                                     </a>
                                                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
@@ -192,7 +191,9 @@
                     <li>제품 소개    <span id="modal-product-desc"></span></li>
                     <li>AI 멘트 생성    <span id="modal-ment"></span></li>
                 </ul>
+                <div id="modal-footer">
                 <button type="button" class="close-btn-addc" onclick="closeAdditionalContent()">닫기</button>
+                </div>
             </div>
         </div>
 

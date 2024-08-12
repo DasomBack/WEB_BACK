@@ -17,7 +17,6 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
 @Builder @Getter
-
 public class Store {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

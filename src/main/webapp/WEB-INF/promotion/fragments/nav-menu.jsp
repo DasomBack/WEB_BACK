@@ -28,7 +28,7 @@
                             <li class="nav-item"><a class="nav-link"
                                                     href="#">자동영업</a></li>
                             <li class="nav-item"><a class="nav-link"
-                                                    href="../../api/promotion-discount/main">제품할인</a></li>
+                                                    href="../../api/promotion-discount/main">제품홍보</a></li>
                             <li class="nav-item"><a class="nav-link"
                                                     href="#">프로모션</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">공지사항</a>

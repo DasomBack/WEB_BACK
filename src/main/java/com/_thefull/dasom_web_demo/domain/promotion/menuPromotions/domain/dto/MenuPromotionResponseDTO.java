@@ -20,30 +20,34 @@ public class MenuPromotionResponseDTO {
     String category;
     String menu;
 
-    int price;
-    boolean isRate;
-    int discPrice;
-    int discRate;
-    int discVal;
+    Integer price;
+    Boolean isRate;
+    Integer discPrice;
+    Integer discRate;
+    Integer discVal;
 
-    boolean boolisAlways;
+    Boolean boolIsAlways;
     String startDate;
     String endDate;
     String startTime;
     String endTime;
+    Boolean boolEqlStoreOpr;
+
     String mentStartTime;
     String mentEndTime;
+    Boolean boolEqlEventStart;
 
-    int freq;
+    Integer freq;
+    Integer interval;
 
-    boolean boolAddCond;
-    boolean boolAddDesc;
+    Boolean boolAddCond;
+    Boolean boolAddDesc;
     String addDiscCond;
     String addMenuDesc;
     String ment;
 
 
-    public static MenuPromotionResponseDTO from(MenuPromotion e){
+    public static MenuPromotionResponseDTO from(MenuPromotion e, int freq){
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -68,11 +72,15 @@ public class MenuPromotionResponseDTO {
                 .discVal(e.getDiscVal())
                 .startDate(startD)
                 .endDate(endD)
+                .boolIsAlways(e.getIsAlways())
                 .startTime(startT)
                 .endTime(endT)
+                .boolEqlStoreOpr(e.getBoolEqlStoreOpr())
                 .mentStartTime(MstartT)
                 .mentEndTime(MendT)
-                .freq(e.getMentFreq())
+                .boolEqlEventStart(e.getBoolEqlEventStart())
+                .freq(freq)
+                .interval(e.getMentInterval())
                 .boolAddCond(e.getIsAddCond())
                 .addDiscCond(e.getAddDiscCond())
                 .boolAddDesc(e.getIsAddDesc())

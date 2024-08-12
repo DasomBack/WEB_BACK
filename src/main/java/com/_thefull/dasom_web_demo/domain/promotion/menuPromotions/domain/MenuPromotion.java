@@ -88,15 +88,15 @@ public class MenuPromotion extends BasePromotionEntity {
         this.price=dto.getPrice();
         this.discVal=dto.getDiscVal();
         this.discPrice= dto.getDiscPrice();
-        this.isAddCond=dto.isBoolAddCond();
+        this.isAddCond=dto.getBoolAddCond();
         this.addDiscCond=dto.getAddDiscCond();
-        this.isAlways=dto.isBoolIsAlways();
+        this.isAlways=dto.getBoolIsAlways();
 
     }
 
 
 
-    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, int freq, Store store){
+    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, Store store){
         LocalDateTime startTime = dto.getStartDate().atTime(dto.getStartTime());
 
         LocalDateTime now = LocalDateTime.now();
@@ -114,15 +114,17 @@ public class MenuPromotion extends BasePromotionEntity {
                 .discPrice(Math.abs(dto.getDiscPrice()))
                 .startDate(dto.getStartDate())
                 .endDate(dto.getEndDate())
-                .isAlways(dto.isBoolIsAlways())
+                .isAlways(dto.getBoolIsAlways())
                 .startTime(dto.getStartTime())
                 .endTime(dto.getEndTime())
+                .boolEqlStoreOpr(dto.getBoolEqlStoreOpr())
                 .mentStartTime(dto.getMentStartTime())
                 .mentEndTime(dto.getMentEndTime())
-                .mentFreq(freq)
-                .isAddCond(dto.isBoolAddCond())
+                .boolEqlStoreOpr(dto.getBoolEqlStoreOpr())
+                .mentInterval(dto.getInterval())
+                .isAddCond(dto.getBoolAddCond())
                 .addDiscCond(dto.getAddDiscCond())
-                .isAddDesc(dto.isBoolAddDesc())
+                .isAddDesc(dto.getBoolAddDesc())
                 .addDesc(dto.getAddMenuDesc())
                 .ment(dto.getMent())
                 .store(store)

@@ -64,6 +64,7 @@ public class MenuPromotionController {
         if (session==null){
             return "redirect:/page/user/login";
         }
+
         Long storeId = (Long)session.getAttribute("storeId");
         menuPromotionService.registerMenuPromotion(storeId, requestDTO);
 
@@ -110,7 +111,6 @@ public class MenuPromotionController {
         if (session==null){
             return "redirect:/page/user/login";
         }
-
 
         menuPromotionService.changeMenuPromotionStatus(id, status);
 
