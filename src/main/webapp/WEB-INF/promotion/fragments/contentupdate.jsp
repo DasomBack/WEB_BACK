@@ -16,7 +16,7 @@
                         <th>품목</th>
                         <th>제품</th>
                         <th>정가</th>
-                        <th>할인가(원)</th>
+                        <th>할인값(원)</th>
                         <th>행사기간</th>
                     </tr>
                     </thead>
@@ -84,7 +84,7 @@
                                 <!-- menu name hidden input -->
                                 <input type="hidden" id="priceInput" name="price" value="${thepromo.price}">
 
-                                <p id="discountPrice">(-${thepromo.discPrice}원)</p>
+                                <p id="discountPrice">(${thepromo.discPrice}원)</p>
                                 <!-- menu name hidden input -->
                                 <input type="hidden" id="discPriceInput" name="discPrice" value="${thepromo.discPrice}">
 
@@ -94,6 +94,7 @@
                             <div class="discount-section">
                                 <input type="number" class="custom-input form-control"
                                        id="discountPriceInput" name="discVal" value="${thepromo.discVal}" placeholder="${thepromo.discVal}">
+
                                 <button type="button" class="btn btn-outline-primary btn-sm"
                                         id="confirmDiscountPriceBtn">확인
                                 </button>
@@ -106,7 +107,20 @@
                                 &nbsp~&nbsp
                                 <input type="date" class="custom-input form-control" id="endDate" name="endDate" value="${thepromo.endDate}">
                                 <label class="custom-label">
-                                    <input type="checkbox" name="boolIsAlways" id="isAlwaysCheckbox">
+                                    <!-- <c:choose>
+                                        <c:when test="${thepromo.boolIsAlways eq 'true'}">
+                                            <input type="checkbox" name="boolIsAlways" id="isAlwaysCheckbox" checked=true>
+                                            ${thepromo.boolIsAlways}
+                                            &nbsp상시
+                                        </c:when>
+                                        <c:when test="${thepromo.boolIsAlways eq 'false'}">
+                                            <input type="checkbox" name="boolIsAlways" id="isAlwaysCheckbox" checked=false>
+                                            ${thepromo.boolIsAlways}
+                                            &nbsp상시
+                                        </c:when>
+                                    </c:choose> -->
+
+                                    <input type="checkbox" name="boolIsAlways" is="isAlwaysCheckbox" ${thepromo.boolIsAlways eq 'true' ? 'checked' : ''}>
                                     &nbsp상시
                                 </label>
                             </div>
@@ -137,7 +151,7 @@
                                 &nbsp~&nbsp
                                 <input type="time" class="custom-input form-control" id="eventEndTime" name="endTime" value="${thepromo.endTime}">
                                 <label class="custom-label" for="sameTimeCheckbox">
-                                    <input type="checkbox" id="sameTimeCheckbox" name="sameTimeCheckbox">
+                                    <input type="checkbox" id="sameTimeCheckbox" name="boolEqlStoreOpr" ${thepromo.boolEqlStoreOpr eq 'true' ? 'checked' : ''}>
                                     &nbsp영업시간과 동일
                                 </label>
                             </div>
@@ -149,7 +163,7 @@
                                 &nbsp~&nbsp
                                 <input type="time" class="custom-input form-control" name="mentEndTime" value="${thepromo.mentEndTime}">
                                 <label class="custom-label">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name"boolEqlEventStart" ${thepromo.boolEqlEventStart eq 'true' ? 'checked' : ''}>
                                     &nbsp행사시간과 동일
                                 </label>
                             </div>
@@ -160,7 +174,7 @@
                                     <a class="dropdown-bordered dropdown-toggle"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false">
-                                        <span class="selectedItem"> 선택 </span>
+                                        <span class="selectedItem"> ${thepromo.freq}분 간격 </span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                          aria-labelledby="messageDropdown">
@@ -203,8 +217,6 @@
                             <input type="hidden" id="intervalInput" name="interval" value=10>
 
                         </td>
-
-
                     </tr>
 
                     </tbody>
@@ -214,10 +226,10 @@
             <div class="table-responsive third-table">
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th>할인 조건 추가</th>
-                        <th>제품 소개</th>
-                    </tr>
+                        <tr>
+                            <th>할인 조건 추가</th>
+                            <th>제품 소개</th>
+                        </tr>
                     </thead>
                     <tbody>
                     <tr>
@@ -225,32 +237,32 @@
                             <div class="discount-section radio">
                                 <label class="custom-label first-label" for="discountOptionNone">
                                     <input type="radio" name="isAddCond-k"
-                                           id="discountOptionNone" onload="changeAdditionalOption(${thepromo.boolAddCond},'discountOptionYes','addDiscCond')" value="none" checked>
+                                           id="discountOptionNone" onload="changeAdditionalOption(${thepromo.boolAddCond},'discountOptionYes','addDiscCond')" value="none" ${thepromo.boolAddCond eq 'false' ? 'checked' : ''}>
                                     없음
                                 </label>
                                 <label class="custom-label" for="discountOptionYes">
                                     <input type="radio" name="isAddCond-k"
-                                           id="discountOptionYes" value="yes">
+                                           id="discountOptionYes" value="yes" ${thepromo.boolAddCond eq 'true' ? 'checked' : ''}>
                                     있음
                                 </label>
                                 <input type="hidden" id="isAddCondInput" name="boolAddCond">
-                                <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" placeholder="${thepromo.addDiscCond}" disabled>
+                                <input type="text" class="custom-input form-control" id="addCondId" value="${thepromo.addDiscCond}" name="addDiscCond" placeholder="${thepromo.addDiscCond}" ${thepromo.boolAddCond eq 'true' ? '' : 'disabled'}>
                             </div>
                         </td>
                         <td>
                             <div class="discount-section radio">
                                 <label class="custom-label first-label" for="descriptionNone">
                                     <input type="radio" name="isAddDesc-k"
-                                            id="descriptionNone" onload="changeAdditionalOption(${thepromo.boolAddDesc},'descriptionYes','addMenuDesc')" value="none" checked>
+                                            id="descriptionNone" onload="changeAdditionalOption(${thepromo.boolAddDesc},'descriptionYes','addMenuDesc')" value="none" ${thepromo.boolAddDesc eq 'false' ? 'checked' : ''}>
                                     없음
                                 </label>
                                 <label class="custom-label" for="descriptionYes">
                                     <input type="radio" name="isAddDesc-k"
-                                            id="descriptionYes" value="yes">
+                                            id="descriptionYes" value="yes" ${thepromo.boolAddDesc eq 'true' ? 'checked' : ''}>
                                     있음
                                 </label>
                                 <input type="hidden" id="isAddDescInput" name="boolAddDesc">
-                                <input type="text" class="custom-input form-control" id="addMentDescId" name="addMenuDesc" placeholder="${thepromo.addMenuDesc}" disabled>
+                                <input type="text" class="custom-input form-control" id="addMentDescId" value="${thepromo.addMenuDesc}" name="addMenuDesc" placeholder="${thepromo.addMenuDesc}" ${thepromo.boolAddDesc eq 'true' ? '' : 'disabled'}>
 
                             </div>
                         </td>
@@ -273,7 +285,7 @@
                     <tr>
                         <td>
                             <input type="hidden" class="ment-text-input" name="ment" id="ment-text">
-                            <textarea id="ment-textarea" value="${thepromo.ment}" placeholder="${thepromo.ment}"></textarea>
+                            <textarea id="ment-textarea" value="${thepromo.ment}" placeholder="${thepromo.ment}">${thepromo.ment}</textarea>
                             <div class="button-container">
                                 <button type="button" onclick="createMent()" class="btn btn-outline-light btn-sm">멘트생성
                                 </button>

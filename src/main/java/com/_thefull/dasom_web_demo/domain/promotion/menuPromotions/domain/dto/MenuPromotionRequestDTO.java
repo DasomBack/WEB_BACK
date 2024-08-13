@@ -1,14 +1,8 @@
 package com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
 @Data
 public class MenuPromotionRequestDTO {
@@ -17,23 +11,29 @@ public class MenuPromotionRequestDTO {
     private String category;
     private String menu;
 
-    private int price;
-    private int discVal;
-    private int discPrice;
+    private Integer price;
+    private Integer discVal;
+    private Integer discPrice;
 
     private LocalDate startDate;
     private LocalDate endDate;
-    private boolean boolIsAlways;
+
+
+    private Boolean boolIsAlways;
     private LocalTime startTime;
     private LocalTime endTime;
+    private Boolean boolEqlStoreOpr;
+
     private LocalTime mentStartTime;
     private LocalTime mentEndTime;
-    private int interval;
+    private Boolean boolEqlEventStart;
 
-    private boolean boolAddCond;
+    private Integer interval;
+
+    private Boolean boolAddCond;
     private String addDiscCond;
 
-    private boolean boolAddDesc;
+    private Boolean boolAddDesc;
     private String addMenuDesc;
 
     private String ment;

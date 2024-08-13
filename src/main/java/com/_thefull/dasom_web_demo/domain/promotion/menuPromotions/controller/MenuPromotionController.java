@@ -64,6 +64,7 @@ public class MenuPromotionController {
         if (session==null){
             return "redirect:/page/user/login";
         }
+
         Long storeId = (Long)session.getAttribute("storeId");
         menuPromotionService.registerMenuPromotion(storeId, requestDTO);
 
@@ -101,16 +102,17 @@ public class MenuPromotionController {
     }
 
     @ResponseStatus(HttpStatus.SEE_OTHER)
-    @PatchMapping("/changestatus")
+    @PatchMapping("/status")
     public String changeMenuPromotionStatus(@RequestParam(name = "id") Long id,
                                             @RequestParam(name = "status")String status,
                                             HttpServletRequest request){
+
+        System.out.println(id+ status);
 
         HttpSession session = request.getSession(false);
         if (session==null){
             return "redirect:/page/user/login";
         }
-
 
         menuPromotionService.changeMenuPromotionStatus(id, status);
 

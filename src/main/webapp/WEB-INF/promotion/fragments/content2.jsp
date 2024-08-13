@@ -71,7 +71,7 @@
                                         class="icon-search"></i>
                                 </button>
                                 <!-- menu name hidden input -->
-                                <input type="hidden" id="menunameInput" name="menu" value="음료10">
+                                <input type="hidden" id="menunameInput" name="menu" value="Espresso">
 
                             </div>
                         </td>
@@ -134,7 +134,7 @@
                                 &nbsp~&nbsp
                                 <input type="time" class="custom-input form-control" id="eventEndTime" name="endTime">
                                 <label class="custom-label" for="sameTimeCheckbox">
-                                    <input type="checkbox" id="sameTimeCheckbox" name="sameTimeCheckbox">
+                                    <input type="checkbox" id="sameTimeCheckbox" name="boolEqlStoreOpr">
                                     &nbsp영업시간과 동일
                                 </label>
                             </div>
@@ -146,7 +146,7 @@
                                 &nbsp~&nbsp
                                 <input type="time" class="custom-input form-control" name="mentEndTime">
                                 <label class="custom-label">
-                                    <input type="checkbox">
+                                    <input type="checkbox" name="boolEqlEventStart">
                                     &nbsp행사시간과 동일
                                 </label>
                             </div>
