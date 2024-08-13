@@ -94,17 +94,7 @@ public class MenuPromotion extends BasePromotionEntity {
 
     }
 
-
-
-    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, Store store){
-        LocalDateTime startTime = dto.getStartDate().atTime(dto.getStartTime());
-
-        LocalDateTime now = LocalDateTime.now();
-        Status status = Status.IN_PROGRESS;
-        if (now.isBefore(startTime)){
-            status=Status.SCHEDULED;
-        }
-
+    public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, Store store, Status status){
         return MenuPromotion.builder()
                 .status(status)
                 .menu(menu)

@@ -34,40 +34,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 else if(selectedText=="30분 간격"){
                    document.getElementById('intervalInput').value=30;
                 }
-                else if (selectedText=="진행중" || selectedText == "예정"
-                    || selectedText == "중지" || selectedText == "완료" ){
 
-                    var menupromoidelement = document.getElementById('menuPromotionId').getAttribute('data-menu-promo-id');
-                    // var menuPromo_id = menupromoidelement.getAttribute('data-menu-promo-id');
-
-                    console.log(menupromoidelement);
-
-
-                    var xhr = new XMLHttpRequest();
-
-                    var url = '/api/promotion-discount/changestatus?id='+menupromoidelement+'&status='+selectedText;
-                    xhr.open('PATCH',url,true);
-                    xhr.onload=function(){
-                        if(xhr.status >= 200 && xhr.status<400){
-                            console.error("제품할인 상태 변경에 성공하였습니다.");
-                        }else{
-                            console.error("제품할인 상태 변경에 실패하였습니다");
-                        }
-                    };
-                    xhr.onerror = function(){
-                        console.error("[Menu Promotion Change Status- PATCH] Connection Error");
-                    }
-
-                    xhr.send();
-
-                    reload();
-
-
-                }
             }
-
-
-
         });
     });
 
@@ -254,6 +222,33 @@ function changeStatus(menuPromoId, selectedText){
 
     xhr.send();
 }
+
+/* 상태변경 드롭다운 클릭 시 상태 변경하는 api 요청 보내는 함수 */
+function changeStatus(menuPromoId, status){
+
+    console.log(status);
+    console.log(menuPromoId);
+    var xhr = new XMLHttpRequest();
+
+    var url = '/api/promotion-discount/status?id='+menuPromoId+'&status='+status;
+    xhr.open('PATCH',url,true);
+    xhr.onload=function(){
+        if(xhr.status >= 200 && xhr.status<400){
+            console.error("제품할인 상태 변경에 성공하였습니다.");
+        }else{
+            console.error("제품할인 상태 변경에 실패하였습니다");
+        }
+    };
+    xhr.onerror = function(){
+        console.error("[Menu Promotion Change Status- PATCH] Connection Error");
+    }
+
+    xhr.send();
+
+    reload();
+
+}
+
 
 function openAdditionalContent(boolAddCond, boolAddDesc, addDiscCond, addMenuDesc, ment){
     document.getElementById('modal-additional-cond').innerText = boolAddCond ? addDiscCond : "없음";

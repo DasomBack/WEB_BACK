@@ -102,10 +102,12 @@ public class MenuPromotionController {
     }
 
     @ResponseStatus(HttpStatus.SEE_OTHER)
-    @PatchMapping("/changestatus")
+    @PatchMapping("/status")
     public String changeMenuPromotionStatus(@RequestParam(name = "id") Long id,
                                             @RequestParam(name = "status")String status,
                                             HttpServletRequest request){
+
+        System.out.println(id+ status);
 
         HttpSession session = request.getSession(false);
         if (session==null){

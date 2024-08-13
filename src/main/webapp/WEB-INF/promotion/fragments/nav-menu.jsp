@@ -45,7 +45,7 @@
                     <div class="collapse" id="tables">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"><a class="nav-link" href="#">내 정보 관리</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../page/user/dasomlocation">매장정보 관리</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../settings/dasom-locations/main">매장정보 관리</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">다솜기기 관리</a></li>
                         </ul>
                     </div>

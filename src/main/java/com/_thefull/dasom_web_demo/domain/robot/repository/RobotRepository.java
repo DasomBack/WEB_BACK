@@ -11,5 +11,6 @@ import java.util.Optional;
 public interface RobotRepository extends JpaRepository<Robot, Long> {
     List<Robot> findByStore(Store store);
 
+
 }
 

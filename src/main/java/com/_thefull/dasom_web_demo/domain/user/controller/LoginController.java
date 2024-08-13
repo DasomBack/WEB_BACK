@@ -1,5 +1,7 @@
 package com._thefull.dasom_web_demo.domain.user.controller;
 
+import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
+import com._thefull.dasom_web_demo.domain.store.domain.Store;
 import com._thefull.dasom_web_demo.domain.user.domain.dto.LoginRequestDto;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
 import com._thefull.dasom_web_demo.domain.user.service.LoginService;
@@ -30,10 +32,15 @@ public class LoginController {
 
         User user = loginService.login(requestDTO);
 
+        Long storeId = user.getStoreList().get(0).getId();
+        Long robotId = user.getStoreList().get(0).getRobotList().get(0).getId();
+
+
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("userId", user);
-            session.setAttribute("storeId", 1l);
+            session.setAttribute("storeId", storeId);
+            session.setAttribute("robotId", robotId);
             return "redirect:/page/main";
         }
         else{
