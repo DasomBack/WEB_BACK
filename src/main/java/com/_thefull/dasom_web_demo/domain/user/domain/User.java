@@ -48,12 +48,4 @@ public class User {
     @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Store> storeList = new ArrayList<>();
-
-/*    @Builder.Default
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Robot> robots = new ArrayList<>();*/
-
-
-
-
 }

@@ -46,5 +46,10 @@ public class RobotLocationCategory {
     @Column(name = "`USE`")
     @Builder.Default
     private Boolean use=true;
+
+    public void changeUse(Boolean use){
+        this.use=use;
+    }
+
 }
 

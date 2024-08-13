@@ -21,10 +21,56 @@ import java.util.List;
 @RequestMapping("/settings/dasom-locations")
 public class RobotLocationController {
     private final RobotLocatinService robotLocatinService;
-//
-//    @GetMapping("/all")
-//    public ResponseEntity<>
 
+    @GetMapping("/main")
+    public String mainPage(Model model,
+                           HttpServletRequest request){
+
+        HttpSession session = request.getSession(false);
+        if (session==null){
+            return "redirect:/page/user/login";
+        }
+
+        Long storeId = (Long) session.getAttribute("storeId");
+        List<RobotLocationCategory> allRobotLocationCategories = robotLocatinService.findAllRobotLocationCategories(storeId);
+        model.addAttribute("all_robot_location_category_list", allRobotLocationCategories);
+
+        return "settings/dasomlocation";
+    }
+
+    @PostMapping
+    public String createDasomLocation(@ModelAttribute RobotLocationRequestDTO requestDTO,
+                                      BindingResult bindingResult,
+                                      HttpServletRequest request){
+        HttpSession session = request.getSession(false);
+        if(session==null){
+            return "redirect:/page/user/login";
+        }
+
+        Long storeId = (Long) session.getAttribute("storeId");
+        Long robotId = (Long) session.getAttribute("robotId");
+        robotLocatinService.createDasomLocation(requestDTO,storeId, robotId);
+
+        return "redirect:/settings/dasom-locations/main";
+    }
+
+    @PatchMapping("/use")
+    public String changeWhetherUse(@RequestParam(name = "use")Boolean use,
+                                   @RequestParam(name = "id")Long id,
+                                   BindingResult bindingResult,
+                                   HttpServletRequest request){
+
+        HttpSession session = request.getSession(false);
+        if(session==null){
+            return "redirect:/page/user/login";
+        }
+
+        Long robotId = (Long) session.getAttribute("robotId");
+
+        robotLocatinService.changeUse(robotId, use, id);
+
+        return "redirect:/settings/dasom-locations/main";
+    }
 
 
 

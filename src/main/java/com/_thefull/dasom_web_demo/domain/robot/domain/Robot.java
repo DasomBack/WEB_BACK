@@ -19,7 +19,7 @@ public class Robot {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ROBOT_ID")
-    private long id;
+    private Long id;
 
     @Column(name = "MODEL",length = 100)
     private String model;

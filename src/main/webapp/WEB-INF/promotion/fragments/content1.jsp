@@ -36,35 +36,27 @@
                                                data-bs-toggle="dropdown"
                                                aria-expanded="false">
                                                 <span id="selectedItem"> ${promotion.status} </span>
-                                                <p id="menuPromotionId" style="display: none" data-menu-promo-id="${promotion.menuPromoId}"></p>
                                             </a>
-                                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                                 aria-labelledby="messageDropdown">
-                                                <a class="dropdown-item preview-item" data-value="진행중">
-                                                    <div class="preview-item-content flex-grow">
-                                                        <p class="preview-subject ellipsis fw-medium text-dark">
-                                                            진행중</p>
+                                            <c:choose>
+                                                <c:when test="${promotion.status eq '예정'}"></c:when>
+                                                <c:otherwise>
+                                                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                                         aria-labelledby="messageDropdown">
+                                                        <a class="dropdown-item preview-item" data-value="진행중" onclick= "changeStatus(${promotion.menuPromoId}, `진행중`)">
+                                                            <div class="preview-item-content flex-grow">
+                                                                <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                    진행중</p>
+                                                            </div>
+                                                        </a>
+                                                        <a class="dropdown-item preview-item" data-value="중지" onclick= "changeStatus(${promotion.menuPromoId}, `중지`)">
+                                                            <div class="preview-item-content flex-grow">
+                                                                <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                    중지</p>
+                                                            </div>
+                                                        </a>
                                                     </div>
-                                                </a>
-                                                <a class="dropdown-item preview-item" data-value="예정">
-                                                    <div class="preview-item-content flex-grow">
-                                                        <p class="preview-subject ellipsis fw-medium text-dark">
-                                                            예정</p>
-                                                    </div>
-                                                </a>
-                                                <a class="dropdown-item preview-item" data-value="중지">
-                                                    <div class="preview-item-content flex-grow">
-                                                        <p class="preview-subject ellipsis fw-medium text-dark">
-                                                            중지</p>
-                                                    </div>
-                                                </a>
-                                                <a class="dropdown-item preview-item" data-value="완료">
-                                                    <div class="preview-item-content flex-grow">
-                                                        <p class="preview-subject ellipsis fw-medium text-dark">
-                                                            완료</p>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </li>
                                     </ul>
                                 </td>
@@ -132,35 +124,27 @@
                                                     <a class="dropdown-bordered dropdown-toggle"
                                                        data-bs-toggle="dropdown" aria-expanded="false">
                                                         <span id="selectedItem">${promotion.status}</span>
-                                                        <p id="menuPromotionId" style="display: none" data-menu-promo-id="${promotion.menuPromoId}"></p>
                                                     </a>
-                                                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                                         aria-labelledby="messageDropdown">
-                                                        <a class="dropdown-item preview-item" data-value="진행중">
-                                                            <div class="preview-item-content flex-grow">
-                                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                                    진행중</p>
+                                                    <c:choose>
+                                                        <c:when test="${promotion.status eq '예정'}"></c:when>
+                                                        <c:otherwise>
+                                                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                                                 aria-labelledby="messageDropdown">
+                                                                <a class="dropdown-item preview-item" data-value="진행중" onclick= "changeStatus(${promotion.menuPromoId}, `진행중`)">
+                                                                    <div class="preview-item-content flex-grow">
+                                                                        <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                            진행중</p>
+                                                                    </div>
+                                                                </a>
+                                                                <a class="dropdown-item preview-item" data-value="중지" onclick= "changeStatus(${promotion.menuPromoId}, `중지`)">
+                                                                    <div class="preview-item-content flex-grow">
+                                                                        <p class="preview-subject ellipsis fw-medium text-dark">
+                                                                            중지</p>
+                                                                    </div>
+                                                                </a>
                                                             </div>
-                                                        </a>
-                                                        <a class="dropdown-item preview-item" data-value="예정">
-                                                            <div class="preview-item-content flex-grow">
-                                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                                    예정</p>
-                                                            </div>
-                                                        </a>
-                                                        <a class="dropdown-item preview-item" data-value="중지">
-                                                            <div class="preview-item-content flex-grow">
-                                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                                    중지</p>
-                                                            </div>
-                                                        </a>
-                                                        <a class="dropdown-item preview-item" data-value="완료">
-                                                            <div class="preview-item-content flex-grow">
-                                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                                    완료</p>
-                                                            </div>
-                                                        </a>
-                                                    </div>
+                                                        </c:otherwise>
+                                                    </c:choose>
                                                 </li>
                                             </ul>
                                         </td>
