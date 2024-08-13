@@ -39,14 +39,20 @@ public abstract class BasePromotionEntity {
     @Column(name = "END_TIME")
     private LocalTime endTime;
 
+    @Column(name = "IS_EQL_STORE_OPR")
+    private Boolean boolEqlStoreOpr;
+
     @Column(name = "MENT_START_TIME")
     private LocalTime mentStartTime;
 
     @Column(name = "MENT_END_TIME")
     private LocalTime mentEndTime;
 
+    @Column(name = "IS_EQL_EVENT_START")
+    private Boolean boolEqlEventStart;
+
     @Column(name = "MENT_FREQ")
-    private int mentFreq;
+    private Integer mentInterval;
 
     @Column(name = "IS_ADD_DESC")
     private Boolean isAddDesc;
@@ -68,8 +74,8 @@ public abstract class BasePromotionEntity {
         this.endTime=dto.getEndTime();
         this.mentStartTime=dto.getMentStartTime();
         this.mentEndTime=dto.getMentEndTime();
-        this.isAddDesc=dto.isBoolAddDesc();
-        this.mentFreq=freq;
+        this.isAddDesc=dto.getBoolAddDesc();
+        this.mentInterval=dto.getInterval();
         this.addDesc=dto.getAddMenuDesc();
         this.ment=dto.getMent();
 

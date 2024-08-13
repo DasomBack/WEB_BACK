@@ -8,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,14 +18,14 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/api/robotLocation")
+@RequestMapping("/settings/dasom-locations")
 public class RobotLocationController {
     private final RobotLocatinService robotLocatinService;
 
-    /* 메인 화면 */
     @GetMapping("/main")
-    public String getMainPageRobotLocation(Model model,
-                                           HttpServletRequest request){
+    public String mainPage(Model model,
+                           HttpServletRequest request){
+
         HttpSession session = request.getSession(false);
         if (session==null){
             return "redirect:/page/user/login";
@@ -35,24 +36,43 @@ public class RobotLocationController {
         model.addAttribute("all_robot_location_category_list", allRobotLocationCategories);
 
         return "settings/dasomlocation";
-
     }
 
-    @PostMapping("/register")
-    public String registerRobotLocation(@ModelAttribute RobotLocationRequestDTO requestDTO,
-                                        BindingResult bindingResult,
-                                        HttpServletRequest request){
-
+    @PostMapping
+    public String createDasomLocation(@ModelAttribute RobotLocationRequestDTO requestDTO,
+                                      BindingResult bindingResult,
+                                      HttpServletRequest request){
         HttpSession session = request.getSession(false);
-        if (session==null){
+        if(session==null){
             return "redirect:/page/user/login";
         }
 
         Long storeId = (Long) session.getAttribute("storeId");
+        Long robotId = (Long) session.getAttribute("robotId");
+        robotLocatinService.createDasomLocation(requestDTO,storeId, robotId);
 
-        robotLocatinService.registerRobotLocation( storeId, requestDTO);
-        return "redirect:/page/user/dasomlocation";
+        return "redirect:/settings/dasom-locations/main";
     }
+
+    @PatchMapping("/use")
+    public String changeWhetherUse(@RequestParam(name = "use")Boolean use,
+                                   @RequestParam(name = "id")Long id,
+                                   BindingResult bindingResult,
+                                   HttpServletRequest request){
+
+        HttpSession session = request.getSession(false);
+        if(session==null){
+            return "redirect:/page/user/login";
+        }
+
+        Long robotId = (Long) session.getAttribute("robotId");
+
+        robotLocatinService.changeUse(robotId, use, id);
+
+        return "redirect:/settings/dasom-locations/main";
+    }
+
+
 
 
 }

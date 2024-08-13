@@ -28,7 +28,7 @@
                             <li class="nav-item"><a class="nav-link"
                                                     href="#">자동영업</a></li>
                             <li class="nav-item"><a class="nav-link"
-                                                    href="../../api/promotion-discount/main">제품할인</a></li>
+                                                    href="../../api/promotion-discount/main">제품홍보</a></li>
                             <li class="nav-item"><a class="nav-link"
                                                     href="#">프로모션</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">공지사항</a>
@@ -45,7 +45,7 @@
                     <div class="collapse" id="tables">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"><a class="nav-link" href="#">내 정보 관리</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../page/user/dasomlocation">매장정보 관리</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../../settings/dasom-locations/main">매장정보 관리</a></li>
                             <li class="nav-item"><a class="nav-link" href="#">다솜기기 관리</a></li>
                         </ul>
                     </div>

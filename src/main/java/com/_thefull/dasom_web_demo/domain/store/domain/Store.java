@@ -2,6 +2,7 @@ package com._thefull.dasom_web_demo.domain.store.domain;
 
 import com._thefull.dasom_web_demo.domain.menu.domain.Menu;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.MenuPromotion;
+import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
 import jakarta.persistence.*;
 import lombok.*;
@@ -17,7 +18,6 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
 @Builder @Getter
-
 public class Store {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,6 +50,10 @@ public class Store {
     @Builder.Default
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
     private List<Menu> menuList =new ArrayList<>();
+
+    @Builder.Default
+    @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)
+    private List<Robot> robotList = new ArrayList<>();
 
     @Builder.Default
     @OneToMany(mappedBy = "store", cascade = CascadeType.ALL)

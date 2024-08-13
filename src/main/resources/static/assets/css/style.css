@@ -28842,7 +28842,7 @@ dl li {
   -ms-transition: width 0.25s ease, background 0.25s ease;
   width: 220px;
   height: 97px;
-  padding: 20px 35px;
+  padding: 20px 35px 20px 35px;
 }
 .sidebar-dark .navbar .navbar-brand-wrapper {
   background: #232227;

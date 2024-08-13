@@ -54,6 +54,9 @@ public class UserRegisterPageController {
     public String dasomlocation(Model model,
                                 HttpServletRequest request){
         HttpSession session = request.getSession(false);
+
+        System.out.println("여기로 로딩되면 안됨");
+
         if (session==null){
             return "redirect:/page/user/login";
         }

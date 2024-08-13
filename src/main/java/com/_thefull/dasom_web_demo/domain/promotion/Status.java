@@ -13,7 +13,6 @@ public enum Status {
     STOPPED(3,"중지"),
     COMPLETED(4,"완료");
 
-
     private final int stateNum;
     private final String stateType;
 

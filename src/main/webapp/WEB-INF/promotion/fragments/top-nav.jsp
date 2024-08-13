@@ -2,16 +2,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
+
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
             <!-- <div class="me-3">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-bs-toggle="minimize">
                     <span class="icon-menu"></span>
                 </button>
             </div> -->
-            <div>
-                <!-- <a class="navbar-brand brand-logo" href="../../page/main">
-                    <h6> 관리자페이지</h6>
-                </a> -->
+            <div style="margin-left:20px;">
                 <a class="navbar-brand brand-logo-mini" href="../../page/main">
                     <h4> 관리자페이지</h4>
                 </a>
