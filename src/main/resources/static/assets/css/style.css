@@ -23801,8 +23801,8 @@ svg {
 }
 
 .btn-outline-primary {
-  border: 1px solid #081031;
-  color: #5671e2;
+  border: 1px solid #462200;
+  color: #462200;
 }
 .btn-outline-primary:hover {
   background: #462200;
@@ -23810,22 +23810,22 @@ svg {
 }
 
 .btn-secondary {
-  background: #05C3FB;
+  background: #462200;
   color: #ffffff;
 }
 .btn-secondary.btn-light {
-  color: #1E283D;
+  color: #462200;
 }
 .btn-secondary:hover, .btn-secondary:focus {
-  background: #039dca;
+  background: #462200;
   color: #ffffff;
 }
 .btn-secondary.btn-social-icon-text {
   padding: 0 1.5rem 0 0;
-  background: #37cffc;
+  background: #462200;
 }
 .btn-secondary.btn-social-icon-text i {
-  background: #05C3FB;
+  background: #462200;
   padding: 0.75rem;
   display: inline-block;
   margin-right: 1.5rem;
