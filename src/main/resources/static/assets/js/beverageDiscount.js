@@ -253,7 +253,6 @@ function changeStatus(menuPromoId, status){
 function openAdditionalContent(boolAddCond, boolAddDesc, addDiscCond, addMenuDesc, ment){
     document.getElementById('modal-additional-cond').innerText = boolAddCond ? addDiscCond : "없음";
     document.getElementById('modal-product-desc').innerText = boolAddDesc ? addMenuDesc : "없음";
-    console.log(document.getElementById('modal-product-desc').innerText);
     document.getElementById('modal-ment').innerText = ment;
 
     const modal = document.querySelector('.modal-addc');

@@ -168,12 +168,15 @@
 
         </div>
 
+
+
+
         <div id="additionalContentModal" class="modal-addc">
             <div class="modal-popup-addc">
                 <ul>
-                    <li>할인 조건 추가    <span id="modal-additional-cond"></span></li>
-                    <li>제품 소개    <span id="modal-product-desc"></span></li>
-                    <li>AI 멘트 생성    <span id="modal-ment"></span></li>
+                    <li><span>할인 조건 추가</span><span id="modal-additional-cond">내용1</span></li>
+                    <li><span>제품 소개</span><span id="modal-product-desc">내용2</span></li>
+                    <li><span>AI 멘트 생성</span><span id="modal-ment">내용3</span></li>
                 </ul>
                 <div id="modal-footer">
                 <button type="button" class="close-btn-addc" onclick="closeAdditionalContent()">닫기</button>

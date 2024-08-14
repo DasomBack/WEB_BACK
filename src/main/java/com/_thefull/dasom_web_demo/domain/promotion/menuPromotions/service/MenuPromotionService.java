@@ -90,7 +90,7 @@ public class MenuPromotionService {
     public MenuPromotionResponseDTO findOneMenuPromotion(Long id) {
 
         MenuPromotion findPromotion = menuPromotionsRepository.findById(id)
-                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUNT_MENU_PROMOTION, "해당 제품할인을 찾지 못했습니다"));
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_MENU_PROMOTION, "해당 제품할인을 찾지 못했습니다"));
 
         int freq = calculateFreq(findPromotion.getMentInterval(), findPromotion.getMentEndTime(), findPromotion.getMentStartTime());
         return MenuPromotionResponseDTO.from(findPromotion,freq);
@@ -99,7 +99,7 @@ public class MenuPromotionService {
 
     public void updatePromotionContent(MenuPromotionRequestDTO requestDTO) {
         MenuPromotion foundMenuPromotion = menuPromotionsRepository.findById(requestDTO.getMenuPromoId())
-                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUNT_MENU_PROMOTION, "메뉴 프로모션을 찾을 수 없습니다"));
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_MENU_PROMOTION, "메뉴 프로모션을 찾을 수 없습니다"));
 
         int freq = calculateFreq(requestDTO.getInterval(), requestDTO.getMentEndTime(), requestDTO.getMentStartTime());
         foundMenuPromotion.updateEntity(requestDTO,freq);
@@ -115,7 +115,7 @@ public class MenuPromotionService {
     public void changeMenuPromotionStatus(Long id, String statusname) {
 
         MenuPromotion findPromotion = menuPromotionsRepository.findById(id)
-                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUNT_MENU_PROMOTION, "해당 제품할인을 찾지 못했습니다"));
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_MENU_PROMOTION, "해당 제품할인을 찾지 못했습니다"));
 
         Status status = Status.fromStateType(statusname);
 
