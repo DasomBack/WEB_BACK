@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="card-body">
-        <h4 class="card-title">제품할인 등록</h4>
+        <h4 class="card-title">제품홍보 등록</h4>
         <form action="/api/promotion-discount/register" method="post">
             <div class="table-responsive first-table">
                 <table class="table">
