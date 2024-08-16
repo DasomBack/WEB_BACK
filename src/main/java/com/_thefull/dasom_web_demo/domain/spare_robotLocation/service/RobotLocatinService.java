@@ -1,21 +1,19 @@
-package com._thefull.dasom_web_demo.domain.robotLocation.service;
+package com._thefull.dasom_web_demo.domain.spare_robotLocation.service;
 
 import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
 import com._thefull.dasom_web_demo.domain.robot.repository.RobotRepository;
-import com._thefull.dasom_web_demo.domain.robotLocation.domain.dto.RobotLocationRequestDTO;
-import com._thefull.dasom_web_demo.domain.robotLocation.domain.dto.RobotLocationResponseDTO;
-import com._thefull.dasom_web_demo.domain.robotLocation.repository.RobotLocationRepository;
+import com._thefull.dasom_web_demo.domain.spare_robotLocation.domain.dto.RobotLocationRequestDTO;
+import com._thefull.dasom_web_demo.domain.spare_robotLocation.repository.RobotLocationRepository;
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
 import com._thefull.dasom_web_demo.domain.store.repository.StoreRepository;
 import com._thefull.dasom_web_demo.global.exception.AppException;
 import com._thefull.dasom_web_demo.global.exception.ErrorCode;
 /*import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
 import com._thefull.dasom_web_demo.domain.robot.repository.RobotRepository;*/
-import com._thefull.dasom_web_demo.domain.robotLocation.domain.RobotLocationCategory;
+import com._thefull.dasom_web_demo.domain.spare_robotLocation.domain.RobotLocationCategory;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.Length;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;

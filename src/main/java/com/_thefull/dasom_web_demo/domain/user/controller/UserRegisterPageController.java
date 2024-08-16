@@ -1,7 +1,7 @@
 package com._thefull.dasom_web_demo.domain.user.controller;
 
-import com._thefull.dasom_web_demo.domain.robotLocation.domain.RobotLocationCategory;
-import com._thefull.dasom_web_demo.domain.robotLocation.service.RobotLocatinService;
+import com._thefull.dasom_web_demo.domain.spare_robotLocation.domain.RobotLocationCategory;
+import com._thefull.dasom_web_demo.domain.spare_robotLocation.service.RobotLocatinService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
