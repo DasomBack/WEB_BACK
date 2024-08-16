@@ -225,9 +225,6 @@ function changeStatus(menuPromoId, selectedText){
 
 /* 상태변경 드롭다운 클릭 시 상태 변경하는 api 요청 보내는 함수 */
 function changeStatus(menuPromoId, status){
-
-    console.log(status);
-    console.log(menuPromoId);
     var xhr = new XMLHttpRequest();
 
     var url = '/api/promotion-discount/status?id='+menuPromoId+'&status='+status;

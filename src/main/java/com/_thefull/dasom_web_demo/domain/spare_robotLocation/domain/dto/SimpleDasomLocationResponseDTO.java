@@ -1,4 +1,4 @@
-package com._thefull.dasom_web_demo.domain.robotLocation.domain.dto;
+package com._thefull.dasom_web_demo.domain.spare_robotLocation.domain.dto;
 
 
 import lombok.AllArgsConstructor;
