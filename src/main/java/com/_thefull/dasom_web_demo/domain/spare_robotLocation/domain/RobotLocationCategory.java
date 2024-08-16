@@ -1,8 +1,7 @@
-package com._thefull.dasom_web_demo.domain.robotLocation.domain;
+package com._thefull.dasom_web_demo.domain.spare_robotLocation.domain;
 
 
 import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
-import com._thefull.dasom_web_demo.domain.user.domain.User;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
