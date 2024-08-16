@@ -1,12 +1,10 @@
-package com._thefull.dasom_web_demo.domain.robotLocation.domain.dto;
+package com._thefull.dasom_web_demo.domain.spare_robotLocation.domain.dto;
 
 import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
-import com._thefull.dasom_web_demo.domain.robotLocation.domain.RobotLocationCategory;
+import com._thefull.dasom_web_demo.domain.spare_robotLocation.domain.RobotLocationCategory;
 import jakarta.validation.constraints.NotBlank;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Data
 @NoArgsConstructor
