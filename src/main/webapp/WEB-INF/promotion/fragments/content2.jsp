@@ -89,7 +89,7 @@
                         </td>
                         <td>
                             <div class="discount-section">
-                                <input type="number" class="custom-input form-control"
+                                - <input type="number" class="custom-input form-control"
                                        id="discountPriceInput" name="discVal" value=0>
                                 <button type="button" class="btn btn-outline-primary btn-sm"
                                         id="confirmDiscountPriceBtn">확인
@@ -289,6 +289,7 @@
                     </tbody>
                 </table>
             </div>
+
             <div class="form-buttons">
                 <!-- 삭제 버튼은 제품 할인 영역에서 "수정" 버튼 눌렀을 시 생김
                 <button type="button" class="btn btn-outline-primary">삭제
@@ -302,6 +303,7 @@
 
 
         <!-- Product Search Modal -->
+
         <div id="productModal" class="custom-modal" tabindex="-1" aria-labelledby="productModalLabel"
              role="dialog">
             <div class="modal-dialog" role="document">
@@ -319,7 +321,6 @@
                                 <input type="text" class="form-control"
                                        placeholder="검색" name="" id="searchInput"><i
                                     class="icon-search"></i>
-                                <!--<button class="search-button" type="submit"><i class="icon-search"></i>-->
                                 <button class="modal-search-button" type="button"></button>
                             </form>
                         </div>
@@ -339,12 +340,13 @@
                         </button>
                     </div>
 
-
                 </div>
             </div>
         </div>
+
+        <!-- Beverage Search Modal ends -->
+
     </div>
-    <!-- Beverage Search Modal ends -->
 
 <script>
     document.getElementById('startDate').addEventListener('change', function() {

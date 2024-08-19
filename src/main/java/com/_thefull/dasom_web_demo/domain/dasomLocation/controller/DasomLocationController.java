@@ -91,11 +91,12 @@ public class DasomLocationController {
 
     /* 카페봇 위치 설정 전체 수정 PUT */
     @ResponseStatus(HttpStatus.SEE_OTHER)
-    @PutMapping
+    @PostMapping("/update")
     public String updateLocation(@ModelAttribute DasomLocationRequestDTO dto,
                                  BindingResult bindingResult,
-                                 @RequestParam(name = "id")Long id,
                                  HttpServletRequest request){
+
+        System.out.println("DasomLocationController.updateLocation");
 
         HttpSession session = request.getSession(false);
         if(session==null){
@@ -104,7 +105,7 @@ public class DasomLocationController {
 
         Long storeId = (Long) session.getAttribute("storeId");
 
-        dasomLocationService.updateLocation(dto, id, storeId);
+        dasomLocationService.updateLocation(dto, dto.getId(), storeId);
 
         return "redirect:/settings/dasom-locations/main";
 

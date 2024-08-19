@@ -42,39 +42,40 @@
                 <div class="card-body">
                     <h4 class="card-title">다솜 위치 목록</h4>
                     <c:forEach items="${all_robot_location_category_list}" var="robot_location" varStatus="status">
-
-                        <ul class="location-info dropdown-options">
-                            <h5><strong>입구 근처</strong></h5>
-                            <label>다솜 왼쪽</label><li>${robot_location.leftSide}</li>
-                            <br>
-                            <label>다솜 왼쪽 앞</label><li>${robot_location.leftFront}</li>
-                            <br>
-                            <label>다솜 앞</label><li>${robot_location.front}</li>
-                            <br>
-                            <label>다솜 오른쪽</label><li>${robot_location.rightSide}</li>
-                            <br>
-                            <label>다솜 오른쪽 앞</label><li>${robot_location.rightFront}</li>
-                            <button class="btn-primary edit-location" onclick="loadUpdateLocationContent(${robot_location.id})">
-                                <i class="material-symbols-outlined">pin_drop</i>
-                                위치수정
-                            </button>
-                            <div class="toggle">
-                                <c:choose>
-                                    <c:when test="${robot_location.use eq 'true'}">
-                                        <input type="checkbox" id="toggle" hidden>
-                                        <label for="toggle" class="toggleSwitch active" data-id="${robot_location.id}">
-                                            <span class="toggleButton"></span>
-                                        </label>
-                                    </c:when>
-                                    <c:otherwise>
-                                        <input type="checkbox" id="toggle" hidden>
-                                        <label for="toggle" class="toggleSwitch" data-id="${robot_location.id}">
-                                            <span class="toggleButton"></span>
-                                        </label>
-                                    </c:otherwise>
-                                </c:choose>
-                            </div>
-                        </ul>
+                        <span id="settings${robot_location.id}">
+                            <ul class="location-info dropdown-options">
+                                <h5><strong>입구 근처</strong></h5>
+                                <label>다솜 왼쪽</label><li>${not empty robot_location.leftSide ? robot_location.leftSide : '없음'}</li>
+                                <br>
+                                <label>다솜 왼쪽 앞</label><li>${not empty robot_location.leftFront ? robot_location.leftFront : '없음'}</li>
+                                <br>
+                                <label>다솜 앞</label><li>${not empty robot_location.front ? robot_location.front : '없음'}</li>
+                                <br>
+                                <label>다솜 오른쪽</label><li>${not empty robot_location.rightSide ? robot_location.rightSide : '없음'}</li>
+                                <br>
+                                <label>다솜 오른쪽 앞</label><li>${not empty robot_location.rightFront ? robot_location.rightFront : '없음'}</li>
+                                <button class="btn-primary edit-location" onclick="loadUpdateLocationContent(${robot_location.id})">
+                                    <i class="material-symbols-outlined">pin_drop</i>
+                                    위치수정
+                                </button>
+                                <div class="toggle">
+                                    <c:choose>
+                                        <c:when test="${robot_location.use eq 'true'}">
+                                            <input type="checkbox" id="toggle" hidden>
+                                            <label for="toggle" class="toggleSwitch active" data-id="${robot_location.id}">
+                                                <span class="toggleButton"></span>
+                                            </label>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <input type="checkbox" id="toggle" hidden>
+                                            <label for="toggle" class="toggleSwitch" data-id="${robot_location.id}">
+                                                <span class="toggleButton"></span>
+                                            </label>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </div>
+                            </ul>
+                        </span>
                     </c:forEach>
                 </div>
             </div>

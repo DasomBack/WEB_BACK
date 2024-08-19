@@ -8,7 +8,7 @@
 <body>
     <div class="card-body">
         <h4 class="card-title">제품할인 등록</h4>
-        <form action="/api/promotion-discount/updateContent" method="post">
+        <form action="/api/promotion-discount/update" method="post">
             <div class="table-responsive first-table">
                 <table class="table">
                     <thead>
@@ -70,8 +70,8 @@
                             <div class="input-container">
                                 <!--<input type="text" class="custom-input form-control search" disabled>-->
                                 <button type="button" class="search-button custom-input form-control"
-                                        id="product_search_btn">${thepromo.menu}<i
-                                        class="icon-search"></i>
+                                        id="product_search_btn">${thepromo.menu}
+                                        <i class="icon-search"></i>
                                 </button>
                                 <!-- menu name hidden input -->
                                 <input type="hidden" id="menunameInput" name="menu" value="${thepromo.menu}">
@@ -92,7 +92,7 @@
                         </td>
                         <td>
                             <div class="discount-section">
-                                <input type="number" class="custom-input form-control"
+                                -<input type="number" class="custom-input form-control"
                                        id="discountPriceInput" name="discVal" value="${thepromo.discVal}" placeholder="${thepromo.discVal}">
 
                                 <button type="button" class="btn btn-outline-primary btn-sm"
@@ -312,10 +312,11 @@
                     수정
                 </button>
             </div>
-        <form>
+        </form>
         </div>
+
         <!-- Product Search Modal -->
-        <div id="productModal" class="modal" tabindex="-1" aria-labelledby="productModalLabel"
+        <div id="productModal" class="custom-modal" tabindex="-1" aria-labelledby="productModalLabel"
              role="dialog">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -332,88 +333,27 @@
                                 <input type="text" class="form-control"
                                        placeholder="검색" name="" id="searchInput"><i
                                     class="icon-search"></i>
-                                <!--<button class="search-button" type="submit"><i class="icon-search"></i>-->
                                 <button class="modal-search-button" type="button"></button>
                             </form>
                         </div>
                         <ul class="grid-container" id="itemList">
-                            <li class="item" id="item1">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName1">음료1</p>
-                                <p id="productPrice1">3,000원</p>
-                            </li>
-                            <li class="item" id="item2">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName2">음료2</p>
-                                <p id="productPrice2">3,500원</p>
-                            </li>
-                            <li class="item" id="item3">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName3">수박주스</p>
-                                <p id="productPrice3">6,000원</p>
-                            </li>
-                            <li class="item" id="item4">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName4">음료4</p>
-                                <p id="productPrice4">3,000원</p>
-                            </li>
-                            <li class="item" id="item5">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName5">음료5</p>
-                                <p id="productPrice5">3,500원</p>
-                            </li>
-                            <li class="item" id="item6">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName6">음료6</p>
-                                <p id="productPrice6">3,500원</p>
-                            </li>
-                            <li class="item" id="item7">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName7">음료7</p>
-                                <p id="productPrice7">3,000원</p>
-                            </li>
-                            <li class="item" id="item8">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName8">음료8</p>
-                                <p id="productPrice8">3,500원</p>
-                            </li>
-                            <li class="item" id="item9">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName9">음료9</p>
-                                <p id="productPrice9">3,500원</p>
-                            </li>
-                            <li class="item" id="item10">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName10">음료10</p>
-                                <p id="productPrice10">3,500원</p>
-                            </li>
-                            <li class="item" id="item11">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName11">음료11</p>
-                                <p id="productPrice11">3,000원</p>
-                            </li>
-                            <li class="item" id="item12">
-                                <img src="https://via.placeholder.com/150" alt="샘플이미지">
-                                <p class="title" id="productName12">음료12</p>
-                                <p id="productPrice12">3,500원</p>
-                            </li>
+                            <c:forEach items="${menu_list}" var = "menu" varStatus="status">
+                                <li class="item" id="item${menu.id}" menu-add-desc="${menu.desc}">
+                                    <img style="width: 50px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/menu/${menu.imgUrl}" alt="샘플이미지">
+                                    <p class="title" id="productName${menu.id}">${menu.name}</p>
+                                    <p id="productPrice${menu.id}">${menu.price}원</p>
+                                </li>
+                            </c:forEach>
                         </ul>
                         <button type="button" class="btn btn-light" id="loadMoreBtn">더보기</button>
                         <button type="button" class="btn btn-light" id="selectBtn"
                                 style="display:none;">선택
                         </button>
                     </div>
-
-
                 </div>
             </div>
+        </div>
     </div>
-
-    <!-- Beverage Search Modal ends -->
-
-</div>
-
-    <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount_update.js"></script>
-
+    <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
 </body>
 </html>

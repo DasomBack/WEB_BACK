@@ -88,37 +88,118 @@
                                     <!-- <a class="dropdown-item preview-item">-->
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">디저트</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">샌드위치</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">샐러드</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">계산대</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">유제품</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">병음료</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">케이크</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">창가자리</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">직접입력</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="location-group">
                                 <label for="input4">② 다솜 왼쪽 앞</label>
-                                <input type="text" class="custom-input form-control" id="input4" name="leftFront"
-                                       disabled>
+
+                                <input type="text"
+                                       class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                       id="input4" name="leftFront" disabled
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                     aria-labelledby="messageDropdown">
+                                    <ul class="dropdown-options">
+                                        <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                    </ul>
+                                </div>
                             </div>
+
                             <div class="location-group">
                                 <label for="input5">③ 다솜 앞</label>
-                                <input type="text" class="custom-input form-control" id="input5" name="front"
-                                       disabled>
+
+                                <input type="text"
+                                       class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                       id="input5" name="front" disabled
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                     aria-labelledby="messageDropdown">
+                                    <ul class="dropdown-options">
+                                        <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                    </ul>
+                                </div>
                             </div>
+
                             <div class="location-group">
                                 <label for="input3">④ 다솜 오른쪽</label>
-                                <input type="text" class="custom-input form-control" id="input3" name="rightSide"
-                                       disabled>
+
+                                <input type="text"
+                                       class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                       id="input3" name="rightSide" disabled
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                     aria-labelledby="messageDropdown">
+                                    <ul class="dropdown-options">
+                                        <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                    </ul>
+                                </div>
                             </div>
+
+
                             <div class="location-group">
                                 <label for="input6">⑤ 다솜 오른쪽 앞</label>
-                                <input type="text" class="custom-input form-control" id="input6" name="rightFront"
-                                       disabled>
+
+                                <input type="text"
+                                       class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                       id="input6" name="rightFront" disabled
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false">
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                     aria-labelledby="messageDropdown">
+                                    <ul class="dropdown-options">
+                                        <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                    </ul>
+                                </div>
                             </div>
 
                         </div>

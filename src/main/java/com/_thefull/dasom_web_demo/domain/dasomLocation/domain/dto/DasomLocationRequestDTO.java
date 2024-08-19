@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class DasomLocationRequestDTO {
 
+    private Long id;
+
     @NotBlank
     private String location;
 

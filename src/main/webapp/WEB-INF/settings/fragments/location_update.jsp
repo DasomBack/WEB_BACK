@@ -3,17 +3,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     </head>
     <body>
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">다솜 위치 변경</h4>
-                <form action="/settings/dasom-locations" method="put">
+                <form action="/settings/dasom-locations/update" method="post">
                  <div class = "dasom-location-register-wrapper">
                     <div class="dasom-location-radio">
+                        <input name="id" value="${theLocation.id}" hidden>
                         <p class="title">1. 카페 안에서 다솜이 있는 위치를 설정해 주세요.</p>
-
                         <label class="custom-label first-label" for="entrance">
                             <input type="radio" name="location"
                                    id="entrance" value="입구 근처" ${theLocation.location eq '입구 근처' ? 'checked' : ''}>
@@ -76,94 +75,154 @@
 
                         <div class="dasom-location-input">
                             <p class="title">3. 어떤 제품이 전개되어 있는지 선택해 주세요.<br> (최대 2개까지 선택)</p>
+
                             <div class="location-group">
                                 <label for="input1">① 다솜 왼쪽</label>
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
-                                       id="input1" name="leftSide" disabled
+                                       id="input1" name="leftSide"
                                        data-bs-toggle="dropdown"
-                                       aria-expanded="false">
+                                       aria-expanded="false"
+                                       value="${theLocation.leftSide}" ${not empty theLocation.leftSide ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                      aria-labelledby="messageDropdown">
                                     <!-- <a class="dropdown-item preview-item">-->
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">디저트</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">샌드위치</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">샐러드</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">계산대</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">유제품</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">병음료</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">케이크</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">창가자리</li>
-                                        <li class="nav-item dropdown" data-value="베이커리">직접입력</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
                                     </ul>
                                 </div>
                             </div>
+
                             <div class="location-group">
                                 <label for="input4">② 다솜 왼쪽 앞</label>
-                                <input type="text" class="custom-input form-control" id="input4" name="leftFront"
-                                       disabled>
-                            </div>
-                            <div class="location-group">
-                                <label for="input5">③ 다솜 앞</label>
-                                <input type="text" class="custom-input form-control" id="input5" name="front"
-                                       disabled>
-                            </div>
-                            <div class="location-group">
-                                <label for="input3">④ 다솜 오른쪽</label>
-                                <input type="text" class="custom-input form-control" id="input3" name="rightSide"
-                                       disabled>
-                            </div>
-                            <div class="location-group">
-                                <label for="input6">⑤ 다솜 오른쪽 앞</label>
-                                <input type="text" class="custom-input form-control" id="input6" name="rightFront"
-                                       disabled>
+
+                                <input type="text"
+                                       class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                       id="input4" name="leftFront"
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false"
+                                       value="${theLocation.leftFront}" ${not empty theLocation.leftFront ? '' : 'disabled'}>
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                     aria-labelledby="messageDropdown">
+                                    <ul class="dropdown-options">
+                                        <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                    </ul>
+                                </div>
                             </div>
 
+                            <div class="location-group">
+                                <label for="input5">③ 다솜 앞</label>
+
+                                <input type="text"
+                                       class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                       id="input5" name="front"
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false"
+                                       value="${theLocation.front}" ${not empty theLocation.front ? '' : 'disabled'}>
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                     aria-labelledby="messageDropdown">
+                                    <ul class="dropdown-options">
+                                        <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="location-group">
+                                <label for="input3">④ 다솜 오른쪽</label>
+
+                                <input type="text"
+                                       class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                       id="input3" name="rightSide"
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false"
+                                       value="${theLocation.rightSide}" ${not empty theLocation.rightSide ? '' : 'disabled'}>
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                     aria-labelledby="messageDropdown">
+                                    <ul class="dropdown-options">
+                                        <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
+                            <div class="location-group">
+                                <label for="input6">⑤ 다솜 오른쪽 앞</label>
+
+                                <input type="text"
+                                       class="custom-input form-control dropdown-bordered dropdown-toggle"
+                                       id="input6" name="rightFront"
+                                       data-bs-toggle="dropdown"
+                                       aria-expanded="false"
+                                       value="${theLocation.rightFront}" ${not empty theLocation.rightFront ? '' : 'disabled'}>
+                                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
+                                     aria-labelledby="messageDropdown">
+                                    <ul class="dropdown-options">
+                                        <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
+                                        <li class="nav-item dropdown" data-value="디저트">디저트</li>
+                                        <li class="nav-item dropdown" data-value="샌드위치">샌드위치</li>
+                                        <li class="nav-item dropdown" data-value="샐러드">샐러드</li>
+                                        <li class="nav-item dropdown" data-value="계산대">계산대</li>
+                                        <li class="nav-item dropdown" data-value="유제품">유제품</li>
+                                        <li class="nav-item dropdown" data-value="병음료">병음료</li>
+                                        <li class="nav-item dropdown" data-value="케이크">케이크</li>
+                                        <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
+                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="form-buttons">
-                        <button type="button" class="btn btn-outline-primary">
+                        <button type="button" class="btn btn-outline-primary" onclick="deleteLocation(${theLocation.id})">
                             삭제
                         </button>
                         <button type="submit" class="btn btn-primary">
                             수정
                         </button>
                     </div>
-
                 </div>
                </form>
             </div>
         </div>
-        <script>
-            $(document).ready(function() {
-                    $('.location-list li').click(function() {
-                        var $this = $(this);
-                        var text = $this.text().trim();
-
-                        // '다솜' 텍스트를 가진 요소는 클릭을 막음
-                        if (text.includes('다솜')) {
-                            return;
-                        }
-
-                        // 클릭한 li 요소의 인덱스에 따라 input 필드 선택
-                        var index = $this.index();
-                        var input = $('#input' + (index + 1));
-
-                        // 이미 선택된 경우 선택 해제, 선택되지 않은 경우 선택
-                        if ($this.hasClass('selected')) {
-                            $this.removeClass('selected');
-                            input.prop('disabled', true);
-                        } else {
-                            $this.addClass('selected');
-                            input.prop('disabled', false);
-                        }
-                    });
-                });
-        </script>
-
+        <script src="${pageContext.request.contextPath}/static/assets/js/dasom_location.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     </body>
 </html>
