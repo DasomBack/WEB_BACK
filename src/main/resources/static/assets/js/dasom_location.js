@@ -14,6 +14,8 @@ $(document).ready(function() {
 
         console.log("here");
        var text = $(this).text().trim();
+
+       console.log(text);
        if (text === '다솜') {
            return; // '다솜' 텍스트를 가진 요소는 클릭을 막음
        }
@@ -81,11 +83,73 @@ $toggle.onclick = () => {
 };
 });
 
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Get all dropdown menus
+    var dropdownOptions = document.querySelectorAll('.dropdown-options li');
+
+    // Add click event listener to each dropdown item
+    dropdownOptions.forEach(function(option) {
+        option.addEventListener('click', function() {
+            // Get the value from the clicked item
+            var selectedValue = option.getAttribute('data-value');
+
+            // Find the input associated with the dropdown
+            var inputField = option.closest('.location-group').querySelector('input.custom-input');
+
+            // Set the value of the input field
+            inputField.value = selectedValue;
+
+            // Optionally, close the dropdown after selection
+            var dropdownMenu = option.closest('.dropdown-menu');
+            dropdownMenu.classList.remove('show');
+        });
+    });
+
+    var inputFields = document.querySelectorAll('input.custom-input');
+    inputFields.forEach(function(input) {
+        input.addEventListener('click', function() {
+            var dropdownMenu = this.closest('.location-group').querySelector('.dropdown-menu');
+            dropdownMenu.classList.add('show');
+        });
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.location-group')) {
+            var openDropdowns = document.querySelectorAll('.dropdown-menu.show');
+            openDropdowns.forEach(function(menu) {
+                menu.classList.remove('show');
+            });
+        }
+    });
+});
+
+
+
+
+function deleteLocation(locationId){
+    var xhr = new XMLHttpRequest();
+
+    var url = '/settings/dasom-locations?id='+locationId;
+    xhr.open('DELETE', url, true);
+    xhr.onload=function(){
+        if(xhr.status >= 200 && xhr.status<400){
+            console.error("카페봇 위치 설정 삭제에 성공하였습니다.");
+        }else{
+            console.error("카페봇 위치 설정 삭제에 실패하였습니다");
+        }
+    };
+    xhr.onerror = function(){
+        console.error("[Location Settings DELETE - DELETE] Connection Error");
+    }
+    xhr.send();
+
+}
+
+
 function loadUpdateLocationContent(locationId){
 
     var xhr = new XMLHttpRequest();
-
-    console.log(locationId);
 
     xhr.open('GET','/settings/dasom-locations/updatepage?id='+locationId, true);
 
@@ -93,6 +157,29 @@ function loadUpdateLocationContent(locationId){
     xhr.onload=function(){
         if(xhr.status >= 200 && xhr.status<400){
             document.getElementById('location_input').innerHTML = xhr.responseText;
+
+            $(document).ready(function() {
+                $(document).on('click','.location-list li', function() {
+                    var text = $(this).text().trim();
+
+                    if (text === '다솜') {
+                        return;
+                    }
+
+                    var index = $(this).index();
+                    var input = $('#input' + (index + 1));
+
+                    if ($(this).hasClass('selected')) {
+                        $(this).removeClass('selected');
+                        input.prop('disabled', true);
+                    } else {
+                        $(this).addClass('selected');
+                        input.prop('disabled', false);
+                    }
+                });
+            });
+
+
         }else{
             console.error("제품할인 수정 화면 페이지 로드에 실패하였습니다");
         }
