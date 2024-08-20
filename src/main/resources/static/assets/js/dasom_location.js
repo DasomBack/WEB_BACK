@@ -158,6 +158,18 @@ function loadUpdateLocationContent(locationId){
         if(xhr.status >= 200 && xhr.status<400){
             document.getElementById('location_input').innerHTML = xhr.responseText;
 
+
+            var allSpans = document.querySelectorAll('[id^="settings"]');
+            allSpans.forEach(function(span) {
+                span.style.backgroundColor = ''; // 배경색 초기화
+            });
+
+            // 여기서 해당 id를 가진 요소의 배경색을 변경
+            var locationSpan = document.getElementById('settings' + locationId);
+            if(locationSpan) {
+                locationSpan.style.backgroundColor = '#F5DEB3'; // 연한 갈색
+            }
+
             $(document).ready(function() {
                 $(document).on('click','.location-list li', function() {
                     var text = $(this).text().trim();

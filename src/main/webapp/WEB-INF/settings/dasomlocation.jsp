@@ -1,5 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,40 +43,86 @@
                 <div class="card-body">
                     <h4 class="card-title">다솜 위치 목록</h4>
                     <c:forEach items="${all_robot_location_category_list}" var="robot_location" varStatus="status">
-                        <span id="settings${robot_location.id}">
-                            <ul class="location-info dropdown-options">
-                                <h5><strong>입구 근처</strong></h5>
-                                <label>다솜 왼쪽</label><li>${not empty robot_location.leftSide ? robot_location.leftSide : '없음'}</li>
-                                <br>
-                                <label>다솜 왼쪽 앞</label><li>${not empty robot_location.leftFront ? robot_location.leftFront : '없음'}</li>
-                                <br>
-                                <label>다솜 앞</label><li>${not empty robot_location.front ? robot_location.front : '없음'}</li>
-                                <br>
-                                <label>다솜 오른쪽</label><li>${not empty robot_location.rightSide ? robot_location.rightSide : '없음'}</li>
-                                <br>
-                                <label>다솜 오른쪽 앞</label><li>${not empty robot_location.rightFront ? robot_location.rightFront : '없음'}</li>
+                        <ul class="location-info dropdown-options" id="settings${robot_location.id}">
+                            <h5><strong>입구 근처</strong></h5>
+                            <br>
+                                <label style="display: inline-block; margin-right: 10px;">다솜 왼쪽</label>
+                                <c:choose>
+                                    <c:when test="${not empty robot_location.leftSide}">
+                                        <ul style="display: inline-block; padding-left: 0; list-style: none;">
+                                            <c:forEach items="${robot_location.leftSide}" var="lse" varStatus="status">
+                                                <li style="display: inline-block; margin-right: 10px;"><span>${lse}</span></li>
+                                            </c:forEach>
+                                        </ul>
+                                    </c:when>
+                                </c:choose>
+                            <br>
+                                <label style="display: inline-block; margin-right: 10px;">다솜 왼쪽 앞</label>
+                                <c:choose>
+                                    <c:when test="${not empty robot_location.leftFront}">
+                                        <ul style="display: inline-block; padding-left: 0; list-style: none;">
+                                            <c:forEach items="${robot_location.leftFront}" var="lfe" varStatus="status">
+                                                <li style="display: inline-block; margin-right: 10px;"><span>${lfe}</span></li>
+                                            </c:forEach>
+                                        </ul>
+                                    </c:when>
+                                </c:choose>
+                            <br>
+                                <label style="display: inline-block; margin-right: 10px;">다솜 앞</label>
+                                <c:choose>
+                                    <c:when test="${not empty robot_location.front}">
+                                        <ul style="display: inline-block; padding-left: 0; list-style: none;">
+                                            <c:forEach items="${robot_location.front}" var="fe" varStatus="status">
+                                                <li style="display: inline-block; margin-right: 10px;"><span>${fe}</span></li>
+                                            </c:forEach>
+                                        </ul>
+                                    </c:when>
+                                </c:choose>
+                            <br>
+                                <label style="display: inline-block; margin-right: 10px;">다솜 오른쪽</label>
+                                <c:choose>
+                                    <c:when test="${not empty robot_location.rightSide}">
+                                        <ul style="display: inline-block; padding-left: 0; list-style: none;">
+                                            <c:forEach items="${robot_location.rightSide}" var="rse" varStatus="status">
+                                                <li style="display: inline-block; margin-right: 10px;"><span>${rse}</span></li>
+                                            </c:forEach>
+                                        </ul>
+                                    </c:when>
+                                </c:choose>
+                            <br>
+                                <label style="display: inline-block; margin-right: 10px;">다솜 오른쪽 앞</label>
+                                <c:choose>
+                                    <c:when test="${not empty robot_location.rightFront}">
+                                        <ul style="display: inline-block; padding-left: 0; list-style: none;">
+                                            <c:forEach items="${robot_location.rightFront}" var="rfe" varStatus="status">
+                                                <li style="display: inline-block; margin-right: 10px;"><span>${rfe}</span></li>
+                                            </c:forEach>
+                                        </ul>
+                                    </c:when>
+                                </c:choose>
+                            <br>
                                 <button class="btn-primary edit-location" onclick="loadUpdateLocationContent(${robot_location.id})">
                                     <i class="material-symbols-outlined">pin_drop</i>
                                     위치수정
                                 </button>
+                            <br>
                                 <div class="toggle">
                                     <c:choose>
                                         <c:when test="${robot_location.use eq 'true'}">
-                                            <input type="checkbox" id="toggle" hidden>
-                                            <label for="toggle" class="toggleSwitch active" data-id="${robot_location.id}">
+                                            <input type="checkbox" id="toggle${status.index}" hidden checked>
+                                            <label for="toggle${status.index}" class="toggleSwitch active" data-id="${robot_location.id}">
                                                 <span class="toggleButton"></span>
                                             </label>
                                         </c:when>
                                         <c:otherwise>
-                                            <input type="checkbox" id="toggle" hidden>
-                                            <label for="toggle" class="toggleSwitch" data-id="${robot_location.id}">
+                                            <input type="checkbox" id="toggle${status.index}" hidden>
+                                            <label for="toggle${status.index}" class="toggleSwitch" data-id="${robot_location.id}">
                                                 <span class="toggleButton"></span>
                                             </label>
                                         </c:otherwise>
                                     </c:choose>
                                 </div>
-                            </ul>
-                        </span>
+                        </ul>
                     </c:forEach>
                 </div>
             </div>

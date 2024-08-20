@@ -1,5 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -84,10 +87,9 @@
                                        id="input1" name="leftSide"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
-                                       value="${theLocation.leftSide}" ${not empty theLocation.leftSide ? '' : 'disabled'}>
+                                       value="${theLocation.leftSide.get(0)}" ${not empty theLocation.leftSide ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                      aria-labelledby="messageDropdown">
-                                    <!-- <a class="dropdown-item preview-item">-->
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>

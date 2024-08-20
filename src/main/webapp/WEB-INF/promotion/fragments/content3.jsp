@@ -33,7 +33,7 @@
                                 <td>${promotion.category}</td>
                                 <td>${promotion.menu}</td>
                                 <td>${promotion.price}원</td>
-                                <td><span style="color: red">(-${promotion.discVal})</span>${promotion.discPrice}원</td>
+                                <td><span style="color: red">(-${promotion.discVal})&nbsp</span>${promotion.discPrice}원</td>
                                 <td>${promotion.startDate} ~ ${promotion.endDate}</td>
                                 <td>${promotion.startTime} ~ ${promotion.endTime}</td>
                                 <td>${promotion.mentStartTime} ~ ${promotion.mentEndTime}</td>
