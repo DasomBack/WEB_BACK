@@ -339,7 +339,7 @@
                         <ul class="grid-container" id="itemList">
                             <c:forEach items="${menu_list}" var = "menu" varStatus="status">
                                 <li class="item" id="item${menu.id}" menu-add-desc="${menu.desc}">
-                                    <img style="width: 50px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/menu/${menu.imgUrl}" alt="샘플이미지">
+                                    <img style="width: 50px; height: 100%" src="${menu.imgUrl}" alt="샘플이미지">
                                     <p class="title" id="productName${menu.id}">${menu.name}</p>
                                     <p id="productPrice${menu.id}">${menu.price}원</p>
                                 </li>
