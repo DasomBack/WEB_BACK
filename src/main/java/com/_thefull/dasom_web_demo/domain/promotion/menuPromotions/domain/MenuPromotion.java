@@ -37,11 +37,11 @@ public class MenuPromotion extends BasePromotionEntity {
 
     @Column(name = "PRICE")
     @NotNull
-    private int price;
+    private Integer price;
 
     // 할인 적용 가격 : 할인이 적용된 가격
     @Column(name = "DISC_PRICE")
-    private int discPrice;
+    private Integer discPrice;
 
     // 할인값(원)
     @Builder.Default

@@ -7,6 +7,7 @@
 </head>
 <body>
     <div class="card-body">
+
         <h4 class="card-title">제품 홍보</h4>
         <div id="all-table">
             <table class="table all-promotion-list">
@@ -187,6 +188,9 @@
     </div>
 
     <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
 
     <script>
         const allListModal = document.querySelector('#allListModal');

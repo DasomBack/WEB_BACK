@@ -1,13 +1,41 @@
 $(document).ready(function() {
 
-     // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
-     document.querySelectorAll('.nav-item').forEach(function(item) {
-         item.addEventListener('click', function() {
-             var selectedText = this.getAttribute('data-value');
-             var parentDropdown = this.closest('.dropdown-bordered').previousElementSibling;
-             parentDropdown.querySelector('li').textContent = selectedText;
-         });
-     });
+    var selectedItems = [];
+
+    document.querySelectorAll('.dropdown-menu .nav-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+            var selectedText = this.getAttribute('data-value');
+
+            var parentDivId = this.closest('.dropdown-menu').id;
+            // 선택된 항목이 이미 있는지 확인
+            if (selectedItems.includes(selectedText)) {
+                // 이미 선택된 항목이면, 선택 해제
+                selectedItems = selectedItems.filter(function(text) {
+                    return text !== selectedText;
+                });
+                this.classList.remove('selected'); // 선택된 항목에 표시 제거
+            } else {
+                if (selectedItems.length < 2) {
+                    // 새로운 항목 선택
+                    selectedItems.push(selectedText);
+                    this.classList.add('selected'); // 선택된 항목에 표시 추가
+                }
+            }
+
+            // 선택된 항목들을 input 필드에 표시
+            var inputField = document.getElementById('input'+parentDivId);
+            inputField.value = selectedItems.join(', ');
+        });
+    });
+
+//     // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
+//     document.querySelectorAll('.nav-item').forEach(function(item) {
+//         item.addEventListener('click', function() {
+//             var selectedText = this.getAttribute('data-value');
+//             var parentDropdown = this.closest('.dropdown-bordered').previousElementSibling;
+//             parentDropdown.querySelector('li').textContent = selectedText;
+//         });
+//     });
 
     // 여러 개의 location-list li 항목을 클릭할 수 있도록 수정한 코드
    $('.location-list li').click(function() {
@@ -171,7 +199,11 @@ function loadUpdateLocationContent(locationId){
             }
 
             $(document).ready(function() {
+                console.log("here");
+
                 $(document).on('click','.location-list li', function() {
+                    console.log("here22");
+
                     var text = $(this).text().trim();
 
                     if (text === '다솜') {
@@ -188,6 +220,34 @@ function loadUpdateLocationContent(locationId){
                         $(this).addClass('selected');
                         input.prop('disabled', false);
                     }
+                });
+            });
+
+            var selectedItems = [];
+
+            document.querySelectorAll('.dropdown-menu .nav-item').forEach(function(item) {
+                item.addEventListener('click', function() {
+                    var selectedText = this.getAttribute('data-value');
+
+                    var parentDivId = this.closest('.dropdown-menu').id;
+                    // 선택된 항목이 이미 있는지 확인
+                    if (selectedItems.includes(selectedText)) {
+                        // 이미 선택된 항목이면, 선택 해제
+                        selectedItems = selectedItems.filter(function(text) {
+                            return text !== selectedText;
+                        });
+                        this.classList.remove('selected'); // 선택된 항목에 표시 제거
+                    } else {
+                        if (selectedItems.length < 2) {
+                            // 새로운 항목 선택
+                            selectedItems.push(selectedText);
+                            this.classList.add('selected'); // 선택된 항목에 표시 추가
+                        }
+                    }
+
+                    // 선택된 항목들을 input 필드에 표시
+                    var inputField = document.getElementById('input'+parentDivId);
+                    inputField.value = selectedItems.join(', ');
                 });
             });
 

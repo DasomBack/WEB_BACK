@@ -1,11 +1,47 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+    // 드롭다운 메뉴를 클릭할 때 show 클래스를 토글하는 함수
+        function toggleDropdown(event) {
+            const dropdownMenu = event.target.nextElementSibling;
+
+            // 모든 드롭다운 메뉴에서 show 클래스를 제거
+            document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                if (menu !== dropdownMenu) {
+                    menu.classList.remove('show');
+                }
+            });
+
+            // 클릭된 드롭다운 메뉴의 show 클래스를 토글
+            dropdownMenu.classList.toggle('show');
+        }
+
+        // 드롭다운 메뉴를 클릭할 때 show 클래스를 추가 또는 제거
+        document.querySelectorAll('.dropdown-toggle').forEach(function(toggle) {
+            toggle.addEventListener('click', function(event) {
+                toggleDropdown(event);
+                event.stopPropagation(); // 클릭 이벤트가 문서에 전파되지 않도록 방지
+            });
+        });
+
+        // 문서의 다른 부분을 클릭하면 모든 드롭다운 메뉴에서 show 클래스를 제거
+        document.addEventListener('click', function() {
+            document.querySelectorAll('.dropdown-menu').forEach(function(menu) {
+                menu.classList.remove('show');
+            });
+        });
+
+
+
+
     // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
     document.querySelectorAll('.dropdown-item').forEach(function(item) {
+
         item.addEventListener('click', function() {
             var selectedText = this.getAttribute('data-value');
             var parentDropdown = this.closest('.dropdown-menu').previousElementSibling;
             parentDropdown.querySelector('span').textContent = selectedText;
+
+
 
             if (parentDropdown.querySelector('span').textContent !== "선택"){
                 if (selectedText=="음료"){
@@ -50,9 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const allListBtn = document.querySelector('#all_list_btn');
 
             searchIcon.addEventListener('click', function() {
-                console.log("메뉴 모달 클릭");
-
-                $('#productModal').show();
+                // $('#productModal').show();
             });
 
             var closeModalBtn = document.getElementById('closeModalBtn');
@@ -143,8 +177,180 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 });
 
+            // 검색 input 박스에 입력된 값으로 리스트를 필터링합니다.
+            function filterProductList(query) {
+                // 모든 리스트 항목을 선택합니다.
+                var items = document.querySelectorAll('#itemList li');
+                // 각 항목을 반복하면서 필터링합니다.
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    var productNameId = 'productName' + item.id.replace('item', '');
+                    var productName = document.getElementById(productNameId).innerText;
+                    // 검색어가 없으면 모든 항목을 표시합니다.
+                    if (query === '') {
+                        item.style.display = '';
+                    } else if (productName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+                        // 제품명이 입력된 값과 일치하면 항목을 표시합니다.
+                        item.style.display = '';
+                    } else {
+                        // 일치하지 않으면 항목을 숨깁니다.
+                        item.style.display = 'none';
+                    }
+                }
+            }
+
+            // 할인가 입력 후 확인 버튼 클릭 시 할인가 영역에 할인된 금액 표시
+            document.getElementById('confirmDiscountPriceBtn').addEventListener('click', function() {
+                var discountPriceInput = document.getElementById('discountPriceInput').value;
+                var ProductPriceText = document.getElementById('productPrice').innerText;
+                var discountPrice = parseInt(ProductPriceText.replace('원', '').replace(',', ''));
+
+                if (!isNaN(discountPriceInput) && discountPriceInput.trim() !== '') {
+                    var discountedPrice = discountPrice-discountPriceInput;
+                    document.getElementById('discountPrice').innerText = `(${discountedPrice.toLocaleString()}원)`;
+
+                    document.getElementById('discPriceInput').value=discountedPrice;
+
+                }
+            });
+            //라디오 버튼 "없음" 일시, input 버튼이 disable 상태로 된다.
+});
+
+function reload(){
+    var xhr = new XMLHttpRequest();
+
+    xhr.open('GET','/api/promotion-discount/main',true);
+    xhr.onload=function(){
+        if(xhr.status >= 200 && xhr.status<400){
+            console.error("제품할인 메인 페이지 로드에 성공하였습니다.");
+        }else{
+            console.error("제품할인 메인 페이지 로드에 실패하였습니다");
+        }
+    };
+    xhr.onerror = function(){
+        console.error("[Menu Promotion Main Page - GET] Connection Error");
+    }
+
+    xhr.send();
+}
+
+function openMenuModal(){
+
+    var xhr = new XMLHttpRequest();
+    // 어떤 요청을 보내는지 객체 초기화
+    xhr.open('GET','/menu/all',true);
+
+    // 요청 성공할 경우 onload 설정
+    xhr.onload=function(){
+        if(xhr.status >= 200 && xhr.status<400){
+            document.getElementById('testmodaal').innerHTML = xhr.responseText;
+            const productModal = document.querySelector('#productModal');
+            $('#productModal').show();
+            const searchIcon = document.querySelector('#product_search_btn');
+            const closeBtn = document.getElementById(".btn-secondary");
+
+            var closeModalBtn = document.getElementById('closeModalBtn');
+            if (closeModalBtn) {
+                closeModalBtn.addEventListener('click', function() {
+                    $('#productModal').modal('hide');
+                });
+            } else {
+                console.error('Close modal button not found.');
+            }
 
 
+            // 모달의 닫기 버튼을 클릭하면 모달을 숨김
+            const closeButton = document.querySelector('#productModal .close');
+
+
+            closeButton.addEventListener('click', function() {
+                $('#productModal').hide();
+            });
+
+            // 제품 검색 모달의 제품 검색 기능
+            var images = document.querySelectorAll('#itemList img');
+            // var images = document.querySelectorAll('#itemList image');
+            var selectedProductName = '';
+            var selectedProductPrice = '';
+
+            // 각각의 이미지에 클릭 이벤트를 추가합니다.
+            for (var i = 0; i < images.length; i++) {
+                images[i].addEventListener('click', function() {
+
+                // 클릭한 이미지의 부모 요소(li)의 id를 사용하여 p 태그를 찾음
+                var parentId = this.parentElement.id;
+                var item=document.getElementById(parentId);
+
+                var productNameId = 'productName' + parentId.replace('item', '');
+                var productNameElement = document.getElementById(productNameId);
+
+                var productPriceId = 'productPrice' + parentId.replace('item', '');
+                var productPriceElement = document.getElementById(productPriceId);
+
+                selectedProductName = productNameElement.innerText;
+                selectedProductPrice = productPriceElement.innerText;
+
+                var selectBtn = document.getElementById('selectBtn');
+                selectBtn.style.display = 'inline-block';
+
+                // 더보기 버튼을 숨기기
+                var loadMoreBtn = document.getElementById('loadMoreBtn');
+                loadMoreBtn.style.display = 'none';
+
+                document.getElementById("descriptionYes").checked=true;
+                document.getElementById("addMenuDescId").disabled=false;
+
+                var menudesc=item.getAttribute("menu-add-desc");
+                var adddescitem=document.getElementById("addMenuDescId");
+                adddescitem.value=menudesc;
+
+                // 제품할인 등록 영역의 버튼에 제품명 설정
+                var discountProductBtn = document.getElementById('product_search_btn');
+                discountProductBtn.innerText = selectedProductName;
+
+                var productPrice =  document.getElementById('productPrice');
+                productPrice.innerText = selectedProductPrice;
+
+                });
+            }
+
+                // 선택 버튼 클릭 시 모달 창 닫기 이벤트 추가
+                document.getElementById('selectBtn').addEventListener('click', function() {
+                     // 제품할인 등록 영역의 버튼에 제품명 설정
+                     var ProductSearchBtn = document.getElementById('product_search_btn');
+                     ProductSearchBtn.innerText = selectedProductName;
+
+                     document.getElementById('menunameInput').value=selectedProductName;
+                     var ProductPrice = document.getElementById('productPrice');
+                     ProductPrice.innerText = selectedProductPrice;
+
+                     document.getElementById('priceInput').value=parseInt(selectedProductPrice.replace(/,/g,''));
+
+                     $('#productModal').hide();
+
+                });
+
+
+            $(document).ready(function () {
+                $('.modal-search-button').on('click', function () {
+                    var searchQuery = $('#searchInput').val();
+
+                    $.ajax({
+
+                        url: '/menu/search',
+                        type: 'GET',
+                        data: {
+                            search: searchQuery
+                        },
+                        success: function (data) {
+                            $('#itemList').html(data);
+                        },
+                        error: function () {
+                            alert('검색 중 오류가 발생했습니다.');
+                        }
+                    });
+                });
+            });
 
 
             // 검색 input 박스에 입력된 값으로 리스트를 필터링합니다.
@@ -169,39 +375,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // 할인가 입력 후 확인 버튼 클릭 시 할인가 영역에 할인된 금액 표시
-                document.getElementById('confirmDiscountPriceBtn').addEventListener('click', function() {
-                    var discountPriceInput = document.getElementById('discountPriceInput').value;
-                    var ProductPriceText = document.getElementById('productPrice').innerText;
-                    var discountPrice = parseInt(ProductPriceText.replace('원', '').replace(',', ''));
 
-                    if (!isNaN(discountPriceInput) && discountPriceInput.trim() !== '') {
-                        var discountedPrice = discountPriceInput - discountPrice;
-                        document.getElementById('discountPrice').innerText = `(${discountedPrice.toLocaleString()}원)`;
-
-                        document.getElementById('discPriceInput').value=discountedPrice;
-
-                    }
-                });
-            //라디오 버튼 "없음" 일시, input 버튼이 disable 상태로 된다.
-});
-
-function reload(){
-    var xhr = new XMLHttpRequest();
-
-    xhr.open('GET','/api/promotion-discount/main',true);
-    xhr.onload=function(){
-        if(xhr.status >= 200 && xhr.status<400){
-            console.error("제품할인 메인 페이지 로드에 성공하였습니다.");
         }else{
-            console.error("제품할인 메인 페이지 로드에 실패하였습니다");
+            console.error("제품할인 상태 변경에 실패하였습니다");
         }
     };
+
     xhr.onerror = function(){
-        console.error("[Menu Promotion Main Page - GET] Connection Error");
+        console.error("[MENU LIST - GET] Connection Error");
     }
 
     xhr.send();
+
 }
 
 function changeStatus(menuPromoId, selectedText){
@@ -361,7 +546,6 @@ function loadUpdateContent(menuPromoId){
             const allListBtn = document.querySelector('#all_list_btn');
 
             searchIcon.addEventListener('click', function() {
-                console.log("메뉴 모달 클릭");
 
                 $('#productModal').show();
             });
@@ -385,11 +569,8 @@ function loadUpdateContent(menuPromoId){
                 $('#productModal').hide();
             });
 
-            console.log("here");
-
             alllistcloseButton.addEventListener('click', function(){
                 $('#allListModal').hide();
-                console.log("here2");
             });
 
 
@@ -440,60 +621,58 @@ function loadUpdateContent(menuPromoId){
                 });
             }
 
-                // 선택 버튼 클릭 시 모달 창 닫기 이벤트 추가
-                document.getElementById('selectBtn').addEventListener('click', function() {
-                     // 제품할인 등록 영역의 버튼에 제품명 설정
-                     var ProductSearchBtn = document.getElementById('product_search_btn');
-                     ProductSearchBtn.innerText = selectedProductName;
+            // 선택 버튼 클릭 시 모달 창 닫기 이벤트 추가
+            document.getElementById('selectBtn').addEventListener('click', function() {
+                 // 제품할인 등록 영역의 버튼에 제품명 설정
+                 var ProductSearchBtn = document.getElementById('product_search_btn');
+                 ProductSearchBtn.innerText = selectedProductName;
 
-                     document.getElementById('menunameInput').value=selectedProductName;
-                     var ProductPrice = document.getElementById('productPrice');
-                     ProductPrice.innerText = selectedProductPrice;
+                 document.getElementById('menunameInput').value=selectedProductName;
+                 var ProductPrice = document.getElementById('productPrice');
+                 ProductPrice.innerText = selectedProductPrice;
 
-                     document.getElementById('priceInput').value=parseInt(selectedProductPrice.replace(/,/g,''));
+                 document.getElementById('priceInput').value=parseInt(selectedProductPrice.replace(/,/g,''));
 
-                     $('#productModal').hide();
+                 $('#productModal').hide();
 
-                });
+            });
 
-                // 검색 input 박스에 입력된 값으로 리스트를 필터링합니다.
-                function filterProductList(query) {
-                    // 모든 리스트 항목을 선택합니다.
-                    var items = document.querySelectorAll('#itemList li');
-                    // 각 항목을 반복하면서 필터링합니다.
-                    for (var i = 0; i < items.length; i++) {
-                        var item = items[i];
-                        var productNameId = 'productName' + item.id.replace('item', '');
-                        var productName = document.getElementById(productNameId).innerText;
-                        // 검색어가 없으면 모든 항목을 표시합니다.
-                        if (query === '') {
-                            item.style.display = '';
-                        } else if (productName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
-                            // 제품명이 입력된 값과 일치하면 항목을 표시합니다.
-                            item.style.display = '';
-                        } else {
-                            // 일치하지 않으면 항목을 숨깁니다.
-                            item.style.display = 'none';
-                        }
+            // 검색 input 박스에 입력된 값으로 리스트를 필터링합니다.
+            function filterProductList(query) {
+                // 모든 리스트 항목을 선택합니다.
+                var items = document.querySelectorAll('#itemList li');
+                // 각 항목을 반복하면서 필터링합니다.
+                for (var i = 0; i < items.length; i++) {
+                    var item = items[i];
+                    var productNameId = 'productName' + item.id.replace('item', '');
+                    var productName = document.getElementById(productNameId).innerText;
+                    // 검색어가 없으면 모든 항목을 표시합니다.
+                    if (query === '') {
+                        item.style.display = '';
+                    } else if (productName.toLowerCase().indexOf(query.toLowerCase()) !== -1) {
+                        // 제품명이 입력된 값과 일치하면 항목을 표시합니다.
+                        item.style.display = '';
+                    } else {
+                        // 일치하지 않으면 항목을 숨깁니다.
+                        item.style.display = 'none';
                     }
                 }
+            }
 
-                // 할인가 입력 후 확인 버튼 클릭 시 할인가 영역에 할인된 금액 표시
-                    document.getElementById('confirmDiscountPriceBtn').addEventListener('click', function() {
-                        var discountPriceInput = document.getElementById('discountPriceInput').value;
-                        var ProductPriceText = document.getElementById('productPrice').innerText;
-                        var discountPrice = parseInt(ProductPriceText.replace('원', '').replace(',', ''));
+            // 할인가 입력 후 확인 버튼 클릭 시 할인가 영역에 할인된 금액 표시
+            document.getElementById('confirmDiscountPriceBtn').addEventListener('click', function() {
+                var discountPriceInput = document.getElementById('discountPriceInput').value;
+                var ProductPriceText = document.getElementById('productPrice').innerText;
+                var discountPrice = parseInt(ProductPriceText.replace('원', '').replace(',', ''));
 
-                        if (!isNaN(discountPriceInput) && discountPriceInput.trim() !== '') {
-                            var discountedPrice = discountPriceInput - discountPrice;
-                            document.getElementById('discountPrice').innerText = `(${discountedPrice.toLocaleString()}원)`;
+                if (!isNaN(discountPriceInput) && discountPriceInput.trim() !== '') {
+                    var discountedPrice = discountPriceInput - discountPrice;
+                    document.getElementById('discountPrice').innerText = `(${discountedPrice.toLocaleString()}원)`;
 
-                            document.getElementById('discPriceInput').value=discountedPrice;
+                    document.getElementById('discPriceInput').value=discountedPrice;
 
-                        }
-                    });
-
-
+                }
+            });
         }else{
             console.error("제품할인 수정 화면 페이지 로드에 실패하였습니다");
         }

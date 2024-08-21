@@ -25,6 +25,7 @@ public class DasomLocationController {
     public String mainPage(Model model,
                            HttpServletRequest request){
 
+        System.out.println("DasomLocationController.mainPage");
         HttpSession session = request.getSession(false);
         if (session==null){
             return "redirect:/page/user/login";
@@ -116,7 +117,6 @@ public class DasomLocationController {
     @ResponseStatus(HttpStatus.SEE_OTHER)
     @DeleteMapping
     public String deleteDasomLocation(@RequestParam(name = "id")Long id,
-                                      BindingResult bindingResult,
                                       HttpServletRequest request){
 
         HttpSession session = request.getSession(false);

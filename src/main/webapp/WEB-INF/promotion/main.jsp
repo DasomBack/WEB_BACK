@@ -24,6 +24,8 @@
     <!-- Plugin css for this page -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- End plugin css for this page -->
+    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
     <!-- inject:css -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/beverageDiscountpage.css">
@@ -111,7 +113,6 @@
 <script src="${pageContext.request.contextPath}/static/assets/js/file-upload.js"></script>
 <script src="${pageContext.request.contextPath}/static/assets/js/typeahead.js"></script>
 <script src="${pageContext.request.contextPath}/static/assets/js/select2.js"></script>
-
 
 <!-- End custom js for this page-->
 </body>

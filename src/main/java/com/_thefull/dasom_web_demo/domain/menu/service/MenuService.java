@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 public class MenuService {
 
@@ -27,4 +28,12 @@ public class MenuService {
         return menuRepository.findByStore(store);
     }
 
+    public List<Menu> findSearchedMenu(Long storeId, String search) {
+
+        Store store = storeRepository.findById(storeId)
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾을 수 없습니다"));
+
+        return menuRepository.findAllByStoreAndNameContaining(store, search);
+
+    }
 }

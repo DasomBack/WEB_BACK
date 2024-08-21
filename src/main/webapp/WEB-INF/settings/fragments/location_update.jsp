@@ -82,14 +82,26 @@
                             <div class="location-group">
                                 <label for="input1">① 다솜 왼쪽</label>
 
+                                <c:choose>
+                                    <c:when test="${fn:length(theLocation.leftSide) == 2}">
+                                        <c:set var="inputValue" value="${theLocation.leftSide.get(0)}, ${theLocation.leftSide.get(1)}" />
+                                    </c:when>
+                                    <c:when test="${fn:length(theLocation.leftSide) == 1}">
+                                        <c:set var="inputValue" value="${theLocation.leftSide.get(0)}" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:set var="inputValue" value="" />
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input1" name="leftSide"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
-                                       value="${theLocation.leftSide.get(0)}" ${not empty theLocation.leftSide ? '' : 'disabled'}>
+                                       value="${inputValue}" ${not empty theLocation.leftSide ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="1">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -108,14 +120,26 @@
                             <div class="location-group">
                                 <label for="input4">② 다솜 왼쪽 앞</label>
 
+                                <c:choose>
+                                    <c:when test="${fn:length(theLocation.leftFront) == 2}">
+                                        <c:set var="inputValue" value="${theLocation.leftFront.get(0)}, ${theLocation.leftFront.get(1)}" />
+                                    </c:when>
+                                    <c:when test="${fn:length(theLocation.leftFront) == 1}">
+                                        <c:set var="inputValue" value="${theLocation.leftFront.get(0)}" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:set var="inputValue" value="" />
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input4" name="leftFront"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
-                                       value="${theLocation.leftFront}" ${not empty theLocation.leftFront ? '' : 'disabled'}>
+                                       value="${inputValue}" ${not empty theLocation.leftFront ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="4">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -134,14 +158,26 @@
                             <div class="location-group">
                                 <label for="input5">③ 다솜 앞</label>
 
+                                <c:choose>
+                                    <c:when test="${fn:length(theLocation.front) == 2}">
+                                        <c:set var="inputValue" value="${theLocation.front.get(0)}, ${theLocation.front.get(1)}" />
+                                    </c:when>
+                                    <c:when test="${fn:length(theLocation.front) == 1}">
+                                        <c:set var="inputValue" value="${theLocation.front.get(0)}" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:set var="inputValue" value="" />
+                                    </c:otherwise>
+                                </c:choose>
+
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input5" name="front"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
-                                       value="${theLocation.front}" ${not empty theLocation.front ? '' : 'disabled'}>
+                                       value="${inputValue}" ${not empty theLocation.front ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="5">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -160,14 +196,27 @@
                             <div class="location-group">
                                 <label for="input3">④ 다솜 오른쪽</label>
 
+                                <c:choose>
+                                    <c:when test="${fn:length(theLocation.rightSide) == 2}">
+                                        <c:set var="inputValue" value="${theLocation.rightSide.get(0)}, ${theLocation.rightSide.get(1)}" />
+                                    </c:when>
+                                    <c:when test="${fn:length(theLocation.rightSide) == 1}">
+                                        <c:set var="inputValue" value="${theLocation.rightSide.get(0)}" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:set var="inputValue" value="" />
+                                    </c:otherwise>
+                                </c:choose>
+
+
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input3" name="rightSide"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
-                                       value="${theLocation.rightSide}" ${not empty theLocation.rightSide ? '' : 'disabled'}>
+                                       value="${inputValue}" ${not empty theLocation.rightSide ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="3">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -187,14 +236,27 @@
                             <div class="location-group">
                                 <label for="input6">⑤ 다솜 오른쪽 앞</label>
 
+                                <c:choose>
+                                    <c:when test="${fn:length(theLocation.rightFront) == 2}">
+                                        <c:set var="inputValue" value="${theLocation.rightFront.get(0)}, ${theLocation.rightFront.get(1)}" />
+                                    </c:when>
+                                    <c:when test="${fn:length(theLocation.rightFront) == 1}">
+                                        <c:set var="inputValue" value="${theLocation.rightFront.get(0)}" />
+                                    </c:when>
+                                    <c:otherwise>
+                                        <c:set var="inputValue" value="" />
+                                    </c:otherwise>
+                                </c:choose>
+
+
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input6" name="rightFront"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
-                                       value="${theLocation.rightFront}" ${not empty theLocation.rightFront ? '' : 'disabled'}>
+                                       value="${inputValue}" ${not empty theLocation.rightFront ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="6">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>

@@ -84,8 +84,7 @@
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
-                                    <!-- <a class="dropdown-item preview-item">-->
+                                     aria-labelledby="messageDropdown" id="1">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -110,7 +109,7 @@
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="4">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -135,7 +134,7 @@
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="5">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -160,7 +159,7 @@
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="3">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -186,7 +185,7 @@
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown">
+                                     aria-labelledby="messageDropdown" id="6">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
