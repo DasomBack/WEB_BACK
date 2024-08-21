@@ -67,5 +67,9 @@
             </div>
         </div>
     </div>
+
+
+    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
 </body>
 </html>

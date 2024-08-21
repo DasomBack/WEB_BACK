@@ -68,9 +68,8 @@
                                 <!--<input type="text" class="custom-input form-control search" disabled>-->
                                 <button type="button" class="search-button custom-input form-control"
                                         id="product_search_btn"><i
-                                        class="icon-search"></i>
+                                        class="icon-search" onclick="openMenuModal()"></i>
                                 </button>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="menunameInput" name="menu" value="Espresso">
 
                             </div>
@@ -78,18 +77,16 @@
                         <td>
                             <div class="discount-section">
                                 <p id="productPrice">6,000원</p>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="priceInput" name="price" value=6000>
 
                                 <p id="discountPrice"></p>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="discPriceInput" name="discPrice" value=1000>
 
                             </div>
                         </td>
                         <td>
                             <div class="discount-section">
-                                - <input type="number" class="custom-input form-control"
+                                - &nbsp <input type="number" class="custom-input form-control"
                                        id="discountPriceInput" name="discVal" value=0>
                                 <button type="button" class="btn btn-outline-primary btn-sm"
                                         id="confirmDiscountPriceBtn">확인
@@ -297,58 +294,20 @@
                 <button type="submit" class="btn btn-primary">등록
                 </button>
             </div>
-        <form>
+        </form>
         </div>
 
+        <div id="testmodaal" disabled>
 
-
-        <!-- Product Search Modal -->
-
-        <div id="productModal" class="custom-modal" tabindex="-1" aria-labelledby="productModalLabel"
-             role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title"><strong>제품 검색</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="search-box">
-                            <form action="" method="get">
-                                <input type="text" class="form-control"
-                                       placeholder="검색" name="" id="searchInput"><i
-                                    class="icon-search"></i>
-                                <button class="modal-search-button" type="button"></button>
-                            </form>
-                        </div>
-                        <ul class="grid-container" id="itemList">
-                            <c:forEach items="${menu_list}" var = "menu" varStatus="status">
-                                <li class="item" id="item${menu.id}" menu-add-desc="${menu.desc}">
-                                    <!-- <image style="width: 30px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/menu/${menu.imgUrl}"/> -->
-                                    <img style="width: 50px; height: 100%" src="${menu.imgUrl}" alt="샘플이미지">
-                                    <p class="title" id="productName${menu.id}">${menu.name}</p>
-                                    <p id="productPrice${menu.id}">${menu.price}원</p>
-                                </li>
-                            </c:forEach>
-                        </ul>
-                        <button type="button" class="btn btn-light" id="loadMoreBtn">더보기</button>
-                        <button type="button" class="btn btn-light" id="selectBtn"
-                                style="display:none;">선택
-                        </button>
-                    </div>
-
-                </div>
-            </div>
         </div>
 
-        <!-- Beverage Search Modal ends -->
 
     </div>
 
 <script>
+    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
+
     document.getElementById('startDate').addEventListener('change', function() {
         var startDateVal = this.value;
         var endDateInput = document.getElementById('endDate');

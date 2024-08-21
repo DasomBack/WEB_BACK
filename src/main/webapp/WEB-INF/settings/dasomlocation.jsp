@@ -44,7 +44,7 @@
                     <h4 class="card-title">다솜 위치 목록</h4>
                     <c:forEach items="${all_robot_location_category_list}" var="robot_location" varStatus="status">
                         <ul class="location-info dropdown-options" id="settings${robot_location.id}">
-                            <h5><strong>입구 근처</strong></h5>
+                            <h5><strong>${robot_location.location}</strong></h5>
                             <br>
                                 <label style="display: inline-block; margin-right: 10px;">다솜 왼쪽</label>
                                 <c:choose>

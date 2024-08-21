@@ -68,12 +68,10 @@
                         </td>
                         <td>
                             <div class="input-container">
-                                <!--<input type="text" class="custom-input form-control search" disabled>-->
                                 <button type="button" class="search-button custom-input form-control"
-                                        id="product_search_btn">${thepromo.menu}
+                                        id="product_search_btn" onclick="openMenuModal()">${thepromo.menu}
                                         <i class="icon-search"></i>
                                 </button>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="menunameInput" name="menu" value="${thepromo.menu}">
 
                             </div>
@@ -81,18 +79,16 @@
                         <td>
                             <div class="discount-section">
                                 <p id="productPrice">${thepromo.price}원</p>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="priceInput" name="price" value="${thepromo.price}">
 
                                 <p id="discountPrice">(${thepromo.discPrice}원)</p>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="discPriceInput" name="discPrice" value="${thepromo.discPrice}">
 
                             </div>
                         </td>
                         <td>
                             <div class="discount-section">
-                                -<input type="number" class="custom-input form-control"
+                                -&nbsp<input type="number" class="custom-input form-control"
                                        id="discountPriceInput" name="discVal" value="${thepromo.discVal}" placeholder="${thepromo.discVal}">
 
                                 <button type="button" class="btn btn-outline-primary btn-sm"
@@ -353,7 +349,16 @@
                 </div>
             </div>
         </div>
+
+
+        <div id="testmodaal" disabled>
+
+        </div>
+
+
     </div>
+    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
     <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
 </body>
 </html>
