@@ -1,16 +1,21 @@
 package com._thefull.dasom_web_demo.domain.menu.controller;
 
 import com._thefull.dasom_web_demo.domain.menu.domain.Menu;
+import com._thefull.dasom_web_demo.domain.menu.domain.dto.DetailedMenuResponseDTO;
+import com._thefull.dasom_web_demo.domain.menu.domain.dto.SimpleMenuResponseDTO;
 import com._thefull.dasom_web_demo.domain.menu.service.MenuService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -39,24 +44,37 @@ public class MenuController {
     }
 
     @GetMapping("/search")
-    public String getSearchedMenuList(HttpServletRequest request,
-                                      Model model,
-                                      @RequestParam(name = "search")String search) {
+    @ResponseBody
+    public ResponseEntity<?> getSearchedMenuList(HttpServletRequest request,
+                                              @RequestParam(name = "search")String search) {
         HttpSession session = request.getSession(false);
         if (session == null) {
-            return "redirect:/page/user/login";
+            // return "redirect:/page/user/login";
         }
-
-
 
         Long storeId = (Long) session.getAttribute("storeId");
 
-        List<Menu> searchedMenu = menuService.findSearchedMenu(storeId, search);
+        List<SimpleMenuResponseDTO> searchedMenu = menuService.findSearchedMenu(storeId, search);
 
+        return ResponseEntity.ok(Collections.singletonMap("menu_list", searchedMenu));
+    }
 
-        model.addAttribute("menu_list", searchedMenu);
+    @GetMapping
+    @ResponseBody
+    public ResponseEntity<DetailedMenuResponseDTO> getMenuDetails(HttpServletRequest request,
+                                                                  @RequestParam(name = "id")Long id){
 
-        return "promotion/fragments/menuModal :: itemList";
+        HttpSession session = request.getSession(false);
+        if (session == null) {
+            // return "redirect:/page/user/login";
+        }
+
+        Long storeId = (Long) session.getAttribute("storeId");
+
+        DetailedMenuResponseDTO oneMenuDetails = menuService.findOneMenuDetails(storeId, id);
+
+        return ResponseEntity.ok().body(oneMenuDetails);
+
     }
 
 }

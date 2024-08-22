@@ -304,8 +304,9 @@
 
     </div>
 
+<script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
 <script>
-    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
 
 
     document.getElementById('startDate').addEventListener('change', function() {

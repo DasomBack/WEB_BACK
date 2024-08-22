@@ -219,6 +219,14 @@ input[type="number"]::-webkit-inner-spin-button {
     transform: translate(-0.6875rem, 1.625rem) !important;
 }
 
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
 
 .dropdown-menu {
     display: none; /* 기본적으로 숨김 */
@@ -447,7 +455,7 @@ input[type="number"]::-webkit-inner-spin-button {
     background-color: white;
     align: center;
     margin: 0 auto;
-    top: 70px;
+    top: 90px;
     width: 600px;
     height: 50%;
     box-sizing: border-box;
