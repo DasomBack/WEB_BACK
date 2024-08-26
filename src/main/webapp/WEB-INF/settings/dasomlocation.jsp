@@ -8,7 +8,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>다솜 위치 설정</title>
+    <title>카페봇 위치 설정</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/feather/feather.css">
     <link rel="stylesheet"
@@ -41,12 +41,12 @@
         <div class="content-wrapper dasomLocation">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">다솜 위치 목록</h4>
+                    <h4 class="card-title">카페봇 위치 목록</h4>
                     <c:forEach items="${all_robot_location_category_list}" var="robot_location" varStatus="status">
                         <ul class="location-info dropdown-options" id="settings${robot_location.id}">
                             <h5><strong>${robot_location.location}</strong></h5>
                             <br>
-                                <label style="display: inline-block; margin-right: 10px;">다솜 왼쪽</label>
+                                <label style="display: inline-block; margin-right: 10px;">왼쪽</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.leftSide}">
                                         <ul style="display: inline-block; padding-left: 0; list-style: none;">
@@ -57,7 +57,7 @@
                                     </c:when>
                                 </c:choose>
                             <br>
-                                <label style="display: inline-block; margin-right: 10px;">다솜 왼쪽 앞</label>
+                                <label style="display: inline-block; margin-right: 10px;">왼쪽 앞</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.leftFront}">
                                         <ul style="display: inline-block; padding-left: 0; list-style: none;">
@@ -68,7 +68,7 @@
                                     </c:when>
                                 </c:choose>
                             <br>
-                                <label style="display: inline-block; margin-right: 10px;">다솜 앞</label>
+                                <label style="display: inline-block; margin-right: 10px;">앞</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.front}">
                                         <ul style="display: inline-block; padding-left: 0; list-style: none;">
@@ -79,7 +79,7 @@
                                     </c:when>
                                 </c:choose>
                             <br>
-                                <label style="display: inline-block; margin-right: 10px;">다솜 오른쪽</label>
+                                <label style="display: inline-block; margin-right: 10px;">오른쪽</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.rightSide}">
                                         <ul style="display: inline-block; padding-left: 0; list-style: none;">
@@ -90,7 +90,7 @@
                                     </c:when>
                                 </c:choose>
                             <br>
-                                <label style="display: inline-block; margin-right: 10px;">다솜 오른쪽 앞</label>
+                                <label style="display: inline-block; margin-right: 10px;">오른쪽 앞</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.rightFront}">
                                         <ul style="display: inline-block; padding-left: 0; list-style: none;">

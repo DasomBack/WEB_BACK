@@ -28,7 +28,7 @@ public class MenuService {
     public List<Menu> findAllMenu(Long storeId){
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾을 수 없습니다"));
-        return menuRepository.findByStore(store);
+        return menuRepository.findByStoreOrderByCategoryAsc(store);
     }
 
     public List<SimpleMenuResponseDTO> findSearchedMenu(Long storeId, String search) {
@@ -36,7 +36,7 @@ public class MenuService {
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾을 수 없습니다"));
 
-        List<Menu> menuList = menuRepository.findAllByStoreAndNameContaining(store, search);
+        List<Menu> menuList = menuRepository.findAllByStoreAndNameContainingOrderByCategoryAsc(store, search);
 
         return menuList.stream().map(SimpleMenuResponseDTO::of).collect(Collectors.toList());
 

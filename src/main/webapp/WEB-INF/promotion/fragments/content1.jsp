@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>Promotions</title>
+
+
 </head>
 <body>
     <div class="card-body">
@@ -31,35 +33,20 @@
                         <c:if test="${status.index < 3}">
                             <tr>
                                 <td>
-                                    <ul class="navbar-nav custom-input form-control">
-                                        <li class="nav-item dropdown d-lg-block">
-                                            <a class="dropdown-bordered dropdown-toggle"
-                                               data-bs-toggle="dropdown"
-                                               aria-expanded="false">
-                                                <span id="selectedItem"> ${promotion.status} </span>
-                                            </a>
-                                            <c:choose>
-                                                <c:when test="${promotion.status eq '예정'}"></c:when>
-                                                <c:otherwise>
-                                                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                                         aria-labelledby="messageDropdown">
-                                                        <a class="dropdown-item preview-item" data-value="진행중" onclick= "changeStatus(${promotion.menuPromoId}, `진행중`)">
-                                                            <div class="preview-item-content flex-grow">
-                                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                                    진행중</p>
-                                                            </div>
-                                                        </a>
-                                                        <a class="dropdown-item preview-item" data-value="중지" onclick= "changeStatus(${promotion.menuPromoId}, `중지`)">
-                                                            <div class="preview-item-content flex-grow">
-                                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                                    중지</p>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </li>
-                                    </ul>
+
+                                    <div class="my_dropdown">
+                                        <a class="dropbtn"><span id="selectedItem"> ${promotion.status} </span></a>
+                                        <c:choose>
+                                            <c:when test="${promotion.status eq '예정'}"></c:when>
+                                            <c:otherwise>
+                                                <div class="dropdown-content">
+                                                    <a class ="dropdown-item" data-value="진행중" onclick= "changeStatus(${promotion.menuPromoId}, `진행중`)">진행중</a>
+                                                    <a class ="dropdown-item" data-value="중지" onclick= "changeStatus(${promotion.menuPromoId}, `중지`)">중지</a>
+                                                </div>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </div>
+
                                 </td>
                                 <td>${promotion.category}</td>
                                 <td>${promotion.menu}</td>
@@ -120,34 +107,20 @@
                                 <c:forEach items="${all_promotion_list}" var="promotion" varStatus="status">
                                     <tr>
                                         <td>
-                                            <ul class="navbar-nav custom-input form-control">
-                                                <li class="nav-item dropdown d-lg-block">
-                                                    <a class="dropdown-bordered dropdown-toggle"
-                                                       data-bs-toggle="dropdown" aria-expanded="false">
-                                                        <span id="selectedItem">${promotion.status}</span>
-                                                    </a>
-                                                    <c:choose>
-                                                        <c:when test="${promotion.status eq '예정'}"></c:when>
-                                                        <c:otherwise>
-                                                            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                                                 aria-labelledby="messageDropdown">
-                                                                <a class="dropdown-item preview-item" data-value="진행중" onclick= "changeStatus(${promotion.menuPromoId}, `진행중`)">
-                                                                    <div class="preview-item-content flex-grow">
-                                                                        <p class="preview-subject ellipsis fw-medium text-dark">
-                                                                            진행중</p>
-                                                                    </div>
-                                                                </a>
-                                                                <a class="dropdown-item preview-item" data-value="중지" onclick= "changeStatus(${promotion.menuPromoId}, `중지`)">
-                                                                    <div class="preview-item-content flex-grow">
-                                                                        <p class="preview-subject ellipsis fw-medium text-dark">
-                                                                            중지</p>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        </c:otherwise>
-                                                    </c:choose>
-                                                </li>
-                                            </ul>
+
+                                            <div class="my_dropdown">
+                                                <a class="dropbtn"><span id="selectedItem"> ${promotion.status} </span></a>
+                                                <c:choose>
+                                                    <c:when test="${promotion.status eq '예정'}"></c:when>
+                                                    <c:otherwise>
+                                                        <div class="dropdown-content">
+                                                            <a class ="dropdown-item" data-value="진행중" onclick= "changeStatus(${promotion.menuPromoId}, `진행중`)">진행중</a>
+                                                            <a class ="dropdown-item" data-value="중지" onclick= "changeStatus(${promotion.menuPromoId}, `중지`)">중지</a>
+                                                        </div>
+                                                    </c:otherwise>
+                                                </c:choose>
+                                            </div>
+
                                         </td>
                                         <td>${promotion.category}</td>
                                         <td>${promotion.menu}</td>
@@ -190,7 +163,7 @@
     <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+
 
     <script>
         const allListModal = document.querySelector('#allListModal');
