@@ -11,6 +11,7 @@
     <title>제품 할인</title>
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/feather/feather.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
     <link rel="stylesheet"
               href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/vendors/mdi/css/materialdesignicons.min.css">
@@ -113,7 +114,7 @@
 <script src="${pageContext.request.contextPath}/static/assets/js/file-upload.js"></script>
 <script src="${pageContext.request.contextPath}/static/assets/js/typeahead.js"></script>
 <script src="${pageContext.request.contextPath}/static/assets/js/select2.js"></script>
-
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <!-- End custom js for this page-->
 </body>
 </html>

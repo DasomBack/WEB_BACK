@@ -10,12 +10,12 @@
     <body>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">다솜 위치 변경</h4>
-                <form action="/settings/dasom-locations/update" method="post">
+                <h4 class="card-title">카페봇 위치 변경</h4>
+                <form action="/settings/dasom-locations/update" method="post" name="updateForm">
                  <div class = "dasom-location-register-wrapper">
                     <div class="dasom-location-radio">
                         <input name="id" value="${theLocation.id}" hidden>
-                        <p class="title">1. 카페 안에서 다솜이 있는 위치를 설정해 주세요.</p>
+                        <p class="title">1. 카페 내에서 카페봇이 있는 위치를 설정해 주세요.</p>
                         <label class="custom-label first-label" for="entrance">
                             <input type="radio" name="location"
                                    id="entrance" value="입구 근처" ${theLocation.location eq '입구 근처' ? 'checked' : ''}>
@@ -45,32 +45,32 @@
 
                     <div class="dasom-location-container">
                         <div class="dasom-location-register">
-                            <p class="title">2. 다솜 주변에 판매제품이 전개되어 있다면 번호를 선택해 주세요</p>
+                            <p class="title">2. 카페봇 주변에 판매제품이 전개되어 있다면 번호를 선택해 주세요</p>
                             <div class="main-content">
                                 <ul class="location-list">
                                     <li class = "${not empty theLocation.leftSide ? 'selected' : ''}">
                                         <p>①</p>
-                                        <p>다솜왼쪽</p>
+                                        <p>왼쪽</p>
                                     </li>
                                     <li>
                                         <i class="material-symbols-outlined">robot_2</i>
-                                        <p>다솜</p>
+                                        <p>카페봇</p>
                                     </li>
                                     <li class = "${not empty theLocation.rightSide ? 'selected' : ''}">
                                         <p>④</p>
-                                        <p>다솜 오른쪽</p>
+                                        <p>오른쪽</p>
                                     </li>
                                     <li class = "${not empty theLocation.leftFront ? 'selected' : ''}">
                                         <p>②</p>
-                                        <p>다솜 왼 앞</p>
+                                        <p>왼 앞</p>
                                     </li>
                                     <li class = "${not empty theLocation.front ? 'selected' : ''}">
                                         <p>③</p>
-                                        <p>다솜 앞</p>
+                                        <p>앞</p>
                                     </li>
                                     <li class = "${not empty theLocation.rightFront ? 'selected' : ''}">
                                         <p>⑤</p>
-                                        <p>다솜 오른 앞</p>
+                                        <p>오른 앞</p>
                                     </li>
                                 </ul>
                             </div>
@@ -80,7 +80,7 @@
                             <p class="title">3. 어떤 제품이 전개되어 있는지 선택해 주세요.<br> (최대 2개까지 선택)</p>
 
                             <div class="location-group">
-                                <label for="input1">① 다솜 왼쪽</label>
+                                <label for="input1">① 왼쪽</label>
 
                                 <c:choose>
                                     <c:when test="${fn:length(theLocation.leftSide) == 2}">
@@ -118,7 +118,7 @@
                             </div>
 
                             <div class="location-group">
-                                <label for="input4">② 다솜 왼쪽 앞</label>
+                                <label for="input4">② 왼쪽 앞</label>
 
                                 <c:choose>
                                     <c:when test="${fn:length(theLocation.leftFront) == 2}">
@@ -156,7 +156,7 @@
                             </div>
 
                             <div class="location-group">
-                                <label for="input5">③ 다솜 앞</label>
+                                <label for="input5">③ 앞</label>
 
                                 <c:choose>
                                     <c:when test="${fn:length(theLocation.front) == 2}">
@@ -194,7 +194,7 @@
                             </div>
 
                             <div class="location-group">
-                                <label for="input3">④ 다솜 오른쪽</label>
+                                <label for="input3">④ 오른쪽</label>
 
                                 <c:choose>
                                     <c:when test="${fn:length(theLocation.rightSide) == 2}">
@@ -234,7 +234,7 @@
 
 
                             <div class="location-group">
-                                <label for="input6">⑤ 다솜 오른쪽 앞</label>
+                                <label for="input6">⑤ 오른쪽 앞</label>
 
                                 <c:choose>
                                     <c:when test="${fn:length(theLocation.rightFront) == 2}">
@@ -268,6 +268,7 @@
                                         <li class="nav-item dropdown" data-value="케이크">케이크</li>
                                         <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
                                         <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                        <input type="text" class="hidden" id="directInput"></input>
                                     </ul>
                                 </div>
                             </div>

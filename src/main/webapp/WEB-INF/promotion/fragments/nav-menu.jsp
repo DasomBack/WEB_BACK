@@ -2,6 +2,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <a href="../../main/main">관리자 페이지</a>
+
             <ul class="nav">
                 <li class="nav-item">
                     <a class="nav-link" data-bs-toggle="collapse" href="../../page/main" aria-expanded="false"
@@ -21,7 +23,7 @@
                     <a class="nav-link" data-bs-toggle="collapse" href="#promotions" aria-expanded="false"
                                                                aria-controls="promotions">
                         <i class="material-symbols-outlined">campaign</i>
-                        <span class="menu-title">다솜 홍보 등록</span>
+                        <span class="menu-title">카페봇 홍보 등록</span>
                     </a>
                     <div class="collapse" id="promotions">
                         <ul class="nav flex-column sub-menu">
@@ -45,8 +47,13 @@
                     <div class="collapse" id="tables">
                         <ul class="nav flex-column sub-menu">
                             <li class="nav-item"><a class="nav-link" href="#">내 정보 관리</a></li>
-                            <li class="nav-item"><a class="nav-link" href="../../settings/dasom-locations/main">매장정보 관리</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">다솜기기 관리</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#">매장정보 관리</a></li>
+                            <ul class="sub-sub-menu" style="list-style-type: none;">
+                                <li style="list-style-type: none;" class="nav-item"><a class="nav-link" href="#"><span class="selectedMenuIcon">></span> &nbsp 카페봇 홍보 현황</a></li>
+                                <li style="list-style-type: none;" class="nav-item"><a class="nav-link" href="../../settings/dasom-locations/main"><span class="selectedMenuIcon" id="cafebotLocation_icon">></span> &nbsp 카페봇 위치 설정</a></li>
+                                <li style="list-style-type: none;" class="nav-item"><a class="nav-link" href="#"><span class="selectedMenuIcon">></span> &nbsp 연동 해제</a></li>
+                            </ul>
+                            <li class="nav-item"><a class="nav-link" href="#">카페봇 기기 관리</a></li>
                         </ul>
                     </div>
                 </li>

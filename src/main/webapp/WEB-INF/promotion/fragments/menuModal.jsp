@@ -35,9 +35,7 @@
                     </c:forEach>
                 </ul>
                 <button type="button" class="btn btn-light" id="loadMoreBtn">더보기</button>
-                <button type="button" class="btn btn-light" id="selectBtn"
-                        style="display:none;">선택
-                </button>
+
             </div>
 
         </div>
@@ -68,6 +66,10 @@
                         </tbody>
                     </table>
                 </div>
+
+                <button type="button" class="btn btn-light" id="selectBtn">
+                    선택
+                </button>
 
             </div>
         </div>

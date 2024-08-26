@@ -1,12 +1,67 @@
-$(document).ready(function() {
+function initiateLocationSettings(){
+    var graphicSelections= document.querySelectorAll(".dasom-location-register li");
+    for (var i=0; i<graphicSelections.length; i++){
+        if (graphicSelections[i].classList.contains('selected')){
+            graphicSelections[i].classList.remove('selected');
+        }
+    }
+    var inputLists = document.querySelectorAll(".dasom-location-input input");
+    for (var i=0; i<inputLists.length; i++){
+        inputLists[i].value="";
+        inputLists[i].removeAttribute('disabled');
+    }
+}
 
-    var selectedItems = [];
+
+///////////////////////////////////
+    var selectedItems_5 = [];
+    var selectedItems_4 = [];
+    var selectedItems_6 = [];
+    var selectedItems_1 = [];
+    var selectedItems_3 = [];
 
     document.querySelectorAll('.dropdown-menu .nav-item').forEach(function(item) {
         item.addEventListener('click', function() {
+
+
             var selectedText = this.getAttribute('data-value');
 
+            console.log(selectedText);
+
+
+
             var parentDivId = this.closest('.dropdown-menu').id;
+            var selectedItems=[];
+
+
+
+            switch(parentDivId){
+
+                case "1":
+                    selectedItems=selectedItems_1;
+
+                    break;
+
+                case "3":
+
+                    selectedItems=selectedItems_3;
+                    break;
+
+                case "4":
+                    selectedItems=selectedItems_4;
+                    break;
+
+                case "5":
+
+                    selectedItems=selectedItems_5;
+                    break;
+
+                case "6":
+                    selectedItems=selectedItems_6;
+                    break;
+
+            }
+
             // 선택된 항목이 이미 있는지 확인
             if (selectedItems.includes(selectedText)) {
                 // 이미 선택된 항목이면, 선택 해제
@@ -23,10 +78,31 @@ $(document).ready(function() {
             }
 
             // 선택된 항목들을 input 필드에 표시
-            var inputField = document.getElementById('input'+parentDivId);
-            inputField.value = selectedItems.join(', ');
+            var selectedInput = document.getElementById('input'+parentDivId);
+
+            selectedInput.value = selectedItems.join(', ');
+            console.log(selectedItems);
+            console.log(selectedItems_1);
+
+
+
         });
     });
+
+
+    var radl=document.updateForm.location;
+    var prev = null;
+    for (var i =0; i<radl.length; i++){
+        radl[i].addEventListener('change', function(){
+            if (this !== prev){
+                prev=this;
+            }
+
+            initiateLocationSettings();
+
+        });
+
+    }
 
 //     // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
 //     document.querySelectorAll('.nav-item').forEach(function(item) {
@@ -44,7 +120,7 @@ $(document).ready(function() {
        var text = $(this).text().trim();
 
        console.log(text);
-       if (text === '다솜') {
+       if (text === '카페봇') {
            return; // '다솜' 텍스트를 가진 요소는 클릭을 막음
        }
 
@@ -52,18 +128,161 @@ $(document).ready(function() {
        var input = $('#input' + index);
 
        if ($(this).hasClass('selected')) { // 이미 선택된 경우
+            console.log("already selected");
            // 선택 해제
            $(this).removeClass('selected');
            // input을 비활성화
            input.prop('disabled', true);
        } else {
+            console.log("not selected");
            // 클릭한 li 요소 선택
            $(this).addClass('selected');
            // 해당 input 활성화
            input.prop('disabled', false);
        }
    });
-});
+///////////////////////////////////
+
+
+function inputEventListener() {
+
+    var selectedItems_5 = [];
+    var selectedItems_4 = [];
+    var selectedItems_6 = [];
+    var selectedItems_1 = [];
+    var selectedItems_3 = [];
+
+    document.querySelectorAll('.dropdown-menu .nav-item').forEach(function(item) {
+        item.addEventListener('click', function() {
+
+
+            var selectedText = this.getAttribute('data-value');
+
+
+            if (selectedText == "직접입력"){
+
+                var directInput= document.getElementById("directInput");
+                directInput.classList.remove("hidden");
+                directInput.classList.add("show");
+
+                directInput.addEventListener('onchange',function(){
+                    selectedText=directInput.value;
+                });
+
+            }
+
+            var parentDivId = this.closest('.dropdown-menu').id;
+            var selectedItems=[];
+
+
+
+            switch(parentDivId){
+
+                case "1":
+                    selectedItems=selectedItems_1;
+
+                    break;
+
+                case "3":
+
+                    selectedItems=selectedItems_3;
+                    break;
+
+                case "4":
+                    selectedItems=selectedItems_4;
+                    break;
+
+                case "5":
+
+                    selectedItems=selectedItems_5;
+                    break;
+
+                case "6":
+                    selectedItems=selectedItems_6;
+                    break;
+
+            }
+
+            // 선택된 항목이 이미 있는지 확인
+            if (selectedItems.includes(selectedText)) {
+                // 이미 선택된 항목이면, 선택 해제
+                selectedItems = selectedItems.filter(function(text) {
+                    return text !== selectedText;
+                });
+                this.classList.remove('selected'); // 선택된 항목에 표시 제거
+            } else {
+                if (selectedItems.length < 2) {
+                    // 새로운 항목 선택
+                    selectedItems.push(selectedText);
+                    this.classList.add('selected'); // 선택된 항목에 표시 추가
+                }
+            }
+
+            // 선택된 항목들을 input 필드에 표시
+            var selectedInput = document.getElementById('input'+parentDivId);
+
+            selectedInput.value = selectedItems.join(', ');
+            console.log(selectedInput.value);
+
+
+        });
+    });
+
+
+    var radl=document.updateForm.location;
+    var prev = null;
+    for (var i =0; i<radl.length; i++){
+        radl[i].addEventListener('change', function(){
+            if (this !== prev){
+                prev=this;
+            }
+
+            initiateLocationSettings();
+
+        });
+
+    }
+
+//     // 드롭다운 항목 클릭 시 선택된 텍스트로 업데이트하는 코드
+//     document.querySelectorAll('.nav-item').forEach(function(item) {
+//         item.addEventListener('click', function() {
+//             var selectedText = this.getAttribute('data-value');
+//             var parentDropdown = this.closest('.dropdown-bordered').previousElementSibling;
+//             parentDropdown.querySelector('li').textContent = selectedText;
+//         });
+//     });
+
+    // 여러 개의 location-list li 항목을 클릭할 수 있도록 수정한 코드
+   $('.location-list li').click(function() {
+
+        console.log("here");
+       var text = $(this).text().trim();
+
+       console.log(text);
+       if (text === '카페봇') {
+           return; // '다솜' 텍스트를 가진 요소는 클릭을 막음
+       }
+
+       var index = $(this).index() + 1;
+       var input = $('#input' + index);
+
+       if ($(this).hasClass('selected')) { // 이미 선택된 경우
+            console.log("already selected");
+           // 선택 해제
+           $(this).removeClass('selected');
+           // input을 비활성화
+           input.prop('disabled', true);
+       } else {
+            console.log("not selected");
+           // 클릭한 li 요소 선택
+           $(this).addClass('selected');
+           // 해당 input 활성화
+           input.prop('disabled', false);
+       }
+   });
+}
+
+
 
 // 토글
 const toggleList = document.querySelectorAll(".toggleSwitch");
@@ -113,12 +332,16 @@ $toggle.onclick = () => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all dropdown menus
+
     var dropdownOptions = document.querySelectorAll('.dropdown-options li');
+
+
 
     // Add click event listener to each dropdown item
     dropdownOptions.forEach(function(option) {
         option.addEventListener('click', function() {
+
+
             // Get the value from the clicked item
             var selectedValue = option.getAttribute('data-value');
 
@@ -126,7 +349,7 @@ document.addEventListener('DOMContentLoaded', function() {
             var inputField = option.closest('.location-group').querySelector('input.custom-input');
 
             // Set the value of the input field
-            inputField.value = selectedValue;
+            // inputField.value = selectedValue;
 
             // Optionally, close the dropdown after selection
             var dropdownMenu = option.closest('.dropdown-menu');
@@ -198,58 +421,7 @@ function loadUpdateLocationContent(locationId){
                 locationSpan.style.backgroundColor = '#F5DEB3'; // 연한 갈색
             }
 
-            $(document).ready(function() {
-                console.log("here");
-
-                $(document).on('click','.location-list li', function() {
-                    console.log("here22");
-
-                    var text = $(this).text().trim();
-
-                    if (text === '다솜') {
-                        return;
-                    }
-
-                    var index = $(this).index();
-                    var input = $('#input' + (index + 1));
-
-                    if ($(this).hasClass('selected')) {
-                        $(this).removeClass('selected');
-                        input.prop('disabled', true);
-                    } else {
-                        $(this).addClass('selected');
-                        input.prop('disabled', false);
-                    }
-                });
-            });
-
-            var selectedItems = [];
-
-            document.querySelectorAll('.dropdown-menu .nav-item').forEach(function(item) {
-                item.addEventListener('click', function() {
-                    var selectedText = this.getAttribute('data-value');
-
-                    var parentDivId = this.closest('.dropdown-menu').id;
-                    // 선택된 항목이 이미 있는지 확인
-                    if (selectedItems.includes(selectedText)) {
-                        // 이미 선택된 항목이면, 선택 해제
-                        selectedItems = selectedItems.filter(function(text) {
-                            return text !== selectedText;
-                        });
-                        this.classList.remove('selected'); // 선택된 항목에 표시 제거
-                    } else {
-                        if (selectedItems.length < 2) {
-                            // 새로운 항목 선택
-                            selectedItems.push(selectedText);
-                            this.classList.add('selected'); // 선택된 항목에 표시 추가
-                        }
-                    }
-
-                    // 선택된 항목들을 input 필드에 표시
-                    var inputField = document.getElementById('input'+parentDivId);
-                    inputField.value = selectedItems.join(', ');
-                });
-            });
+            inputEventListener();
 
 
         }else{

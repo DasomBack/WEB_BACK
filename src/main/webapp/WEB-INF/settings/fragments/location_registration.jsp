@@ -7,11 +7,11 @@
     <body>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">다솜 위치 등록</h4>
-                <form action="/settings/dasom-locations" method="post">
+                <h4 class="card-title">카페봇 위치 등록</h4>
+                <form action="/settings/dasom-locations" method="post" name="updateForm">
                  <div class = "dasom-location-register-wrapper">
                     <div class="dasom-location-radio">
-                        <p class="title">1. 카페 안에서 다솜이 있는 위치를 설정해 주세요.</p>
+                        <p class="title">1. 카페 안에서 카페봇이 있는 위치를 설정해 주세요.</p>
                         <label class="custom-label first-label" for="entrance">
                             <input type="radio" name="location"
                                    id="entrance" value="입구 근처" checked>
@@ -41,32 +41,32 @@
 
                     <div class="dasom-location-container">
                         <div class="dasom-location-register">
-                            <p class="title">2. 다솜 주변에 판매제품이 전개되어 있다면 번호를 선택해 주세요</p>
+                            <p class="title">2. 카페봇 주변에 판매제품이 전개되어 있다면 번호를 선택해 주세요</p>
                             <div class="main-content">
                                 <ul class="location-list">
                                     <li>
                                         <p>①</p>
-                                        <p>다솜왼쪽</p>
+                                        <p>왼쪽</p>
                                     </li>
                                     <li>
                                         <i class="material-symbols-outlined">robot_2</i>
-                                        <p>다솜</p>
+                                        <p>카페봇</p>
                                     </li>
                                     <li>
                                         <p>④</p>
-                                        <p>다솜 오른쪽</p>
+                                        <p>오른쪽</p>
                                     </li>
                                     <li>
                                         <p>②</p>
-                                        <p>다솜 왼 앞</p>
+                                        <p>왼 앞</p>
                                     </li>
                                     <li>
                                         <p>③</p>
-                                        <p>다솜 앞</p>
+                                        <p>앞</p>
                                     </li>
                                     <li>
                                         <p>⑤</p>
-                                        <p>다솜 오른 앞</p>
+                                        <p>오른 앞</p>
                                     </li>
                                 </ul>
                             </div>
@@ -76,13 +76,16 @@
                         <div class="dasom-location-input">
                             <p class="title">3. 어떤 제품이 전개되어 있는지 선택해 주세요.<br> (최대 2개까지 선택)</p>
                             <div class="location-group">
-                                <label for="input1">① 다솜 왼쪽</label>
+                                <label for="input1">① 왼쪽</label>
+
+                                <c:set var="inputValue" value="" />
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input1" name="leftSide" disabled
                                        data-bs-toggle="dropdown"
-                                       aria-expanded="false">
+                                       aria-expanded="false"
+                                       value="">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                      aria-labelledby="messageDropdown" id="1">
                                     <ul class="dropdown-options">
@@ -101,13 +104,14 @@
                             </div>
 
                             <div class="location-group">
-                                <label for="input4">② 다솜 왼쪽 앞</label>
+                                <label for="input4">② 왼쪽 앞</label>
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input4" name="leftFront" disabled
                                        data-bs-toggle="dropdown"
-                                       aria-expanded="false">
+                                       aria-expanded="false"
+                                       value="">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                      aria-labelledby="messageDropdown" id="4">
                                     <ul class="dropdown-options">
@@ -126,13 +130,14 @@
                             </div>
 
                             <div class="location-group">
-                                <label for="input5">③ 다솜 앞</label>
+                                <label for="input5">③ 앞</label>
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input5" name="front" disabled
                                        data-bs-toggle="dropdown"
-                                       aria-expanded="false">
+                                       aria-expanded="false"
+                                       value="">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                      aria-labelledby="messageDropdown" id="5">
                                     <ul class="dropdown-options">
@@ -151,13 +156,14 @@
                             </div>
 
                             <div class="location-group">
-                                <label for="input3">④ 다솜 오른쪽</label>
+                                <label for="input3">④ 오른쪽</label>
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input3" name="rightSide" disabled
                                        data-bs-toggle="dropdown"
-                                       aria-expanded="false">
+                                       aria-expanded="false"
+                                       value="">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                      aria-labelledby="messageDropdown" id="3">
                                     <ul class="dropdown-options">
@@ -177,13 +183,14 @@
 
 
                             <div class="location-group">
-                                <label for="input6">⑤ 다솜 오른쪽 앞</label>
+                                <label for="input6">⑤ 오른쪽 앞</label>
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
                                        id="input6" name="rightFront" disabled
                                        data-bs-toggle="dropdown"
-                                       aria-expanded="false">
+                                       aria-expanded="false"
+                                       value="">
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
                                      aria-labelledby="messageDropdown" id="6">
                                     <ul class="dropdown-options">

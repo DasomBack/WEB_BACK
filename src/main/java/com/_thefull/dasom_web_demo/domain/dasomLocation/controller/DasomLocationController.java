@@ -119,6 +119,8 @@ public class DasomLocationController {
     public String deleteDasomLocation(@RequestParam(name = "id")Long id,
                                       HttpServletRequest request){
 
+        System.out.println("DasomLocationController.deleteDasomLocation");
+
         HttpSession session = request.getSession(false);
         if(session==null){
             return "redirect:/page/user/login";
