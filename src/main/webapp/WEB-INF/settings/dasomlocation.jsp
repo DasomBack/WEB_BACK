@@ -30,8 +30,10 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/static/assets/css/settings.css">
     <!-- endinject -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/static/assets/images/favicon.png"/>
+
 </head>
 <body>
+
 <div class="container-scroller">
     <%@ include file="../promotion/fragments/top-nav.jsp" %>
         <div class="container-fluid page-body-wrapper">
@@ -42,10 +44,11 @@
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">카페봇 위치 목록</h4>
-                    <c:forEach items="${all_robot_location_category_list}" var="robot_location" varStatus="status">
-                        <ul class="location-info dropdown-options" id="settings${robot_location.id}">
-                            <h5><strong>${robot_location.location}</strong></h5>
-                            <br>
+                    <span><button id="prevButton" class="hidden" onclick="showPreviousItems()" style="border: none; background-color:white;"><image style="width: 40px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/free-icon-arrow-right-6423875left.svg"/></button><span>
+                        <c:forEach items="${all_robot_location_category_list}" var="robot_location" varStatus="status">
+                            <ul class="location-info dropdown-options hidden" id="settings${robot_location.id}">
+                                <h5><strong>${robot_location.location}</strong></h5>
+                                <br>
                                 <label style="display: inline-block; margin-right: 10px;">왼쪽</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.leftSide}">
@@ -56,7 +59,7 @@
                                         </ul>
                                     </c:when>
                                 </c:choose>
-                            <br>
+                                <br>
                                 <label style="display: inline-block; margin-right: 10px;">왼쪽 앞</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.leftFront}">
@@ -67,7 +70,7 @@
                                         </ul>
                                     </c:when>
                                 </c:choose>
-                            <br>
+                                <br>
                                 <label style="display: inline-block; margin-right: 10px;">앞</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.front}">
@@ -78,7 +81,7 @@
                                         </ul>
                                     </c:when>
                                 </c:choose>
-                            <br>
+                                <br>
                                 <label style="display: inline-block; margin-right: 10px;">오른쪽</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.rightSide}">
@@ -89,7 +92,7 @@
                                         </ul>
                                     </c:when>
                                 </c:choose>
-                            <br>
+                                <br>
                                 <label style="display: inline-block; margin-right: 10px;">오른쪽 앞</label>
                                 <c:choose>
                                     <c:when test="${not empty robot_location.rightFront}">
@@ -100,12 +103,12 @@
                                         </ul>
                                     </c:when>
                                 </c:choose>
-                            <br>
+                                <br>
                                 <button class="btn-primary edit-location" onclick="loadUpdateLocationContent(${robot_location.id})">
                                     <i class="material-symbols-outlined">pin_drop</i>
                                     위치수정
                                 </button>
-                            <br>
+                                <br>
                                 <div class="toggle">
                                     <c:choose>
                                         <c:when test="${robot_location.use eq 'true'}">
@@ -122,8 +125,9 @@
                                         </c:otherwise>
                                     </c:choose>
                                 </div>
-                        </ul>
-                    </c:forEach>
+                            </ul>
+                        </c:forEach>
+                    <span><button id="nextButton" class="hidden" onclick="showNextItems()" style="border: none; background-color:white;"><image style="width: 40px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/free-icon-arrow-right-6423875.svg"/></button></span>
                 </div>
             </div>
             <br>

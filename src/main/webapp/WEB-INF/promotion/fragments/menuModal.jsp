@@ -30,7 +30,7 @@
                         <li class="item" id="item${menu.id}" menu-add-desc="${menu.desc}">
                             <img style="width: 100px; height: 100%" src="${menu.imgUrl}" alt="샘플이미지">
                             <p class="title" id="productName${menu.id}">${menu.name}</p>
-                            <p id="productPrice${menu.id}">${menu.price}원 &nbsp &nbsp <button style ="border: none; background-color: white;" onclick="openMenuDetail(${menu.id})"><i style ="border: none; background-color: white;" class="fa fa-info-circle"></i></button></p>
+                            <p id="productPrice${menu.id}">${menu.price}원 &nbsp &nbsp </p>
                         </li>
                     </c:forEach>
                 </ul>

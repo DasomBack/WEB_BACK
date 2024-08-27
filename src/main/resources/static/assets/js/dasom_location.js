@@ -1,3 +1,52 @@
+let currentStartIndex = 0;
+const itemsPerPage = 3;
+
+function showItems(startIndex) {
+
+    const items = document.querySelectorAll('.location-info');
+
+    items.forEach((item, index) => {
+        item.classList.add('hidden');
+        item.classList.remove('showlist');
+        if (index >= startIndex && index < startIndex + itemsPerPage) {
+            item.classList.remove('hidden');
+            item.classList.add('showlist');
+        }
+    });
+
+    // 이전 버튼 제어
+    if (currentStartIndex <= 0) {
+        document.getElementById('prevButton').classList.add('hidden');
+    } else {
+        document.getElementById('prevButton').classList.remove('hidden');
+    }
+
+    // 다음 버튼 제어
+    if (currentStartIndex + itemsPerPage >= items.length) {
+        document.getElementById('nextButton').classList.add('hidden');
+    } else {
+        document.getElementById('nextButton').classList.remove('hidden');
+    }
+}
+
+function showNextItems() {
+    const items = document.querySelectorAll('.location-info');
+    currentStartIndex += itemsPerPage;
+    showItems(currentStartIndex);
+}
+
+function showPreviousItems() {
+    const items = document.querySelectorAll('.location-info');
+    currentStartIndex -= itemsPerPage;
+    showItems(currentStartIndex);
+}
+
+// 페이지 로드 시 처음 3개의 항목을 표시
+showItems(currentStartIndex);
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function initiateLocationSettings(){
     var graphicSelections= document.querySelectorAll(".dasom-location-register li");
     for (var i=0; i<graphicSelections.length; i++){
@@ -8,10 +57,9 @@ function initiateLocationSettings(){
     var inputLists = document.querySelectorAll(".dasom-location-input input");
     for (var i=0; i<inputLists.length; i++){
         inputLists[i].value="";
-        inputLists[i].removeAttribute('disabled');
+        inputLists[i].setAttribute('disabled', 'disabled');
     }
 }
-
 
 ///////////////////////////////////
     var selectedItems_5 = [];
@@ -132,7 +180,9 @@ function initiateLocationSettings(){
            // 선택 해제
            $(this).removeClass('selected');
            // input을 비활성화
+           input.val("");
            input.prop('disabled', true);
+
        } else {
             console.log("not selected");
            // 클릭한 li 요소 선택
@@ -271,6 +321,7 @@ function inputEventListener() {
            // 선택 해제
            $(this).removeClass('selected');
            // input을 비활성화
+           input.val("");
            input.prop('disabled', true);
        } else {
             console.log("not selected");

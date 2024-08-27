@@ -94,7 +94,11 @@ public class MenuPromotion extends BasePromotionEntity {
 
     }
 
+
     public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, Store store, Status status){
+        System.out.println(dto.getBoolAddDesc());
+        System.out.println(dto.getBoolAddCond());
+
         return MenuPromotion.builder()
                 .status(status)
                 .menu(menu)

@@ -4,10 +4,17 @@
 <html>
 <head>
     <title>Promotions</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
+
 </head>
 <body>
     <div class="card-body">
         <h4 class="card-title">제품홍보 등록</h4>
+
         <form action="/api/promotion-discount/register" method="post">
             <div class="table-responsive first-table">
                 <table class="table">
@@ -100,10 +107,12 @@
                     <tr>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" min="00:00" max="23:30" step="1800" class="custom-input form-control" id="eventStartTime" name="startTime">
+                                <input id="eventStartTime" name="startTime" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
 
                                 &nbsp~&nbsp
-                                <input type="time" min="00:00" max="23:30" step="1800" class="custom-input form-control" id="eventEndTime" name="endTime">
+
+                                <input id="eventEndTime" name="endTime" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
+
                                 <label class="custom-label" for="sameTimeCheckbox">
                                     <input type="checkbox" id="sameTimeCheckbox" name="boolEqlStoreOpr">
                                     &nbsp영업시간과 동일
@@ -112,10 +121,12 @@
                         </td>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" min="00:00" max="23:30" step="1800" class="custom-input form-control" id="speechStartTime" name="mentStartTime">
+
+                                <input id="speechStartTime" name="mentStartTime" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
 
                                 &nbsp~&nbsp
-                                <input type="time" min="00:00" max="23:30" step="1800" class="custom-input form-control" name="mentEndTime">
+
+                                <input name="mentEndTime" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
                                 <label class="custom-label">
                                     <input type="checkbox" name="boolEqlEventStart">
                                     &nbsp행사시간과 동일
@@ -164,7 +175,7 @@
                                            id="discountOptionYes" value="yes">
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddCondInput" name="boolAddCond">
+                                <input type="hidden" id="isAddCondInput" value="false" name="boolAddCond">
                                 <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" disabled>
                             </div>
                         </td>
@@ -180,7 +191,7 @@
                                             id="descriptionYes" value="yes">
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddDescInput" name="boolAddDesc">
+                                <input type="hidden" id="isAddDescInput" value="false" name="boolAddDesc">
                                 <input type="text" class="custom-input form-control" id="addMenuDescId" name="addMenuDesc" disabled>
 
                             </div>
@@ -194,9 +205,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>AI 다솜 멘트 생성
+                            <th>AI 카페봇 멘트 생성
                             </th>
-                            <th>테스트 진행<span class="info">* 다솜이 어떻게 말하는지 확인해보세요!</span>
+                            <th>테스트 진행<span class="info">* 카페봇이 어떻게 말하는지 확인해보세요!</span>
                             </th>
                         </tr>
                     </thead>
@@ -215,7 +226,7 @@
                             </div>
                         </td>
                         <td class="test">
-                            <button type="button" class="btn btn-primary">다솜 홍보 테스트
+                            <button type="button" class="btn btn-primary">카페봇 홍보 테스트
                             </button>
                         </td>
 
@@ -242,9 +253,22 @@
     </div>
 
 <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
 <script>
+    $('.timepicker').timepicker({
+        timeFormat: 'HH:mm',
+        interval: 30,
+        minTime: '00',
+        maxTime: '23:30pm',
+        startTime: '00:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+    });
+</script>
 
 
+<script>
 
     document.getElementById('startDate').addEventListener('change', function() {
         var startDateVal = this.value;
@@ -260,5 +284,7 @@
     });
 
 </script>
+
+
 </body>
 </html>
