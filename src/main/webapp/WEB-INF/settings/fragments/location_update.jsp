@@ -62,7 +62,7 @@
                                     </li>
                                     <li class = "${not empty theLocation.leftFront ? 'selected' : ''}">
                                         <p>②</p>
-                                        <p>왼 앞</p>
+                                        <p>왼쪽 앞</p>
                                     </li>
                                     <li class = "${not empty theLocation.front ? 'selected' : ''}">
                                         <p>③</p>
@@ -70,7 +70,7 @@
                                     </li>
                                     <li class = "${not empty theLocation.rightFront ? 'selected' : ''}">
                                         <p>⑤</p>
-                                        <p>오른 앞</p>
+                                        <p>오른쪽 앞</p>
                                     </li>
                                 </ul>
                             </div>

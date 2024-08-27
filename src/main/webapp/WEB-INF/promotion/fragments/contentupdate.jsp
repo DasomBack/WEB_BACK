@@ -4,10 +4,16 @@
 <html>
 <head>
     <title>Promotions</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
 </head>
 <body>
     <div class="card-body">
         <h4 class="card-title">제품할인 등록</h4>
+
         <form action="/api/promotion-discount/update" method="post">
             <div class="table-responsive first-table">
                 <table class="table">
@@ -42,8 +48,8 @@
                         <td>
                             <div class="input-container">
                                 <button type="button" class="search-button custom-input form-control"
-                                        id="product_search_btn" onclick="openMenuModal()">${thepromo.menu}
-                                        <i class="icon-search"></i>
+                                        id="product_search_btn" >${thepromo.menu}
+                                        <i class="icon-search" onclick="openMenuModal()"></i>
                                 </button>
                                 <input type="hidden" id="menunameInput" name="menu" value="${thepromo.menu}">
 
@@ -115,10 +121,11 @@
                     <tr>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" min="00:00" max="23:30" step="1800" class="custom-input form-control" id="eventStartTime" name="startTime" value="${thepromo.startTime}">
+                                <input id="eventStartTime" name="startTime" value="${thepromo.startTime}" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
 
                                 &nbsp~&nbsp
-                                <input type="time" min="00:00" max="23:30" step="1800" class="custom-input form-control" id="eventEndTime" name="endTime" value="${thepromo.endTime}">
+                                <input id="eventEndTime" name="endTime" value="${thepromo.endTime}" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
+
                                 <label class="custom-label" for="sameTimeCheckbox">
                                     <input type="checkbox" id="sameTimeCheckbox" name="boolEqlStoreOpr" ${thepromo.boolEqlStoreOpr eq 'true' ? 'checked' : ''}>
                                     &nbsp영업시간과 동일
@@ -127,10 +134,12 @@
                         </td>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" min="00:00" max="23:30" step="1800" class="custom-input form-control" id="speechStartTime" name="mentStartTime" value="${thepromo.mentStartTime}">
+                                <input id="speechStartTime" name="mentStartTime" value="${thepromo.mentStartTime}" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
 
                                 &nbsp~&nbsp
-                                <input type="time" min="00:00" max="23:30" step="1800" class="custom-input form-control" name="mentEndTime" value="${thepromo.mentEndTime}">
+
+                                <input name="mentEndTime" value="${thepromo.mentEndTime}" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
+
                                 <label class="custom-label">
                                     <input type="checkbox" name"boolEqlEventStart" ${thepromo.boolEqlEventStart eq 'true' ? 'checked' : ''}>
                                     &nbsp행사시간과 동일
@@ -180,8 +189,8 @@
                                            id="discountOptionYes" value="yes" ${thepromo.boolAddCond eq 'true' ? 'checked' : ''}>
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddCondInput" name="boolAddCond">
-                                <input type="text" class="custom-input form-control" id="addCondId" value="${thepromo.addDiscCond}" name="addDiscCond" placeholder="${thepromo.addDiscCond}" ${thepromo.boolAddCond eq 'true' ? '' : 'disabled'}>
+                                <input type="hidden" id="isAddCondInput" value="false" name="boolAddCond">
+                                <input type="text" class="custom-input form-control" id="addCondId" value="${thepromo.addDiscCond}" name="addDiscCond" ${thepromo.boolAddCond eq 'true' ? '' : 'disabled'}>
                             </div>
                         </td>
                         <td>
@@ -196,8 +205,8 @@
                                             id="descriptionYes" value="yes" ${thepromo.boolAddDesc eq 'true' ? 'checked' : ''}>
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddDescInput" name="boolAddDesc">
-                                <input type="text" class="custom-input form-control" id="addMentDescId" value="${thepromo.addMenuDesc}" name="addMenuDesc" placeholder="${thepromo.addMenuDesc}" ${thepromo.boolAddDesc eq 'true' ? '' : 'disabled'}>
+                                <input type="hidden" id="isAddDescInput" value="false" name="boolAddDesc">
+                                <input type="text" class="custom-input form-control" id="addMenuDescId" value="${thepromo.addMenuDesc}" name="addMenuDesc" ${thepromo.boolAddDesc eq 'true' ? '' : 'disabled'}>
 
                             </div>
                         </td>
@@ -210,9 +219,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>AI 다솜 멘트 생성
+                            <th>AI 카페봇 멘트 생성
                             </th>
-                            <th>테스트 진행<span class="info">* 다솜이 어떻게 말하는지 확인해보세요!</span>
+                            <th>테스트 진행<span class="info">* 카페봇이 어떻게 말하는지 확인해보세요!</span>
                             </th>
                         </tr>
                     </thead>
@@ -231,7 +240,7 @@
                             </div>
                         </td>
                         <td class="test">
-                            <button type="button" class="btn btn-primary">다솜 홍보 테스트
+                            <button type="button" class="btn btn-primary">카페봇 홍보 테스트
                             </button>
                         </td>
 
@@ -250,46 +259,6 @@
         </form>
         </div>
 
-        <!-- Product Search Modal -->
-        <div id="productModal" class="custom-modal" tabindex="-1" aria-labelledby="productModalLabel"
-             role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title"><strong>제품 검색</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="search-box">
-                            <form action="" method="get">
-                                <input type="text" class="form-control"
-                                       placeholder="검색" name="" id="searchInput"><i
-                                    class="icon-search"></i>
-                                <button class="modal-search-button" type="button"></button>
-                            </form>
-                        </div>
-                        <ul class="grid-container" id="itemList">
-                            <c:forEach items="${menu_list}" var = "menu" varStatus="status">
-                                <li class="item" id="item${menu.id}" menu-add-desc="${menu.desc}">
-                                    <img style="width: 50px; height: 100%" src="${menu.imgUrl}" alt="샘플이미지">
-                                    <p class="title" id="productName${menu.id}">${menu.name}</p>
-                                    <p id="productPrice${menu.id}">${menu.price}원</p>
-                                </li>
-                            </c:forEach>
-                        </ul>
-                        <button type="button" class="btn btn-light" id="loadMoreBtn">더보기</button>
-                        <button type="button" class="btn btn-light" id="selectBtn"
-                                style="display:none;">선택
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
         <div id="testmodaal" disabled>
 
         </div>
@@ -297,7 +266,7 @@
 
     </div>
     <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
     <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
 </body>
 </html>

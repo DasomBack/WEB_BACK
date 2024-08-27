@@ -2,6 +2,9 @@
     display: block;
 }
 
+.timepicker{
+    width: 90px;
+}
 
 .my_dropdown {
     position: relative;
