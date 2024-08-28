@@ -1,3 +1,19 @@
+.show{
+    display: block;
+}
+
+.showlist{
+    display: inline-block;
+}
+
+.hidden{
+    display: hidden;
+}
+
+.sub-sub-menu{
+    list-style-type: none;
+}
+
 .dasomLocation p, button, label{
      font-size: 0.812rem;
 }
@@ -146,7 +162,7 @@
 }
 
 .dasomLocation .location-info{
-    display : inline-block;
+    // display : inline-block;
     border: 1px solid #c8c8c8;
     width: 28%;
     border-radius: 0.75rem;

@@ -79,6 +79,10 @@ public class MenuPromotionController {
             return "redirect:/page/user/login";
         }
 
+        Long storeId = (Long)session.getAttribute("storeId");
+        List<Menu> menuList = menuService.findAllMenu(storeId);
+        model.addAttribute("menu_list",menuList);
+
         MenuPromotionResponseDTO dto = menuPromotionService.findOneMenuPromotion(id);
         model.addAttribute("thepromo",dto);
 
@@ -86,7 +90,7 @@ public class MenuPromotionController {
     }
 
     @ResponseStatus(HttpStatus.SEE_OTHER)
-    @PostMapping("/updateContent")
+    @PostMapping("/update")
     public String updatePromotionContent(@ModelAttribute MenuPromotionRequestDTO requestDTO,
                                          BindingResult bindingResult,
                                          HttpServletRequest request){
