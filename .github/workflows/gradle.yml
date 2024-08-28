@@ -46,8 +46,8 @@ jobs:
     - name: docker build
       run: |
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/cafebot:latest .
-        docker push ${{ secrets.DOCKER_USERNAME }}/cafebot:latest
+        docker build -f Dockerfile -t ${{ secrets.DOCKER_USERNAME }}/cafebotweb:latest .
+        docker push ${{ secrets.DOCKER_USERNAME }}/cafebotweb:latest
 
     - name: deploy
       uses: appleboy/ssh-action@master
@@ -57,11 +57,11 @@ jobs:
         key: ${{ secrets.SERVER_SECRET }}
         port: 22
         script: |
-          # docker stop backendc
-          # docker rm $(docker ps -a --filter "status=exited" -q)
-          # docker rmi ${{ secrets.DOCKER_USERNAME }}/cafebot
+          docker stop backendc
+          docker rm $(docker ps -a --filter "status=exited" -q)
+          docker rmi ${{ secrets.DOCKER_USERNAME }}/cafebot
 
-          docker run -d --name backendc -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/cafebot:latest
+          docker run -d --name backendc -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/cafebotweb:latest
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
