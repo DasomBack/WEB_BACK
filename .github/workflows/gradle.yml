@@ -61,8 +61,12 @@ jobs:
           # docker rm $(docker ps -a --filter "status=exited" -q)
           # docker rmi ${{ secrets.DOCKER_USERNAME }}/cafebotweb
 
+          docker stop backendweb
+          docker rm $(docker ps -a --filter "status=exited" -q)
+          docker rmi ${{ secrets.DOCKER_USERNAME }}/cafebotweb
+
           # docker run -d --name backendc -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/cafebotweb:latest
-          docker run -d --name backendweb -p 8083:8083 ${{ secrets.DOCKER_USERNAME }}/cafebotweb:latest
+          docker run -d --name backendweb -p 8083:8080 ${{ secrets.DOCKER_USERNAME }}/cafebotweb:latest
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
