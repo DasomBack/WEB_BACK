@@ -59,7 +59,7 @@ jobs:
         script: |
           docker stop backendc
           docker rm $(docker ps -a --filter "status=exited" -q)
-          docker rmi ${{ secrets.DOCKER_USERNAME }}/cafebot
+          docker rmi ${{ secrets.DOCKER_USERNAME }}/cafebotweb
 
           docker run -d --name backendc -p 8080:8080 ${{ secrets.DOCKER_USERNAME }}/cafebotweb:latest
 
