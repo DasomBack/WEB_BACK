@@ -37,11 +37,11 @@ public class MenuPromotion extends BasePromotionEntity {
 
     @Column(name = "PRICE")
     @NotNull
-    private int price;
+    private Integer price;
 
     // 할인 적용 가격 : 할인이 적용된 가격
     @Column(name = "DISC_PRICE")
-    private int discPrice;
+    private Integer discPrice;
 
     // 할인값(원)
     @Builder.Default
@@ -94,7 +94,11 @@ public class MenuPromotion extends BasePromotionEntity {
 
     }
 
+
     public static MenuPromotion from(MenuPromotionRequestDTO dto, Menu menu, Store store, Status status){
+        System.out.println(dto.getBoolAddDesc());
+        System.out.println(dto.getBoolAddCond());
+
         return MenuPromotion.builder()
                 .status(status)
                 .menu(menu)

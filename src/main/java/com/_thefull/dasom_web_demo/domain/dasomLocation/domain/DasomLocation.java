@@ -1,6 +1,7 @@
 package com._thefull.dasom_web_demo.domain.dasomLocation.domain;
 
 import com._thefull.dasom_web_demo.domain.dasomLocation.domain.dto.DasomLocationRequestDTO;
+import com._thefull.dasom_web_demo.domain.dasomLocation.service.StringListConverter;
 import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
 import com._thefull.dasom_web_demo.global.domain.BaseEntity;
 import jakarta.persistence.*;
@@ -8,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -24,20 +27,25 @@ public class DasomLocation extends BaseEntity {
     @Column(name = "LOCATION")
     private String location;
 
-    @Column(name = "LEFT_SIDE")  // 변경된 필드명
-    private String leftSide;
+    @Column(name = "LEFT_SIDE")
+    @Convert(converter = StringListConverter.class)
+    private List<String> leftSide;
 
     @Column(name = "LEFT_FRONT")
-    private String leftFront;
+    @Convert(converter = StringListConverter.class)
+    private List<String> leftFront;
 
     @Column(name = "FRONT")
-    private String front;
+    @Convert(converter = StringListConverter.class)
+    private List<String> front;
 
-    @Column(name = "RIGHT_SIDE")  // 변경된 필드명
-    private String rightSide;
+    @Column(name = "RIGHT_SIDE")
+    @Convert(converter = StringListConverter.class)
+    private List<String> rightSide;
 
     @Column(name = "RIGHT_FRONT")
-    private String rightFront;
+    @Convert(converter = StringListConverter.class)
+    private List<String> rightFront;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ROBOT_ID")
