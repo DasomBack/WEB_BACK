@@ -9,6 +9,15 @@ tasks.withType(JavaCompile) {
 	options.compilerArgs << "-parameters"
 }
 
+bootWar {
+    manifest {
+        attributes(
+            'Main-Class': 'com._thefull.dasom_web_demo.DasomWebDemoApplication'
+        )
+    }
+}
+
+
 group = 'com.1thefull'
 version = '0.0.1-SNAPSHOT'
 
@@ -57,6 +66,15 @@ dependencies {
 
 }
 
+
+
+tasks.named('bootJar') {
+    enabled = false // JAR 파일 빌드를 비활성화
+}
+
+tasks.named('war') {
+    enabled = true // WAR 파일 빌드를 활성화
+}
 tasks.named('test') {
 	useJUnitPlatform()
 }
