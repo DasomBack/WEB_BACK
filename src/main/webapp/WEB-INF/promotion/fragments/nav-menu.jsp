@@ -2,7 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
-            <div style="padding: 20px;"><a href="../../page/main"><h2>관리자 페이지</h2></a></div>
+            <div style="padding: 20px;"><a href="../../page/main" style="text-decoration : none; text-color: black;"><h2>관리자 페이지</h2></a></div>
 
             <ul class="nav">
                 <li class="nav-item">
