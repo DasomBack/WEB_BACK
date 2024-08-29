@@ -11,5 +11,5 @@ import java.util.List;
 @Repository
 public interface DasomLocationRepository extends JpaRepository<DasomLocation, Long> {
 
-    List<DasomLocation> findAllByRobot(Robot robot);
+    List<DasomLocation> findAllByRobotOrderByUseDesc(Robot robot);
 }

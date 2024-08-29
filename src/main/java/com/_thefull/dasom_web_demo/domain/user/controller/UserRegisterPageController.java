@@ -30,6 +30,7 @@ public class UserRegisterPageController {
     }
 
 
+
     @GetMapping("/index")
     public String indexpage(){
         return "../static/index";

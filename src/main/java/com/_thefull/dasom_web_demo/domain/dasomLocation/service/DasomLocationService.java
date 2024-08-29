@@ -38,7 +38,7 @@ public class DasomLocationService {
         if (!robot.getStore().getId().equals(store.getId()))
             throw new AppException(ErrorCode.UNAUTHORIZED_USER, "해당 카페봇이 현재 매장의 기기가 아니므로 조회할 수 없습니다.");
 
-        List<DasomLocation> locationList = dasomLocationRepository.findAllByRobot(robot);
+        List<DasomLocation> locationList = dasomLocationRepository.findAllByRobotOrderByUseDesc(robot);
 
         return locationList.stream().map(DasomLocationResponseDTO::of).collect(Collectors.toList());
 
@@ -49,6 +49,12 @@ public class DasomLocationService {
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾을 수 없습니다."));
         Robot robot = robotRepository.findById(robotId)
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_ROBOT, "카페봇 로봇을 찾을 수 없습니다"));
+
+        List<DasomLocation> all = dasomLocationRepository.findAll();
+        for (DasomLocation a : all){
+            a.changeUse(false);
+        }
+
 
         if (!robot.getStore().getId().equals(store.getId()))
             throw new AppException(ErrorCode.UNAUTHORIZED_USER, "해당 카페봇이 현재 매장의 기기가 아니므로 카페봇 위치 설정을 등록할 수 없습니다.");
