@@ -32,7 +32,7 @@ jobs:
       run: chmod +x gradlew
 
     - name: Build with Gradle Wrapper
-      run: .gradlew clean war -x test # ./gradlew build -x test
+      run: ./gradlew clean war -x test # ./gradlew build -x test
 
 
     - name: docker build
