@@ -12,7 +12,7 @@
 
 
 # Base image 선택 (Tomcat 9 버전, JDK 17 지원)
-FROM tomcat:9-jdk17
+FROM tomcat:10.1.17
 
 # WAR 파일을 빌드 후 복사하기 위한 인자
 ARG WAR_FILE=build/libs/*.war
