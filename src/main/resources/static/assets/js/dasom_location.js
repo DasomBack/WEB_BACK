@@ -57,7 +57,7 @@ function openAdditionalContent(){
 }
 
 function closeAdditionalContent(){
-    document.getElementById('user-input').value="";
+
     const modal = document.querySelector('.modal-addc');
     modal.classList.remove('on');
 
@@ -87,6 +87,8 @@ var selectedItems_1_v;
 var selectedItems_3_v;
 
 function updateSelectedItems(selectedItems, selectedText,selectedMenu, parentDivId, type) {
+
+
     if (type==0){
         switch (parentDivId) {
             case "dropdown1":
@@ -134,9 +136,6 @@ function updateSelectedItems(selectedItems, selectedText,selectedMenu, parentDiv
         }
     }
 
-
-    console.log(document.querySelector(`#dropdown${parentDivId} .nav-item[data-value="${selectedText}"]`));
-
     // 선택된 항목이 이미 있는지 확인
     if (selectedItems.includes(selectedText)) {
         // 이미 선택된 항목이면, 선택 해제
@@ -163,7 +162,9 @@ function updateSelectedItems(selectedItems, selectedText,selectedMenu, parentDiv
 
     // 선택된 항목들을 input 필드에 표시
     var selectedInput = document.getElementById('input' + parentDivId);
+    console.log(selectedItems);
     selectedInput.value = selectedItems.join(', ');
+
 
     if (type==0){
         switch (parentDivId) {
@@ -218,9 +219,11 @@ function updateSelectedItems(selectedItems, selectedText,selectedMenu, parentDiv
 
     document.querySelectorAll('.dropdown-menu .nav-item').forEach(function(item) {
         item.addEventListener('click', function() {
+
             var selectedMenu = this.getAttribute('data-value');
             var selectedText = this.getAttribute('data-value');
             var parentDivId = this.closest('.dropdown-menu').id;
+
             var selectedItems=[];
 
 
@@ -231,18 +234,19 @@ function updateSelectedItems(selectedItems, selectedText,selectedMenu, parentDiv
                 userInputField.style.display = 'inline'; // 입력 필드를 보이게 함
                 userInputField.focus(); // 입력 필드에 포커스
 
-                // 입력 필드에서 포커스를 잃을 때 (blur 이벤트)
-                userInputField.addEventListener('blur', function() {
+                $('.close-btn-addc').one('click', function(){
                     selectedText = userInputField.value.trim(); // 공백 제거
 
-
                     updateSelectedItems(selectedItems,selectedText,selectedMenu, parentDivId,0);
+                    document.getElementById('user-input').value="";
                 });
 
-                return; // 클릭 이벤트 종료, 입력 필드의 blur 이벤트가 값을 처리
+            }else{
+                 updateSelectedItems(selectedItems,selectedText,selectedMenu, parentDivId,0);
             }
 
-            updateSelectedItems(selectedItems,selectedText,selectedMenu, parentDivId,0);
+
+
         });
     });
 
@@ -318,18 +322,16 @@ function inputEventListener() {
                 userInputField.style.display = 'inline'; // 입력 필드를 보이게 함
                 userInputField.focus(); // 입력 필드에 포커스
 
-                // 입력 필드에서 포커스를 잃을 때 (blur 이벤트)
-                userInputField.addEventListener('blur', function() {
+                $('.close-btn-addc').one('click', function(){
                     selectedText = userInputField.value.trim(); // 공백 제거
 
                     updateSelectedItems(selectedItems_v,selectedText,selectedMenu, parentDivId,1);
+                    document.getElementById('user-input').value="";
                 });
 
-                return; // 클릭 이벤트 종료, 입력 필드의 blur 이벤트가 값을 처리
+            }else{
+                 updateSelectedItems(selectedItems_v,selectedText,selectedMenu, parentDivId,1);
             }
-
-            updateSelectedItems(selectedItems_v,selectedText,selectedMenu, parentDivId,1);
-
 
         });
     });
