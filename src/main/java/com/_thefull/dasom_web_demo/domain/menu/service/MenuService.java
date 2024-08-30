@@ -24,6 +24,13 @@ public class MenuService {
     private final MenuRepository menuRepository;
     private final StoreRepository storeRepository;
 
+    public Menu getMenuById(Store store, Long id) {
+        Menu menu = menuRepository.findById(id)
+                .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_MENU, "메뉴를 찾을 수 없습니다"));
+        return menu;
+    }
+
+
     @Transactional
     public List<Menu> findAllMenu(Long storeId){
         Store store = storeRepository.findById(storeId)

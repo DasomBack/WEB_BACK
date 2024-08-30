@@ -217,7 +217,7 @@
                             <input type="hidden" class="ment-text-input" name="ment" id="ment-text">
                             <textarea id="ment-textarea"></textarea>
                             <div class="button-container">
-                                <button type="button" onclick="createMent()" class="btn btn-outline-light btn-sm">멘트생성
+                                <button type="button" onclick="createMent()" id="createAiMent" class="btn btn-outline-light btn-sm">멘트생성
                                 </button>
                                 <!-- <button type="button" class="btn btn-outline-light btn-sm">불러오기
                                 </button> -->

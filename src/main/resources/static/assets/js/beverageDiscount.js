@@ -798,8 +798,39 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
 function createMent(){
-    document.getElementById("ment-text").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
-    document.getElementById("ment-textarea").value="돌아온 여름시즌 베스트셀러! 음료10이 출시 되었어요! 고창에서 직접 공수한 수박을 갈아서 달달하고 시원한 맛을 자랑합니다. 꿉꿉하고 더운 요즘 날씨에 시원한 음료10 어떠세요?";
+
+    $.ajax({
+        url: '/openai/ment',
+        method: 'POST',
+        dataType: 'json',
+         data: {
+                menu: $('[name="menu"]').val(),
+                discType: "CASH",
+                discVal: $('[name="discVal"]').val(),
+                startDate: $('[name="startDate"]').val(),
+                endDate: $('[name="endDate"]').val(),
+                startTime: $('[name="startTime"]').val(),
+                endTime: $('[name="endTime"]').val(),
+                isAddDiscCond: $('[name="isAddCond-k"]').is(':checked'),
+                addDiscCond: $('[name="addDiscCond"]').val(),
+                isAddMenuDesc: $('[name="isAddDesc-k"]').is(':checked'),
+                addMenuDesc: $('[name="addMenuDesc"]').val()
+            },
+        success: function (response) {
+
+            console.log(response.ment);
+            document.getElementById("ment-text").value=response.ment;
+            document.getElementById("ment-textarea").value=response.ment;
+
+        },
+        error: function () {
+            alert('검색 중 오류가 발생했습니다.');
+        }
+    });
+
+
+
 }
 
