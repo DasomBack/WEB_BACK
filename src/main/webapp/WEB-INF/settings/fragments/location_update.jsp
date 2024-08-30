@@ -96,12 +96,12 @@
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
-                                       id="input1" name="leftSide"
+                                       id="inputdropdown1" name="leftSide"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
                                        value="${inputValue}" ${not empty theLocation.leftSide ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown" id="1">
+                                     aria-labelledby="messageDropdown" id="dropdown1">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -112,7 +112,7 @@
                                         <li class="nav-item dropdown" data-value="병음료">병음료</li>
                                         <li class="nav-item dropdown" data-value="케이크">케이크</li>
                                         <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
-                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                        <li class="nav-item dropdown" data-value="직접입력" onclick="openAdditionalContent()">직접입력</li>
                                     </ul>
                                 </div>
                             </div>
@@ -134,12 +134,12 @@
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
-                                       id="input4" name="leftFront"
+                                       id="inputdropdown4" name="leftFront"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
                                        value="${inputValue}" ${not empty theLocation.leftFront ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown" id="4">
+                                     aria-labelledby="messageDropdown" id="dropdown4">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -150,7 +150,7 @@
                                         <li class="nav-item dropdown" data-value="병음료">병음료</li>
                                         <li class="nav-item dropdown" data-value="케이크">케이크</li>
                                         <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
-                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                        <li class="nav-item dropdown" data-value="직접입력" onclick="openAdditionalContent()">직접입력</li>
                                     </ul>
                                 </div>
                             </div>
@@ -172,12 +172,12 @@
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
-                                       id="input5" name="front"
+                                       id="inputdropdown5" name="front"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
                                        value="${inputValue}" ${not empty theLocation.front ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown" id="5">
+                                     aria-labelledby="messageDropdown" id="dropdown5">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -188,7 +188,7 @@
                                         <li class="nav-item dropdown" data-value="병음료">병음료</li>
                                         <li class="nav-item dropdown" data-value="케이크">케이크</li>
                                         <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
-                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                        <li class="nav-item dropdown" data-value="직접입력" onclick="openAdditionalContent()">직접입력</li>
                                     </ul>
                                 </div>
                             </div>
@@ -211,12 +211,12 @@
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
-                                       id="input3" name="rightSide"
+                                       id="inputdropdown3" name="rightSide"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
                                        value="${inputValue}" ${not empty theLocation.rightSide ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown" id="3">
+                                     aria-labelledby="messageDropdown" id="dropdown3">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -227,7 +227,7 @@
                                         <li class="nav-item dropdown" data-value="병음료">병음료</li>
                                         <li class="nav-item dropdown" data-value="케이크">케이크</li>
                                         <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
-                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                        <li class="nav-item dropdown" data-value="직접입력" onclick="openAdditionalContent()">직접입력</li>
                                     </ul>
                                 </div>
                             </div>
@@ -251,12 +251,12 @@
 
                                 <input type="text"
                                        class="custom-input form-control dropdown-bordered dropdown-toggle"
-                                       id="input6" name="rightFront"
+                                       id="inputdropdown6" name="rightFront"
                                        data-bs-toggle="dropdown"
                                        aria-expanded="false"
                                        value="${inputValue}" ${not empty theLocation.rightFront ? '' : 'disabled'}>
                                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                     aria-labelledby="messageDropdown" id="6">
+                                     aria-labelledby="messageDropdown" id="dropdown6">
                                     <ul class="dropdown-options">
                                         <li class="nav-item dropdown" data-value="베이커리">베이커리</li>
                                         <li class="nav-item dropdown" data-value="디저트">디저트</li>
@@ -267,7 +267,7 @@
                                         <li class="nav-item dropdown" data-value="병음료">병음료</li>
                                         <li class="nav-item dropdown" data-value="케이크">케이크</li>
                                         <li class="nav-item dropdown" data-value="창가자리">창가자리</li>
-                                        <li class="nav-item dropdown" data-value="직접입력">직접입력</li>
+                                        <li class="nav-item dropdown" data-value="직접입력" onclick="openAdditionalContent()">직접입력</li>
                                         <input type="text" class="hidden" id="directInput"></input>
                                     </ul>
                                 </div>
@@ -284,6 +284,19 @@
                     </div>
                 </div>
                </form>
+            </div>
+
+            <div id="userInputModal" class="modal-addc">
+                <div class="modal-popup-addc">
+                    <ul>
+                        <li><span>직접입력</span><span id="modal-product-desc" style="size: 15px;">**소개하고 싶은 제품을 직접 입력하세요.</span></li>
+                        <li><span><input type="text" id ="user-input"></span></li>
+
+                    </ul>
+                    <div id="modal-footer">
+                    <button type="button" class="close-btn-addc" onclick="closeAdditionalContent()">입력</button>
+                    </div>
+                </div>
             </div>
         </div>
         <script src="${pageContext.request.contextPath}/static/assets/js/dasom_location.js"></script>

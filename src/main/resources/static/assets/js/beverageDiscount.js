@@ -196,9 +196,7 @@ function reload(){
 }
 
 
-function openMenuDetail(evt){
-
-    var menuId = evt.currentTarget.idParam;
+function openMenuDetail(menuId){
 
     $.ajax({
         url: '/menu',
