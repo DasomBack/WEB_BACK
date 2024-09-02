@@ -4,6 +4,7 @@ import com._thefull.dasom_web_demo.domain.menu.domain.Menu;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.MenuPromotion;
 import com._thefull.dasom_web_demo.domain.robot.domain.Robot;
 import com._thefull.dasom_web_demo.domain.user.domain.User;
+import com._thefull.dasom_web_demo.global.domain.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
@@ -18,7 +19,7 @@ import java.util.List;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
 @Builder @Getter
-public class Store {
+public class Store extends BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "STORE_ID")
@@ -39,9 +40,9 @@ public class Store {
     @Column(name = "CODE")
     private String code;
 
-    @CreatedDate
-    @Column(name = "REGISTER_DATE", updatable = false, columnDefinition = "TIMESTAMP")
-    private LocalDateTime registerDate;
+//    @CreatedDate
+//    @Column(name = "REGISTER_DATE", updatable = false, columnDefinition = "TIMESTAMP")
+//    private LocalDateTime registerDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "USER_ID")

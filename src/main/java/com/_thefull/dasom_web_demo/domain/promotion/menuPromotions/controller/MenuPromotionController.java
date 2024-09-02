@@ -47,6 +47,8 @@ public class MenuPromotionController {
         List<MenuPromotionResponseDTO> allPromotionList = menuPromotionService.findAllPromotionList(storeId);
         model.addAttribute("all_promotion_list",allPromotionList);
 
+        System.out.println(allPromotionList.get(4).getMent());
+
         List<Menu> menuList = menuService.findAllMenu(storeId);
         model.addAttribute("menu_list",menuList);
 
@@ -110,8 +112,6 @@ public class MenuPromotionController {
     public String changeMenuPromotionStatus(@RequestParam(name = "id") Long id,
                                             @RequestParam(name = "status")String status,
                                             HttpServletRequest request){
-
-        System.out.println(id+ status);
 
         HttpSession session = request.getSession(false);
         if (session==null){

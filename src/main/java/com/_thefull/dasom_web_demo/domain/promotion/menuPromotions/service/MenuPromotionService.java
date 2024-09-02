@@ -63,7 +63,7 @@ public class MenuPromotionService {
 
         Status status = decideStatus(dto.getEndDate(), dto.getStartDate());
 
-        MenuPromotion newEntity = MenuPromotion.from(dto, menu, store, status);
+        MenuPromotion newEntity = MenuPromotion.from(dto, menu, status, store);
 
         menuPromotionsRepository.save(newEntity);
 
@@ -97,12 +97,19 @@ public class MenuPromotionService {
 
     }
 
-    public void updatePromotionContent(MenuPromotionRequestDTO requestDTO) {
-        MenuPromotion foundMenuPromotion = menuPromotionsRepository.findById(requestDTO.getMenuPromoId())
+    public void updatePromotionContent(MenuPromotionRequestDTO dto) {
+        MenuPromotion foundMenuPromotion = menuPromotionsRepository.findById(dto.getMenuPromoId())
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_MENU_PROMOTION, "메뉴 프로모션을 찾을 수 없습니다"));
 
-        int freq = calculateFreq(requestDTO.getInterval(), requestDTO.getMentEndTime(), requestDTO.getMentStartTime());
-        foundMenuPromotion.updateEntity(requestDTO,freq);
+        Menu menu = menuRepository.findByName(dto.getMenu())
+                .orElseThrow(()-> new AppException(ErrorCode.NOT_FOUND_MENU, "메뉴를 찾을 수 없습니다"));
+
+
+        Status status = decideStatus(dto.getEndDate(), dto.getStartDate());
+        int freq = calculateFreq(dto.getInterval(), dto.getMentEndTime(), dto.getMentStartTime());
+        foundMenuPromotion.updateMenuPromotion(dto, menu, status);
+
+        menuPromotionsRepository.save(foundMenuPromotion);
 
     }
 

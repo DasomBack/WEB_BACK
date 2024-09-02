@@ -47,7 +47,7 @@ public class ChatGPTController {
                 "프로모션은 " + dto.getStartDate() + "부터 " + dto.getEndDate() + "까지 유효하며, " +
                 "적용 시간은 " + dto.getStartTime() + "부터 " + dto.getEndTime() + "까지입니다. " +
                 (dto.getIsAddDiscCond() ? "추가 조건: " + dto.getAddDiscCond() + " " : "") +
-                (dto.getIsAddMenuDesc() ? "추가 메뉴 설명: " + dto.getAddMenuDesc() : "")+"할인 혜택의 주요 측면을 강조하는 2~3문장 홍보 메시지를 작성하세요. 숫자는 작성하지 말고 전부 한글로, 매우 자연스럽게 작성해주세요.";
+                (dto.getIsAddMenuDesc() ? "추가 메뉴 설명: " + dto.getAddMenuDesc() : "")+"할인의 기간(년도 제외), 시간, 할인값을 반드시 포함한 2~3문장 홍보 메시지를 작성하세요. 숫자는 작성하지 말고 전부 한글로, 매우 자연스럽게 작성해주세요.";
 
         return prompt;
     }

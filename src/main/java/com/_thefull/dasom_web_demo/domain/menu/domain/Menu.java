@@ -1,14 +1,10 @@
 package com._thefull.dasom_web_demo.domain.menu.domain;
 
-import com._thefull.dasom_web_demo.domain.menu.Category;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.MenuPromotion;
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Null;
 import lombok.*;
 
-import javax.print.attribute.standard.MediaSize;
 import java.util.ArrayList;
 import java.util.List;
 
