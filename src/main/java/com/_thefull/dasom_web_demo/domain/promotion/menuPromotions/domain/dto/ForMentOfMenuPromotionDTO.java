@@ -9,6 +9,7 @@ import java.time.LocalTime;
 @Data
 public class ForMentOfMenuPromotionDTO {
     private String menu;
+    private Integer price;
     private String discType;
     private Integer discVal;
     private String dateType;

@@ -139,11 +139,7 @@
 
                     </div>
                 </div>
-
         </div>
-
-
-
 
         <div id="additionalContentModal" class="modal-addc">
             <div class="modal-popup-addc">
@@ -166,6 +162,9 @@
 
 
     <script>
+
+
+
         const allListModal = document.querySelector('#allListModal');
         const allListBtn = document.querySelector('#all_list_btn');
 

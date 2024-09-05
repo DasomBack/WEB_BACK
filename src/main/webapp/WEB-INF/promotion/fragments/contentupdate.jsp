@@ -6,6 +6,9 @@
     <title>Promotions</title>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
 
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
 
@@ -21,7 +24,7 @@
                     <tr>
                         <th>품목</th>
                         <th>제품</th>
-                        <th>정가</th>
+                        <th>정가(할인가)</th>
                         <th>할인값(원)</th>
                         <th>행사기간</th>
                     </tr>
@@ -121,6 +124,7 @@
                     <tr>
                         <td>
                             <div class="discount-section time">
+
                                 <input id="eventStartTime" name="startTime" value="${thepromo.startTime}" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
 
                                 &nbsp~&nbsp
@@ -265,8 +269,14 @@
 
 
     </div>
+
     <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
+
     <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
+
+
+
 </body>
 </html>

@@ -248,42 +248,37 @@
         <div id="testmodaal" disabled>
 
         </div>
-
-
     </div>
 
-<script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
-<script>
-    $('.timepicker').timepicker({
-        timeFormat: 'HH:mm',
-        interval: 30,
-        minTime: '00',
-        maxTime: '23:30pm',
-        startTime: '00:00',
-        dynamic: false,
-        dropdown: true,
-        scrollbar: true
-    });
-</script>
+    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script>
+        $('.timepicker').timepicker({
+            timeFormat: 'HH:mm',
+            interval: 30,
+            minTime: '00',
+            maxTime: '23:30pm',
+            startTime: '00:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
+    </script>
+    <script>
+        document.getElementById('startDate').addEventListener('change', function() {
+            var startDateVal = this.value;
+            var endDateInput = document.getElementById('endDate');
 
+            console.log(startDateVal);
 
-<script>
+            endDateInput.min = startDateVal;
 
-    document.getElementById('startDate').addEventListener('change', function() {
-        var startDateVal = this.value;
-        var endDateInput = document.getElementById('endDate');
+            if (endDateInput.value < startDateVal) {
+                endDateInput.value = startDateVal;
+            }
+        });
 
-        console.log(startDateVal);
-
-        endDateInput.min = startDateVal;
-
-        if (endDateInput.value < startDateVal) {
-            endDateInput.value = startDateVal;
-        }
-    });
-
-</script>
+    </script>
 
 
 </body>

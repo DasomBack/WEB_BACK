@@ -47,8 +47,6 @@ public class MenuPromotionController {
         List<MenuPromotionResponseDTO> allPromotionList = menuPromotionService.findAllPromotionList(storeId);
         model.addAttribute("all_promotion_list",allPromotionList);
 
-        System.out.println(allPromotionList.get(4).getMent());
-
         List<Menu> menuList = menuService.findAllMenu(storeId);
         model.addAttribute("menu_list",menuList);
 
@@ -140,8 +138,6 @@ public class MenuPromotionController {
     }
 
 
-
-
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -158,7 +154,6 @@ public class MenuPromotionController {
         System.out.println("JSPmainController.testpage");
         User user = (User)session.getAttribute("userId");
         Long storeId = (Long)session.getAttribute("storeId");
-        System.out.println(user.getPhoneNum());
 
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾을 수 없습니다."));

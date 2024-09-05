@@ -75,7 +75,17 @@ public class DasomLocationService {
         if(!dasomLocation.getRobot().getId().equals(robot.getId()))
             throw new AppException(ErrorCode.UNAUTHORIZED_USER, "해당 카페봇에 대한 현 위치 설정에 대한 권한이 없어 상태를 변경할 수 없습니다");
 
+
+
+        if (use==true){
+            List<DasomLocation> all = dasomLocationRepository.findAll();
+            for (DasomLocation a : all){
+                a.changeUse(false);
+            }
+
+        }
         dasomLocation.changeUse(use);
+
         dasomLocationRepository.save(dasomLocation);
 
     }

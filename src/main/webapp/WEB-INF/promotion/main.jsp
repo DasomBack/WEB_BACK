@@ -93,7 +93,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <!-- Include Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/static/assets/js/dasom_location.js"></script>
+
 <script src="${pageContext.request.contextPath}/static/assets/js/beverageDiscount.js"></script>
 
 <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
@@ -115,6 +115,7 @@
 <script src="${pageContext.request.contextPath}/static/assets/js/typeahead.js"></script>
 <script src="${pageContext.request.contextPath}/static/assets/js/select2.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+
 <!-- End custom js for this page-->
 </body>
 </html>
