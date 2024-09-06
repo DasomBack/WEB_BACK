@@ -32,7 +32,7 @@ public class UserRegisterController {
 
         redirectAttributes.addFlashAttribute("name",requestDto.getName());
 
-        return "redirect:/page/user/login";
+        return "redirect:/page/user/registersuccess";
     }
 
 

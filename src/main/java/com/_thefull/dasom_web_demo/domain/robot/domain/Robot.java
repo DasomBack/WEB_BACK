@@ -1,6 +1,6 @@
 package com._thefull.dasom_web_demo.domain.robot.domain;
 
-import com._thefull.dasom_web_demo.domain.spare_robotLocation.domain.RobotLocationCategory;
+import com._thefull.dasom_web_demo.domain.dasomLocation.domain.DasomLocation;
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
 import jakarta.persistence.*;
 import lombok.*;
@@ -29,6 +29,6 @@ public class Robot {
 
     @OneToMany(mappedBy = "robot", cascade = CascadeType.ALL)
     @Builder.Default
-    private List<RobotLocationCategory> robotLocationCategories = new ArrayList<>();
+    private List<DasomLocation> robotLocationCategories = new ArrayList<>();
 }
 
