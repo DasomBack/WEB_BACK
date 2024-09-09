@@ -79,6 +79,10 @@ public class MenuPromotionController {
             return "redirect:/page/user/login";
         }
 
+        Long storeId = (Long)session.getAttribute("storeId");
+        List<Menu> menuList = menuService.findAllMenu(storeId);
+        model.addAttribute("menu_list",menuList);
+
         MenuPromotionResponseDTO dto = menuPromotionService.findOneMenuPromotion(id);
         model.addAttribute("thepromo",dto);
 
@@ -86,7 +90,7 @@ public class MenuPromotionController {
     }
 
     @ResponseStatus(HttpStatus.SEE_OTHER)
-    @PostMapping("/updateContent")
+    @PostMapping("/update")
     public String updatePromotionContent(@ModelAttribute MenuPromotionRequestDTO requestDTO,
                                          BindingResult bindingResult,
                                          HttpServletRequest request){
@@ -106,8 +110,6 @@ public class MenuPromotionController {
     public String changeMenuPromotionStatus(@RequestParam(name = "id") Long id,
                                             @RequestParam(name = "status")String status,
                                             HttpServletRequest request){
-
-        System.out.println(id+ status);
 
         HttpSession session = request.getSession(false);
         if (session==null){
@@ -136,8 +138,6 @@ public class MenuPromotionController {
     }
 
 
-
-
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
@@ -154,7 +154,6 @@ public class MenuPromotionController {
         System.out.println("JSPmainController.testpage");
         User user = (User)session.getAttribute("userId");
         Long storeId = (Long)session.getAttribute("storeId");
-        System.out.println(user.getPhoneNum());
 
         Store store = storeRepository.findById(storeId)
                 .orElseThrow(() -> new AppException(ErrorCode.NOT_FOUND_STORE, "매장을 찾을 수 없습니다."));

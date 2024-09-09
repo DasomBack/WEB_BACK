@@ -24,7 +24,6 @@ public class UserJoinRequestDto {
 
     public User toEntity(){
         return User.builder()
-                .email(this.email)
                 .name(this.name)
                 .phoneNum(this.phoneNum)
                 .password(this.password)

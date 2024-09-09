@@ -2,6 +2,7 @@ package com._thefull.dasom_web_demo.domain.user.domain;
 
 /*import com._thefull.dasom_web_demo.domain.robot.domain.Robot;*/
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
+import com._thefull.dasom_web_demo.global.domain.BaseEntity;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.validator.constraints.UniqueElements;
@@ -18,12 +19,12 @@ import java.util.List;
 @Entity(name = "USER")
 @EntityListeners(AuditingEntityListener.class)
 @Builder
-public class User {
+public class User extends BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "USER_ID")
-    private long userId;
+    private Long userId;
 
     @Column(length = 50, name = "NAME")
     private String name;
@@ -34,8 +35,8 @@ public class User {
     @Column(name = "PASSWORD")
     private String password;
 
-    @Column(name = "EMAIL")
-    private String email;
+//    @Column(name = "EMAIL")
+//    private String email;
 
     @Column(name = "PROFILE_IMG_URL")
     private String profileImageUrl;

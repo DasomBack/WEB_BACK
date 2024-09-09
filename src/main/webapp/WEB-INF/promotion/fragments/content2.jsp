@@ -4,10 +4,17 @@
 <html>
 <head>
     <title>Promotions</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
+
 </head>
 <body>
     <div class="card-body">
         <h4 class="card-title">제품홍보 등록</h4>
+
         <form action="/api/promotion-discount/register" method="post">
             <div class="table-responsive first-table">
                 <table class="table">
@@ -15,50 +22,24 @@
                     <tr>
                         <th>품목</th>
                         <th>제품</th>
-                        <th>정가</th>
-                        <th>할인가(원)</th>
+                        <th>정가(할인가)</th>
+                        <th>할인 값(원)</th>
                         <th>행사기간</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>
-                            <ul class="navbar-nav custom-input form-control">
-                                <li class="nav-item dropdown d-lg-block">
-                                    <a class="dropdown-bordered dropdown-toggle"
-                                       data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <span id="selectedItem"> 선택 </span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                         aria-labelledby="messageDropdown">
-                                        <a class="dropdown-item preview-item" data-value="음료">
-                                            <div class="preview-item-content flex-grow">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    음료</p>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item preview-item" data-value="베이커리">
-                                            <div class="preview-item-content flex-grow">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    베이커리</p>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item preview-item" data-value="케이크">
-                                            <div class="preview-item-content flex-grow">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    케이크</p>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item preview-item" data-value="세트상품">
-                                            <div class="preview-item-content flex-grow">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    세트상품</p>
-                                            </div>
-                                        </a>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="my_dropdown">
+                                <a class="dropbtn"><span id="selectedItem"> 선택 </span></a>
+                                <div class="dropdown-content">
+                                    <a class ="dropdown-item" data-value="음료" >음료</a>
+                                    <a class ="dropdown-item" data-value="베이커리">베이커리</a>
+                                    <a class ="dropdown-item" data-value="케이크" >케이크</a>
+                                    <a class ="dropdown-item" data-value="세트상품">세트상품</a>
+                                </div>
+                            </div>
+
                             <input type="hidden" id="thiscategoryInput00" name="menuPromoId" value=1>
                             <!-- category hidden input -->
                             <input type="hidden" id="categoryInput" name="category" value="BEVERAGE">
@@ -68,9 +49,8 @@
                                 <!--<input type="text" class="custom-input form-control search" disabled>-->
                                 <button type="button" class="search-button custom-input form-control"
                                         id="product_search_btn"><i
-                                        class="icon-search"></i>
+                                        class="icon-search" onclick="openMenuModal()"></i>
                                 </button>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="menunameInput" name="menu" value="Espresso">
 
                             </div>
@@ -78,21 +58,19 @@
                         <td>
                             <div class="discount-section">
                                 <p id="productPrice">6,000원</p>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="priceInput" name="price" value=6000>
 
                                 <p id="discountPrice"></p>
-                                <!-- menu name hidden input -->
                                 <input type="hidden" id="discPriceInput" name="discPrice" value=1000>
 
                             </div>
                         </td>
                         <td>
                             <div class="discount-section">
-                                <input type="number" class="custom-input form-control"
+                                - &nbsp <input type="number" class="custom-input form-control"
                                        id="discountPriceInput" name="discVal" value=0>
                                 <button type="button" class="btn btn-outline-primary btn-sm"
-                                        id="confirmDiscountPriceBtn">확인
+                                        id="confirmDiscountPriceBtn" onclick="onclickConfirmDiscountPriceBtn()">확인
                                 </button>
                             </div>
                         </td>
@@ -129,10 +107,12 @@
                     <tr>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" class="custom-input form-control" id="eventStartTime" name="startTime">
+                                <input id="eventStartTime" name="startTime" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
 
                                 &nbsp~&nbsp
-                                <input type="time" class="custom-input form-control" id="eventEndTime" name="endTime">
+
+                                <input id="eventEndTime" name="endTime" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
+
                                 <label class="custom-label" for="sameTimeCheckbox">
                                     <input type="checkbox" id="sameTimeCheckbox" name="boolEqlStoreOpr">
                                     &nbsp영업시간과 동일
@@ -141,10 +121,12 @@
                         </td>
                         <td>
                             <div class="discount-section time">
-                                <input type="time" class="custom-input form-control" id="speechStartTime" name="mentStartTime">
+
+                                <input id="speechStartTime" name="mentStartTime" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
 
                                 &nbsp~&nbsp
-                                <input type="time" class="custom-input form-control" name="mentEndTime">
+
+                                <input name="mentEndTime" class="timepicker text-center" jt-timepicker="" time="model.time" time-string="model.timeString" default-time="model.options.defaultTime" time-format="model.options.timeFormat" start-time="model.options.startTime" min-time="model.options.minTime" max-time="model.options.maxTime" interval="model.options.interval" dynamic="model.options.dynamic" scrollbar="model.options.scrollbar" dropdown="model.options.dropdown">
                                 <label class="custom-label">
                                     <input type="checkbox" name="boolEqlEventStart">
                                     &nbsp행사시간과 동일
@@ -152,56 +134,19 @@
                             </div>
                         </td>
                         <td>
-                            <ul class="navbar-nav custom-input form-control">
-                                <li class="nav-item dropdown d-lg-block">
-                                    <a class="dropdown-bordered dropdown-toggle"
-                                       data-bs-toggle="dropdown"
-                                       aria-expanded="false">
-                                        <span class="selectedItem"> 선택 </span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0 pt-0"
-                                         aria-labelledby="messageDropdown">
-                                        <a class="dropdown-item preview-item" data-value="5분 간격">
-                                            <div class="preview-item-content flex-grow py-2">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    5분 간격</p>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item preview-item" data-value="10분 간격">
-                                            <div class="preview-item-content flex-grow py-2">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    10분 간격</p>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item preview-item" data-value="15분 간격">
-                                            <div class="preview-item-content flex-grow py-2">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    15분 간격</p>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item preview-item" data-value="20분 간격">
-                                            <div class="preview-item-content flex-grow py-2">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    20분 간격</p>
-                                            </div>
-                                        </a>
-                                        <a class="dropdown-item preview-item" data-value="30분 간격">
-                                            <div class="preview-item-content flex-grow py-2">
-                                                <p class="preview-subject ellipsis fw-medium text-dark">
-                                                    30분 간격</p>
-                                            </div>
-                                        </a>
-                                    </div>
+                            <div class="my_dropdown">
+                                <a class="dropbtn"><span id="selectedItem"> 선택 </span></a>
+                                <div class="dropdown-content">
+                                    <a class ="dropdown-item" data-value="5분 간격">5분 간격</a>
+                                    <a class ="dropdown-item" data-value="10분 간격">10분 간격</a>
+                                    <a class ="dropdown-item" data-value="15분 간격" >15분 간격</a>
+                                    <a class ="dropdown-item" data-value="20분 간격">20분 간격</a>
+                                    <a class ="dropdown-item" data-value="30분 간격">30분 간격</a>
+                                </div>
+                            </div>
 
-
-                                </li>
-                            </ul>
-                            <!-- category hidden input -->
                             <input type="hidden" id="intervalInput" name="interval" value=10>
-
                         </td>
-
-
                     </tr>
 
                     </tbody>
@@ -230,7 +175,7 @@
                                            id="discountOptionYes" value="yes">
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddCondInput" name="boolAddCond">
+                                <input type="hidden" id="isAddCondInput" value="false" name="boolAddCond">
                                 <input type="text" class="custom-input form-control" id="addCondId" name="addDiscCond" disabled>
                             </div>
                         </td>
@@ -246,7 +191,7 @@
                                             id="descriptionYes" value="yes">
                                     있음
                                 </label>
-                                <input type="hidden" id="isAddDescInput" name="boolAddDesc">
+                                <input type="hidden" id="isAddDescInput" value="false" name="boolAddDesc">
                                 <input type="text" class="custom-input form-control" id="addMenuDescId" name="addMenuDesc" disabled>
 
                             </div>
@@ -260,9 +205,9 @@
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>AI 다솜 멘트 생성<span class="info">* AI 멘트는 하루에 3번까지만 가능합니다. (0/3)</span>
+                            <th>AI 카페봇 멘트 생성
                             </th>
-                            <th>테스트 진행<span class="info">* 다솜이 어떻게 말하는지 확인해보세요!</span>
+                            <th>테스트 진행<span class="info">* 카페봇이 어떻게 말하는지 확인해보세요!</span>
                             </th>
                         </tr>
                     </thead>
@@ -274,14 +219,14 @@
                             <div class="button-container">
                                 <button type="button" onclick="createMent()" class="btn btn-outline-light btn-sm">멘트생성
                                 </button>
-                                <button type="button" class="btn btn-outline-light btn-sm">불러오기
-                                </button>
+                                <!-- <button type="button" class="btn btn-outline-light btn-sm">불러오기
+                                </button> -->
                                 <button type="button" class="btn btn-outline-light btn-sm">수정
                                 </button>
                             </div>
                         </td>
                         <td class="test">
-                            <button type="button" class="btn btn-primary">다솜 홍보 테스트
+                            <button type="button" class="btn btn-primary">카페봇 홍보 테스트
                             </button>
                         </td>
 
@@ -289,6 +234,7 @@
                     </tbody>
                 </table>
             </div>
+
             <div class="form-buttons">
                 <!-- 삭제 버튼은 제품 할인 영역에서 "수정" 버튼 눌렀을 시 생김
                 <button type="button" class="btn btn-outline-primary">삭제
@@ -296,70 +242,44 @@
                 <button type="submit" class="btn btn-primary">등록
                 </button>
             </div>
-        <form>
+        </form>
         </div>
 
+        <div id="testmodaal" disabled>
 
-
-        <!-- Product Search Modal -->
-        <div id="productModal" class="custom-modal" tabindex="-1" aria-labelledby="productModalLabel"
-             role="dialog">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title"><strong>제품 검색</strong></h5>
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="search-box">
-                            <form action="" method="get">
-                                <input type="text" class="form-control"
-                                       placeholder="검색" name="" id="searchInput"><i
-                                    class="icon-search"></i>
-                                <!--<button class="search-button" type="submit"><i class="icon-search"></i>-->
-                                <button class="modal-search-button" type="button"></button>
-                            </form>
-                        </div>
-                        <ul class="grid-container" id="itemList">
-                            <c:forEach items="${menu_list}" var = "menu" varStatus="status">
-                                <li class="item" id="item${menu.id}" menu-add-desc="${menu.desc}">
-                                    <!-- <image style="width: 30px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/menu/${menu.imgUrl}"/> -->
-                                    <img style="width: 50px; height: 100%" src="${pageContext.request.contextPath}/static/assets/images/menu/${menu.imgUrl}" alt="샘플이미지">
-                                    <p class="title" id="productName${menu.id}">${menu.name}</p>
-                                    <p id="productPrice${menu.id}">${menu.price}원</p>
-                                </li>
-                            </c:forEach>
-                        </ul>
-                        <button type="button" class="btn btn-light" id="loadMoreBtn">더보기</button>
-                        <button type="button" class="btn btn-light" id="selectBtn"
-                                style="display:none;">선택
-                        </button>
-                    </div>
-
-
-                </div>
-            </div>
         </div>
     </div>
-    <!-- Beverage Search Modal ends -->
 
-<script>
-    document.getElementById('startDate').addEventListener('change', function() {
-        var startDateVal = this.value;
-        var endDateInput = document.getElementById('endDate');
+    <script src="${pageContext.request.contextPath}/static/assets/vendors/js/vendor.bundle.base.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
+    <script>
+        $('.timepicker').timepicker({
+            timeFormat: 'HH:mm',
+            interval: 30,
+            minTime: '00',
+            maxTime: '23:30pm',
+            startTime: '00:00',
+            dynamic: false,
+            dropdown: true,
+            scrollbar: true
+        });
+    </script>
+    <script>
+        document.getElementById('startDate').addEventListener('change', function() {
+            var startDateVal = this.value;
+            var endDateInput = document.getElementById('endDate');
 
-        console.log(startDateVal);
+            console.log(startDateVal);
 
-        endDateInput.min = startDateVal;
+            endDateInput.min = startDateVal;
 
-        if (endDateInput.value < startDateVal) {
-            endDateInput.value = startDateVal;
-        }
-    });
+            if (endDateInput.value < startDateVal) {
+                endDateInput.value = startDateVal;
+            }
+        });
 
-</script>
+    </script>
+
+
 </body>
 </html>

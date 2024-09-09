@@ -1,14 +1,17 @@
 package com._thefull.dasom_web_demo.domain.user.controller;
 
-import com._thefull.dasom_web_demo.domain.spare_robotLocation.domain.RobotLocationCategory;
-import com._thefull.dasom_web_demo.domain.spare_robotLocation.service.RobotLocatinService;
+import com._thefull.dasom_web_demo.domain.dasomLocation.domain.DasomLocation;
+import com._thefull.dasom_web_demo.domain.dasomLocation.service.DasomLocationService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Mod;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,7 +19,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @RequestMapping("/page/user")
 public class UserRegisterPageController {
-    private final RobotLocatinService robotLocatinService;
+    private final DasomLocationService dasomLocationService;
 
     @GetMapping("/register")
     public String getRegisterPage(){
@@ -28,6 +31,7 @@ public class UserRegisterPageController {
     public String getRegisterSuccessPage(){
         return "/user/registersuccess";
     }
+
 
 
     @GetMapping("/index")
@@ -50,24 +54,24 @@ public class UserRegisterPageController {
         return "/user/resetpassword";
     }
 
-    @GetMapping("/dasomlocation")
-    public String dasomlocation(Model model,
-                                HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-
-        System.out.println("여기로 로딩되면 안됨");
-
-        if (session==null){
-            return "redirect:/page/user/login";
-        }
-
-        Long storeId = (Long) session.getAttribute("storeId");
-        List<RobotLocationCategory> allRobotLocationCategories = robotLocatinService.findAllRobotLocationCategories(storeId);
-        model.addAttribute("all_robot_location_category_list", allRobotLocationCategories);
-
-
-        return "settings/dasomlocation";
-
-    }
+//    @GetMapping("/dasomlocation")
+//    public String dasomlocation(Model model,
+//                                HttpServletRequest request){
+//        HttpSession session = request.getSession(false);
+//
+//        System.out.println("여기로 로딩되면 안됨");
+//
+//        if (session==null){
+//            return "redirect:/page/user/login";
+//        }
+//
+//        Long storeId = (Long) session.getAttribute("storeId");
+//        List<DasomLocation> allRobotLocationCategories = dasomLocationService.findAllRobotLocationCategories(storeId);
+//        model.addAttribute("all_robot_location_category_list", allRobotLocationCategories);
+//
+//
+//        return "settings/dasomlocation";
+//
+//    }
 
 }

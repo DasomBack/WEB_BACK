@@ -1,3 +1,57 @@
+.show {
+    display: block;
+}
+
+.timepicker{
+    width: 90px;
+}
+
+.my_dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: #ffffff;
+    color: black;
+    padding: 0px 10px;
+    font-size: 13px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    text-decoration: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #462200;
+    color: white;
+}
+
+/* 드롭다운 메뉴 보이기 */
+.my_dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.my_dropdown:hover .dropbtn {
+    background-color: #ffffff;
+}
+
 /*.active {
     background-color: yellow;
 }
@@ -23,7 +77,6 @@
 .discount-list{
     margin: 1rem;
 }
-
 
 /* 모달 전체 배경을 어둡게 처리 */
 .modal-addc {
@@ -98,78 +151,11 @@
 }
 
 
-/*
-.modal-addc{
 
-    background-color: #fffff0;
-    display: none;
-    position: fixed;
-    justify-content:center; //수평 중앙정렬
-    align-items:center;
-    border-radius: 20px;
 
-    top:20%;
-    left:40%;
-    width: 400px;
-    height: 300px;
-    z-index: 1000;
-    padding:15px;
-    overflow: auto;
-
+.table td{
+    padding: 1.125rem 0.7rem;
 }
-
-
- .modal_popup-addc{
-    font-color: black;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    padding: 20px;
-    border-radius: 20px;
-    background-color:#264db5;
-}
-
-.modal-addc .modal_group-addc .class_btn-addc{
-    display: block;
-    padding: 10px 20px;
-    background-color: rgb(116,0,0);
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    transition: box-shadow 0.2s;
-}
-
-.modal-popup-addc ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.modal-popup-addc li {
-    margin-bottom: 10px;
-}
-
-.modal-popup-addc span {
-    font-weight: bold;
-}
-
-
-.close-btn-addc {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.close-btn-addc:hover {
-    background-color: #0056b3;
-}
-
-*/
 
 .modal-addc.on{
     display: block;
@@ -214,6 +200,24 @@ input[type="number"]::-webkit-inner-spin-button {
 .discount-register .dropdown-menu {
     transform: translate(-0.6875rem, 1.625rem) !important;
 }
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+
+.dropdown-menu {
+    display: none; /* 기본적으로 숨김 */
+}
+
+.dropdown-menu.show {
+    display: block; /* show 클래스가 있을 때만 표시 */
+}
+
 
 .discount-register .navbar-nav .nav-item a{
     text-decoration: none;
@@ -433,7 +437,7 @@ input[type="number"]::-webkit-inner-spin-button {
     background-color: white;
     align: center;
     margin: 0 auto;
-    top: 70px;
+    top: 90px;
     width: 600px;
     height: 50%;
     box-sizing: border-box;

@@ -1,6 +1,5 @@
 package com._thefull.dasom_web_demo.domain.menu.domain;
 
-import com._thefull.dasom_web_demo.domain.menu.Category;
 import com._thefull.dasom_web_demo.global.exception.AppException;
 import com._thefull.dasom_web_demo.global.exception.ErrorCode;
 import jakarta.persistence.AttributeConverter;

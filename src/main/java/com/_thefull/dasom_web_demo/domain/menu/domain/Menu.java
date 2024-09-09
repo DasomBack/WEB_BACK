@@ -1,14 +1,10 @@
 package com._thefull.dasom_web_demo.domain.menu.domain;
 
-import com._thefull.dasom_web_demo.domain.menu.Category;
 import com._thefull.dasom_web_demo.domain.promotion.menuPromotions.domain.MenuPromotion;
 import com._thefull.dasom_web_demo.domain.store.domain.Store;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Null;
 import lombok.*;
 
-import javax.print.attribute.standard.MediaSize;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,10 +23,10 @@ public class Menu {
     private String name;
 
     @Column(name = "PRICE")
-    private int price;
+    private Integer price;
 
     @Column(name = "BASE_PRICE")
-    private int basePrice;
+    private Integer basePrice;
 
     @Column(name = "IMG_URL")
     private String imgUrl;
@@ -51,7 +47,7 @@ public class Menu {
     private String size;
 
     @Column(name = "CAPACITY")
-    private int capacity;
+    private Integer capacity;
 
     // 가게 제조 메뉴 여부
     @Column(name = "IS_INHOUSE")
@@ -59,7 +55,7 @@ public class Menu {
 
     // 납품메뉴인 경우
     @Column(name = "STOCK")
-    private int stock;
+    private Integer stock;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "STORE_ID")
@@ -68,6 +64,12 @@ public class Menu {
     @Builder.Default
     @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
     private List<MenuPromotion> menuPromotionList = new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "menu", cascade = CascadeType.ALL)
+    private List<TempMenuIngred> ingredList= new ArrayList<>();
+
+
 
 
 }
